@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<admin_navigation>
+  <admin_navigation_entry navigation_id="addonFlareAwardSystem" display_order="2700" link="award-system" icon="fa-trophy" admin_permission_id="af_as" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="af_as_add_user_award" parent_navigation_id="addonFlareAwardSystem" display_order="250" link="award-system/status/add" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="af_as_approved_awards" parent_navigation_id="af_as_award_status" display_order="200" link="award-system/status/list/&amp;status=approved" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="af_as_award_manager" parent_navigation_id="addonFlareAwardSystem" display_order="200" link="award-system/manager" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="af_as_award_status" parent_navigation_id="addonFlareAwardSystem" display_order="1000" icon="fa-check-circle" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="af_as_award_system_settings" parent_navigation_id="addonFlareAwardSystem" display_order="100" link="options/groups/af_awardSystem/" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="af_as_pending_awards" parent_navigation_id="af_as_award_status" display_order="100" link="award-system/status/list/&amp;status=pending" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="af_as_rejected_awards" parent_navigation_id="af_as_award_status" display_order="300" link="award-system/status/list/&amp;status=rejected" debug_only="0" development_only="0" hide_no_children="0"/>
+</admin_navigation>

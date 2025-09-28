@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<api_scopes>
+  <api_scope api_scope_id="resource:delete_hard"/>
+  <api_scope api_scope_id="resource:read"/>
+  <api_scope api_scope_id="resource:write"/>
+  <api_scope api_scope_id="resource_category:delete"/>
+  <api_scope api_scope_id="resource_category:read"/>
+  <api_scope api_scope_id="resource_category:write"/>
+  <api_scope api_scope_id="resource_rating:delete_hard"/>
+  <api_scope api_scope_id="resource_rating:read"/>
+  <api_scope api_scope_id="resource_rating:write"/>
+</api_scopes>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="af_as_postbit" group_name="afAwardSystem" title="Show Awards In Postbit" property_type="value" value_type="boolean" value_group="postbit" display_order="5">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_award_height" group_name="afAwardSystem" title="List: Award Image Height" description="Default: 35px" property_type="value" value_type="unit" value_group="postbitTypeList" display_order="43">
+    <value>"35px"</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_award_marginBottom" group_name="afAwardSystem" title="List: Award Image - Bottom Margin" description="Default: 2%" property_type="value" value_type="unit" value_group="postbitTypeList" display_order="45">
+    <value>"2%"</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_c_award_height" group_name="afAwardSystem" title="Carousel: Award Image Height" description="Default: 25px" property_type="value" value_type="unit" value_group="postbitTypeCarousel" display_order="31">
+    <value>"25px"</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_c_award_padding" group_name="afAwardSystem" title="Carousel: Award Padding" description="Default: 5px 5px" property_type="value" value_type="unit" value_group="postbitTypeCarousel" display_order="33">
+    <value>"5px 5px"</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_feature_button" group_name="afAwardSystem" title="Show Feature Button" property_type="value" value_type="boolean" value_group="postbit" display_order="16">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_level" group_name="afAwardSystem" title="Show Level In Postbit" property_type="value" value_type="boolean" value_group="postbit" display_order="13">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_level_graph" group_name="afAwardSystem" title="Show Level Graph In Postbit" property_type="value" value_type="boolean" value_group="postbit" display_order="14">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_marginBottom" group_name="afAwardSystem" title="Postbit: Awards Container - Bottom Margin" description="Default: 5px" property_type="value" value_type="unit" value_group="postbit" display_order="25">
+    <value>"5px"</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_marginTop" group_name="afAwardSystem" title="Postbit: Awards Container - Top Margin" description="Default: 5px" property_type="value" value_type="unit" value_group="postbit" display_order="20">
+    <value>"5px"</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_position" group_name="afAwardSystem" title="Postbit Position" description="&quot;Manual&quot; position directions:&lt;br&gt;&#10;Use the following code in your &quot;message_macros&quot; template:&lt;br&gt;&#10;&amp;lt;xf:include template=&amp;quot;af_as_message_postbit&amp;quot;&amp;gt;&#10;&amp;lt;xf:set var=&amp;quot;$postbitPosition&amp;quot; value=&amp;quot;manual&amp;quot; /&amp;gt;&#10;&amp;lt;/xf:include&amp;gt;" property_type="value" value_type="radio" value_group="postbit" display_order="12">
+    <value_parameters>userDetails_top={{ phrase('af_as_postbit_top_userDetails') }}
+userDetails_bottom={{ phrase('af_as_postbit_bottom_userDetails') }}
+userExtras_top={{ phrase('af_as_postbit_top_userExtras') }}
+userExtras_bottom={{ phrase('af_as_postbit_bottom_userExtras') }}
+manual={{ phrase('af_as_postbit_manual') }}</value_parameters>
+    <value>"userDetails_bottom"</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_total" group_name="afAwardSystem" title="Show Total Awards In Postbit" property_type="value" value_type="boolean" value_group="postbit" display_order="15">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="af_as_postbit_type" group_name="afAwardSystem" title="Postbit Type" property_type="value" value_type="radio" value_group="postbit" display_order="7">
+    <value_parameters>carousel={{ phrase('af_as_postbit_type_carousel') }}
+list={{ phrase('af_as_postbit_type_list') }}</value_parameters>
+    <value>"carousel"</value>
+  </style_property>
+  <style_property property_name="af_as_profile_total" group_name="afAwardSystem" title="Show Total Awards In Profile" description="Show total awards count in profile and profile hover menu" property_type="value" value_type="boolean" value_group="Profile" display_order="60">
+    <value>1</value>
+  </style_property>
+</style_properties>

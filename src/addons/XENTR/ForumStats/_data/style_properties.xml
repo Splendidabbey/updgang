@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="xentr_forumStatistics" group_name="xentr_forumStatistics" title="Forum statistics row" property_type="css" display_order="0" css_components="text,extra">
+    <value>{
+    "color": "#FFF"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsCounts" group_name="xentr_forumStatistics" title="Forum statistics count row" property_type="css" display_order="50" css_components="text,extra">
+    <value>{
+    "font-size": "@xf-fontSizeLarge",
+    "font-weight": "@xf-fontWeightHeavy"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsIconSize" group_name="xentr_forumStatistics" title="Forum statistics icon font size" property_type="value" value_type="number" value_group="ForumStatisticsIcons" display_order="50">
+    <value>"24"</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsLatestMember" group_name="xentr_forumStatistics" title="Forum statistics latest member row" property_type="css" display_order="40" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "color": "#FFF",
+    "background-color": "rgb(255, 152, 0)"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsLatestMemberIcon" group_name="xentr_forumStatistics" title="Forum statistics latest member icon" property_type="value" value_type="string" value_group="ForumStatisticsIcons" display_order="40">
+    <value>"fad fa-user-plus"</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsMembers" group_name="xentr_forumStatistics" title="Forum statistics members row" property_type="css" display_order="30" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "color": "#FFF",
+    "background-color": "rgb(79, 70, 229)"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsMembersIcon" group_name="xentr_forumStatistics" title="Forum statistics members icon" property_type="value" value_type="string" value_group="ForumStatisticsIcons" display_order="30">
+    <value>"fad fa-users"</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsMessages" group_name="xentr_forumStatistics" title="Forum statistics messages row" property_type="css" display_order="20" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "color": "#FFF",
+    "background-color": "rgb(255, 87, 36)"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsMessagesIcon" group_name="xentr_forumStatistics" title="Forum statistics messages icon" property_type="value" value_type="string" value_group="ForumStatisticsIcons" display_order="20">
+    <value>"fad fa-comments"</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsThreads" group_name="xentr_forumStatistics" title="Forum statistics threads row" property_type="css" display_order="10" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "color": "#FFF",
+    "background-color": "rgb(16, 185, 129)"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsThreadsIcon" group_name="xentr_forumStatistics" title="Forum statistics threads icon" property_type="value" value_type="string" value_group="ForumStatisticsIcons" display_order="10">
+    <value>"fad fa-comments-alt"</value>
+  </style_property>
+  <style_property property_name="xentr_forumStatisticsTitle" group_name="xentr_forumStatistics" title="Forum statistics title row" property_type="css" display_order="60" css_components="text,extra">
+    <value>{
+    "font-size": "@xf-fontSizeSmall"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_forum_statistics_title" group_name="xentr_forumStatistics" title="Enable forum statistics title" description="Enables the forum statistics title" property_type="value" value_type="boolean" value_group="ForumStatisticsTitle" display_order="0">
+    <value>1</value>
+  </style_property>
+</style_properties>

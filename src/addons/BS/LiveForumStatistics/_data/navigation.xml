@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation>
+  <navigation_entry navigation_id="lfsIgnoredThreads" parent_navigation_id="findThreads" display_order="400" navigation_type_id="basic" enabled="1"><![CDATA[{"link":"{{ link('find-threads\/ignored-in-lfs') }}","display_condition":"$xf.visitor.canIgnoreThreadInLfs()","extra_attributes":[]}]]></navigation_entry>
+</navigation>

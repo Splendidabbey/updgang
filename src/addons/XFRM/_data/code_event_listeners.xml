@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_event_listeners>
+  <listener event_id="app_setup" execute_order="10" callback_class="XFRM\Listener" callback_method="appSetup" active="1" description="Sets up fundamental portions of the Resource Manager for when needed."/>
+  <listener event_id="criteria_page" execute_order="10" callback_class="XFRM\Listener" callback_method="criteriaPage" active="1" description="Add the resource-related page criteria."/>
+  <listener event_id="criteria_template_data" execute_order="10" callback_class="XFRM\Listener" callback_method="criteriaTemplateData" active="1" description="Add the resource-related criteria template data."/>
+  <listener event_id="criteria_user" execute_order="10" callback_class="XFRM\Listener" callback_method="criteriaUser" active="1" description="Add the resource-related criteria."/>
+  <listener event_id="import_importer_classes" execute_order="10" callback_class="XFRM\Listener" callback_method="importImporterClasses" active="1" description="Add resource manager importer classes"/>
+  <listener event_id="member_stat_result_prepare" execute_order="10" callback_class="XFRM\Listener" callback_method="memberStatResultPrepare" active="1" description="Formats the resource manager member statistic sort orders"/>
+  <listener event_id="templater_setup" execute_order="10" callback_class="XFRM\Listener" callback_method="templaterSetup" active="1" description="Add the custom templater functions needed by the Resource Manager."/>
+  <listener event_id="user_content_change_init" execute_order="10" callback_class="XFRM\Listener" callback_method="userContentChangeInit" active="1" description="Register the updates that need to happen when a user is renamed, deleted, etc."/>
+  <listener event_id="user_delete_clean_init" execute_order="10" callback_class="XFRM\Listener" callback_method="userDeleteCleanInit" active="1" description="Register the clean up queries that need to run when a user is deleted."/>
+  <listener event_id="user_merge_combine" execute_order="10" callback_class="XFRM\Listener" callback_method="userMergeCombine" active="1" description="Allow the resource count to be updated when merging users."/>
+  <listener event_id="user_searcher_orders" execute_order="10" callback_class="XFRM\Listener" callback_method="userSearcherOrders" active="1" description="Add resource count to user searcher orders."/>
+</code_event_listeners>

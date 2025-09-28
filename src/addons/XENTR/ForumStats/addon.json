@@ -1,0 +1,23 @@
+{
+    "legacy_addon_id": "",
+    "title": "[XTR] Forum statistics",
+    "description": "This add-on allows you to customize forum statistics.",
+    "version_id": 1000170,
+    "version_string": "1.0.1",
+    "dev": "XENTR | XenForo Add-ons - Styles",
+    "dev_url": "https://xentr.net/",
+    "faq_url": "",
+    "support_url": "https://xentr.net/",
+"extra_urls": {},
+    "require": {
+        "XF": [
+            2020270,
+            "XenForo 2.2.2"
+        ],
+        "php": [
+            "7.2.0",
+            "PHP 7.2.0+"
+        ]
+    },
+    "icon": "icon.png"
+}

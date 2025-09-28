@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_events>
+  <event event_id="xfmg_embed_data_handler_prepare"><![CDATA[<p>Called when the list of Embed Data handlers is loaded.</p>
+
+<p>Callback signature:</p>
+<blockquote><code><em>array</em> &$handlers</code></blockquote>
+
+<p>Arguments:</p>
+<ol>
+	<li><code><em>array</em> &$handlers</code> - an array of classes keyed by BB Code Media Site ID. Class names can be formatted in both the short name form, e.g. <code>XFMG:YouTube</code> or a full class name, e.g. <code>XFMG\EmbedData\YouTube</code></li>
+</ol>]]></event>
+</code_events>

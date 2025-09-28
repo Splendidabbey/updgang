@@ -1,0 +1,20 @@
+<ul class="content {$tab.tab_class}">
+    <xf:if is="$threads is not empty">
+        <xf:foreach loop="$threads" value="$thread">
+            <li class="block-row structItem--lfsItem" id="js-lfsItemThread-{$thread.thread_id}"
+                data-date="{$thread.post_date}">
+                <xf:macro template="thread_list_macros" name="item_new_threads"
+                          arg-thread="{$thread}" />
+            </li>
+        </xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+            link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+            wrapperclass="hidden-pageNav js-lfsPageNav" />

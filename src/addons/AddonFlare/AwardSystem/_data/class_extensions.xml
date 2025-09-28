@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class_extensions>
+  <extension from_class="XF\Criteria\User" to_class="AddonFlare\AwardSystem\XF\Criteria\User" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\Trophy" to_class="AddonFlare\AwardSystem\XF\Entity\Trophy" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\User" to_class="AddonFlare\AwardSystem\XF\Entity\User" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\UserOption" to_class="AddonFlare\AwardSystem\XF\Entity\UserOption" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\UserPrivacy" to_class="AddonFlare\AwardSystem\XF\Entity\UserPrivacy" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Account" to_class="AddonFlare\AwardSystem\XF\Pub\Controller\Account" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Conversation" to_class="AddonFlare\AwardSystem\XF\Pub\Controller\Conversation" execute_order="2" active="1"/>
+  <extension from_class="XF\Pub\Controller\Thread" to_class="AddonFlare\AwardSystem\XF\Pub\Controller\Thread" execute_order="2" active="1"/>
+  <extension from_class="XF\Repository\Trophy" to_class="AddonFlare\AwardSystem\XF\Repository\Trophy" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\UserAlert" to_class="AddonFlare\AwardSystem\XF\Repository\UserAlert" execute_order="10" active="1"/>
+  <extension from_class="XF\Template\Templater" to_class="AddonFlare\AwardSystem\XF\Template\Templater" execute_order="10" active="1"/>
+</class_extensions>

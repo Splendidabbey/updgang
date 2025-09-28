@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="xfmgCategoryList" group_name="xfmgAppearance" title="Display category list" description="A node style category list can be displayed while browsing the gallery." property_type="value" value_type="radio" display_order="10">
+    <value_parameters>container={{ phrase('xfmg_container_list_only') }}
+always={{ phrase('xfmg_always') }}
+never={{ phrase('never') }}</value_parameters>
+    <value>"container"</value>
+  </style_property>
+</style_properties>

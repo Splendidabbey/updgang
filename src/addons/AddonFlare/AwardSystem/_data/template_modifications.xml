@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="account_privacy" modification_key="af_as_account_privacy" description="Add privacy option" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[arg-label="{{ phrase('view_your_details_on_your_profile_page:') }}" />]]></find>
+    <replace><![CDATA[$0
+<xf:macro name="privacy_option"
+    arg-user="{$xf.visitor}"
+    arg-name="af_as_allow_view_profile"
+    arg-label="{{ phrase('af_as_view_your_awards_tab_on_your_profile_page:') }}" />]]></replace>
+  </modification>
+  <modification type="public" template="account_visitor_menu" modification_key="af_as_account_visitor_menu" description="Add level to menu" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:stats_pairs:above_reactions]-->]]></find>
+    <replace><![CDATA[<xf:macro template="af_as_member_macros" name="account_visitor_menu" />
+$0]]></replace>
+  </modification>
+  <modification type="public" template="extra.less" modification_key="af_as_extra_less" description="Add custom CSS" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/$/]]></find>
+    <replace><![CDATA[{{ include('af_as_extra.less') }}]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="af_as_helper_criteria_user_content" description="Add helper criteria options: user (content)" execution_order="5" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:user:content_after_messages]-->]]></find>
+    <replace><![CDATA[<xf:option name="user_criteria[af_as_messages_posted_in_forum][rule]" value="af_as_messages_posted_in_forum" selected="{$criteria.af_as_messages_posted_in_forum}"
+    label="{{ phrase('af_as_user_has_posted_at_least_x_messages_in_y_forums_z_days:') }}">
+    <xf:dependent>
+        <xf:numberbox name="user_criteria[af_as_messages_posted_in_forum][data][messages]" value="{$criteria.af_as_messages_posted_in_forum.messages}"
+            size="5" min="1" step="1" units="{{ phrase('posts') }}" />
+        <xf:select name="user_criteria[af_as_messages_posted_in_forum][data][node_ids]" multiple="true" value="{$criteria.af_as_messages_posted_in_forum.node_ids}">
+            <xf:foreach loop="$data.nodes" value="$option">
+                <xf:option value="{$option.value}" label="{$option.label}" />
+            </xf:foreach>
+        </xf:select>
+        <xf:numberbox name="user_criteria[af_as_messages_posted_in_forum][data][days]" value="{{ $criteria.af_as_messages_posted_in_forum.days ?: 365 }}"
+            size="5" min="1" step="1" units="{{ phrase('units_days') }}" />
+    </xf:dependent>
+</xf:option>
+
+<xf:option name="user_criteria[af_as_thread_in_forum_with_replies][rule]" value="af_as_thread_in_forum_with_replies" selected="{$criteria.af_as_thread_in_forum_with_replies}"
+    label="{{ phrase('af_as_user_has_thread_in_x_forums_at_least_y_replies:') }}">
+    <xf:dependent>
+        <xf:numberbox name="user_criteria[af_as_thread_in_forum_with_replies][data][replies]" value="{$criteria.af_as_thread_in_forum_with_replies.replies}"
+            size="5" min="1" step="1" units="{{ phrase('replies') }}" />
+        <xf:select name="user_criteria[af_as_thread_in_forum_with_replies][data][node_ids]" multiple="true" value="{$criteria.af_as_thread_in_forum_with_replies.node_ids}">
+            <xf:foreach loop="$data.nodes" value="$option">
+                <xf:option value="{$option.value}" label="{$option.label}" />
+            </xf:foreach>
+        </xf:select>
+    </xf:dependent>
+</xf:option>
+
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="af_as_helper_criteria_user_content_afterTrophies" description="Add helper criteria options: user (content) - after trophies" execution_order="5" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:user:content_after_trophies]-->]]></find>
+    <replace><![CDATA[<xf:option name="user_criteria[af_as_award_level][rule]" value="af_as_award_level" selected="{$criteria.af_as_award_level}"
+    label="{{ phrase('af_as_user_has_reached_at_least_award_level_x:') }}">
+    <xf:numberbox name="user_criteria[af_as_award_level][data][level]" value="{$criteria.af_as_award_level.level}"
+        size="5" min="1" step="1" />
+</xf:option>
+
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="af_as_helper_criteria_user_profile" description="Add helper criteria options: user (profile)" execution_order="5" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:user:profile_top]-->]]></find>
+    <replace><![CDATA[<xf:option name="user_criteria[af_as_user_fields_complete][rule]" value="af_as_user_fields_complete" selected="{$criteria.af_as_user_fields_complete}"
+    label="{{ phrase('af_as_user_has_completed_user_fields_x:') }}">
+    <xf:dependent>
+        <xf:select name="user_criteria[af_as_user_fields_complete][data][field_ids]" multiple="true" value="{$criteria.af_as_user_fields_complete.field_ids}">
+            <xf:foreach loop="$data.editableUserFields" value="$option">
+                <xf:option value="{$option.value}" label="{$option.label}" />
+            </xf:foreach>
+        </xf:select>
+    </xf:dependent>
+</xf:option>
+
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="index" modification_key="af_as_admin_index" description="Add pending notice" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/<xf:if is="\$legacyConfig">.+?<\/xf:if>/s]]></find>
+    <replace><![CDATA[$0
+<xf:set var="$awardsPendingTotal" value="{{ $xf.app.em.getRepository('AddonFlare\AwardSystem:UserAward')->getPendingUserAwardsTotal() }}" />
+<xf:if is="$awardsPendingTotal > 0">
+    <div class="blockMessage blockMessage--important blockMessage--iconic">
+        <a href="{{ link('award-system/status/list', null, {'status': 'pending'}) }}"> {{ $awardsPendingTotal > 1 ? phrase('af_as_x_pending_awards', {'total' : $awardsPendingTotal }) : phrase('af_as_1_pending_award') }}</a>
+    </div>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="member_macros" modification_key="af_as_member_macros_stat_pairs" description="Stat pair" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:stat_pairs:below_trophies]-->]]></find>
+    <replace><![CDATA[$0
+
+<xf:macro template="af_as_member_macros" name="member_stat_pairs" arg-user="{$user}"/>]]></replace>
+  </modification>
+  <modification type="public" template="member_tooltip" modification_key="af_as_member_tooltip" description="Add level to member tooltip" execution_order="5" enabled="1" action="preg_replace">
+    <find><![CDATA[/<dt>{{ phrase\(\'last_seen\'\) }}<\/dt>.+<\/xf:if>/isU]]></find>
+    <replace><![CDATA[$0
+<xf:macro template="af_as_member_macros" name="member_tooltip" arg-user="{$user}" />]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="af_as_member_view_add_tab" description="Add the &quot;award&quot; tab" execution_order="52" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:tabs:after_recent_content]-->]]></find>
+    <replace><![CDATA[$0
+<xf:if is="$user.canViewAwardsUserProfile()">
+    <a href="{{ link('award-system/user/awards', null, {'user': $user.user_id}) }}"
+       class="tabs-tab"
+       id="profile-awards"
+       role="tab">{{ phrase('af_as_awards') }}</a>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="af_as_member_view_add_tab_pane" description="Add the &quot;award&quot; tab pane" execution_order="52" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:tab_panes:after_recent_content]-->]]></find>
+    <replace><![CDATA[$0
+<xf:if is="$user.canViewAwardsUserProfile()">
+    <li data-href="{{ link('award-system/user/awards', null, {'user': $user.user_id}) }}" role="tabpanel" aria-labelledby="profile-awards">
+        <div class="blockMessage">{{ phrase('loading...') }}</div>
+    </li>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="af_as_member_view_level" description="Add level to member profile" execution_order="5" enabled="1" action="preg_replace">
+    <find><![CDATA[/<dt>{{ phrase\(\'last_seen\'\) }}<\/dt>.+<\/xf:if>/isU]]></find>
+    <replace><![CDATA[$0
+<xf:macro template="af_as_member_macros" name="member_view" arg-user="{$user}" />]]></replace>
+  </modification>
+  <modification type="public" template="message_macros" modification_key="af_as_message_macros_postbit" description="Add to postbit" execution_order="0" enabled="1" action="callback">
+    <find><![CDATA[/(<xf:macro name="user_info".+?)(?=<\/section>)/si]]></find>
+    <replace><![CDATA[AddonFlare\AwardSystem\Listener::templateModificationCallbackMessageMacros]]></replace>
+  </modification>
+</template_modifications>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<admin_navigation>
+  <admin_navigation_entry navigation_id="lfs" display_order="1200" link="lfs/" icon="fa-repeat" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="lfsDefinitions" parent_navigation_id="lfs" display_order="30" link="lfs/definitions/" debug_only="1" development_only="1" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="lfsGroups" parent_navigation_id="lfs" display_order="10" link="lfs/groups/" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="lfsStickedAttributes" parent_navigation_id="lfs" display_order="60" link="lfs/sticked-attributes/" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="lfsStickedLinks" parent_navigation_id="lfs" display_order="40" link="lfs/sticked-links/" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="lfsStickedThreads" parent_navigation_id="lfs" display_order="50" link="lfs/sticked-threads/" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="lfsTabs" parent_navigation_id="lfs" display_order="20" link="lfs/tabs/" debug_only="0" development_only="0" hide_no_children="0"/>
+</admin_navigation>

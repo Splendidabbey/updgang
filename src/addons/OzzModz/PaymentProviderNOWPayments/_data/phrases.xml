@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="option.ozzmodz_nowpayments_lastCurrenciesUpdate" version_id="2000001" version_string="2.0.0 1"><![CDATA[Last NOWPayments currencies update]]></phrase>
+  <phrase title="option_explain.ozzmodz_nowpayments_lastCurrenciesUpdate" version_id="2000001" version_string="2.0.0 1"><![CDATA[]]></phrase>
+  <phrase title="ozzmodz_nowpayments_address" version_id="2000001" version_string="2.0.0 1"><![CDATA[Address]]></phrase>
+  <phrase title="ozzmodz_nowpayments_address_copied_to_clipboard" version_id="2000001" version_string="2.0.0 1"><![CDATA[Address copied to clipboard]]></phrase>
+  <phrase title="ozzmodz_nowpayments_amount_is_too_small_please_select_another_currency" version_id="2000001" version_string="2.0.0 1"><![CDATA[Pay amount is too small please select another currency]]></phrase>
+  <phrase title="ozzmodz_nowpayments_api_key" version_id="2000000" version_string="2.0.0"><![CDATA[API key]]></phrase>
+  <phrase title="ozzmodz_nowpayments_api_key_explain" version_id="2000000" version_string="2.0.0"><![CDATA[Enter your NOWPayments API key]]></phrase>
+  <phrase title="ozzmodz_nowpayments_case_common" version_id="2000070" version_string="2.0.0"><![CDATA[Common payment]]></phrase>
+  <phrase title="ozzmodz_nowpayments_case_failed" version_id="2000070" version_string="2.0.0"><![CDATA[Failed payment]]></phrase>
+  <phrase title="ozzmodz_nowpayments_case_partially_paid" version_id="2000070" version_string="2.0.0"><![CDATA[Partially paid payment]]></phrase>
+  <phrase title="ozzmodz_nowpayments_case_success" version_id="2000070" version_string="2.0.0"><![CDATA[Finished payment]]></phrase>
+  <phrase title="ozzmodz_nowpayments_fee_paid_by_user" version_id="2000000" version_string="2.0.0"><![CDATA[Fee paid by user]]></phrase>
+  <phrase title="ozzmodz_nowpayments_fixed_rate" version_id="2000000" version_string="2.0.0"><![CDATA[Fixed rate]]></phrase>
+  <phrase title="ozzmodz_nowpayments_incorrect_currency" version_id="2000000" version_string="2.0.0"><![CDATA[Incorrect currency]]></phrase>
+  <phrase title="ozzmodz_nowpayments_ipn_secret" version_id="2000000" version_string="2.0.0"><![CDATA[IPN secret]]></phrase>
+  <phrase title="ozzmodz_nowpayments_ipn_secret_explain" version_id="2000000" version_string="2.0.0"><![CDATA[Enter your IPN Secret key from Payment Settings tab at the Dashboard]]></phrase>
+  <phrase title="ozzmodz_nowpayments_network" version_id="2000000" version_string="2.0.0"><![CDATA[Network]]></phrase>
+  <phrase title="ozzmodz_nowpayments_no_api_response" version_id="2000000" version_string="2.0.0"><![CDATA[No API response. Please contact administrators.]]></phrase>
+  <phrase title="ozzmodz_nowpayments_no_invoice_url" version_id="2000000" version_string="2.0.0"><![CDATA[No invoice url]]></phrase>
+  <phrase title="ozzmodz_nowpayments_no_payment_status" version_id="2000003" version_string="2.0.0 3"><![CDATA[No payment status]]></phrase>
+  <phrase title="ozzmodz_nowpayments_no_subscription_response" version_id="2000000" version_string="2.0.0"><![CDATA[No subscription response. Please contact administrator.]]></phrase>
+  <phrase title="ozzmodz_nowpayments_pay_address" version_id="2000000" version_string="2.0.0"><![CDATA[Pay address]]></phrase>
+  <phrase title="ozzmodz_nowpayments_pay_amount" version_id="2000000" version_string="2.0.0"><![CDATA[Pay amount]]></phrase>
+  <phrase title="ozzmodz_nowpayments_pay_amount_copied_to_clipboard" version_id="2000001" version_string="2.0.0 1"><![CDATA[Pay amount copied to clipboard]]></phrase>
+  <phrase title="ozzmodz_nowpayments_pay_currency" version_id="2000001" version_string="2.0.0 1"><![CDATA[Pay currency]]></phrase>
+  <phrase title="ozzmodz_nowpayments_payin_extra_id" version_id="2000001" version_string="2.0.0 1"><![CDATA[Extra ID]]></phrase>
+  <phrase title="ozzmodz_nowpayments_payin_extra_id_explain" version_id="2000001" version_string="2.0.0 1"><![CDATA[Some of the currencies require a Memo, Destination Tag, etc., to complete a payment (AVA, EOS, BNBMAINNET, XLM, XRP). This is unique for each payment. Payments made without it cannot be detected automatically;]]></phrase>
+  <phrase title="ozzmodz_nowpayments_payment_expired" version_id="2000001" version_string="2.0.0 1"><![CDATA[Payment expired]]></phrase>
+  <phrase title="ozzmodz_nowpayments_payment_failed_please_contact_administrator" version_id="2000003" version_string="2.0.0 3"><![CDATA[Payment failed. Please contact administrator.]]></phrase>
+  <phrase title="ozzmodz_nowpayments_payment_is_confirming_please_wait" version_id="2000001" version_string="2.0.0 1"><![CDATA[Payment is confirming. Please wait.]]></phrase>
+  <phrase title="ozzmodz_nowpayments_payment_link_sent_to_your_email_address" version_id="2000000" version_string="2.0.0"><![CDATA[Payment link sent to your email address]]></phrase>
+  <phrase title="ozzmodz_nowpayments_payment_method" version_id="2000000" version_string="2.0.0"><![CDATA[Payment method]]></phrase>
+  <phrase title="ozzmodz_nowpayments_public_key" version_id="2000001" version_string="2.0.0 1"><![CDATA[Public key]]></phrase>
+  <phrase title="ozzmodz_nowpayments_public_key_explain" version_id="2000070" version_string="2.0.0"><![CDATA[Enter your NOWPayments public API key]]></phrase>
+  <phrase title="ozzmodz_nowpayments_recurring_email_explain" version_id="2000000" version_string="2.0.0"><![CDATA[Enter your mailbox address to which the payment request letter will be sent]]></phrase>
+  <phrase title="ozzmodz_nowpayments_sandbox_mode_enabled_please_do_not_pay" version_id="2000192" version_string="2.0.1 Patch Level 2"><![CDATA[Sandbox mode with "{case}" payment case is enabled. Please do not pay to the specified wallets, transferred funds will be permanently lost!]]></phrase>
+  <phrase title="ozzmodz_nowpayments_test_case" version_id="2000070" version_string="2.0.0"><![CDATA[Test case]]></phrase>
+  <phrase title="ozzmodz_nowpayments_test_case_explain" version_id="2000070" version_string="2.0.0"><![CDATA[Specify what status the payment should have in sandbox mode]]></phrase>
+  <phrase title="ozzmodz_nowpayments_use_embedded_payment_form" version_id="2000001" version_string="2.0.0 1"><![CDATA[Use embedded payment form]]></phrase>
+  <phrase title="ozzmodz_nowpayments_waiting_payment" version_id="2000001" version_string="2.0.0 1"><![CDATA[Waiting payment]]></phrase>
+  <phrase title="ozzmodz_nowpayments_with_amount" version_id="2000001" version_string="2.0.0 1"><![CDATA[With amount]]></phrase>
+</phrases>

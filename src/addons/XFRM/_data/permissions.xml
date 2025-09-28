@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <permission permission_group_id="resource" permission_id="add" permission_type="flag" interface_group_id="resourcePermissions" display_order="60"/>
+  <permission permission_group_id="resource" permission_id="approveUnapprove" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="70"/>
+  <permission permission_group_id="resource" permission_id="contentVote" permission_type="flag" interface_group_id="resourcePermissions" display_order="55"/>
+  <permission permission_group_id="resource" permission_id="deleteAny" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="10"/>
+  <permission permission_group_id="resource" permission_id="deleteAnyReview" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="30"/>
+  <permission permission_group_id="resource" permission_id="deleteOwn" permission_type="flag" interface_group_id="resourcePermissions" display_order="100"/>
+  <permission permission_group_id="resource" permission_id="download" permission_type="flag" interface_group_id="resourcePermissions" display_order="30"/>
+  <permission permission_group_id="resource" permission_id="editAny" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="40"/>
+  <permission permission_group_id="resource" permission_id="featureUnfeature" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="80"/>
+  <permission permission_group_id="resource" permission_id="hardDeleteAny" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="20"/>
+  <permission permission_group_id="resource" permission_id="inlineMod" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="1"/>
+  <permission permission_group_id="resource" permission_id="manageAnyTag" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="50"/>
+  <permission permission_group_id="resource" permission_id="manageOthersTagsOwnRes" permission_type="flag" interface_group_id="resourcePermissions" display_order="87"/>
+  <permission permission_group_id="resource" permission_id="manageOwnTeam" permission_type="flag" interface_group_id="resourcePermissions" display_order="110"/>
+  <permission permission_group_id="resource" permission_id="rate" permission_type="flag" interface_group_id="resourcePermissions" display_order="50"/>
+  <permission permission_group_id="resource" permission_id="react" permission_type="flag" interface_group_id="resourcePermissions" display_order="40"/>
+  <permission permission_group_id="resource" permission_id="reassign" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="45"/>
+  <permission permission_group_id="resource" permission_id="reviewReply" permission_type="flag" interface_group_id="resourcePermissions" display_order="90"/>
+  <permission permission_group_id="resource" permission_id="tagAnyResource" permission_type="flag" interface_group_id="resourcePermissions" display_order="86"/>
+  <permission permission_group_id="resource" permission_id="tagOwnResource" permission_type="flag" interface_group_id="resourcePermissions" display_order="85"/>
+  <permission permission_group_id="resource" permission_id="undelete" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="15"/>
+  <permission permission_group_id="resource" permission_id="updateOwn" permission_type="flag" interface_group_id="resourcePermissions" display_order="80"/>
+  <permission permission_group_id="resource" permission_id="uploadUpdateAttach" permission_type="flag" interface_group_id="resourcePermissions" display_order="70"/>
+  <permission permission_group_id="resource" permission_id="uploadUpdateVideo" permission_type="flag" interface_group_id="resourcePermissions" display_order="71"/>
+  <permission permission_group_id="resource" permission_id="view" permission_type="flag" interface_group_id="resourcePermissions" display_order="10"/>
+  <permission permission_group_id="resource" permission_id="viewDeleted" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="5"/>
+  <permission permission_group_id="resource" permission_id="viewModerated" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="60"/>
+  <permission permission_group_id="resource" permission_id="viewUpdateAttach" permission_type="flag" interface_group_id="resourcePermissions" display_order="20"/>
+  <permission permission_group_id="resource" permission_id="warn" permission_type="flag" interface_group_id="resourceModeratorPermissions" display_order="90"/>
+</permissions>

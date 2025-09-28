@@ -1,0 +1,27 @@
+<ul class="content {$tab.tab_class}">
+    <xf:if is="$users is not empty">
+
+        <xf:foreach loop="$users" value="$user">
+            <xf:set var="$rightIcon">
+				<span title="{{ phrase('reactions:') }} {$topReactions.{$user.user_id}.reaction_score|number}" data-xf-init="tooltip">
+					<xf:fa icon="far fa-smile-plus" /> {$topReactions.{$user.user_id}.reaction_score|number}
+				</span>
+            </xf:set>
+
+            <xf:macro template="lfs_tab_member_definition_macros"
+                      name="user_item"
+                      arg-user="{$user}"
+                      arg-date="{$user.register_date}"
+                      arg-rightIcon="{$rightIcon}" />
+        </xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+            link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+            wrapperclass="hidden-pageNav js-lfsPageNav" />

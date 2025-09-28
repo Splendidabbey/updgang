@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="admin" route_prefix="lfs" controller="BS\LiveForumStatistics:Statistics"/>
+  <route route_type="admin" route_prefix="lfs" sub_name="definitions" format="definitions/:str&lt;definition_id&gt;/" controller="BS\LiveForumStatistics:Definition" context="lfsDefinitions"/>
+  <route route_type="admin" route_prefix="lfs" sub_name="groups" format="groups/:str&lt;group_id&gt;/" controller="BS\LiveForumStatistics:Group" context="lfsGroups"/>
+  <route route_type="admin" route_prefix="lfs" sub_name="sticked-attributes" format="sticked-attributes/:int&lt;attribute_id&gt;/" controller="BS\LiveForumStatistics:StickedAttribute" context="lfsStickedAttributes"/>
+  <route route_type="admin" route_prefix="lfs" sub_name="sticked-links" format="sticked-links/:int&lt;link_id,title&gt;/" controller="BS\LiveForumStatistics:StickedLink" context="lfsStickedLinks"/>
+  <route route_type="admin" route_prefix="lfs" sub_name="sticked-threads" format="sticked-threads/" controller="BS\LiveForumStatistics:StickedThread" context="lfsStickedThreads"/>
+  <route route_type="admin" route_prefix="lfs" sub_name="tabs" format="tabs/:str&lt;tab_id&gt;/" controller="BS\LiveForumStatistics:Tab" context="lfsTabs"/>
+  <route route_type="public" route_prefix="lfs" controller="BS\LiveForumStatistics:Statistics"/>
+  <route route_type="public" route_prefix="lfs" sub_name="store" format="store/" controller="BS\LiveForumStatistics:Store"/>
+  <route route_type="public" route_prefix="lfs" sub_name="store/sticked-links" format="store/sticked-links/:int&lt;purchase_id&gt;/" controller="BS\LiveForumStatistics:StickedLinkPurchase"/>
+  <route route_type="public" route_prefix="lfs" sub_name="tab" format="tab/:str&lt;tab_id&gt;/" controller="BS\LiveForumStatistics:Statistics" action_prefix="tab"/>
+</routes>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<api_scopes>
+  <api_scope api_scope_id="media:delete_hard"/>
+  <api_scope api_scope_id="media:read"/>
+  <api_scope api_scope_id="media:write"/>
+  <api_scope api_scope_id="media_category:delete"/>
+  <api_scope api_scope_id="media_category:read"/>
+  <api_scope api_scope_id="media_category:write"/>
+</api_scopes>

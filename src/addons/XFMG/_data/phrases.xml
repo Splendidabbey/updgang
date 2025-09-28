@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="activity_summary_def.xfmg_latest_albums" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[XFMG: Latest albums]]></phrase>
+  <phrase title="activity_summary_def.xfmg_latest_comments" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[XFMG: Latest comments]]></phrase>
+  <phrase title="activity_summary_def.xfmg_latest_media" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[XFMG: Latest media]]></phrase>
+  <phrase title="activity_summary_def_desc.xfmg_latest_albums" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Renders a section displaying the latest media gallery albums in the activity summary email.]]></phrase>
+  <phrase title="activity_summary_def_desc.xfmg_latest_comments" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Renders a section displaying the latest media gallery comments in the activity summary email.]]></phrase>
+  <phrase title="activity_summary_def_desc.xfmg_latest_media" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Renders a section displaying the latest media gallery items in the activity summary email.]]></phrase>
+  <phrase title="admin_navigation.xfmg" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media]]></phrase>
+  <phrase title="admin_navigation.xfmgBatchUpdate" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Batch update]]></phrase>
+  <phrase title="admin_navigation.xfmgBatchUpdateAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Albums]]></phrase>
+  <phrase title="admin_navigation.xfmgBatchUpdateMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media]]></phrase>
+  <phrase title="admin_navigation.xfmgCategories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media categories]]></phrase>
+  <phrase title="admin_navigation.xfmgCategoryPermissions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media category permissions]]></phrase>
+  <phrase title="admin_navigation.xfmgFields" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media fields]]></phrase>
+  <phrase title="admin_permission.mediaGallery" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Manage media gallery]]></phrase>
+  <phrase title="alert_opt_out.xfmg_album_mention" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Mentions you in an album description]]></phrase>
+  <phrase title="alert_opt_out.xfmg_album_reaction" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Reacts to your album]]></phrase>
+  <phrase title="alert_opt_out.xfmg_album_share_add" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Gives you permission to add media to a personal album]]></phrase>
+  <phrase title="alert_opt_out.xfmg_album_share_view" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Gives you permission to view a personal album]]></phrase>
+  <phrase title="alert_opt_out.xfmg_comment_insert" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Comments on a watched media item or album]]></phrase>
+  <phrase title="alert_opt_out.xfmg_comment_mention" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Mentions you in a media or album comment]]></phrase>
+  <phrase title="alert_opt_out.xfmg_comment_quote" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Quotes your media or album comment]]></phrase>
+  <phrase title="alert_opt_out.xfmg_comment_reaction" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Reacts to your media or album comment]]></phrase>
+  <phrase title="alert_opt_out.xfmg_media_insert" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Adds a new media item to a watched album or category]]></phrase>
+  <phrase title="alert_opt_out.xfmg_media_mention" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Mentions you in a media item description]]></phrase>
+  <phrase title="alert_opt_out.xfmg_media_reaction" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Reacts to your media item]]></phrase>
+  <phrase title="alert_opt_out.xfmg_rating_insert" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Rates your media item or album]]></phrase>
+  <phrase title="api_scope.media_category_delete" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Covers deleting a media category.]]></phrase>
+  <phrase title="api_scope.media_category_read" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Covers view media categories or the list of categories.]]></phrase>
+  <phrase title="api_scope.media_category_write" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Covers updating or creating a media category.]]></phrase>
+  <phrase title="api_scope.media_delete_hard" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Covers hard-deleting media, albums and their comments.]]></phrase>
+  <phrase title="api_scope.media_read" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Covers viewing media, albums, and their comments.]]></phrase>
+  <phrase title="api_scope.media_write" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Covers creating, updating and soft-deleting media, albums and their comments.]]></phrase>
+  <phrase title="cron_entry.xfmgCacheStats" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Cache gallery statistics]]></phrase>
+  <phrase title="cron_entry.xfmgCleanUpDaily" version_id="902000470" version_string="2.0.4"><![CDATA[XFMG: Daily clean up]]></phrase>
+  <phrase title="cron_entry.xfmgCleanUpHourly" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Hourly clean up]]></phrase>
+  <phrase title="cron_entry.xfmgGenerateRandomAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Generate random album cache]]></phrase>
+  <phrase title="cron_entry.xfmgGenerateRandomMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Generate random media cache]]></phrase>
+  <phrase title="cron_entry.xfmgViews" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Update view counters]]></phrase>
+  <phrase title="custom_bb_code_desc.gallery" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[BB code for displaying gallery media items and albums.]]></phrase>
+  <phrase title="custom_bb_code_example.gallery" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[[GALLERY=media, X]Gallery BB Code[/GALLERY]]]></phrase>
+  <phrase title="custom_bb_code_output.gallery" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[]]></phrase>
+  <phrase title="custom_bb_code_title.gallery" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery embed]]></phrase>
+  <phrase title="member_stat.xfmg_most_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Most albums]]></phrase>
+  <phrase title="member_stat.xfmg_most_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Most media items]]></phrase>
+  <phrase title="mod_log.xfmg_album_approve" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album approved]]></phrase>
+  <phrase title="mod_log.xfmg_album_delete_hard" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album permanently deleted]]></phrase>
+  <phrase title="mod_log.xfmg_album_delete_soft" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album removed from public view (reason: {reason})]]></phrase>
+  <phrase title="mod_log.xfmg_album_edit_description" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album description edited]]></phrase>
+  <phrase title="mod_log.xfmg_album_edit_title" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album title edited]]></phrase>
+  <phrase title="mod_log.xfmg_album_media_move_source" version_id="902010370" version_string="2.1.3"><![CDATA[Media items moved to {title}]]></phrase>
+  <phrase title="mod_log.xfmg_album_media_move_target" version_id="902010370" version_string="2.1.3"><![CDATA[Media items ({ids}) moved to album]]></phrase>
+  <phrase title="mod_log.xfmg_album_unapprove" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album unapproved]]></phrase>
+  <phrase title="mod_log.xfmg_album_undelete" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album undeleted]]></phrase>
+  <phrase title="mod_log.xfmg_album_warning_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album author warning expired]]></phrase>
+  <phrase title="mod_log.xfmg_album_warning_given" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album author given warning]]></phrase>
+  <phrase title="mod_log.xfmg_album_warning_removed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album author warning removed]]></phrase>
+  <phrase title="mod_log.xfmg_comment_approve" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment approved]]></phrase>
+  <phrase title="mod_log.xfmg_comment_delete_hard" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment permanently deleted]]></phrase>
+  <phrase title="mod_log.xfmg_comment_delete_soft" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment removed from public view (reason: {reason})]]></phrase>
+  <phrase title="mod_log.xfmg_comment_edit" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment edited]]></phrase>
+  <phrase title="mod_log.xfmg_comment_unapprove" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment unapproved]]></phrase>
+  <phrase title="mod_log.xfmg_comment_undelete" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment undeleted]]></phrase>
+  <phrase title="mod_log.xfmg_comment_warning_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment author warning expired]]></phrase>
+  <phrase title="mod_log.xfmg_comment_warning_given" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment author given warning]]></phrase>
+  <phrase title="mod_log.xfmg_comment_warning_removed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment author warning removed]]></phrase>
+  <phrase title="mod_log.xfmg_media_approve" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item approved]]></phrase>
+  <phrase title="mod_log.xfmg_media_delete_hard" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item permanently deleted]]></phrase>
+  <phrase title="mod_log.xfmg_media_delete_soft" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item removed from public view (reason: {reason})]]></phrase>
+  <phrase title="mod_log.xfmg_media_edit_description" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item description edited]]></phrase>
+  <phrase title="mod_log.xfmg_media_edit_title" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item title edited]]></phrase>
+  <phrase title="mod_log.xfmg_media_move" version_id="902010370" version_string="2.1.3"><![CDATA[Media item moved from category {from}]]></phrase>
+  <phrase title="mod_log.xfmg_media_unapprove" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item unapproved]]></phrase>
+  <phrase title="mod_log.xfmg_media_undelete" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item undeleted]]></phrase>
+  <phrase title="mod_log.xfmg_media_warning_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item author warning expired]]></phrase>
+  <phrase title="mod_log.xfmg_media_warning_given" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item author given warning]]></phrase>
+  <phrase title="mod_log.xfmg_media_warning_removed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item author warning removed]]></phrase>
+  <phrase title="nav.newMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New media]]></phrase>
+  <phrase title="nav.xfmg" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media]]></phrase>
+  <phrase title="nav.xfmgAddMedia" version_id="902000470" version_string="2.0.4"><![CDATA[Add media]]></phrase>
+  <phrase title="nav.xfmgMarkViewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Mark viewed]]></phrase>
+  <phrase title="nav.xfmgNewComments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New comments]]></phrase>
+  <phrase title="nav.xfmgNewMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New media]]></phrase>
+  <phrase title="nav.xfmgSearchMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Search media]]></phrase>
+  <phrase title="nav.xfmgWatchedAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Watched albums]]></phrase>
+  <phrase title="nav.xfmgWatchedCategories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Watched categories]]></phrase>
+  <phrase title="nav.xfmgWatchedContent" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Watched]]></phrase>
+  <phrase title="nav.xfmgWatchedMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Watched media]]></phrase>
+  <phrase title="nav.xfmgWhatsNewMediaComments" version_id="902000033" version_string="2.0.0 Beta 3"><![CDATA[New media comments]]></phrase>
+  <phrase title="nav.xfmgWhatsNewNewMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New media]]></phrase>
+  <phrase title="nav.xfmgYourAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your albums]]></phrase>
+  <phrase title="nav.xfmgYourContent" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your content]]></phrase>
+  <phrase title="nav.xfmgYourMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your media]]></phrase>
+  <phrase title="option.xfmgAlbumsPerPage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Albums per page]]></phrase>
+  <phrase title="option.xfmgAllowPersonalAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allow personal albums]]></phrase>
+  <phrase title="option.xfmgAudioExtensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allowed audio extensions]]></phrase>
+  <phrase title="option.xfmgCommentsPerPage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comments per page]]></phrase>
+  <phrase title="option.xfmgDefaultViewPrivacy" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Default personal album view privacy]]></phrase>
+  <phrase title="option.xfmgFfmpeg" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Enable FFmpeg features]]></phrase>
+  <phrase title="option.xfmgImageExtensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allowed image extensions]]></phrase>
+  <phrase title="option.xfmgLightboxNavigation" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Enable media list lightbox navigation]]></phrase>
+  <phrase title="option.xfmgMaxDescriptionLength" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Maximum media/album description length]]></phrase>
+  <phrase title="option.xfmgMaxTitleLength" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Maximum media/album title length]]></phrase>
+  <phrase title="option.xfmgMediaIndexLimit" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Only show media added within the last X days]]></phrase>
+  <phrase title="option.xfmgMediaPerPage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media items per page]]></phrase>
+  <phrase title="option.xfmgMinTagsPersonalAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Minimum tags in personal albums]]></phrase>
+  <phrase title="option.xfmgOverrideStyle" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Override default style]]></phrase>
+  <phrase title="option.xfmgRequireComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Require comment when rating albums or media items]]></phrase>
+  <phrase title="option.xfmgThumbnailDimensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Maximum thumbnail dimensions]]></phrase>
+  <phrase title="option.xfmgUnviewedCounter" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Display unviewed media counter]]></phrase>
+  <phrase title="option.xfmgVideoExtensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allowed video extensions]]></phrase>
+  <phrase title="option.xfmgWatermarking" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Enable image watermarks]]></phrase>
+  <phrase title="option_explain.xfmgAlbumsPerPage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The maximum number of albums to show per page.]]></phrase>
+  <phrase title="option_explain.xfmgAllowPersonalAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[If personal albums are disabled, albums can still be created inside album categories (if you create some). Personal albums allow the album owner to have granular control over privacy settings.]]></phrase>
+  <phrase title="option_explain.xfmgAudioExtensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[List the file extensions that are allowed to be uploaded for audio. Use spaces or line breaks between extensions.]]></phrase>
+  <phrase title="option_explain.xfmgCommentsPerPage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The maximum number of media or album comments to show per page.]]></phrase>
+  <phrase title="option_explain.xfmgDefaultViewPrivacy" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[This value will be used as the default view privacy value for any new personal albums being created.]]></phrase>
+  <phrase title="option_explain.xfmgFfmpeg" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[]]></phrase>
+  <phrase title="option_explain.xfmgImageExtensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[List the file extensions that are allowed to be uploaded for images. Use spaces or line breaks between extensions.]]></phrase>
+  <phrase title="option_explain.xfmgLightboxNavigation" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[If enabled, clicking on a media item in a list of media will open it in the lightbox where you can navigate through the list quickly and view information about and comment on the media.]]></phrase>
+  <phrase title="option_explain.xfmgMaxDescriptionLength" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[]]></phrase>
+  <phrase title="option_explain.xfmgMaxTitleLength" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[]]></phrase>
+  <phrase title="option_explain.xfmgMediaIndexLimit" version_id="902020035" version_string="2.2.0 Beta 5"><![CDATA[If you have a large gallery, your media index or category view pages may load slowly. This option will mitigate that to only show media from the last X days. Set to 0 for unlimited. You can also control this on a per-category basis.]]></phrase>
+  <phrase title="option_explain.xfmgMediaPerPage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The maximum number of media items to show per page.]]></phrase>
+  <phrase title="option_explain.xfmgMinTagsPersonalAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[If you'd like for media items in personal albums to have a minimum number of tags, set that here. Set to 0 for no minimum.]]></phrase>
+  <phrase title="option_explain.xfmgOverrideStyle" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The style selected here will be displayed on all Gallery pages instead of the default style.]]></phrase>
+  <phrase title="option_explain.xfmgRequireComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[If checked all users who wish to rate an album or media item will be required to also write a comment.]]></phrase>
+  <phrase title="option_explain.xfmgThumbnailDimensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[When adding media to the gallery, a thumbnail is created based on these dimensions. Album thumbnails are built to the same dimensions. If you change this value, you will need to <a href="admin.php?tools/rebuild">rebuild the thumbnails</a>.]]></phrase>
+  <phrase title="option_explain.xfmgUnviewedCounter" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[If enabled, the count of unviewed media will display above the "Media" navigation tab.]]></phrase>
+  <phrase title="option_explain.xfmgVideoExtensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[List the file extensions that are allowed to be uploaded for videos. Use spaces or line breaks between extensions.]]></phrase>
+  <phrase title="option_explain.xfmgWatermarking" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[To automatically watermark all uploaded images, enable watermarks and upload an appropriate image with a transparent background. Results will vary depending on the image chosen.]]></phrase>
+  <phrase title="option_group.xfmg" version_id="902000270" version_string="2.0.2"><![CDATA[XenForo Media Gallery]]></phrase>
+  <phrase title="option_group_description.xfmg" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Options that control the media gallery add-on.]]></phrase>
+  <phrase title="permission.xfmgStorage_maxAllowedStorage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Maximum allowed storage (MB)]]></phrase>
+  <phrase title="permission.xfmg_add" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Add media items]]></phrase>
+  <phrase title="permission.xfmg_addAudio" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Upload audio to album]]></phrase>
+  <phrase title="permission.xfmg_addComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Add comment]]></phrase>
+  <phrase title="permission.xfmg_addEmbed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Embed media in album]]></phrase>
+  <phrase title="permission.xfmg_addImage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Upload image to album]]></phrase>
+  <phrase title="permission.xfmg_addNoteAny" version_id="902000034" version_string="2.0.0 Beta 4"><![CDATA[Add note on any image]]></phrase>
+  <phrase title="permission.xfmg_addNoteOwn" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Add / edit note on own image]]></phrase>
+  <phrase title="permission.xfmg_addVideo" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Upload video to album]]></phrase>
+  <phrase title="permission.xfmg_addWithoutApproval" version_id="902000470" version_string="2.0.4"><![CDATA[Add media items without approval]]></phrase>
+  <phrase title="permission.xfmg_addWithoutWatermark" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Add media items without watermark]]></phrase>
+  <phrase title="permission.xfmg_approveUnapprove" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Approve / unapprove media items]]></phrase>
+  <phrase title="permission.xfmg_approveUnapproveAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Approve / unapprove albums]]></phrase>
+  <phrase title="permission.xfmg_approveUnapproveComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Approve / unapprove comments]]></phrase>
+  <phrase title="permission.xfmg_bypassPrivacy" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Bypass album privacy (view all albums and contents)]]></phrase>
+  <phrase title="permission.xfmg_changePrivacyAnyAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Change privacy of any album]]></phrase>
+  <phrase title="permission.xfmg_changePrivacyOwnAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Change privacy of own album]]></phrase>
+  <phrase title="permission.xfmg_createAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Create new album]]></phrase>
+  <phrase title="permission.xfmg_deleteAny" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete any media items]]></phrase>
+  <phrase title="permission.xfmg_deleteAnyAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete any album]]></phrase>
+  <phrase title="permission.xfmg_deleteAnyComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete any comment]]></phrase>
+  <phrase title="permission.xfmg_deleteAnyNote" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete note from any image]]></phrase>
+  <phrase title="permission.xfmg_deleteComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete own comment]]></phrase>
+  <phrase title="permission.xfmg_deleteOwn" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Delete own media items]]></phrase>
+  <phrase title="permission.xfmg_deleteOwnAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete own album]]></phrase>
+  <phrase title="permission.xfmg_deleteOwnNote" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete note from own image]]></phrase>
+  <phrase title="permission.xfmg_deleteTagSelf" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete tag of yourself on any image]]></phrase>
+  <phrase title="permission.xfmg_editAny" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit any media items]]></phrase>
+  <phrase title="permission.xfmg_editAnyAlbum" version_id="902000053" version_string="2.0.0 Release Candidate 3"><![CDATA[Edit any album]]></phrase>
+  <phrase title="permission.xfmg_editAnyComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit any comment]]></phrase>
+  <phrase title="permission.xfmg_editComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit own comment]]></phrase>
+  <phrase title="permission.xfmg_editNoteAny" version_id="902000034" version_string="2.0.0 Beta 4"><![CDATA[Edit note on any image]]></phrase>
+  <phrase title="permission.xfmg_editOwn" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Edit own media items]]></phrase>
+  <phrase title="permission.xfmg_editOwnAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit own album]]></phrase>
+  <phrase title="permission.xfmg_editOwnAlbumTimeLimit" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Time limit on editing/deleting own albums (minutes)]]></phrase>
+  <phrase title="permission.xfmg_editOwnCommentTimeLimit" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Time limit on editing/deleting own comments (minutes)]]></phrase>
+  <phrase title="permission.xfmg_editOwnMediaTimeLimit" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Time limit on editing/deleting own media items (minutes)]]></phrase>
+  <phrase title="permission.xfmg_hardDeleteAny" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Hard delete any media items]]></phrase>
+  <phrase title="permission.xfmg_hardDeleteAnyAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Hard delete any album]]></phrase>
+  <phrase title="permission.xfmg_hardDeleteAnyComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Hard delete any comment]]></phrase>
+  <phrase title="permission.xfmg_inlineMod" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Use inline moderation on media items]]></phrase>
+  <phrase title="permission.xfmg_inlineModAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Use inline moderation on albums]]></phrase>
+  <phrase title="permission.xfmg_inlineModComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Use inline moderation on comments]]></phrase>
+  <phrase title="permission.xfmg_manageAnyTag" version_id="902010370" version_string="2.1.3"><![CDATA[Manage any tags]]></phrase>
+  <phrase title="permission.xfmg_manageOthersTagsOwnMedia" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Manage tags by others on own media items]]></phrase>
+  <phrase title="permission.xfmg_maxFileSize" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Maximum file size (MB)]]></phrase>
+  <phrase title="permission.xfmg_maxImageHeight" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Maximum image height]]></phrase>
+  <phrase title="permission.xfmg_maxImageWidth" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Maximum image width]]></phrase>
+  <phrase title="permission.xfmg_moveAny" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Move any media items]]></phrase>
+  <phrase title="permission.xfmg_moveAnyAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Move any album]]></phrase>
+  <phrase title="permission.xfmg_moveOwn" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Move own media items]]></phrase>
+  <phrase title="permission.xfmg_moveOwnAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Move own album]]></phrase>
+  <phrase title="permission.xfmg_rate" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Rate media items]]></phrase>
+  <phrase title="permission.xfmg_rateAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Rate album]]></phrase>
+  <phrase title="permission.xfmg_react" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[React to media items]]></phrase>
+  <phrase title="permission.xfmg_reactAlbum" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[React to albums]]></phrase>
+  <phrase title="permission.xfmg_reactComment" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[React to comments]]></phrase>
+  <phrase title="permission.xfmg_tagAnyMedia" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Tag any media items]]></phrase>
+  <phrase title="permission.xfmg_tagOwnMedia" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Tag own media items]]></phrase>
+  <phrase title="permission.xfmg_tagSelf" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Add / edit tag of yourself on any image]]></phrase>
+  <phrase title="permission.xfmg_tagWithoutApproval" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Add tag of others without approval]]></phrase>
+  <phrase title="permission.xfmg_undelete" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Undelete media items]]></phrase>
+  <phrase title="permission.xfmg_undeleteAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Undelete albums]]></phrase>
+  <phrase title="permission.xfmg_undeleteComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Undelete comments]]></phrase>
+  <phrase title="permission.xfmg_view" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[View media gallery]]></phrase>
+  <phrase title="permission.xfmg_viewComments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View comments]]></phrase>
+  <phrase title="permission.xfmg_viewDeleted" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View deleted media items]]></phrase>
+  <phrase title="permission.xfmg_viewDeletedAlbums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View deleted albums]]></phrase>
+  <phrase title="permission.xfmg_viewDeletedComments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View deleted comments]]></phrase>
+  <phrase title="permission.xfmg_viewModerated" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[View unapproved media items]]></phrase>
+  <phrase title="permission.xfmg_viewModeratedAlbums" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[View unapproved albums]]></phrase>
+  <phrase title="permission.xfmg_viewModeratedComments" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[View unapproved comments]]></phrase>
+  <phrase title="permission.xfmg_viewNote" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View image notes]]></phrase>
+  <phrase title="permission.xfmg_viewPendingNote" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View any pending image note]]></phrase>
+  <phrase title="permission.xfmg_warn" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Give warnings on media items]]></phrase>
+  <phrase title="permission.xfmg_warnAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Give warnings on albums]]></phrase>
+  <phrase title="permission.xfmg_warnComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Give warnings on comments]]></phrase>
+  <phrase title="permission.xfmg_watermarkAny" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Add/remove watermark from any media items]]></phrase>
+  <phrase title="permission.xfmg_watermarkOwn" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Add/remove watermark from own media items]]></phrase>
+  <phrase title="permission_interface.xfmgAlbum" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Album permissions]]></phrase>
+  <phrase title="permission_interface.xfmgAlbumModerator" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Album moderator permissions]]></phrase>
+  <phrase title="permission_interface.xfmgComment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Comment permissions]]></phrase>
+  <phrase title="permission_interface.xfmgCommentModerator" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Comment moderator permissions]]></phrase>
+  <phrase title="permission_interface.xfmgMedia" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Media permissions]]></phrase>
+  <phrase title="permission_interface.xfmgMediaModerator" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Media moderator permissions]]></phrase>
+  <phrase title="permission_interface.xfmgNote" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Note permissions]]></phrase>
+  <phrase title="permission_interface.xfmgNoteModerator" version_id="902000034" version_string="2.0.0 Beta 4"><![CDATA[XFMG: Note moderator permissions]]></phrase>
+  <phrase title="permission_interface.xfmgUploadQuotas" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Upload quotas]]></phrase>
+  <phrase title="style_prop.xfmgCategoryList" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Display category list]]></phrase>
+  <phrase title="style_prop_desc.xfmgCategoryList" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[A node style category list can be displayed while browsing the gallery.]]></phrase>
+  <phrase title="style_prop_group.xfmgAppearance" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Appearance]]></phrase>
+  <phrase title="style_prop_group_desc.xfmgAppearance" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[A number of properties to control the appearance of XenForo Media Gallery]]></phrase>
+  <phrase title="widget_def.xfmg_albums_slider" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Albums slider]]></phrase>
+  <phrase title="widget_def.xfmg_gallery_statistics" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Gallery statistics]]></phrase>
+  <phrase title="widget_def.xfmg_latest_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Latest comments]]></phrase>
+  <phrase title="widget_def.xfmg_media_slider" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG: Media slider]]></phrase>
+  <phrase title="widget_def_desc.xfmg_albums_slider" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Displays a slider showing the most recent or a random selection of albums.]]></phrase>
+  <phrase title="widget_def_desc.xfmg_gallery_statistics" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Displays the gallery statistics]]></phrase>
+  <phrase title="widget_def_desc.xfmg_latest_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Displays the latest gallery comments]]></phrase>
+  <phrase title="widget_def_desc.xfmg_media_slider" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Displays a slider showing the most recent or a random selection of media items.]]></phrase>
+  <phrase title="widget_pos.xfmg_gallery_wrapper_sidenav" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[XFMG Gallery wrapper: Sidenav]]></phrase>
+  <phrase title="widget_pos_desc.xfmg_gallery_wrapper_sidenav" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Below the "Gallery navigation" inside the gallery wrapper template.]]></phrase>
+  <phrase title="xfmg_aac_or_libvo_aacenc_encoder_is_required_for_transcoding_audio" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The 'aac' or 'libvo_aacenc' encoder is required for transcoding audio.]]></phrase>
+  <phrase title="xfmg_add_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Add media]]></phrase>
+  <phrase title="xfmg_add_media_to" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Add media to]]></phrase>
+  <phrase title="xfmg_add_media_to_existing_album" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Add media to existing album]]></phrase>
+  <phrase title="xfmg_add_note_tag" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Add note/tag]]></phrase>
+  <phrase title="xfmg_add_users_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Enter the names above of the members who are allowed to add media items. The album owner is always permitted automatically.]]></phrase>
+  <phrase title="xfmg_added_by" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Added by]]></phrase>
+  <phrase title="xfmg_album" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album]]></phrase>
+  <phrase title="xfmg_album_comments" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Album comments]]></phrase>
+  <phrase title="xfmg_album_contents" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album contents]]></phrase>
+  <phrase title="xfmg_album_count" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album count]]></phrase>
+  <phrase title="xfmg_album_description" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album description]]></phrase>
+  <phrase title="xfmg_album_information" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album information]]></phrase>
+  <phrase title="xfmg_album_is_being_created_inside_x_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The album is being created inside the "{title}" category. It will be visible to any member who can view this category.]]></phrase>
+  <phrase title="xfmg_album_owner" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album owner]]></phrase>
+  <phrase title="xfmg_album_privacy" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album privacy]]></phrase>
+  <phrase title="xfmg_album_privacy.inherit" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Inherited from category]]></phrase>
+  <phrase title="xfmg_album_privacy.members" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Registered members]]></phrase>
+  <phrase title="xfmg_album_privacy.private" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album owner only]]></phrase>
+  <phrase title="xfmg_album_privacy.public" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Everyone]]></phrase>
+  <phrase title="xfmg_album_privacy.shared" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Specific members]]></phrase>
+  <phrase title="xfmg_album_ratings" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album ratings]]></phrase>
+  <phrase title="xfmg_album_reactions" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Album reactions]]></phrase>
+  <phrase title="xfmg_album_thumbnails" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album thumbnails]]></phrase>
+  <phrase title="xfmg_album_title" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album title]]></phrase>
+  <phrase title="xfmg_album_x" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album '{album}']]></phrase>
+  <phrase title="xfmg_album_x_marked_as_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Album {title} marked as viewed.]]></phrase>
+  <phrase title="xfmg_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Albums]]></phrase>
+  <phrase title="xfmg_albums_created_by_x" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Albums created by {name}]]></phrase>
+  <phrase title="xfmg_alert_transcode_failed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unfortunately, the media item you uploaded named {title} could not be processed. Please upload a different file and try again.]]></phrase>
+  <phrase title="xfmg_alert_transcode_success" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your media item {title} has finished processing and has now been added to the gallery.]]></phrase>
+  <phrase title="xfmg_all_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[All categories]]></phrase>
+  <phrase title="xfmg_all_media_items_marked_as_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[All media items marked as viewed.]]></phrase>
+  <phrase title="xfmg_all_media_types" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[All media types]]></phrase>
+  <phrase title="xfmg_all_selected_albums_already_in_destination_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[All selected albums are already in the destination category. Please select another category.]]></phrase>
+  <phrase title="xfmg_all_selected_media_items_already_in_destination_album" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[All selected media items are already in the destination album. Please select another album.]]></phrase>
+  <phrase title="xfmg_all_selected_media_items_already_in_destination_category" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[All selected media items are already in the destination category. Please select another category.]]></phrase>
+  <phrase title="xfmg_allowed_extensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allowed extensions]]></phrase>
+  <phrase title="xfmg_allowed_media_types" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allowed media types]]></phrase>
+  <phrase title="xfmg_allowed_media_types_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The types selected above are only relevant to album and media categories.]]></phrase>
+  <phrase title="xfmg_allowed_types" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allowed types]]></phrase>
+  <phrase title="xfmg_always" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Always]]></phrase>
+  <phrase title="xfmg_applicable_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Applicable categories]]></phrase>
+  <phrase title="xfmg_approve_album" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Approve album]]></phrase>
+  <phrase title="xfmg_approve_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Approve albums]]></phrase>
+  <phrase title="xfmg_approve_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Approve comments]]></phrase>
+  <phrase title="xfmg_approve_media_item" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Approve media item]]></phrase>
+  <phrase title="xfmg_approve_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Approve media items]]></phrase>
+  <phrase title="xfmg_at_least_x_comments" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[At least X comments]]></phrase>
+  <phrase title="xfmg_audio" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Audio]]></phrase>
+  <phrase title="xfmg_auto_play" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Auto-play]]></phrase>
+  <phrase title="xfmg_auto_play_hint" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Slider will automatically play slides.]]></phrase>
+  <phrase title="xfmg_batch_update_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Batch update albums]]></phrase>
+  <phrase title="xfmg_batch_update_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Batch update media]]></phrase>
+  <phrase title="xfmg_below_media_item" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Below media item]]></phrase>
+  <phrase title="xfmg_bottom_of_media_info_block" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Bottom of media info block]]></phrase>
+  <phrase title="xfmg_browse_albums" version_id="902000010" version_string="2.0.0 Alpha" global_cache="1"><![CDATA[Browse albums]]></phrase>
+  <phrase title="xfmg_browse_media" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Browse media]]></phrase>
+  <phrase title="xfmg_can_add_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Can add media items]]></phrase>
+  <phrase title="xfmg_can_view_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Can view media items]]></phrase>
+  <phrase title="xfmg_cannot_ascertain_correct_album_or_category_to_save_media_to" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Cannot ascertain the correct album or category to save media to.]]></phrase>
+  <phrase title="xfmg_cannot_create_media_note_without_tagged_username_or_note_text" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Cannot create media note without a tagged username or note text.]]></phrase>
+  <phrase title="xfmg_cannot_delete_contents_without_album_id" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Cannot delete contents without an album_id.]]></phrase>
+  <phrase title="xfmg_cannot_delete_contents_without_category_id" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Cannot delete contents without a category_id.]]></phrase>
+  <phrase title="xfmg_cannot_find_watermark_image_at_provided_path" version_id="902000370" version_string="2.0.3"><![CDATA[Cannot find watermark image at provided path.]]></phrase>
+  <phrase title="xfmg_cannot_move_album_into_non_album_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Cannot move album into a non-album category.]]></phrase>
+  <phrase title="xfmg_canvas_drag_mode_crop" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Canvas drag mode: Crop]]></phrase>
+  <phrase title="xfmg_canvas_drag_mode_move" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Canvas drag mode: Move]]></phrase>
+  <phrase title="xfmg_cat_type.album" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Albums only]]></phrase>
+  <phrase title="xfmg_cat_type.container" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Container only]]></phrase>
+  <phrase title="xfmg_cat_type.media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media items only]]></phrase>
+  <phrase title="xfmg_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Categories]]></phrase>
+  <phrase title="xfmg_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Category]]></phrase>
+  <phrase title="xfmg_category_contents" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Category contents]]></phrase>
+  <phrase title="xfmg_category_index_limit_explain" version_id="902020035" version_string="2.2.0 Beta 5"><![CDATA[If you have a large category, your category view page may load slowly. This option will mitigate that to only show media from the last X days. If the option is checked and a value is set here it will always override the value from the global option. Set to 0 for unlimited.]]></phrase>
+  <phrase title="xfmg_category_of_type_album_or_media_must_support_at_least_one_media_type" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[A category of type "album" or "media" must support at least one media type.]]></phrase>
+  <phrase title="xfmg_category_permissions" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Category permissions]]></phrase>
+  <phrase title="xfmg_category_type" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Category type]]></phrase>
+  <phrase title="xfmg_category_type_change_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The category type can only be changed when the category is empty.]]></phrase>
+  <phrase title="xfmg_category_x_marked_as_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Category {title} marked as viewed.]]></phrase>
+  <phrase title="xfmg_change_privacy" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Change privacy]]></phrase>
+  <phrase title="xfmg_change_thumbnail" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Change thumbnail]]></phrase>
+  <phrase title="xfmg_change_watermark_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[To change the watermark on existing images you need to run the <a href="{link}">XFMG: Update media watermarks</a> job.]]></phrase>
+  <phrase title="xfmg_change_who_can_add_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Change who can add media items:]]></phrase>
+  <phrase title="xfmg_change_who_can_view_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Change who can view media items:]]></phrase>
+  <phrase title="xfmg_changing_privacy_in_this_way_will_overwrite_existing_privacy" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Changing the privacy settings in this way will overwrite all existing privacy settings in the selected albums.]]></phrase>
+  <phrase title="xfmg_child_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Child category]]></phrase>
+  <phrase title="xfmg_choose_category" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Choose a category]]></phrase>
+  <phrase title="xfmg_clear_selection" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Clear selection]]></phrase>
+  <phrase title="xfmg_comment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment]]></phrase>
+  <phrase title="xfmg_comment_author" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment author]]></phrase>
+  <phrase title="xfmg_comment_by_x" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment by '{user}']]></phrase>
+  <phrase title="xfmg_comment_by_x_in_album_y" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment by '{user}' in album '{title}']]></phrase>
+  <phrase title="xfmg_comment_by_x_in_media_y" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment by '{user}' in media '{title}']]></phrase>
+  <phrase title="xfmg_comment_content" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment content]]></phrase>
+  <phrase title="xfmg_comment_count" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment count]]></phrase>
+  <phrase title="xfmg_comment_count_between" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comment count between]]></phrase>
+  <phrase title="xfmg_comment_on_album_x" version_id="902020032" version_string="2.2.0 Beta 2"><![CDATA[Comment on media album '{title}']]></phrase>
+  <phrase title="xfmg_comment_on_album_x_by_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Comment on media album <a href="{albumLink}">{albumTitle}</a> by <a href="{userLink}">{userName}</a>]]></phrase>
+  <phrase title="xfmg_comment_on_media_x" version_id="902020032" version_string="2.2.0 Beta 2"><![CDATA[Comment on media '{title}']]></phrase>
+  <phrase title="xfmg_comment_on_media_x_by_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Comment on media <a href="{mediaLink}">{mediaTitle}</a> by <a href="{userLink}">{userName}</a>]]></phrase>
+  <phrase title="xfmg_comment_reactions" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Comment reactions]]></phrase>
+  <phrase title="xfmg_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comments]]></phrase>
+  <phrase title="xfmg_comments_posted_on" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Comments posted on]]></phrase>
+  <phrase title="xfmg_comments_this_album" version_id="902000370" version_string="2.0.3"><![CDATA[Comments (this album)]]></phrase>
+  <phrase title="xfmg_comments_this_media" version_id="902000370" version_string="2.0.3"><![CDATA[Comments (this media item)]]></phrase>
+  <phrase title="xfmg_confirm_deletion_of_x_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Confirm deletion of {total} items]]></phrase>
+  <phrase title="xfmg_container" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Container]]></phrase>
+  <phrase title="xfmg_container_categories_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Container categories are special categories that cannot directly contain albums or media items, but instead will display items from their child categories.]]></phrase>
+  <phrase title="xfmg_container_list_only" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Container list only]]></phrase>
+  <phrase title="xfmg_copy_gallery_bb_code" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Copy GALLERY BB code]]></phrase>
+  <phrase title="xfmg_copy_image_bb_code" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Copy image BB code]]></phrase>
+  <phrase title="xfmg_copy_image_link" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Copy image link]]></phrase>
+  <phrase title="xfmg_copy_media_bb_code" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Copy MEDIA BB code]]></phrase>
+  <phrase title="xfmg_copy_url_bb_code_with_thumbnail" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Copy URL BB code with thumbnail]]></phrase>
+  <phrase title="xfmg_could_not_execute_ffmpeg_at_path_specified" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Could not execute FFmpeg at the path specified.]]></phrase>
+  <phrase title="xfmg_could_not_find_ffmpeg_at_path_specified" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Could not find FFmpeg at the path specified.]]></phrase>
+  <phrase title="xfmg_create_album" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Create album]]></phrase>
+  <phrase title="xfmg_create_date" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Create date]]></phrase>
+  <phrase title="xfmg_create_personal_album" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Create personal album]]></phrase>
+  <phrase title="xfmg_crop_data_provided_indicates_there_no_valid_manipulations_to_apply" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Crop data provided indicates there are no valid manipulations to apply.]]></phrase>
+  <phrase title="xfmg_current_rating" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Current rating]]></phrase>
+  <phrase title="xfmg_current_watermark" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Current watermark:]]></phrase>
+  <phrase title="xfmg_date_added" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Date added]]></phrase>
+  <phrase title="xfmg_date_created" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Date created]]></phrase>
+  <phrase title="xfmg_delete_album" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Delete album]]></phrase>
+  <phrase title="xfmg_delete_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete albums]]></phrase>
+  <phrase title="xfmg_delete_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete category]]></phrase>
+  <phrase title="xfmg_delete_comment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete comment]]></phrase>
+  <phrase title="xfmg_delete_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete comments]]></phrase>
+  <phrase title="xfmg_delete_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete items]]></phrase>
+  <phrase title="xfmg_delete_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete media]]></phrase>
+  <phrase title="xfmg_delete_media_item" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Delete media item]]></phrase>
+  <phrase title="xfmg_delete_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Delete media items]]></phrase>
+  <phrase title="xfmg_destination_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Destination category]]></phrase>
+  <phrase title="xfmg_disk_usage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Disk usage]]></phrase>
+  <phrase title="xfmg_display_from_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Display from categories]]></phrase>
+  <phrase title="xfmg_display_from_personal_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Display from personal albums]]></phrase>
+  <phrase title="xfmg_display_from_personal_albums_hint" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Only media from viewable albums will be displayed.]]></phrase>
+  <phrase title="xfmg_display_pager" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Display pager]]></phrase>
+  <phrase title="xfmg_display_pager_hint" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Display pager buttons below the slider.]]></phrase>
+  <phrase title="xfmg_display_personal_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Display personal albums]]></phrase>
+  <phrase title="xfmg_edit_album" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit album]]></phrase>
+  <phrase title="xfmg_edit_comment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit comment]]></phrase>
+  <phrase title="xfmg_edit_image" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit image]]></phrase>
+  <phrase title="xfmg_edit_image_preview" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit image - Preview]]></phrase>
+  <phrase title="xfmg_edit_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit media]]></phrase>
+  <phrase title="xfmg_edit_media_item" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Edit media item]]></phrase>
+  <phrase title="xfmg_embed_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Embed media]]></phrase>
+  <phrase title="xfmg_embeds" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Embeds]]></phrase>
+  <phrase title="xfmg_enable_responsive_slides" version_id="902000470" version_string="2.0.4"><![CDATA[Enable responsive slides]]></phrase>
+  <phrase title="xfmg_enable_responsive_slides_explain" version_id="902000470" version_string="2.0.4"><![CDATA[The maximum number of slides displayed at a time can be flexible depending on viewport size. If checked, leave fields blank or 0 to not change the value for a particular breakpoint.]]></phrase>
+  <phrase title="xfmg_ensure_you_have_added_at_least_one_media_item_before_continuing" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Ensure you have added at least one media item before continuing.]]></phrase>
+  <phrase title="xfmg_enter_existing_album_url" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Enter existing album URL:]]></phrase>
+  <phrase title="xfmg_enter_full_path_to_folder_containing_your_photopost_files" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Enter the full path to the folder containing your Photopost files. This path must be readable to import media items.]]></phrase>
+  <phrase title="xfmg_enter_full_path_to_folder_containing_your_vbulletin_attachments" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Enter the full path to the folder containing your vBulletin attachments. This path must be readable to import media items.]]></phrase>
+  <phrase title="xfmg_enter_path_to_ffmpeg_binary_on_this_server" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Enter the path to the FFmpeg binary on this server. You can sometimes find this with the command <code>which ffmpeg</code>.]]></phrase>
+  <phrase title="xfmg_error_while_uploading_watermark_image" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Error while uploading watermark image.]]></phrase>
+  <phrase title="xfmg_exif.aperture" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Aperture]]></phrase>
+  <phrase title="xfmg_exif.date_taken" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Date taken]]></phrase>
+  <phrase title="xfmg_exif.device" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Device]]></phrase>
+  <phrase title="xfmg_exif.dimensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Dimensions]]></phrase>
+  <phrase title="xfmg_exif.exposure" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Exposure time]]></phrase>
+  <phrase title="xfmg_exif.file_size" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[File size]]></phrase>
+  <phrase title="xfmg_exif.filename" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Filename]]></phrase>
+  <phrase title="xfmg_exif.flash" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Flash]]></phrase>
+  <phrase title="xfmg_exif.flash_16" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Off, did not fire]]></phrase>
+  <phrase title="xfmg_exif.flash_24" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Auto, did not fire]]></phrase>
+  <phrase title="xfmg_exif.flash_25" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Auto, fired]]></phrase>
+  <phrase title="xfmg_exif.flash_8" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[On, did not fire]]></phrase>
+  <phrase title="xfmg_exif.flash_9" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[On, fired]]></phrase>
+  <phrase title="xfmg_exif.focal" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Focal length]]></phrase>
+  <phrase title="xfmg_exif.iso" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[ISO]]></phrase>
+  <phrase title="xfmg_existing_album" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Existing album]]></phrase>
+  <phrase title="xfmg_extra_info_block" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Extra info block]]></phrase>
+  <phrase title="xfmg_extra_information" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Extra information]]></phrase>
+  <phrase title="xfmg_ffmpeg_binary_path" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[FFmpeg binary path]]></phrase>
+  <phrase title="xfmg_ffmpeg_generate_thumbnail_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[If enabled, thumbnails will be automatically generated where possible.]]></phrase>
+  <phrase title="xfmg_ffmpeg_has_access_to_neither_libvo_aacenc_codec_or_aac_codec" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[FFmpeg has access to neither the libvo_aacenc codec or the aac codec.]]></phrase>
+  <phrase title="xfmg_ffmpeg_transcode_limit_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[This is the maximum number of transcode processes that will be allowed to run simultaneously. When the limit is reached, subsequent transcode processes will be queued.]]></phrase>
+  <phrase title="xfmg_ffmpeg_version_requirement" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[FFmpeg version 1.1.0 or above is required.]]></phrase>
+  <phrase title="xfmg_field_can_be_edited_while_adding_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Field can be edited while adding media]]></phrase>
+  <phrase title="xfmg_field_can_be_used_in_personal_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Field can be used in personal albums]]></phrase>
+  <phrase title="xfmg_file_you_have_uploaded_is_x_which_exceeds_your_storage_quota" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[The file you have uploaded is {size} which exceeds your storage quota and cannot be uploaded. You have {remaining} remaining.]]></phrase>
+  <phrase title="xfmg_files_path" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Files path]]></phrase>
+  <phrase title="xfmg_filter_own" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Own]]></phrase>
+  <phrase title="xfmg_filter_unviewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unviewed]]></phrase>
+  <phrase title="xfmg_flip_horizontally" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Flip horizontally]]></phrase>
+  <phrase title="xfmg_flip_vertically" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Flip vertically]]></phrase>
+  <phrase title="xfmg_force_transcoding_of_all_videos" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Force transcoding of all videos]]></phrase>
+  <phrase title="xfmg_force_transcoding_of_all_videos_hint" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Transcoding a video will also compress and optimize the resulting file for streaming. This will reduce load times and file size. With this option checked, all uploaded videos will be transcoded.]]></phrase>
+  <phrase title="xfmg_gallery" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery]]></phrase>
+  <phrase title="xfmg_gallery_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery albums]]></phrase>
+  <phrase title="xfmg_gallery_comment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Gallery comment]]></phrase>
+  <phrase title="xfmg_generate_posters" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Generate posters]]></phrase>
+  <phrase title="xfmg_generate_posters_explain" version_id="902020032" version_string="2.2.0 Beta 2"><![CDATA[If enabled, a higher resolution thumbnail will be automatically generated where possible. This is displayed before audio or video starts playing.]]></phrase>
+  <phrase title="xfmg_generate_thumbnails" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Generate thumbnails]]></phrase>
+  <phrase title="xfmg_if_you_wish_to_leave_comment_with_this_rating_enter_message_above" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[If you wish to leave a comment with this rating, enter a message above. The rating and comment will be displayed publicly.]]></phrase>
+  <phrase title="xfmg_image_metadata" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Image metadata]]></phrase>
+  <phrase title="xfmg_images" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Images]]></phrase>
+  <phrase title="xfmg_inline_moderation_delete_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Inline moderation - Delete albums]]></phrase>
+  <phrase title="xfmg_inline_moderation_delete_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Inline moderation - Delete comments]]></phrase>
+  <phrase title="xfmg_inline_moderation_delete_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Inline moderation - Delete media items]]></phrase>
+  <phrase title="xfmg_inline_moderation_move_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Inline moderation - Move albums]]></phrase>
+  <phrase title="xfmg_inline_moderation_move_media_items" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Inline moderation - Move media items]]></phrase>
+  <phrase title="xfmg_inline_moderation_unwatermark_media_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Inline moderation - Unwatermark media items]]></phrase>
+  <phrase title="xfmg_inline_moderation_watermark_media_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Inline moderation - Watermark media items]]></phrase>
+  <phrase title="xfmg_item_count" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Item count]]></phrase>
+  <phrase title="xfmg_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Items]]></phrase>
+  <phrase title="xfmg_items_displayed_on_page_displayed_from_child_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The items displayed on this page are being displayed from child categories.]]></phrase>
+  <phrase title="xfmg_latest_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Latest albums]]></phrase>
+  <phrase title="xfmg_latest_comments" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Latest comments]]></phrase>
+  <phrase title="xfmg_latest_comments_limit" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Latest comments limit]]></phrase>
+  <phrase title="xfmg_latest_comments_limit_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Specify the maximum number of gallery comments that should be shown in this widget.]]></phrase>
+  <phrase title="xfmg_latest_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Latest media]]></phrase>
+  <phrase title="xfmg_latest_media_comments" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Latest media comments]]></phrase>
+  <phrase title="xfmg_leave_comment" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Leave a comment]]></phrase>
+  <phrase title="xfmg_libx264_encoder_is_required_for_transcoding_video" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The 'libx264' encoder is required for transcoding video.]]></phrase>
+  <phrase title="xfmg_loop_slides" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Loop slides]]></phrase>
+  <phrase title="xfmg_loop_slides_hint" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Allow slider to loop back to the beginning when the end is reached.]]></phrase>
+  <phrase title="xfmg_manage_watched_albums" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Manage watched albums]]></phrase>
+  <phrase title="xfmg_manage_watched_media" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Manage watched media]]></phrase>
+  <phrase title="xfmg_mark_media_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Mark media viewed]]></phrase>
+  <phrase title="xfmg_mark_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Mark viewed]]></phrase>
+  <phrase title="xfmg_matched" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Matched]]></phrase>
+  <phrase title="xfmg_max_dimensions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Max. dimensions]]></phrase>
+  <phrase title="xfmg_max_file_size" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Max. file size]]></phrase>
+  <phrase title="xfmg_max_height" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Max. height]]></phrase>
+  <phrase title="xfmg_max_width" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Max. width]]></phrase>
+  <phrase title="xfmg_maximum_slides" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Maximum slides]]></phrase>
+  <phrase title="xfmg_maximum_slides_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[This is the maximum number of slides that will be shown at a time.]]></phrase>
+  <phrase title="xfmg_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media]]></phrase>
+  <phrase title="xfmg_media_added_by_x" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media added by {name}]]></phrase>
+  <phrase title="xfmg_media_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media categories]]></phrase>
+  <phrase title="xfmg_media_category" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Media category]]></phrase>
+  <phrase title="xfmg_media_category_permissions" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media category permissions]]></phrase>
+  <phrase title="xfmg_media_category_x" version_id="902020032" version_string="2.2.0 Beta 2"><![CDATA[Media category '{title}']]></phrase>
+  <phrase title="xfmg_media_comment" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Media comment]]></phrase>
+  <phrase title="xfmg_media_comments" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Media comments]]></phrase>
+  <phrase title="xfmg_media_count" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media count]]></phrase>
+  <phrase title="xfmg_media_date" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media date]]></phrase>
+  <phrase title="xfmg_media_disk_usage_mb" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Media disk usage (MB)]]></phrase>
+  <phrase title="xfmg_media_fields" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media fields]]></phrase>
+  <phrase title="xfmg_media_information" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media information]]></phrase>
+  <phrase title="xfmg_media_item" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item]]></phrase>
+  <phrase title="xfmg_media_item_is_contained_within_deleted_album" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Media item is contained within a deleted album.]]></phrase>
+  <phrase title="xfmg_media_item_is_deleted" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Media item is deleted.]]></phrase>
+  <phrase title="xfmg_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media items]]></phrase>
+  <phrase title="xfmg_media_mirror_category_id" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Mirror attachments to media category]]></phrase>
+  <phrase title="xfmg_media_mirror_category_id_explain" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Media items will be automatically created in the selected category from attachments posted in this forum. Media will be accessible to anyone that can view this category, regardless of whether they can view the original attachment.]]></phrase>
+  <phrase title="xfmg_media_note" version_id="902010170" version_string="2.1.1"><![CDATA[Media note]]></phrase>
+  <phrase title="xfmg_media_notes" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Media notes]]></phrase>
+  <phrase title="xfmg_media_owner" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media owner]]></phrase>
+  <phrase title="xfmg_media_posters" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Media posters]]></phrase>
+  <phrase title="xfmg_media_ratings" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media ratings]]></phrase>
+  <phrase title="xfmg_media_reactions" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Media reactions]]></phrase>
+  <phrase title="xfmg_media_this_album" version_id="902000370" version_string="2.0.3"><![CDATA[Media (this album)]]></phrase>
+  <phrase title="xfmg_media_this_category" version_id="902000370" version_string="2.0.3"><![CDATA[Media (this category)]]></phrase>
+  <phrase title="xfmg_media_thumbnails" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media thumbnails]]></phrase>
+  <phrase title="xfmg_media_type" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Media type]]></phrase>
+  <phrase title="xfmg_media_type.audio" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Audio files]]></phrase>
+  <phrase title="xfmg_media_type.embed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Embeds]]></phrase>
+  <phrase title="xfmg_media_type.image" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Images]]></phrase>
+  <phrase title="xfmg_media_type.video" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Videos]]></phrase>
+  <phrase title="xfmg_media_watermarks" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media watermarks]]></phrase>
+  <phrase title="xfmg_media_x" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media '{media}']]></phrase>
+  <phrase title="xfmg_media_x_in_album_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Media '{title}' in album '{album}']]></phrase>
+  <phrase title="xfmg_media_x_in_category_y" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media '{title}' in category '{category}']]></phrase>
+  <phrase title="xfmg_media_x_new_watched_album" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{media} - New media item in watched album]]></phrase>
+  <phrase title="xfmg_media_x_new_watched_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[{media} - New media item in watched category]]></phrase>
+  <phrase title="xfmg_media_x_posted_in_album_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[<a href="{mediaLink}">{mediaTitle}</a> posted in album <a href="{albumLink}">{albumTitle}</a>]]></phrase>
+  <phrase title="xfmg_media_x_posted_in_category_y" version_id="902010170" version_string="2.1.1"><![CDATA[<a href="{mediaLink}">{mediaTitle}</a> posted in category <a href="{catLink}">{catTitle}</a>]]></phrase>
+  <phrase title="xfmg_medium" version_id="902000470" version_string="2.0.4"><![CDATA[Medium]]></phrase>
+  <phrase title="xfmg_members_who_have_reacted_to_comment_by_x" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Members who have reacted to comment by {user}]]></phrase>
+  <phrase title="xfmg_members_who_liked_album" version_id="902000570" version_string="2.0.5"><![CDATA[Members who liked album '{title}']]></phrase>
+  <phrase title="xfmg_members_who_rated_this" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Members who rated this]]></phrase>
+  <phrase title="xfmg_members_who_reacted_to_media" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[Members who reacted to media '{title}']]></phrase>
+  <phrase title="xfmg_minimum_required_tags_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[This allows you to require users to enter at least this many tags when adding media or editing tags on existing media.]]></phrase>
+  <phrase title="xfmg_mirror_node_ids" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Mirror attachments from forums]]></phrase>
+  <phrase title="xfmg_mirror_node_ids_explain" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Media items will be automatically created for attachments posted in the selected forums. Media will be accessible to anyone that can view this category, so do not select private forums!]]></phrase>
+  <phrase title="xfmg_move" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Move]]></phrase>
+  <phrase title="xfmg_move_album" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Move album]]></phrase>
+  <phrase title="xfmg_move_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Move albums]]></phrase>
+  <phrase title="xfmg_move_media_item" version_id="902000035" version_string="2.0.0 Beta 5"><![CDATA[Move media item]]></phrase>
+  <phrase title="xfmg_move_media_item_to" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Move media item to]]></phrase>
+  <phrase title="xfmg_move_media_items" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Move media items]]></phrase>
+  <phrase title="xfmg_must_be_album_category_or_select_no_category_to_make_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Must be an album category or select 'No category' to make the album(s) uncategorised (personal albums).]]></phrase>
+  <phrase title="xfmg_narrow" version_id="902000470" version_string="2.0.4"><![CDATA[Narrow]]></phrase>
+  <phrase title="xfmg_new_comment" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New comment]]></phrase>
+  <phrase title="xfmg_new_comment_on_watched_album" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New comment on watched album]]></phrase>
+  <phrase title="xfmg_new_comment_on_watched_media_item" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New comment on watched media item]]></phrase>
+  <phrase title="xfmg_new_comments" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New comments]]></phrase>
+  <phrase title="xfmg_new_comments_only" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New comments only]]></phrase>
+  <phrase title="xfmg_new_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New media]]></phrase>
+  <phrase title="xfmg_new_media_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New media comments]]></phrase>
+  <phrase title="xfmg_new_media_item" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New media item]]></phrase>
+  <phrase title="xfmg_new_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New media items]]></phrase>
+  <phrase title="xfmg_new_media_items_and_comments" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New media items and comments]]></phrase>
+  <phrase title="xfmg_new_media_items_only" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[New media items only]]></phrase>
+  <phrase title="xfmg_new_sidebar_block" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[New sidebar block]]></phrase>
+  <phrase title="xfmg_new_thumbnail_could_not_be_processed" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[The new thumbnail could not be processed. Please try another image.]]></phrase>
+  <phrase title="xfmg_no_album_could_be_found_with_id_x" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[No album could be found with the ID {album_id}.]]></phrase>
+  <phrase title="xfmg_no_album_id_could_be_found_from_that_url" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[No album ID could be found from that URL.]]></phrase>
+  <phrase title="xfmg_no_albums_have_been_added_yet" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[No albums have been added yet.]]></phrase>
+  <phrase title="xfmg_no_albums_have_been_added_yet_which_you_can_add_media_to" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[No albums have been added yet which you can add media to.]]></phrase>
+  <phrase title="xfmg_no_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[No category]]></phrase>
+  <phrase title="xfmg_no_items_have_been_added_yet" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[No items have been added yet.]]></phrase>
+  <phrase title="xfmg_no_media_has_been_added_to_this_album_which_matches_your_filters" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[No media has been added to this album which matches your filters.]]></phrase>
+  <phrase title="xfmg_no_media_has_been_added_to_this_album_yet" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[No media has been added to this album yet.]]></phrase>
+  <phrase title="xfmg_no_media_has_been_added_yet" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[No media has been added yet.]]></phrase>
+  <phrase title="xfmg_no_media_or_albums_have_been_added_to_this_category_yet" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[No media or albums have been added to this category yet.]]></phrase>
+  <phrase title="xfmg_no_one_has_rated_this_content_yet" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[No one has rated this content yet.]]></phrase>
+  <phrase title="xfmg_not_watermarked" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Not watermarked]]></phrase>
+  <phrase title="xfmg_note_by" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Note by]]></phrase>
+  <phrase title="xfmg_note_has_been_saved_successfully" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Note has been saved successfully.]]></phrase>
+  <phrase title="xfmg_note_tag_mode_activated" version_id="902000053" version_string="2.0.0 Release Candidate 3"><![CDATA[Note/tag mode activated]]></phrase>
+  <phrase title="xfmg_note_tag_mode_deactivated" version_id="902000053" version_string="2.0.0 Release Candidate 3"><![CDATA[Note/tag mode deactivated]]></phrase>
+  <phrase title="xfmg_notify_members_watching_destination_album" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Notify members watching the destination album]]></phrase>
+  <phrase title="xfmg_notify_members_watching_destination_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Notify members watching the destination category]]></phrase>
+  <phrase title="xfmg_number_of_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Number of albums]]></phrase>
+  <phrase title="xfmg_number_of_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Number of media items]]></phrase>
+  <phrase title="xfmg_number_of_media_items_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[This is the total number of media items that will be loaded in the slider.]]></phrase>
+  <phrase title="xfmg_one_or_more_of_your_videos_needs_to_be_processed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[One or more of your uploaded items needs to be processed before they can be added to the gallery. You will receive an alert once processing is finished for each item.]]></phrase>
+  <phrase title="xfmg_only_categories_which_contain_media_items_only_available" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Only categories which contain "Media items only" are available. To move the media item to an album use the option below.]]></phrase>
+  <phrase title="xfmg_only_images_can_be_manipulated" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Only images can be manipulated.]]></phrase>
+  <phrase title="xfmg_only_include_albums_with" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Only include albums with]]></phrase>
+  <phrase title="xfmg_only_include_comments_with" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Only include comments with]]></phrase>
+  <phrase title="xfmg_only_include_media_items_with" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Only include media items with]]></phrase>
+  <phrase title="xfmg_only_non_animated_images_can_be_watermarked" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Only non-animated images can be watermarked.]]></phrase>
+  <phrase title="xfmg_only_show_media_added_within_last_x_days" version_id="902020035" version_string="2.2.0 Beta 5"><![CDATA[Only show media added within the last X days]]></phrase>
+  <phrase title="xfmg_originally_posted_in_x" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Originally posted in: <a href="{link}">{title}</a>]]></phrase>
+  <phrase title="xfmg_others_albums" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Other's albums]]></phrase>
+  <phrase title="xfmg_others_media" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Other's media]]></phrase>
+  <phrase title="xfmg_owned_by" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Owned by:]]></phrase>
+  <phrase title="xfmg_page_is_within_categories" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Page is within media categories]]></phrase>
+  <phrase title="xfmg_pasted_text_does_not_appear_to_be_valid_url" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The pasted text does not appear to be a valid URL.]]></phrase>
+  <phrase title="xfmg_path_provided_was_not_valid" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The path provided was not valid.]]></phrase>
+  <phrase title="xfmg_path_to_files_directory" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Path to files directory]]></phrase>
+  <phrase title="xfmg_personal_album_can_use_advanced_privacy_settings" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[A personal album can use advanced privacy settings and will not appear in any category.]]></phrase>
+  <phrase title="xfmg_photopost_attempt_match_explain" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Attempt to match Photopost username and email address to an existing user in this forum.]]></phrase>
+  <phrase title="xfmg_photopost_forum" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Forum]]></phrase>
+  <phrase title="xfmg_photopost_forum_explain" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Photopost was integrated with other forum software (not XenForo) which has since been imported into this forum. A forum import log is required.]]></phrase>
+  <phrase title="xfmg_photopost_forum_integration" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Forum integration]]></phrase>
+  <phrase title="xfmg_photopost_integration_source" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Photopost integration source]]></phrase>
+  <phrase title="xfmg_photopost_integration_source_must_be_configured" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Photopost integration source must be configured.]]></phrase>
+  <phrase title="xfmg_photopost_internal" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Internal]]></phrase>
+  <phrase title="xfmg_photopost_internal_explain" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Photopost was not integrated and user details were stored in Photopost itself. If there is no attempt to match to an existing user, or a user cannot be found, content will be attributed to a guest user.]]></phrase>
+  <phrase title="xfmg_photopost_xenforo_explain" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[Photopost was integrated with a XenForo installation. If no forum import log is provided, it is assumed that the user IDs in Photopost match those in this forum.]]></phrase>
+  <phrase title="xfmg_photopost_xenforo_integration" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[XenForo integration]]></phrase>
+  <phrase title="xfmg_php_binary_path" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[PHP binary path]]></phrase>
+  <phrase title="xfmg_php_binary_path_could_not_be_verified" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[PHP binary path could not be verified.]]></phrase>
+  <phrase title="xfmg_please_confirm_that_you_want_to_delete_following_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Please confirm that you want to delete the following category]]></phrase>
+  <phrase title="xfmg_please_confirm_that_you_want_to_set_your_avatar_to_following" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Please confirm that you want to set your avatar to the following]]></phrase>
+  <phrase title="xfmg_please_select_star_rating" version_id="902000670" version_string="2.0.6"><![CDATA[Please select a star rating.]]></phrase>
+  <phrase title="xfmg_png_encoder_is_required_for_generating_thumbnails" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The 'png' encoder is required for generating thumbnails.]]></phrase>
+  <phrase title="xfmg_problem_occurred_while_creating_temp_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[A problem occurred while creating the temp media. Please try another URL.]]></phrase>
+  <phrase title="xfmg_push_alert_x_tagged_you_in_media_y_approval" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} tagged you in media {item}. Visit your account to approve this.]]></phrase>
+  <phrase title="xfmg_random_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Random albums]]></phrase>
+  <phrase title="xfmg_random_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Random media]]></phrase>
+  <phrase title="xfmg_rate" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Rate]]></phrase>
+  <phrase title="xfmg_rate_this_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Rate this media]]></phrase>
+  <phrase title="xfmg_rating" version_id="902010170" version_string="2.1.1"><![CDATA[Rating]]></phrase>
+  <phrase title="xfmg_rating_your_own_content_is_considered_cheating" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Rating your own content is considered cheating.]]></phrase>
+  <phrase title="xfmg_ratings" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Ratings]]></phrase>
+  <phrase title="xfmg_rebuild_album_thumbnails" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Rebuild album thumbnails]]></phrase>
+  <phrase title="xfmg_rebuild_albums" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Rebuild albums]]></phrase>
+  <phrase title="xfmg_rebuild_categories" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Rebuild categories]]></phrase>
+  <phrase title="xfmg_rebuild_media_items" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Rebuild media items]]></phrase>
+  <phrase title="xfmg_rebuild_media_posters" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Rebuild media posters]]></phrase>
+  <phrase title="xfmg_rebuild_media_thumbnails" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Rebuild media thumbnails]]></phrase>
+  <phrase title="xfmg_rebuild_user_counts" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Rebuild user counts]]></phrase>
+  <phrase title="xfmg_rebuild_user_media_quotas" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Rebuild user media quotas]]></phrase>
+  <phrase title="xfmg_remaining_storage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Remaining storage]]></phrase>
+  <phrase title="xfmg_remove_watermark" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Remove watermark]]></phrase>
+  <phrase title="xfmg_requested_album_not_found" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Requested album could not be found.]]></phrase>
+  <phrase title="xfmg_requested_category_not_found" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Requested category could not be found.]]></phrase>
+  <phrase title="xfmg_requested_comment_not_found" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Requested comment could not be found.]]></phrase>
+  <phrase title="xfmg_requested_media_item_not_found" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Requested media item could not be found.]]></phrase>
+  <phrase title="xfmg_rotate_left" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Rotate left]]></phrase>
+  <phrase title="xfmg_rotate_right" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Rotate right]]></phrase>
+  <phrase title="xfmg_rss_feed_for_all_media_from_x" version_id="902010370" version_string="2.1.3"><![CDATA[RSS feed for all media from {board}]]></phrase>
+  <phrase title="xfmg_rss_feed_for_all_media_in_album_x" version_id="902010370" version_string="2.1.3"><![CDATA[RSS feed for all media in album {album}]]></phrase>
+  <phrase title="xfmg_rss_feed_for_all_media_in_category_x" version_id="902010370" version_string="2.1.3"><![CDATA[RSS feed for all media in category {category}]]></phrase>
+  <phrase title="xfmg_search_albums" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Search albums]]></phrase>
+  <phrase title="xfmg_search_child_categories_as_well" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Search child categories as well]]></phrase>
+  <phrase title="xfmg_search_in_categories" version_id="902010013" version_string="2.1.0 Preview 3"><![CDATA[Search in categories]]></phrase>
+  <phrase title="xfmg_search_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Search media]]></phrase>
+  <phrase title="xfmg_search_media_comments" version_id="902000031" version_string="2.0.0 Beta 1"><![CDATA[Search media comments]]></phrase>
+  <phrase title="xfmg_selected_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Selected albums]]></phrase>
+  <phrase title="xfmg_selected_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Selected comments]]></phrase>
+  <phrase title="xfmg_selected_container_does_not_support_this_media_type" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[The selected album/category does not support this media type.]]></phrase>
+  <phrase title="xfmg_selected_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Selected media items]]></phrase>
+  <phrase title="xfmg_selected_media_types" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Selected media types]]></phrase>
+  <phrase title="xfmg_set_as_avatar" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Set as avatar]]></phrase>
+  <phrase title="xfmg_share_this_album" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Share this album]]></phrase>
+  <phrase title="xfmg_share_this_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Share this media]]></phrase>
+  <phrase title="xfmg_sibling_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Sibling category]]></phrase>
+  <phrase title="xfmg_soft_delete_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Soft delete items]]></phrase>
+  <phrase title="xfmg_specific_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Specific category]]></phrase>
+  <phrase title="xfmg_stop_adding_note_tag" version_id="902000053" version_string="2.0.0 Release Candidate 3"><![CDATA[Stop adding note/tag]]></phrase>
+  <phrase title="xfmg_stop_notification_emails_from_all_albums" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Stop notification emails from all albums]]></phrase>
+  <phrase title="xfmg_stop_notification_emails_from_all_media" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Stop notification emails from all media]]></phrase>
+  <phrase title="xfmg_stop_watching_albums" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Stop watching albums]]></phrase>
+  <phrase title="xfmg_stop_watching_media" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Stop watching media]]></phrase>
+  <phrase title="xfmg_sub_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Sub-categories]]></phrase>
+  <phrase title="xfmg_sync_attachment_media_mirroring" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Sync attachment media mirroring]]></phrase>
+  <phrase title="xfmg_sync_attachment_media_mirroring_explain" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Running this will update the attachment media mirrors to match the current settings. This may create additional media items, remove ones that are no longer applicable, or move existing ones to a different category.]]></phrase>
+  <phrase title="xfmg_tag_user" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Tag a user]]></phrase>
+  <phrase title="xfmg_tagged_in_this_image" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Tagged in this image]]></phrase>
+  <phrase title="xfmg_there_is_no_media_matching_your_filters" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[There is no media matching your filters.]]></phrase>
+  <phrase title="xfmg_there_is_no_media_or_albums_matching_your_filters" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[There is no media or albums matching your filters.]]></phrase>
+  <phrase title="xfmg_there_more_comments_to_display" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[There are more comments to display.]]></phrase>
+  <phrase title="xfmg_there_no_albums_matching_your_filters" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[There are no albums matching your filters.]]></phrase>
+  <phrase title="xfmg_there_no_comments_to_display" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[There are no comments to display.]]></phrase>
+  <phrase title="xfmg_there_no_media_items_to_display" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[There are no media items to display.]]></phrase>
+  <phrase title="xfmg_this_file_is_not_encoded_in_supported_format_and_cannot_be_transcoded" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[This file is not encoded in a supported format and cannot be transcoded. Please upload a different file.]]></phrase>
+  <phrase title="xfmg_this_is_total_number_of_albums_that_will_be_loaded_in_slider" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[This is the total number of albums that will be loaded in the slider.]]></phrase>
+  <phrase title="xfmg_this_media_needs_to_be_processed_before_it_can_be_added_to_gallery" version_id="902000270" version_string="2.0.2"><![CDATA[This media needs to be processed before it can be added to the gallery. You will receive an alert once processing is finished.]]></phrase>
+  <phrase title="xfmg_this_rating_will_replace_your_previous_rating" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[This rating will replace your previous rating.]]></phrase>
+  <phrase title="xfmg_this_will_also_update_poster_image_for_this_media_item" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[<strong>Note:</strong> This will also update the poster image for this media item.]]></phrase>
+  <phrase title="xfmg_thumbnail_type_default_hint" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[If selected, this option will rebuild the existing thumbnail, if available. If a custom thumbnail has been uploaded it will be deleted.]]></phrase>
+  <phrase title="xfmg_time_limit_to_delete_this_album_x_minutes_has_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The time limit to delete this album ({editLimit} minutes) has expired.]]></phrase>
+  <phrase title="xfmg_time_limit_to_delete_this_comment_x_minutes_has_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The time limit to delete this comment ({editLimit} minutes) has expired.]]></phrase>
+  <phrase title="xfmg_time_limit_to_delete_this_media_x_minutes_has_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The time limit to delete this media ({editLimit} minutes) has expired.]]></phrase>
+  <phrase title="xfmg_time_limit_to_edit_this_album_x_minutes_has_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The time limit to edit this album ({editLimit} minutes) has expired.]]></phrase>
+  <phrase title="xfmg_time_limit_to_edit_this_comment_x_minutes_has_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The time limit to edit this comment ({editLimit} minutes) has expired.]]></phrase>
+  <phrase title="xfmg_time_limit_to_edit_this_media_x_minutes_has_expired" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[The time limit to edit this media ({editLimit} minutes) has expired.]]></phrase>
+  <phrase title="xfmg_to_transcode_media_we_need_to_defer_processing_to_command_line" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[To transcode media we need to defer the processing to a command line script which will be executed by the PHP binary specified. You can sometimes find this with the command <code>which php</code>.]]></phrase>
+  <phrase title="xfmg_total_comments" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Total comments]]></phrase>
+  <phrase title="xfmg_transcode_limit" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Transcode limit]]></phrase>
+  <phrase title="xfmg_transcode_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Transcode media]]></phrase>
+  <phrase title="xfmg_transcode_media_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[If enabled, this will allow you to support more formats by transcoding media to H.264 / AAC / MP3 where required.]]></phrase>
+  <phrase title="xfmg_transcoded_item_by_x_named_y_failed_creation" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Transcoded media item uploaded by {username} named {title} failed to be created.]]></phrase>
+  <phrase title="xfmg_transcoded_item_by_x_named_y_failed_transcoding" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Media item uploaded by {username} named {title} failed to be transcoded.]]></phrase>
+  <phrase title="xfmg_unable_to_edit_selected_image" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unable to edit the selected image. Please try again.]]></phrase>
+  <phrase title="xfmg_unapprove_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unapprove albums]]></phrase>
+  <phrase title="xfmg_unapprove_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unapprove comments]]></phrase>
+  <phrase title="xfmg_unapprove_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unapprove media items]]></phrase>
+  <phrase title="xfmg_undelete_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Undelete albums]]></phrase>
+  <phrase title="xfmg_undelete_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Undelete comments]]></phrase>
+  <phrase title="xfmg_undelete_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Undelete media items]]></phrase>
+  <phrase title="xfmg_unread_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unread comments]]></phrase>
+  <phrase title="xfmg_unviewed_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Unviewed media]]></phrase>
+  <phrase title="xfmg_unwatch_album" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Unwatch album]]></phrase>
+  <phrase title="xfmg_unwatch_media_item" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Unwatch media item]]></phrase>
+  <phrase title="xfmg_unwatermark_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Unwatermark items]]></phrase>
+  <phrase title="xfmg_unwatermark_media_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Unwatermark media items]]></phrase>
+  <phrase title="xfmg_update_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Update items]]></phrase>
+  <phrase title="xfmg_update_media_watermarks" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Update media watermarks]]></phrase>
+  <phrase title="xfmg_upload_file" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Upload file]]></phrase>
+  <phrase title="xfmg_upload_new_custom_thumbnail" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Upload new custom thumbnail:]]></phrase>
+  <phrase title="xfmg_uploaded_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Uploaded media]]></phrase>
+  <phrase title="xfmg_use_custom_thumbnail" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Use custom thumbnail]]></phrase>
+  <phrase title="xfmg_use_default_thumbnail" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Use default thumbnail]]></phrase>
+  <phrase title="xfmg_user_album_index" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[User album index]]></phrase>
+  <phrase title="xfmg_user_album_indexes" version_id="902010170" version_string="2.1.1"><![CDATA[User album indexes]]></phrase>
+  <phrase title="xfmg_user_has_added_at_least_x_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[User has added at least X media items]]></phrase>
+  <phrase title="xfmg_user_has_created_at_least_x_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[User has created at least X albums]]></phrase>
+  <phrase title="xfmg_user_media_index" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[User media index]]></phrase>
+  <phrase title="xfmg_user_media_indexes" version_id="902010170" version_string="2.1.1"><![CDATA[User media indexes]]></phrase>
+  <phrase title="xfmg_user_media_quotas" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[User media quotas]]></phrase>
+  <phrase title="xfmg_using_x_of_your_y_quota" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Using {quota} of your {total} quota.]]></phrase>
+  <phrase title="xfmg_videos" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[Videos]]></phrase>
+  <phrase title="xfmg_view_album" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[View album]]></phrase>
+  <phrase title="xfmg_view_album_x" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View album {id}]]></phrase>
+  <phrase title="xfmg_view_count" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View count]]></phrase>
+  <phrase title="xfmg_view_media" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[View media]]></phrase>
+  <phrase title="xfmg_view_media_item" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[View media item]]></phrase>
+  <phrase title="xfmg_view_media_item_x" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View media item {id}]]></phrase>
+  <phrase title="xfmg_view_this_album" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[View this album]]></phrase>
+  <phrase title="xfmg_view_this_media_item" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[View this media item]]></phrase>
+  <phrase title="xfmg_view_users_explain" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Enter the names above of the members who are allowed to view media items. The album owner is always permitted automatically.]]></phrase>
+  <phrase title="xfmg_viewing_album" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Viewing album]]></phrase>
+  <phrase title="xfmg_viewing_albums" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Viewing albums]]></phrase>
+  <phrase title="xfmg_viewing_media_category" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Viewing media category]]></phrase>
+  <phrase title="xfmg_viewing_media_item" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Viewing media item]]></phrase>
+  <phrase title="xfmg_viewing_media_items" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[Viewing media items]]></phrase>
+  <phrase title="xfmg_watch_album" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watch album]]></phrase>
+  <phrase title="xfmg_watch_media_item" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watch media item]]></phrase>
+  <phrase title="xfmg_watched_album_comment_email_html" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[<p>{author} commented on an album you are watching at {board_title}.</p>]]></phrase>
+  <phrase title="xfmg_watched_album_email_html_footer" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[<p class="minorText">Please do not reply to this message. You must visit the forum to reply.</p>
+
+<p class="minorText">This message was sent to you because you opted to watch the media item "{album}" at {board} with email notification of new media items or new comments.</p>
+
+<p class="minorText">If you no longer wish to receive these emails, you may <a href="{disable_this_link}">disable emails from this album</a> or <a href="{disable_all_link}">disable all emails</a>.</p>]]></phrase>
+  <phrase title="xfmg_watched_album_media_email_html" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[<p>{author} added a media item to an album you are watching at {board}.</p>]]></phrase>
+  <phrase title="xfmg_watched_albums" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watched albums]]></phrase>
+  <phrase title="xfmg_watched_category_email_html_footer" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[<p class="minorText">Please do not reply to this message. You must visit the forum to reply.</p>
+
+<p class="minorText">This message was sent to you because you opted to watch the category "{category}" at {board} with email notification of new media items.</p>
+
+<p class="minorText">If you no longer wish to receive these emails, you may <a href="{disable_this_link}">disable emails from this category</a> or <a href="{disable_all_link}">disable all emails</a>.</p>]]></phrase>
+  <phrase title="xfmg_watched_category_media_email_html" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[<p>{author} added a media item to a category you are watching at {board}.</p>]]></phrase>
+  <phrase title="xfmg_watched_media" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watched media]]></phrase>
+  <phrase title="xfmg_watched_media_comment_email_html" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[<p>{author} commented on a media item you are watching at {board_title}.</p>]]></phrase>
+  <phrase title="xfmg_watched_media_email_html_footer" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[<p class="minorText">Please do not reply to this message. You must visit the forum to reply.</p>
+
+<p class="minorText">This message was sent to you because you opted to watch the media item "{media}" at {board} with email notification of new comments.</p>
+
+<p class="minorText">If you no longer wish to receive these emails, you may <a href="{disable_this_link}">disable emails from this media item</a> or <a href="{disable_all_link}">disable all emails</a>.</p>]]></phrase>
+  <phrase title="xfmg_watermark" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watermark]]></phrase>
+  <phrase title="xfmg_watermark_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watermark items]]></phrase>
+  <phrase title="xfmg_watermark_media_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watermark media items]]></phrase>
+  <phrase title="xfmg_watermark_state" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watermark state]]></phrase>
+  <phrase title="xfmg_watermarked" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watermarked]]></phrase>
+  <phrase title="xfmg_watermarking_is_not_enabled" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Watermarking is not enabled.]]></phrase>
+  <phrase title="xfmg_wide" version_id="902000470" version_string="2.0.4"><![CDATA[Wide]]></phrase>
+  <phrase title="xfmg_write_note" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Write a note]]></phrase>
+  <phrase title="xfmg_x_added_media_item_y" version_id="902000032" version_string="2.0.0 Beta 2"><![CDATA[{name} added the media item {title}.]]></phrase>
+  <phrase title="xfmg_x_added_media_item_y_to_album_z" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} added the media item {title} to {album}.]]></phrase>
+  <phrase title="xfmg_x_added_media_item_y_to_category_z" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} added the media item {title} to {category}.]]></phrase>
+  <phrase title="xfmg_x_commented_on_album_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} commented on album {album}.]]></phrase>
+  <phrase title="xfmg_x_commented_on_media_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} commented on media item {media}.]]></phrase>
+  <phrase title="xfmg_x_created_album_y" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} created the album {title}.]]></phrase>
+  <phrase title="xfmg_x_created_album_y_in_category_z" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} created the album {title} in {category}.]]></phrase>
+  <phrase title="xfmg_x_has_not_added_any_albums_which_match_your_filters" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[{name} has not added any albums which match your filters.]]></phrase>
+  <phrase title="xfmg_x_has_not_added_any_albums_yet" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[{name} has not added any albums yet.]]></phrase>
+  <phrase title="xfmg_x_has_not_added_any_media_which_matches_your_filters" version_id="902000038" version_string="2.0.0 Beta 8"><![CDATA[{name} has not added any media which matches your filters.]]></phrase>
+  <phrase title="xfmg_x_has_not_added_any_media_yet" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[{name} has not added any media yet.]]></phrase>
+  <phrase title="xfmg_x_mentioned_you_in_comment_on_album_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} mentioned you in a comment on album {album}.]]></phrase>
+  <phrase title="xfmg_x_mentioned_you_in_comment_on_media_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} mentioned you in a comment on media item {media}.]]></phrase>
+  <phrase title="xfmg_x_mentioned_you_on_album_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} mentioned you on album {album}.]]></phrase>
+  <phrase title="xfmg_x_mentioned_you_on_media_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} mentioned you on media item {media}.]]></phrase>
+  <phrase title="xfmg_x_posted_comment_on_album_y" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} posted a comment on the album {title}.]]></phrase>
+  <phrase title="xfmg_x_posted_comment_on_media_item_y" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} posted a comment on the media item {title}.]]></phrase>
+  <phrase title="xfmg_x_quoted_your_comment_on_album_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} quoted your comment on album {album}.]]></phrase>
+  <phrase title="xfmg_x_quoted_your_comment_on_media_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{user} quoted your comment on media item {media}.]]></phrase>
+  <phrase title="xfmg_x_rated_album_y" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} rated the album {title}.]]></phrase>
+  <phrase title="xfmg_x_rated_media_item_y" version_id="902000036" version_string="2.0.0 Beta 6"><![CDATA[{username} rated the media item {title}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_your_album_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to your album {item} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_your_comment_on_album_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to your comment on album {album} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_your_comment_on_media_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to your comment on media item {media} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_your_media_y" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to your media {item} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_ys_album_z" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to {author}'s album {item} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_ys_comment_on_album_z" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to {author}'s comment on album {album} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_ys_comment_on_media_z" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to {author}'s comment on media item {media} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reacted_to_ys_media_z" version_id="902010010" version_string="2.1.0 Alpha"><![CDATA[{user} reacted to {author}'s media {item} with {reaction}.]]></phrase>
+  <phrase title="xfmg_x_reviewed_album_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{username} reviewed the album {title}.]]></phrase>
+  <phrase title="xfmg_x_reviewed_media_item_y" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[{username} reviewed the media item {title}.]]></phrase>
+  <phrase title="xfmg_x_seconds" version_id="902010570" version_string="2.1.5" global_cache="1"><![CDATA[{count} second(s)]]></phrase>
+  <phrase title="xfmg_x_shared_their_album_y_add" version_id="902000033" version_string="2.0.0 Beta 3"><![CDATA[{user} has shared their album {item} with you and you are now able to add media to it.]]></phrase>
+  <phrase title="xfmg_x_shared_their_album_y_view" version_id="902000033" version_string="2.0.0 Beta 3"><![CDATA[{user} has shared their album {item} with you.]]></phrase>
+  <phrase title="xfmg_x_tagged_you_in_media_y" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[{user} tagged you in media {item}.]]></phrase>
+  <phrase title="xfmg_x_tagged_you_in_media_y_approval" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[{user} tagged you in media {item}. You can either {approve} or {reject} this tag.]]></phrase>
+  <phrase title="xfmg_you_can_embed_media_from_various_bb_code_media_sites" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You can embed media from various BB code media sites]]></phrase>
+  <phrase title="xfmg_you_can_not_add_media_to_container_categories" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You can not add media to container categories.]]></phrase>
+  <phrase title="xfmg_you_do_not_have_permission_to_add_media_to_this_album" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[You do not have permission to add media to this album.]]></phrase>
+  <phrase title="xfmg_you_do_not_have_permission_to_add_media_to_this_category" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You do not have permission to add media to this category.]]></phrase>
+  <phrase title="xfmg_you_have_no_unread_comments" version_id="902000033" version_string="2.0.0 Beta 3"><![CDATA[You have no unread comments. You may <a href="{link}" rel="nofollow">read all latest comments</a> instead.]]></phrase>
+  <phrase title="xfmg_you_have_no_unviewed_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You have no unviewed media. You may <a href="{link}" rel="nofollow">view all latest media</a> instead.]]></phrase>
+  <phrase title="xfmg_you_may_only_import_from_xenforo_media_gallery_x" version_id="902010131" version_string="2.1.1 Beta 1"><![CDATA[You may only import from XenForo Media Gallery {version}.]]></phrase>
+  <phrase title="xfmg_you_must_specify_title_to_create_new_album_for_these_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You must specify a title to create a new album for these media items before continuing.]]></phrase>
+  <phrase title="xfmg_you_not_watching_any_albums" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[You are not watching any albums.]]></phrase>
+  <phrase title="xfmg_you_not_watching_any_media_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[You are not watching any media items.]]></phrase>
+  <phrase title="xfmg_you_only_permitted_to_tag_yourself_in_this_media_item" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You are only permitted to tag yourself in this media item.]]></phrase>
+  <phrase title="xfmg_you_required_to_leave_comment_when_rating" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You are required to leave a comment when rating.]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_add_watermark_to_x_media_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Are you sure you want to add a watermark to {total} media item(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_change_privacy_of_x_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to change the privacy of {total} album(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_delete_x_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to delete {total} album(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_delete_x_comments" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to delete {total} comment(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_delete_x_media_items" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to delete {total} media item(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_mark_all_media_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to mark all media viewed?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_mark_this_album_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to mark this album viewed?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_mark_this_category_viewed" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to mark this category viewed?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_move_x_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Are you sure you want to move {total} album(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_move_x_media_items" version_id="902000037" version_string="2.0.0 Beta 7"><![CDATA[Are you sure you want to move {total} media item(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_remove_watermark_from_x_media_items" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Are you sure you want to remove the watermark from {total} media item(s)?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_stop_watching_all_albums" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Are you sure you want to stop watching <b>all</b> albums?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_stop_watching_all_media" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Are you sure you want to stop watching <b>all</b> media?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_unwatch_this_album" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Are you sure you want to unwatch this album?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_unwatch_this_media_item" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Are you sure you want to unwatch this media item?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_update_your_alert_settings_all_albums" version_id="902010970" version_string="2.1.9"><![CDATA[Are you sure you want to update your alert settings for <b>all</b> albums?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_update_your_alert_settings_all_media" version_id="902010970" version_string="2.1.9"><![CDATA[Are you sure you want to update your alert settings for <b>all</b> media?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_update_your_email_notification_settings_all_albums" version_id="902010970" version_string="2.1.9"><![CDATA[Are you sure you want to update your email notification settings for <b>all</b> albums?]]></phrase>
+  <phrase title="xfmg_you_sure_you_want_to_update_your_email_notification_settings_all_media" version_id="902010970" version_string="2.1.9"><![CDATA[Are you sure you want to update your email notification settings for <b>all</b> media?]]></phrase>
+  <phrase title="xfmg_you_will_be_shown_list_of_all_albums_that_you_can_add_media_to" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[You will be shown a list of all albums that you can add media to.]]></phrase>
+  <phrase title="xfmg_your_album_x_was_deleted" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your album {title} was deleted.]]></phrase>
+  <phrase title="xfmg_your_album_x_was_edited" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your album {title} was edited.]]></phrase>
+  <phrase title="xfmg_your_album_x_was_moved" version_id="902000470" version_string="2.0.4"><![CDATA[Your album {title} was moved.]]></phrase>
+  <phrase title="xfmg_your_albums" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your albums]]></phrase>
+  <phrase title="xfmg_your_browser_is_not_able_to_play_this_audio" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Your browser is not able to play this audio.]]></phrase>
+  <phrase title="xfmg_your_comment_has_been_added" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your comment has been added.]]></phrase>
+  <phrase title="xfmg_your_comment_on_album_x_was_deleted" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your comment on the album {title} was deleted.]]></phrase>
+  <phrase title="xfmg_your_comment_on_album_x_was_edited" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your comment on the album {title} was edited.]]></phrase>
+  <phrase title="xfmg_your_comment_on_media_x_was_deleted" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your comment on the media item {title} was deleted.]]></phrase>
+  <phrase title="xfmg_your_comment_on_media_x_was_edited" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your comment on the media item {title} was edited.]]></phrase>
+  <phrase title="xfmg_your_media" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your media]]></phrase>
+  <phrase title="xfmg_your_media_item_x_was_moved" version_id="902000051" version_string="2.0.0 Release Candidate 1"><![CDATA[Your media item {title} was moved.]]></phrase>
+  <phrase title="xfmg_your_media_x_was_deleted" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your media {title} was deleted.]]></phrase>
+  <phrase title="xfmg_your_media_x_was_edited" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your media {title} was edited.]]></phrase>
+  <phrase title="xfmg_your_rating_has_been_added" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your rating has been added.]]></phrase>
+  <phrase title="xfmg_your_reply_to_album_x_was_submitted" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Your reply to the album {title} was submitted.]]></phrase>
+  <phrase title="xfmg_your_reply_to_media_item_x_was_submitted" version_id="902020010" version_string="2.2.0 Alpha"><![CDATA[Your reply to the media item {title} was submitted.]]></phrase>
+  <phrase title="xfmg_your_statistics" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your statistics]]></phrase>
+  <phrase title="xfmg_your_usage" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Your usage]]></phrase>
+  <phrase title="xfmg_zoom_in" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Zoom in]]></phrase>
+  <phrase title="xfmg_zoom_out" version_id="902000010" version_string="2.0.0 Alpha"><![CDATA[Zoom out]]></phrase>
+</phrases>

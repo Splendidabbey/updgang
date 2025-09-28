@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content_type_fields>
+  <field content_type="lfs_sticked_link_purchase" field_name="alert_handler_class">BS\LiveForumStatistics\Alert\StickedLinkPurchase</field>
+  <field content_type="lfs_sticked_link_purchase" field_name="approval_queue_handler_class">BS\LiveForumStatistics\ApprovalQueue\StickedLinkPurchase</field>
+  <field content_type="lfs_sticked_link_purchase" field_name="entity">BS\LiveForumStatistics:StickedLinkPurchase</field>
+</content_type_fields>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content_type_fields>
+  <field content_type="af_as_award" field_name="alert_handler_class">AddonFlare\AwardSystem\Alert\Award</field>
+  <field content_type="af_as_award" field_name="entity">AddonFlare\AwardSystem:Award</field>
+  <field content_type="af_as_user_award" field_name="alert_handler_class">AddonFlare\AwardSystem\Alert\UserAward</field>
+  <field content_type="af_as_user_award" field_name="entity">AddonFlare\AwardSystem:UserAward</field>
+</content_type_fields>

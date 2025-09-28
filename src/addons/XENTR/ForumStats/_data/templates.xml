@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="public" title="xentr__forum_statistics" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:css src="xentr__forum_statistics.less" />
+
+<div class="block"{{ widget_data($widget) }}>	
+	<div class="block-container">
+		<xf:if is="property('xentr_forum_statistics_title')">
+			<h3 class="block-minorHeader">{$title}</h3>
+		</xf:if>	
+		<div class="block-body block-row">
+			<div class="xentr-forum-statistics">
+				
+				<div class="contentRow count--threads">
+					<div class="contentRow-figure">
+						<i class="{{ property('xentr_forumStatisticsThreadsIcon') }}"></i>	
+					</div>
+					<div class="contentRow-main">
+						<span class="statistics-count">{$forumStatistics.threads|number}</span>
+						<span class="statistics-title">{{ phrase('threads') }}</span>
+					</div>	
+				</div>	
+
+				<div class="contentRow count--messages">
+					<div class="contentRow-figure">
+						<i class="{{ property('xentr_forumStatisticsMessagesIcon') }}"></i>
+					</div>
+					<div class="contentRow-main">
+						<span class="statistics-count">{$forumStatistics.messages|number}</span>
+						<span class="statistics-title">{{ phrase('messages') }}</span>
+					</div>	
+				</div>
+
+				<div class="contentRow count--users">
+					<div class="contentRow-figure">
+						<i class="{{ property('xentr_forumStatisticsMembersIcon') }}"></i>
+					</div>
+					<div class="contentRow-main">
+						<span class="statistics-count">{$forumStatistics.users|number}</span>
+						<span class="statistics-title">{{ phrase('members') }}</span>
+					</div>	
+				</div>
+
+				<div class="contentRow latest-member">
+					<div class="contentRow-figure">
+						<i class="{{ property('xentr_forumStatisticsLatestMemberIcon') }}"></i>	
+					</div>
+					<div class="contentRow-main">
+						<span class="contentRow-title"><xf:username user="{$forumStatistics.latestUser}" /></span>
+						<span class="statistics-title">{{ phrase('latest_member') }}</span>
+					</div>	
+				</div>
+				
+			</div>	
+		</div>
+	</div>
+</div>]]></template>
+  <template type="public" title="xentr__forum_statistics.less" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:comment>
+/*  ====================================================
+Author: XenTR
+Web: https://xentr.net/
+XenForo Profile: https://xenforo.com/community/members/osman.87294/
+======================================================== */
+</xf:comment>
+
+.xentr-forum-statistics 
+{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+		
+	.contentRow 
+	{
+		flex: 1;
+		flex-direction: column;
+		margin: @xf-paddingSmall;
+		border-radius: @xf-borderRadiusMedium;
+			
+		&.count--threads 
+		{
+			.xf-xentr_forumStatisticsThreads();
+		}
+			
+		&.count--messages 
+		{
+			.xf-xentr_forumStatisticsMessages();
+		}
+			
+		&.count--users 
+		{
+			.xf-xentr_forumStatisticsMembers();
+		}
+			
+		&.latest-member 
+		{
+			.xf-xentr_forumStatisticsLatestMember();
+		}
+			
+		.contentRow-figure 
+		{
+			<xf:if is="property('styleType') == 'light'">
+			border-bottom: @xf-borderSize solid rgba(255,255,255,0.1);
+			<xf:else />
+			border-bottom: @xf-borderSize solid rgba(0,0,0,0.1);
+			</xf:if>
+				
+			i 
+			{
+				font-size: {{ property('xentr_forumStatisticsIconSize')}}px;
+				padding: @xf-paddingLargest 0;
+				width: 100%;
+			}
+		}
+			
+		.contentRow-main 
+		{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: @xf-paddingMedium 0;
+			<xf:if is="property('styleType') == 'light'">
+    		background-color: fade(@xf-paletteNeutral3, 15%);
+			<xf:else />
+			background-color: fade(@xf-paletteNeutral1, 15%);
+			</xf:if>
+				
+			.statistics-count
+			{
+				.xf-xentr_forumStatisticsCounts();
+			}
+				
+			.statistics-title 
+			{
+				.xf-xentr_forumStatisticsTitle();
+			}
+		}		
+	}
+		
+	// Latest member	
+
+
+
+	.latest-member 
+	{
+		flex: 100%;
+    	flex-direction: inherit;
+		overflow: hidden;
+				
+		.contentRow-figure 
+		{
+			width: 55px;	
+		}
+			
+		.contentRow-main 
+		{
+			align-items: flex-start;
+    		padding-left: @xf-paddingLarge;
+		}
+			
+		.contentRow-title 
+		{
+			width: 100%;
+			.m-overflowEllipsis();
+					
+			a 
+			{
+				color: @xf-xentr_forumStatistics--color;
+			}
+		}
+	}	
+}
+
+@media (min-width: @xf-publicNavCollapseWidth)
+{
+	.p-body-content 
+	{
+		.xentr-forum-statistics 
+		{
+			.latest-member 
+			{
+				flex: 1;
+    			flex-direction: column;
+				
+				.contentRow-figure 
+				{
+					width: auto;
+				}
+			}
+		}
+	}
+}]]></template>
+</templates>

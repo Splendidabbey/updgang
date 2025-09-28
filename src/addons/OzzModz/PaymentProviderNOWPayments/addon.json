@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "",
+    "title": "[XB] Payment Provider: NOWPayments",
+    "description": "",
+    "version_id": 2000193,
+    "version_string": "2.0.1 Patch Level 3",
+    "dev": "Painbaker",
+    "dev_url": "https://xenforo.com/community/members/painbaker.184537/",
+    "faq_url": "",
+    "support_url": "https://xenbaker.com/",
+    "extra_urls": [],
+    "require": [],
+    "icon": "icon.png"
+}

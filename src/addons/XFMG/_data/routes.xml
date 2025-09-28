@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="admin" route_prefix="media-gallery" controller="XFMG:Media" context="xfmg"/>
+  <route route_type="admin" route_prefix="media-gallery" sub_name="batch-update" format="batch-update/" controller="XFMG:BatchUpdateMedia"/>
+  <route route_type="admin" route_prefix="media-gallery" sub_name="batch-update/albums" format="batch-update/albums" controller="XFMG:BatchUpdateAlbum"/>
+  <route route_type="admin" route_prefix="media-gallery" sub_name="batch-update/media" format="batch-update/media" controller="XFMG:BatchUpdateMedia"/>
+  <route route_type="admin" route_prefix="media-gallery" sub_name="categories" format="categories/:int&lt;category_id,title&gt;/" controller="XFMG:Category" context="xfmgCategories"/>
+  <route route_type="admin" route_prefix="media-gallery" sub_name="fields" format="fields/:str&lt;field_id&gt;/" controller="XFMG:MediaField" context="xfmgFields"/>
+  <route route_type="admin" route_prefix="permissions" sub_name="media-categories" format="media-categories/:int&lt;category_id,title&gt;/" controller="XFMG:Permission" context="xfmgCategoryPermissions" action_prefix="category"/>
+  <route route_type="api" route_prefix="media" controller="XFMG:MediaItems"/>
+  <route route_type="api" route_prefix="media" sub_name="-" format=":+int&lt;media_id&gt;/" controller="XFMG:MediaItem"/>
+  <route route_type="api" route_prefix="media-albums" controller="XFMG:Albums"/>
+  <route route_type="api" route_prefix="media-albums" sub_name="-" format=":+int&lt;album_id&gt;/" controller="XFMG:Album"/>
+  <route route_type="api" route_prefix="media-categories" controller="XFMG:Categories"/>
+  <route route_type="api" route_prefix="media-categories" sub_name="-" format=":+int&lt;category_id&gt;/" controller="XFMG:Category"/>
+  <route route_type="api" route_prefix="media-comments" controller="XFMG:Comments"/>
+  <route route_type="api" route_prefix="media-comments" sub_name="-" format=":+int&lt;comment_id&gt;/" controller="XFMG:Comment"/>
+  <route route_type="public" route_prefix="media" format=":int&lt;media_id,title&gt;/:page" controller="XFMG:Media" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="album-comments" format="album-comments/:int&lt;album_id,title&gt;/" controller="XFMG:AlbumComment" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="album-ratings" format="album-ratings/:int&lt;album_id,title&gt;/" controller="XFMG:AlbumRating" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="albums" format="albums/:int&lt;album_id,title&gt;/:page" controller="XFMG:Album" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="albums/dialog" format="albums/dialog/" controller="XFMG:Album" context="XFMG" action_prefix="dialog"/>
+  <route route_type="public" route_prefix="media" sub_name="albums/users" format="albums/users/:int&lt;user_id,username&gt;/:page" controller="XFMG:Album" context="xfmg" action_prefix="users"/>
+  <route route_type="public" route_prefix="media" sub_name="categories" format="categories/:int&lt;category_id,title&gt;/:page" controller="XFMG:Category" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="comments" format="comments/:int&lt;comment_id&gt;/" controller="XFMG:Comment" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="dialog" format="dialog/" controller="XFMG:Media" context="xfmg" action_prefix="dialog"/>
+  <route route_type="public" route_prefix="media" sub_name="media-comments" format="media-comments/:int&lt;media_id,title&gt;/" controller="XFMG:MediaComment" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="media-ratings" format="media-ratings/:int&lt;media_id,title&gt;/" controller="XFMG:MediaRating" context="xfmg"/>
+  <route route_type="public" route_prefix="media" sub_name="users" format="users/:int&lt;user_id,username&gt;/:page" controller="XFMG:Media" context="xfmg" action_prefix="users"/>
+  <route route_type="public" route_prefix="whats-new" sub_name="media" format="media/:int&lt;find_new_id&gt;/:page" controller="XFMG:WhatsNewMedia" context="xfmg"/>
+  <route route_type="public" route_prefix="whats-new" sub_name="media-comments" format="media-comments/:int&lt;find_new_id&gt;/:page" controller="XFMG:WhatsNewComment" context="xfmg"/>
+</routes>

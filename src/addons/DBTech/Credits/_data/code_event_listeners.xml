@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_event_listeners>
+  <listener event_id="app_pub_render_page" execute_order="10" callback_class="DBTech\Credits\Listener" callback_method="appPubRenderPage" active="1" description="Change section context when we're in &quot;DB Shop mode&quot;"/>
+  <listener event_id="app_pub_setup" execute_order="10" callback_class="DBTech\Credits\Listener" callback_method="appPubSetup" active="1" description="App setup"/>
+  <listener event_id="app_setup" execute_order="10" callback_class="DBTech\Credits\Listener" callback_method="appSetup" active="1" description="App setup"/>
+  <listener event_id="criteria_user" execute_order="10" callback_class="DBTech\Credits\Listener" callback_method="criteriaUser" active="1" description="Check Trophy Criteria"/>
+  <listener event_id="editor_dialog" execute_order="10" callback_class="DBTech\Credits\Listener" callback_method="editorDialog" active="1" hint="dbtechCreditsCharge" description="Inject editor dialog"/>
+  <listener event_id="navigation_setup" execute_order="20" callback_class="DBTech\Credits\Listener" callback_method="navigationSetup" active="1" description="Programmatically add to the navbar menu."/>
+  <listener event_id="templater_macro_pre_render" execute_order="10" callback_class="DBTech\Credits\Listener" callback_method="templaterMacroPreRender" active="1" hint="admin:option_macros:option_form_block" description="Modify the option macro to allow tabbed options."/>
+</code_event_listeners>

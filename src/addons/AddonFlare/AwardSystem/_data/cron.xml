@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cron>
+  <entry entry_id="af_as_user_award" cron_class="AddonFlare\AwardSystem\Cron\Award" cron_method="runAwardCheck" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[2]}]]></entry>
+</cron>

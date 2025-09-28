@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permission_interface_groups>
+  <interface_group interface_group_id="xfmgAlbum" display_order="520" is_moderator="0"/>
+  <interface_group interface_group_id="xfmgAlbumModerator" display_order="525" is_moderator="1"/>
+  <interface_group interface_group_id="xfmgComment" display_order="530" is_moderator="0"/>
+  <interface_group interface_group_id="xfmgCommentModerator" display_order="535" is_moderator="1"/>
+  <interface_group interface_group_id="xfmgMedia" display_order="510" is_moderator="0"/>
+  <interface_group interface_group_id="xfmgMediaModerator" display_order="515" is_moderator="1"/>
+  <interface_group interface_group_id="xfmgNote" display_order="550" is_moderator="0"/>
+  <interface_group interface_group_id="xfmgNoteModerator" display_order="560" is_moderator="1"/>
+  <interface_group interface_group_id="xfmgUploadQuotas" display_order="570" is_moderator="0"/>
+</permission_interface_groups>

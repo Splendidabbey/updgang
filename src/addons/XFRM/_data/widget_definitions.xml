@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget_definitions>
+  <widget_definition definition_id="xfrm_featured_resources" definition_class="XFRM\Widget\FeaturedResources"/>
+  <widget_definition definition_id="xfrm_latest_reviews" definition_class="XFRM\Widget\LatestReviews"/>
+  <widget_definition definition_id="xfrm_new_resources" definition_class="XFRM\Widget\NewResources"/>
+  <widget_definition definition_id="xfrm_top_resources" definition_class="XFRM\Widget\TopResources"/>
+</widget_definitions>

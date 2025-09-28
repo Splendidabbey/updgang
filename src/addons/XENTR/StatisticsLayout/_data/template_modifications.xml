@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+<modification type="public" template="PAGE_CONTAINER" modification_key="xfworld_copyright" description="xfworld Copyright" execution_order="100" enabled="1" action="str_replace">
+<find><![CDATA[{{ phrase('extra_copyright') }}]]></find>
+<replace><![CDATA[$0
+<div class="xfworld-copyright">
+<a href="https://xfworld.net"
+target="_blank">Addon provided by xfworld.net ©2000-2022</a>
+</div>]]></replace>
+</modification>
+  <modification type="public" template="lfs_macros" modification_key="xentr_sub_header" description="[XTR] Live Forum Statistics Layout - Include Sub Header" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[		<div class="tabGroup-content">]]></find>
+    <replace><![CDATA[		<xf:include template="xentr_live_forum_statistics_sub_tab" />
+$0]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_member_definition_macros" modification_key="xentr_hide_item_icons_member_tab" description="[XTR] Live Forum Statistics Layout - Hide Item Icons On Member Tab" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[		<div class="structItem-cell structItem-cell--icon">
+			<xf:fa icon="fas fa-user" />
+		</div>]]></find>
+    <replace><![CDATA[		<xf:if is="!$xf.options.xtrStatisticsMemberItemIcon">
+			<div class="structItem-cell structItem-cell--icon">
+				<xf:fa icon="fas fa-user" />
+			</div>
+		</xf:if>
+		]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_member_definition_macros" modification_key="xentr_include_order_member_tab" description="[XTR] Live Forum Statistics Layout - Include Order Member Tab" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[	<li class="structItem structItem--lfsItem" id="js-lfsItemUser-{$user.user_id}"
+		{{ $date ? 'data-date="' . $date . '"' : ''}}>]]></find>
+    <replace><![CDATA[$0
+		<xf:if is="$xf.options.xtrStatisticsExtra">
+			<div class="structItem-cell structItem-cell--order"></div>
+		</xf:if>
+]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_thread_definition_macros" modification_key="xentr_extra_element_search" description="[XTR] Live Forum Statistics Layout - Include Google Search" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[			<xf:set var="$canPreview" value="{{ $thread.canPreview() }}" />]]></find>
+    <replace><![CDATA[$0
+			<xf:if is="$xf.options.xtrStatisticsSearch">
+				<a class="google-icon" href="http://www.google.com/search?hl=tr&amp;q={$thread.title}"title="{$thread.title}" target="_blank">
+					<span class="contentRow-minor" title="{{ phrase('xentr_search_on_google') }}">
+						<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+							width="16" height="16"
+							viewBox="0 0 48 48"
+							style=" fill:#000000;">
+							<path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+						</svg>
+					</span>
+				</a>
+			</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_thread_definition_macros" modification_key="xentr_extra_elements" description="[XTR] Live Forum Statistics Layout - Include Extra Elements" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[			<xf:if is="$thread.isUnread() && property('lfsShowUnreadPostfix')">
+				<span class="unread-postfix">{{ phrase('lfs_new') }}</span>
+			</xf:if>
+		</div>]]></find>
+    <replace><![CDATA[$0
+		<xf:include template="xentr_live_forum_statistics_extra" />]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_thread_definition_macros" modification_key="xentr_hide_item_icons_left" description="[XTR] Live Forum Statistics Layout - Hide Item Icons On Left" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="! property('lfsItemIconRightLayout')">]]></find>
+    <replace><![CDATA[<xf:if is="! property('lfsItemIconRightLayout') AND !$xf.options.xtrStatisticsItemIcon">]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_thread_definition_macros" modification_key="xentr_hide_item_icons_right" description="[XTR] Live Forum Statistics Layout - Hide Item Icons On Right" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="property('lfsItemIconRightLayout')">]]></find>
+    <replace><![CDATA[<xf:if is="property('lfsItemIconRightLayout') AND !$xf.options.xtrStatisticsItemIcon">]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_thread_definition_macros" modification_key="xentr_include_control_reply_count" description="[XTR] Live Forum Statistics Layout - Include Extra Control Default Reply Count" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[		<xf:if is="{{ property('lfsShowReplyCountInThreads') }}">]]></find>
+    <replace><![CDATA[		<xf:if is="{{ property('lfsShowReplyCountInThreads') }} && !$xf.options.xtrStatisticsReplyCount && !$xf.options.xtrStatisticsViewCount">]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_thread_definition_macros" modification_key="xentr_include_order_thread_tab" description="[XTR] Live Forum Statistics Layout - Include Order Thread Tab" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[	<li class="structItem structItem--lfsItem item--thread{{ $thread.prefix_id ? ' is-prefix' . $thread.prefix_id : '' }}{{ $thread.isUnread() ? ' is-unread' : '' }}{{ $thread.bs_lfs_is_sticked ? ' is-sticked' : '' }}{{ $thread.sticky ? ' is-sticky' : '' }}{{ property('lfsItemIconRightLayout') ? ' item--iconRightLayout' : '' }} thread--{$thread.thread_id}"
+		id="js-lfsItemThread-{$thread.thread_id}"
+		data-date="{$date}">]]></find>
+    <replace><![CDATA[$0
+<xf:if is="$xf.options.xtrStatisticsExtra">
+		<div class="structItem-cell structItem-cell--order"></div>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="lfs_tab_thread_definition_macros" modification_key="xentr_tab_thread_user_online_status" description="[XTR] Live Forum Statistics Layout - Include User Online Status and Threads Tab User Avatar" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[				<xf:avatar user="{$user}" size="xxs" />]]></find>
+    <replace><![CDATA[				<xf:avatar user="$thread.User" size="xxs"
+						defaultname="{$thread.username}"
+						tabindex="0"
+						data-xf-init="tooltip"
+						data-trigger="auto"
+						title="{{ phrase('you_have_posted_x_messages_in_this_thread', {'count': $thread.getUserPostCount() }) }}" />
+				<xf:if is="$xf.options.xtrStatisticsUserOnline">
+					<xf:if is="$thread.User.visible && $thread.User.isOnline()">
+						<span class="statusOnline" tabindex="0" data-xf-init="tooltip" 
+							data-trigger="auto" title="{{ phrase('online_now') }}"></span>
+					<xf:else />
+						<span class="statusOffline" tabindex="0" data-xf-init="tooltip" 
+							data-trigger="auto" title="{{ phrase('offline') }}"></span>
+					</xf:if>
+				</xf:if>]]></replace>
+  </modification>
+</template_modifications>

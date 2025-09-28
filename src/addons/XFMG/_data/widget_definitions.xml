@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget_definitions>
+  <widget_definition definition_id="xfmg_albums_slider" definition_class="XFMG\Widget\AlbumSlider"/>
+  <widget_definition definition_id="xfmg_gallery_statistics" definition_class="XFMG\Widget\GalleryStatistics"/>
+  <widget_definition definition_id="xfmg_latest_comments" definition_class="XFMG\Widget\LatestComments"/>
+  <widget_definition definition_id="xfmg_media_slider" definition_class="XFMG\Widget\MediaSlider"/>
+</widget_definitions>

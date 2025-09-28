@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity_summary_definitions>
+  <activity_summary_definition definition_id="xfrm_latest_resources" definition_class="XFRM:LatestResources"/>
+  <activity_summary_definition definition_id="xfrm_latest_reviews" definition_class="XFRM:LatestReviews"/>
+</activity_summary_definitions>

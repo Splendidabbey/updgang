@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="option.xtrStatisticsExtra" version_id="1000070" version_string="1.0.0"><![CDATA[Enabled live forum statistics sort order by number]]></phrase>
+  <phrase title="option.xtrStatisticsForum" version_id="1000070" version_string="1.0.0"><![CDATA[Enabled forum titles]]></phrase>
+  <phrase title="option.xtrStatisticsForumIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Enabled thread status icon]]></phrase>
+  <phrase title="option.xtrStatisticsItemIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Hide item icons on thread tabs]]></phrase>
+  <phrase title="option.xtrStatisticsMemberItemIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Hide item icons on member tabs]]></phrase>
+  <phrase title="option.xtrStatisticsReplyCount" version_id="1000070" version_string="1.0.0"><![CDATA[Enabled thread reply count]]></phrase>
+  <phrase title="option.xtrStatisticsSearch" version_id="1000070" version_string="1.0.0"><![CDATA[Enabled google search icon]]></phrase>
+  <phrase title="option.xtrStatisticsUserOnline" version_id="1000070" version_string="1.0.0"><![CDATA[Enable user online status icon]]></phrase>
+  <phrase title="option.xtrStatisticsViewCount" version_id="1000070" version_string="1.0.0"><![CDATA[Enabled thread view count]]></phrase>
+  <phrase title="option_explain.xtrStatisticsExtra" version_id="1000070" version_string="1.0.0"><![CDATA[Enable or disable live forum statistics sort order by number.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsForum" version_id="1000070" version_string="1.0.0"><![CDATA[Enable or disable the forum titles on statistics tabs.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsForumIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Enable or disable the thread status icon on statistics tabs.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsItemIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Hide or show the item icon on thread tabs.<br /><br />
+<b>Recommended position:</b> If you would like to show the item icons you can control the display position of the item icon with set the "Display item icon on the right" from the style property of Live forum statistics content and this is recommended position.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsMemberItemIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Hide or show the item icon on member tabs.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsReplyCount" version_id="1000070" version_string="1.0.0"><![CDATA[Enable or disable the thread reply count on statistics tabs.<br /><br />
+<b>Note:</b> If enabled, you should disable the "Show reply count in threads group" style property from Live forum statistics content.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsSearch" version_id="1000070" version_string="1.0.0"><![CDATA[If enabled, a google search icon will be displayed before the thread title on the statistics tabs.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsUserOnline" version_id="1000070" version_string="1.0.0"><![CDATA[Enable or disable the user's online-offline status icon.]]></phrase>
+  <phrase title="option_explain.xtrStatisticsViewCount" version_id="1000070" version_string="1.0.0"><![CDATA[Enable or disable the thread view count on statistics tabs.<br /><br />
+<b>Note:</b> If enabled, you should disable the "Show reply count in threads group" style property from Live forum statistics content.]]></phrase>
+  <phrase title="option_group.xtrStatisticsLayout" version_id="1000070" version_string="1.0.0"><![CDATA[[XTR] Live Forum Statistics Extra Elements]]></phrase>
+  <phrase title="option_group_description.xtrStatisticsLayout" version_id="1000070" version_string="1.0.0"><![CDATA[Those options control the Live Forum Statistics extra elements.]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsArticle" version_id="1000070" version_string="1.0.0"><![CDATA[Article thread type icon color]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsCountWidth" version_id="1000070" version_string="1.0.0"><![CDATA[Reply and View column width]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsDiscussion" version_id="1000070" version_string="1.0.0"><![CDATA[Discussion thread type icon color]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsHottestThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Hottest threads icon]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsItemSticked" version_id="1000070" version_string="1.0.0"><![CDATA[Sticked item]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsLatestPostsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Latest posts icon]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsMostViewedIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Most vieweds icon]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsMyThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[My threads icon]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsNewThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[New threads icon]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsPoll" version_id="1000070" version_string="1.0.0"><![CDATA[Poll thread type icon color]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsQuestion" version_id="1000070" version_string="1.0.0"><![CDATA[Question thread type icon color]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsResource" version_id="1000070" version_string="1.0.0"><![CDATA[Resource thread type icon color]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsSolved" version_id="1000070" version_string="1.0.0"><![CDATA[Solved thread type icon color]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsSuggestion" version_id="1000070" version_string="1.0.0"><![CDATA[Suggestion thread type icon color]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsTabGroupsIcons" version_id="1000070" version_string="1.0.0"><![CDATA[Enabled tab groups icons]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsTabHeader" version_id="1000070" version_string="1.0.0"><![CDATA[Sub tab header]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsUserOffline" version_id="1000070" version_string="1.0.0"><![CDATA[User status is offline]]></phrase>
+  <phrase title="style_prop.xentr_liveStatsUserOnline" version_id="1000070" version_string="1.0.0"><![CDATA[User status is online]]></phrase>
+  <phrase title="style_prop.xentr_memberTabWidth" version_id="1000070" version_string="1.0.0"><![CDATA[Member tab group width]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsArticle" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsCountWidth" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsDiscussion" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsHottestThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsItemSticked" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsLatestPostsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsMostViewedIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsMyThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsNewThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsPoll" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsQuestion" version_id="1000070" version_string="1.0.0"><![CDATA[Question thread type item icon color.]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsResource" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsSolved" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsSuggestion" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsTabGroupsIcons" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsTabHeader" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsUserOffline" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_liveStatsUserOnline" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_memberTabWidth" version_id="1000070" version_string="1.0.0"><![CDATA[This style property is control the members tab width if you use a style other than the default theme.]]></phrase>
+  <phrase title="units_percentage" version_id="1000070" version_string="1.0.0"><![CDATA[Percentage (%)]]></phrase>
+  <phrase title="xentr_search_on_google" version_id="1000070" version_string="1.0.0"><![CDATA[Search on Google]]></phrase>
+</phrases>

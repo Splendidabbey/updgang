@@ -1,0 +1,23 @@
+{
+    "legacy_addon_id": "",
+    "title": "[XTR] Live Forum Statistics Layout",
+    "description": "This add-on adds extra elements to the forum statistics widget and changes the layout.",
+    "version_id": 1000070,
+    "version_string": "1.0.0",
+    "dev": "XENTR | XenForo Add-ons - Styles",
+    "dev_url": "https://xentr.net/",
+    "faq_url": "",
+    "support_url": "https://xentr.net/",
+    "extra_urls": [],
+    "require": {
+        "XF": [
+            2020870,
+            "XenForo 2.2.8"
+        ],
+        "php": [
+            "7.4.0",
+            "PHP 7.4.0+"
+        ]
+    },
+    "icon": "icon.png"
+}

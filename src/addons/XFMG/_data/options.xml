@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="xfmgAlbumsPerPage" edit_format="spinbox" data_type="positive_integer">
+    <default_value>12</default_value>
+    <edit_format_params>min=5
+max=100</edit_format_params>
+    <relation group_id="xfmg" display_order="620"/>
+  </option>
+  <option option_id="xfmgAllowPersonalAlbums" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xfmg" display_order="140"/>
+  </option>
+  <option option_id="xfmgAudioExtensions" edit_format="textbox" data_type="string">
+    <default_value>wav
+mp3
+flac</default_value>
+    <edit_format_params>rows=3</edit_format_params>
+    <relation group_id="xfmg" display_order="410"/>
+  </option>
+  <option option_id="xfmgCommentsPerPage" edit_format="spinbox" data_type="positive_integer">
+    <default_value>10</default_value>
+    <edit_format_params>min=5
+max=100</edit_format_params>
+    <relation group_id="xfmg" display_order="630"/>
+  </option>
+  <option option_id="xfmgDefaultViewPrivacy" edit_format="radio" data_type="string">
+    <default_value>public</default_value>
+    <edit_format_params>private={{ phrase('xfmg_album_privacy.private') }}
+members={{ phrase('xfmg_album_privacy.members') }}
+public={{ phrase('xfmg_album_privacy.public') }}</edit_format_params>
+    <relation group_id="xfmg" display_order="150"/>
+  </option>
+  <option option_id="xfmgFfmpeg" edit_format="template" data_type="array" validation_class="\XFMG\Option\Ffmpeg" validation_method="verifyOption">
+    <default_value>{"enabled":false,"ffmpegPath":false,"thumbnail":false,"poster":false,"transcode":false,"phpPath":false,"limit":false,"forceTranscode":false}</default_value>
+    <edit_format_params>option_template_xfmgFfmpeg</edit_format_params>
+    <sub_options>enabled
+ffmpegPath
+thumbnail
+poster
+transcode
+phpPath
+limit
+forceTranscode</sub_options>
+    <relation group_id="xfmg" display_order="510"/>
+  </option>
+  <option option_id="xfmgImageExtensions" edit_format="textbox" data_type="string">
+    <default_value>png
+jpg
+jpeg
+jpe
+gif</default_value>
+    <edit_format_params>rows=3</edit_format_params>
+    <relation group_id="xfmg" display_order="210"/>
+  </option>
+  <option option_id="xfmgLightboxNavigation" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xfmg" display_order="10"/>
+  </option>
+  <option option_id="xfmgMaxDescriptionLength" edit_format="spinbox" data_type="positive_integer">
+    <default_value>300</default_value>
+    <edit_format_params>max=65535
+min=30
+step=1</edit_format_params>
+    <relation group_id="xfmg" display_order="121"/>
+  </option>
+  <option option_id="xfmgMaxTitleLength" edit_format="spinbox" data_type="positive_integer">
+    <default_value>150</default_value>
+    <edit_format_params>max=65535
+min=30
+step=1</edit_format_params>
+    <relation group_id="xfmg" display_order="120"/>
+  </option>
+  <option option_id="xfmgMediaIndexLimit" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>0</default_value>
+    <edit_format_params>step=1
+min=0
+max=11000</edit_format_params>
+    <relation group_id="xfmg" display_order="190"/>
+  </option>
+  <option option_id="xfmgMediaPerPage" edit_format="spinbox" data_type="positive_integer">
+    <default_value>24</default_value>
+    <edit_format_params>min=5
+max=100</edit_format_params>
+    <relation group_id="xfmg" display_order="610"/>
+  </option>
+  <option option_id="xfmgMinTagsPersonalAlbums" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>0</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="xfmg" display_order="160"/>
+  </option>
+  <option option_id="xfmgOverrideStyle" edit_format="callback" data_type="unsigned_integer">
+    <default_value>0</default_value>
+    <edit_format_params>XFMG\Option\Style::renderSelect</edit_format_params>
+    <relation group_id="xfmg" display_order="180"/>
+  </option>
+  <option option_id="xfmgRequireComment" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="xfmg" display_order="130"/>
+  </option>
+  <option option_id="xfmgThumbnailDimensions" edit_format="template" data_type="array" validation_class="XF\Option\Style" validation_method="triggerStyleUpdate">
+    <default_value>{"width":300,"height":300}</default_value>
+    <edit_format_params>option_template_xfmgThumbnailDimensions</edit_format_params>
+    <sub_options>width
+height</sub_options>
+    <relation group_id="xfmg" display_order="110"/>
+  </option>
+  <option option_id="xfmgUnviewedCounter" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="xfmg" display_order="170"/>
+  </option>
+  <option option_id="xfmgVideoExtensions" edit_format="textbox" data_type="string">
+    <default_value>avi
+m4v
+mov
+mp4
+ogg
+webm
+wmv</default_value>
+    <edit_format_params>rows=3</edit_format_params>
+    <relation group_id="xfmg" display_order="310"/>
+  </option>
+  <option option_id="xfmgWatermarking" edit_format="template" data_type="array" validation_class="XFMG\Option\Watermark" validation_method="verifyOption">
+    <default_value>{"enabled":false,"watermark_hash":""}</default_value>
+    <edit_format_params>option_template_xfmgWatermarking</edit_format_params>
+    <sub_options>enabled
+watermark_hash</sub_options>
+    <relation group_id="xfmg" display_order="220"/>
+  </option>
+</options>

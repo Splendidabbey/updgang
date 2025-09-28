@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="public" title="xentr_live_forum_statistics.less" version_id="1000070" version_string="1.0.0"><![CDATA[html { counter-reset: member-counter; }
+body { counter-reset: thread-counter; }
+
+.lfs[data-widget-key="live_forum_statistics"] 
+{
+	.tabGroup 
+	{
+		&.tabGroup--threads 
+		{
+		
+			.tabs-container 
+			{
+				
+				.tabs--scroller 
+				{
+					.hScroller-action 
+					{
+						.m-hScrollerActionColorVariation(
+							xf-default(@xf-lfsTabsContainer--background-color, transparent),
+							xf-default(@xf-lfsTabsContainer--color, ~""),
+							xf-intensify(@xf-lfsTabsContainer--color, 10%)
+						);
+					}
+				} 
+				
+				// Tab list
+				.tabs--list 
+				{
+					
+				// Tab list icons
+				<xf:if is="property('xentr_liveStatsTabGroupsIcons')">
+					.tab--latest_posts .title:before,
+					.tab--new_threads .title:before,
+					.tab--hottest_threads .title:before,
+					.tab--most_viewable .title:before,
+					.tab--my_threads .title:before,
+					.tab--new_resources .title:before,
+					.tab--new_products .title:before
+					{
+						.m-faBase();
+						font-size: @xf-fontSizeSmall !important;
+						padding-right: @xf-paddingMedium;
+						color: inherit;
+					}
+
+					.tab--latest_posts .title:before { content: "\{{ property('xentr_liveStatsLatestPostsIcon') }}"; }
+					.tab--new_threads .title:before { content: "\{{ property('xentr_liveStatsNewThreadsIcon') }}"; }
+					.tab--hottest_threads .title:before { content: "\{{ property('xentr_liveStatsHottestThreadsIcon') }}"; }
+					.tab--most_viewable .title:before { content: "\{{ property('xentr_liveStatsMostViewedIcon') }}"; }
+					.tab--my_threads .title:before { content: "\{{ property('xentr_liveStatsMyThreadsIcon') }}"; }
+					.tab--new_resources .title:before { content: "\f381"; }
+					.tab--new_products .title:before { content: "\f07a"; }	
+				</xf:if>			
+				}
+			}
+			
+			// Tab header
+			.structItem 
+			{
+				&.tabHeader 
+				{
+					.xf-xentr_liveStatsTabHeader();
+					border-top: none;
+
+					.structItem-cell--order,
+					.structItem-cell--icon,
+					.structItem-cell--avatar,
+					.structItem-cell--title,
+					.structItem-cell--forums,
+					.structItem-cell--countReplies,
+					.structItem-cell--countViews,
+					.structItem-cell--mainData
+					{
+						font-size: @xf-fontSizeSmall;
+						text-align: left;
+						border: none;
+						vertical-align: middle;
+					}
+					
+					.structItem-cell--avatar 
+					{
+						text-align: center;
+					}
+					
+					.structItem-cell--avatar,
+					.structItem-cell--forums,
+					.structItem-cell--mainData 
+					{
+						padding-left: 0;
+					}
+				}
+			}
+
+			// Tab counter
+			.structItem-cell--order-empty,
+			.structItem-cell--order
+			{
+				width: 35px;
+				text-align: center;
+				font-size: @xf-fontSizeSmall;
+			}
+
+			.structItem-cell--order 
+			{
+				
+				&:before 
+				{
+					counter-increment: thread-counter;
+					content: " " counter(thread-counter) " ";
+				}
+			}
+
+			// Icon
+			.structItem-cell--icon 
+			{
+				padding: @xf-paddingMedium;
+				margin-right: 0;
+				width: 30px;
+				text-align: center !important;
+			}
+
+			// Avatar
+			.structItem-cell--avatar 
+			{
+				position: relative;
+				width: 35px;
+				padding-left: 5px;
+				
+				.statusOnline,
+				.statusOffline
+				{
+					position: absolute;
+					content: '';
+					display: inline-block;
+					width: 10px;
+					height: 10px;
+					right: 3px;
+					bottom: 5px;
+					border-radius: 50px;
+				}
+
+				.statusOnline
+				{
+					.xf-xentr_liveStatsUserOnline();
+				}
+
+				.statusOffline
+				{
+					.xf-xentr_liveStatsUserOffline();
+				}
+		
+			}
+
+			// List border
+			.structItem-cell--order,
+			.structItem-cell--icon,
+			.structItem-cell--avatar,
+			.structItem-cell--title,
+			.structItem-cell--forums,
+			.structItem-cell--countReplies,
+			.structItem-cell--countViews,
+			.structItem-cell--mainData
+			{
+				border-right: @xf-borderSize solid @xf-borderColorFaint;
+			}
+			
+			// Count width
+			.structItem-cell--countReplies,
+			.structItem-cell--countViews
+			{
+				width: {{ property('xentr_liveStatsCountWidth') }}px;
+				text-align: center;
+				padding-left: 0px;
+			}
+
+			.structItem--lfsItem 
+			{
+				border-top: @xf-borderSize solid @xf-borderColorFaint;
+			}
+			
+			// Item child background
+			.tabGroup-content 
+			{
+				.structItem 
+				{
+
+					&:nth-child(2n) 
+					{
+						background-color: @xf-contentAltBg;
+					}	
+					
+					&.is-sticked 
+					{
+						.xf-xentr_liveStatsItemSticked();
+					
+						.structItem-cell--icon 
+						{
+							color: @xf-xentr_liveStatsItemSticked--color;
+						}
+
+						.structItem-cell--title 
+						{
+							font-weight: (@xf-fontWeightHeavy - 100);
+						}
+						
+						.structItem-cell--mainData 
+						{
+							.postDate,
+							.username
+							{
+								&:before 
+								{
+									.m-faBase();
+									content: "\f08d";
+									font-size: @xf-fontSizeSmall !important;
+									color: inherit;
+								}
+							}
+						}
+
+						.contentRow-minor 
+						{
+							padding-right: @xf-paddingSmall;
+						}
+					}
+					
+					.structItem-cell--title 
+					{
+						.google-icon 
+						{
+							margin-left: -(@xf-paddingMedium);
+							vertical-align: middle;
+							
+							&:hover 
+							{
+								text-decoration: none;
+							}
+						}
+					}
+					
+					.structItem-cell--forums 
+					{
+						.m-overflowEllipsis();
+						
+						.thread_type--discussion 
+						{
+							color: {{ property('xentr_liveStatsDiscussion') }};
+						}
+					
+						.thread_type--solved 
+						{
+							color: {{ property('xentr_liveStatsSolved') }};
+						}
+					
+						.thread_type--poll 
+						{
+							color: {{ property('xentr_liveStatsPoll') }};
+						}
+			
+						.thread_type--article 
+						{
+							color: {{ property('xentr_liveStatsArticle') }};
+						}
+		
+						.thread_type--question 
+						{
+							color: {{ property('xentr_liveStatsQuestion') }};
+						}
+
+						.thread_type--suggestion 
+						{
+							color: {{ property('xentr_liveStatsSuggestion') }};
+						}
+
+						.thread_type--resource 
+						{
+							color: {{ property('xentr_liveStatsResource') }};
+						}
+
+						.contentRow-minor 
+						{
+							padding-right: @xf-paddingSmall;
+						}
+					}
+
+					.structItem-cell--secondData 
+					{
+						.m-overflowEllipsis();
+					}
+
+
+					.structItem-cell--title 
+					{
+						.google-icon 
+						{
+		
+						
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Responsive layout
+	@media (max-width: 1100px) 
+	{
+		.tabGroup--threads 
+		{
+			.tabHeader 
+			{
+				.structItem-cell--mainData 
+				{
+					display: none;
+				}
+			}
+			
+			.tabGroup-content 
+			{
+				.structItem--lfsItem 
+				{
+					display: table;
+					
+					.structItem-cell--mainData 
+					{
+						display: none;
+					}
+				}
+			}
+		} 
+	}
+
+
+	@media (max-width: 768px) 
+	{
+		.tabGroup--threads 
+		{
+			.tabHeader 
+			{
+				.structItem-cell--forums 
+				{
+					display: none;
+				}
+			}
+			
+			.tabGroup-content 
+			{
+				.structItem-cell--forums 
+				{
+					display: none;
+				}
+			}
+		} 
+	}
+
+
+	@media (max-width: @xf-responsiveWide) 
+	{
+		.tabGroup--threads 
+		{
+			.tabHeader 
+			{
+				.structItem-cell--mainData 
+				{
+					display: none;
+				}
+			}
+			
+			.tabGroup-content 
+			{
+				.structItem--lfsItem 
+				{
+					display: table;
+					
+					.structItem-cell--mainData 
+					{
+						display: none;
+					}
+				}
+			}
+		} 
+	}
+	
+	@media (max-width: @xf-responsiveMedium) 
+	{
+		.tabGroup--threads 
+		{
+			.tabHeader 
+			{
+				.structItem-cell--forums,
+				.structItem-cell--countReplies,
+				.structItem-cell--countViews,
+				.structItem-cell--mainData 
+				{
+					display: none;
+				}
+			}
+			
+			.tabGroup-content 
+			{
+				.structItem-cell--forums,
+				.structItem-cell--countReplies,
+				.structItem-cell--countViews,
+				.structItem-cell--mainData 
+				{
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+<xf:comment><!--[XENTR:TAB GROUP MEMBERS]--></xf:comment>
+.lfs 
+{
+	.tabGroup--members 
+	{
+		flex-basis: {{ property('xentr_memberTabWidth') }}% !important;
+	
+		.structItem 
+		{
+			
+			&.tabHeader 
+			{
+				.xf-xentr_liveStatsTabHeader();
+				border-top: none;
+				display: flex;
+				padding: (@xf-paddingSmall - 1px) 0;
+
+				.structItem-cell--order-empty,
+				.structItem-cell--avatar
+				{
+					width: 35px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				
+				.structItem-cell--icon 
+				{
+					display: none;
+				}
+
+				.structItem-cell--avatar i
+				{
+					margin-left: -(@xf-paddingLarge);
+				}
+
+				.structItem-cell--title,
+				.structItem-cell--forums,
+				.structItem-cell--countReplies,
+				.structItem-cell--countViews,
+				.structItem-cell--mainData,
+				.structItem-cell--secondData
+				{
+					display: none;
+				}
+
+			}
+
+			.structItem--lfsItem
+			{	
+				&:last-child 
+				{
+					border-bottom: @xf-borderSize solid @xf-borderColorFaint;
+				}
+			}	
+		}
+		
+		.tabGroup-content 
+		{
+			
+			.tabGroup-scroller 
+			{	
+				
+				.content 
+				{
+					
+					.structItem 
+					{
+						counter-increment: member-counter;
+						
+						.structItem-cell--order 
+						{
+							<xf:if is="property('lfsShowAvatarsInMemberGroup')">
+							width: 35px;
+    						font-size: @xf-fontSizeSmall;
+							<xf:else />
+							font-size: (@xf-fontSizeNormal + 1px );
+							width: 40px;
+							</xf:if>
+							text-align: center;
+							border-right: @xf-borderSize solid @xf-borderColorFaint;
+							
+							&:before 
+							{
+								content: counter(member-counter) "";	
+							}
+						}
+						
+						// Avatar
+						.structItem-cell--avatar 
+						{
+							position: relative;
+							width: 35px;
+							padding-left: 5px;
+							border-right: @xf-borderSize solid @xf-borderColorFaint;
+						}
+						
+						&:nth-child(2n) 
+						{
+							background-color: @xf-contentAltBg;
+						}
+						
+						&:last-child 
+						{
+							border-bottom: @xf-borderSize solid @xf-borderColorFaint;
+						}	
+					}
+				}
+			}	
+		}	
+	}	
+}
+
+<xf:comment><!--[XENTR:SIDEBAR TAB GROUP]--></xf:comment>
+
+.p-body-sidebar 
+{
+	.lfs 
+	{
+		.structItem 
+		{
+			&.tabHeader 
+			{
+				display: none;
+			}
+		} 	
+	}	
+}]]></template>
+  <template type="public" title="xentr_live_forum_statistics_extra" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:css src="xentr_live_forum_statistics.less" />
+<div class="structItem-cell structItem-cell--forums">
+	<xf:if is="$xf.options.xtrStatisticsForum">
+		<span class="contentRow-minor">
+			<xf:include template="xentr_thread_type_icons" />
+		</span>
+	</xf:if>
+	<xf:if is="$xf.options.xtrStatisticsForumIcon">
+	<span class="contentRow-minor">
+		<a href="{{ link('forums', $thread.Forum) }}">{$thread.Forum.title}</a>
+	</span>
+	</xf:if>
+</div>
+
+<div class="structItem-cell structItem-cell--countReplies">
+	<xf:if is="$xf.options.xtrStatisticsReplyCount">
+		<span class="contentRow-minor" data-xf-init="tooltip" title="{{ phrase('replies') }}">
+			{{ $thread.discussion_type == 'redirect' ? '&ndash;' : $thread.reply_count|number }}
+		</span>
+	</xf:if>
+</div>	
+<div class="structItem-cell structItem-cell--countViews">		
+	<xf:if is="$xf.options.xtrStatisticsViewCount">
+		<span class="contentRow-minor" data-xf-init="tooltip" title="{{ phrase('views') }}">
+		{{ $thread.discussion_type == 'redirect' ? '&ndash;' : ($thread.view_count > $thread.reply_count ? $thread.view_count|number_short(1) : number($thread.reply_count|number_short(1))) }}
+		</span>
+	</xf:if>
+</div>]]></template>
+  <template type="public" title="xentr_live_forum_statistics_sub_tab" version_id="1000070" version_string="1.0.0"><![CDATA[<div class="structItem tabHeader">
+	<div class="structItem-cell structItem-cell--order-empty"><i class="fad fa-sort-numeric-down"></i></div>
+	<xf:if is="!$xf.options.xtrStatisticsItemIcon">
+		<div class="structItem-cell structItem-cell--icon">
+			<xf:fa icon="{{ $thread.bs_lfs_is_sticked ? property('lfsPinnedFaIcon') : property('lfsItemFaIcon') }}" />
+		</div>
+	</xf:if>
+	<xf:if is="{{ property('lfsShowAvatarsInMemberGroup') }}">
+		<div class="structItem-cell structItem-cell--avatar">
+			<i class="fad fa-user-alt"></i>
+		</div>
+	</xf:if>
+	<div class="structItem-cell structItem-cell--title"><i class="fad fa-comment-alt-edit"></i> {{ phrase('threads') }}</div>
+	<xf:if is="$xf.options.xtrStatisticsForum">
+		<div class="structItem-cell structItem-cell--forums"><i class="fad fa-comments"></i> {{ phrase('forums') }}</div>
+	</xf:if>
+	<xf:if is="$xf.options.xtrStatisticsReplyCount">
+		<div class="structItem-cell structItem-cell--countReplies"><i class="fad fa-reply"></i> {{ phrase('replies') }}</div>
+	</xf:if>
+	<xf:if is="$xf.options.xtrStatisticsViewCount">
+		<div class="structItem-cell structItem-cell--countViews"><i class="fad fa-eye"></i> {{ phrase('views') }}</div>
+	</xf:if>
+		<div class="structItem-cell structItem-cell--mainData"><i class="fad fa-reply-all"></i> {{ phrase('last_reply_from') }}</div>
+	<div class="structItem-cell structItem-cell--secondData"></div>
+</div>]]></template>
+  <template type="public" title="xentr_thread_type_icons" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:if contentcheck="true">
+	<xf:contentcheck>
+		<xf:extension name="statuses">
+			<xf:if is="property('reactionSummaryOnLists') == 'status' && $thread.first_post_reactions">
+				<xf:reactions summary="true" reactions="{$thread.first_post_reactions}" />
+			</xf:if>
+			<xf:if is="$thread.discussion_type == 'redirect'">
+			<xf:elseif is="$thread.discussion_type == 'question' && $thread.type_data.solution_post_id" />
+				<xf:extension name="thread_type_question_solved">
+					<i class="far fa-check-circle thread_type--solved" aria-hidden="true" title="{{ phrase('solved')|for_attr }}" data-xf-init="tooltip" title="{{ phrase('solved')|for_attr }}"></i>
+					<span class="u-srOnly">{{ phrase('solved') }}</span>
+				</xf:extension>
+			<xf:elseif is="!$forum || $forum.forum_type_id == 'discussion'" />
+				<xf:if is="$thread.discussion_type == 'poll'">
+					<xf:extension name="thread_type_poll">													
+						<i class="far fa-chart-bar thread_type--poll" aria-hidden="true" title="{{ phrase('thread_type.poll')|for_attr }}" data-xf-init="tooltip" title="{{ phrase('thread_type.poll')|for_attr }}"></i>
+						<span class="u-srOnly">{{ phrase('thread_type.poll') }}</span>
+					</xf:extension>
+				<xf:elseif is="$thread.discussion_type == 'article'" />
+					<xf:extension name="thread_type_article">
+						<i class="far fa-file-alt thread_type--article" aria-hidden="true" title="{{ phrase('thread_type.article')|for_attr }}" data-xf-init="tooltip" title="{{ phrase('thread_type.article')|for_attr }}"></i>
+						<span class="u-srOnly">{{ phrase('thread_type.article') }}</span>
+					</xf:extension>
+				<xf:elseif is="$thread.discussion_type == 'question'" />
+					<xf:extension name="thread_type_question">
+						<i class="far fa-question-circle thread_type--question" aria-hidden="true" title="{{ phrase('thread_type.question')|for_attr }}" data-xf-init="tooltip" title="{{ phrase('thread_type.question')|for_attr }}"></i>
+						<span class="u-srOnly">{{ phrase('thread_type.question') }}</span>
+					</xf:extension>
+				<xf:elseif is="$thread.discussion_type == 'suggestion'" />
+					<xf:extension name="thread_type_suggestion">
+						<i class="far fa-lightbulb-on thread_type--suggestion" aria-hidden="true" title="{{ phrase('thread_type.suggestion')|for_attr }}" data-xf-init="tooltip" title="{{ phrase('thread_type.suggestion')|for_attr }}"></i>
+						<span class="u-srOnly">{{ phrase('thread_type.suggestion') }}</span>
+					</xf:extension>
+				<xf:elseif is="$thread.discussion_type == 'resource'" />
+					<xf:extension name="thread_type_resource">													
+						<i class="far fa-cog thread_type--resource" aria-hidden="true" title="{{ phrase('thread_type.resource')|for_attr }}" data-xf-init="tooltip" title="{{ phrase('thread_type.resource')|for_attr }}"></i>
+						<span class="u-srOnly">{{ phrase('thread_type.resource') }}</span>
+					</xf:extension>
+				<xf:else />
+					<xf:extension name="thread_type_discussion">
+						<i class="far fa-comments thread_type--discussion" aria-hidden="true" title="{{ phrase('thread_type.discussion')|for_attr }}" data-xf-init="tooltip" title="{{ phrase('thread_type.discussion')|for_attr }}"></i>
+						<span class="u-srOnly">{{ phrase('thread_type.discussion') }}</span>
+					</xf:extension>
+				</xf:if>
+			</xf:if>
+		</xf:extension>
+	</xf:contentcheck>
+</xf:if>]]></template>
+</templates>

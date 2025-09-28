@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="admin" route_prefix="dbtech-credits" controller="DBTech\Credits:Index" context="dbtechCredits"/>
+  <route route_type="admin" route_prefix="dbtech-credits" sub_name="currencies" format="currencies/:int&lt;currency_id,title&gt;/" controller="DBTech\Credits:Currency" context="dbtechCrCurrency"/>
+  <route route_type="admin" route_prefix="dbtech-credits" sub_name="events" format="events/:int&lt;event_id,title&gt;/" controller="DBTech\Credits:Event" context="dbtechCrEvent"/>
+  <route route_type="admin" route_prefix="dbtech-credits" sub_name="logs" format="logs/" controller="DBTech\Credits:Log" context="dbtechCrLogs"/>
+  <route route_type="admin" route_prefix="dbtech-credits" sub_name="logs/transactions" format="logs/transactions/:int&lt;transaction_id&gt;/" controller="DBTech\Credits:Log" context="dbtechCrTxnLog" action_prefix="Transaction"/>
+  <route route_type="public" route_prefix="dbtech-credits" controller="DBTech\Credits:Index" context="dbtechCredits"/>
+  <route route_type="public" route_prefix="dbtech-credits" sub_name="charge/unlocked" format="charge/unlocked/" controller="DBTech\Credits:Charge" context="dbtechCredits" action_prefix="Unlocked"/>
+  <route route_type="public" route_prefix="dbtech-credits" sub_name="content-access" format="content-access/" controller="DBTech\Credits:ContentAccess" context="dbtechCredits"/>
+  <route route_type="public" route_prefix="dbtech-credits" sub_name="currency" format="currency/:int&lt;currency_id,title&gt;/" controller="DBTech\Credits:Currency" context="dbtechCredits"/>
+</routes>

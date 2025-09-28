@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_event_listeners>
+  <listener event_id="entity_post_delete" execute_order="10" callback_class="BS\LiveForumStatistics\Listener" callback_method="entityPostDeleteForum" active="1" hint="XF\Entity\Forum"/>
+  <listener event_id="entity_post_delete" execute_order="10" callback_class="BS\LiveForumStatistics\Listener" callback_method="entityPostDeleteThread" active="1" hint="XF\Entity\Thread"/>
+  <listener event_id="entity_structure" execute_order="10" callback_class="BS\LiveForumStatistics\Listener" callback_method="entityStructureArticleItem" active="1" hint="XenAddons\AMS\Entity\ArticleItem"/>
+  <listener event_id="entity_structure" execute_order="10" callback_class="BS\LiveForumStatistics\Listener" callback_method="entityStructureThread" active="1" hint="XF\Entity\Thread"/>
+  <listener event_id="entity_structure" execute_order="10" callback_class="BS\LiveForumStatistics\Listener" callback_method="entityStructureUserOption" active="1" hint="XF\Entity\UserOption"/>
+  <listener event_id="entity_structure" execute_order="10" callback_class="BS\LiveForumStatistics\Listener" callback_method="entityStructureUserProfile" active="1" hint="XF\Entity\UserProfile"/>
+</code_event_listeners>

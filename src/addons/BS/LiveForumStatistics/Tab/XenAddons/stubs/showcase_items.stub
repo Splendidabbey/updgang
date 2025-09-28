@@ -1,0 +1,20 @@
+<ul class="content {$tab.tab_class}">
+    <xf:if is="$items is not empty">
+
+        <xf:foreach loop="$items" value="$item">
+            <xf:macro template="lfs_sc_item_definition_macros" name="sc_item"
+                      arg-item="{$item}"
+                      arg-user="{$item.User}"
+                      arg-date="{$item.create_date}" />
+        </xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+            link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+            wrapperclass="hidden-pageNav js-lfsPageNav" />

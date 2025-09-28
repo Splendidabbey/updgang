@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="payment_profile_ozzmodz_nowpayments" version_id="2000070" version_string="2.0.0"><![CDATA[<xf:textboxrow name="options[email]" value="{$profile.options.email}"
+			   label="{{ phrase('email') }}"
+			   hint="{{ phrase('required') }}"
+			   required="required" />
+
+<xf:textboxrow name="options[password]" value="{$profile.options.password}"
+			   label="{{ phrase('password') }}"
+			   hint="{{ phrase('required') }}"
+			   type="password"
+			   required="required" />
+
+<xf:textboxrow name="options[api_key]" value="{$profile.options.api_key}"
+			   label="{{ phrase('ozzmodz_nowpayments_api_key') }}"
+			   explain="{{ phrase('ozzmodz_nowpayments_api_key_explain') }}"
+			   hint="{{ phrase('required') }}"
+			   required="required" />
+
+<xf:textboxrow name="options[public_key]" value="{$profile.options.public_key}"
+			   label="{{ phrase('ozzmodz_nowpayments_public_key') }}"
+			   explain="{{ phrase('ozzmodz_nowpayments_public_key_explain') }}"
+			   hint="{{ phrase('required') }}"
+			   required="required" />
+
+<xf:textboxrow name="options[ipn_secret]" value="{$profile.options.ipn_secret}"
+			   label="{{ phrase('ozzmodz_nowpayments_ipn_secret') }}"
+			   explain="{{ phrase('ozzmodz_nowpayments_ipn_secret_explain') }}"
+			   hint="{{ phrase('required') }}"
+			   required="required" />
+
+<xf:radiorow name="options[test_case]" value="{{ $profile.options.test_case ?: 'failed' }}"
+			 label="{{ phrase('ozzmodz_nowpayments_test_case') }}"
+			 explain="{{ phrase('ozzmodz_nowpayments_test_case_explain') }}">
+	<xf:option value="success">{{ phrase('ozzmodz_nowpayments_case_success') }}</xf:option>
+	<xf:option value="common">{{ phrase('ozzmodz_nowpayments_case_common') }}</xf:option>
+	<xf:option value="failed">{{ phrase('ozzmodz_nowpayments_case_failed') }}</xf:option>
+	<xf:option value="partially_paid">{{ phrase('ozzmodz_nowpayments_case_partially_paid') }}</xf:option>
+</xf:radiorow>
+
+<xf:checkboxrow>
+	<xf:option name="options[embedded]" checked="{$profile.options.embedded}" value="1">
+		<xf:label>{{ phrase('ozzmodz_nowpayments_use_embedded_payment_form') }}</xf:label>
+	</xf:option>
+
+	<xf:option name="options[is_fixed_rate]" checked="{$profile.options.is_fixed_rate}" value="1">
+		<xf:label>{{ phrase('ozzmodz_nowpayments_fixed_rate') }}</xf:label>
+	</xf:option>
+	<xf:option name="options[is_fee_paid_by_user]" checked="{$profile.options.is_fee_paid_by_user}" value="1">
+		<xf:label>{{ phrase('ozzmodz_nowpayments_fee_paid_by_user') }}</xf:label>
+	</xf:option>
+</xf:checkboxrow>]]></template>
+  <template type="public" title="ozzmodz_nowpayments_msdropdown.less" version_id="2000001" version_string="2.0.0 1"><![CDATA[/*! * 
+/** * * MSDropdown - dd.js * * @author: Marghoob Suleman * * @website: https://www.marghoobsuleman.com/ * * @version: 4.0.2 * * @date: Wed Oct 13 2021 15:19:38 GMT+0530 (India Standard Time) * * msDropdown is free web component: you can redistribute it and/or modify * * it under the terms of the either the MIT License or the Gnu General Public License (GPL) Version 2 * * / */
+ .ms-pr{
+    position:relative
+}
+.ms-dd:focus-visible{
+    box-shadow:0 1px 5px #ddd;
+    outline:none;
+    outline-width:0
+}
+.ms-dd{
+    background: @xf-contentAltBg;
+    display:inline-block;
+    font-family:Sans-Serif;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    vertical-align:top;
+    width:260px
+}
+.ms-dd button:focus,.ms-dd input:focus,.ms-dd select:focus,.ms-dd textarea:focus{
+    outline:none
+}
+.ms-dd .ms-value-input{
+    border:0;
+    left:20px;
+    position:absolute;
+    top:10px;
+    width:50%
+}
+.ms-dd .ms-dd-header{
+    border:1px solid @xf-borderColor;
+    border-bottom:none;
+    border-radius:2px;
+    cursor:pointer;
+    min-height:35px;
+    position:relative;
+    width:100%
+}
+.ms-dd .ms-dd-header .option-selected{
+    color: @xf-textColor;
+    display:block;
+    font-weight:600;
+    overflow:hidden;
+    padding:10px 20px 10px 10px;
+    pointer-events:none
+}
+.ms-dd .ms-dd-header a{
+    display:block
+}
+.ms-dd .ms-dd-header .ms-list-counter,.ms-dd .ms-dd-header input[type=checkbox]{
+    display:none
+}
+.ms-dd .ms-dd-header .ms-header-counter{
+    color:#0e76a8;
+    font-weight:400
+}
+.ms-dd .ms-dd-header .ms-filter-box{
+    border-bottom:1px solid @xf-borderColor;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    padding:6px 10px
+}
+.ms-dd .ms-dd-header .ms-filter-box input,.ms-dd .ms-dd-header .ms-filter-box input:focus,.ms-dd .ms-dd-header .ms-filter-box input:focus-visible{
+    border:1px solid @xf-borderColor;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    height:25px;
+    padding-left:6px;
+    width:100%
+}
+.ms-dd .ms-dd-header .ms-filter-box input:focus-visible{
+    outline:1px solid transparent
+}
+.ms-dd .ms-dd-option-image,.ms-dd .ms-dd-selected-img{
+    margin-right:5px;
+    max-width:64px;
+    vertical-align:middle
+}
+.ms-dd .ms-dd-arrow{
+    height:0;
+    margin-top:-3px;
+    position:absolute;
+    right:10px;
+    top:50%;
+    width:0
+}
+.ms-dd .ms-dd-arrow.ms-dd-pointer-down{
+    border:5px solid transparent;
+    border-top-color: @xf-textColor
+}
+.ms-dd .ms-dd-arrow.ms-dd-pointer-up{
+    border:5px solid transparent;
+    border-bottom-color: @xf-textColor;
+    margin-top:-8px
+}
+.ms-dd .ms-options{
+    background: @xf-contentBg;
+    border:1px solid @xf-borderColor;
+    border-top:none;
+    box-shadow:0 1px 5px @xf-borderColorFaint;
+    display:none;
+    list-style:none;
+    margin:0;
+    overflow:auto;
+    padding:0;
+    position:absolute;
+    width:100%;
+    z-index:9999
+}
+.ms-dd .ms-list-option,.ms-dd .ms-optgroup ul .ms-list-option{
+    align-items:center;
+    border-bottom:1px solid @xf-borderColorHeavy;
+    color: @xf-textColorDimmed;
+    cursor:pointer;
+    display:flex;
+    justify-content:flex-start;
+    overflow:hidden;
+    padding:10px;
+    position:relative;
+    text-decoration:none
+}
+.ms-dd .ms-list-option input[type=checkbox],.ms-dd .ms-optgroup ul .ms-list-option input[type=checkbox]{
+    margin-right:5px;
+    vertical-align:middle
+}
+.ms-dd .ms-list-option:last-child,.ms-dd .ms-optgroup ul .ms-list-option:last-child{
+    border-bottom:none
+}
+.ms-dd .ms-list-option:hover,.ms-dd .ms-optgroup ul .ms-list-option:hover{
+    background: @xf-contentHighlightBg;
+    color: @xf-textColor
+}
+.ms-dd .ms-list-option.option-selected,.ms-dd .ms-optgroup ul .ms-list-option.option-selected{
+    background: @xf-contentBg
+}
+.ms-dd .ms-list-option.ico-align-right .ms-dd-option-image,.ms-dd .ms-list-option.ico-align-right .ms-dd-selected-img,.ms-dd .ms-optgroup ul .ms-list-option.ico-align-right .ms-dd-option-image,.ms-dd .ms-optgroup ul .ms-list-option.ico-align-right .ms-dd-selected-img{
+    order:2
+}
+.ms-dd .ms-list-option.disabled,.ms-dd .ms-list-option:disabled,.ms-dd .ms-optgroup ul .ms-list-option.disabled,.ms-dd .ms-optgroup ul .ms-list-option:disabled{
+    cursor:default;
+    opacity:.4
+}
+.ms-dd .ms-list-option .ms-dd-desc,.ms-dd .ms-optgroup ul .ms-list-option .ms-dd-desc{
+    color:#aaa;
+    display:block;
+    font-weight:400;
+    line-height:1.5em;
+    overflow:hidden;
+    text-shadow:0 1px .5px #fff
+}
+.ms-dd .ms-header-middle-content,.ms-dd .ms-middle{
+    display:flex;
+    justify-content:flex-start;
+    width:100%
+}
+.ms-dd.disabled,.ms-dd:disabled{
+    cursor:default;
+    opacity:.4;
+    pointer-events:none
+}
+.ms-dd .ms-optgroup-padding{
+    font-weight:700;
+    padding:10px 10px 0
+}
+.ms-dd .ms-optgroup{
+    display:block
+}
+.ms-dd .ms-optgroup:hover{
+    background:#fff;
+    color:#000
+}
+.ms-dd .ms-optgroup ul{
+    margin:0;
+    padding:0
+}
+.ms-dd .ms-optgroup ul .ms-list-option{
+    padding-left:20px
+}]]></template>
+  <template type="public" title="ozzmodz_nowpayments_payment_initiate" version_id="2000170" version_string="2.0.1"><![CDATA[<xf:css src="payment_initiate.less" />
+
+<xf:title>{{ phrase('confirm_payment_details') }}</xf:title>
+
+<xf:form action="{$invoiceUrl}" class="block block--paymentInitiate" method="post" data-no-auto-focus="on">
+	<div class="block-container">
+		<div class="block-body">
+			
+			<xf:if is="$sandboxMode">
+				<xf:inforow>
+					<div class="blockMessage blockMessage--important blockMessage--iconic">
+						{{ phrase('ozzmodz_nowpayments_sandbox_mode_enabled_please_do_not_pay', {'case': $paymentProfile.options.test_case}) }}
+					</div>
+				</xf:inforow>
+			</xf:if>
+			
+			<xf:formrow label="{{ phrase('purchasable_item') }}">{$purchase.title}</xf:formrow>
+			<xf:formrow label="{{ phrase('ozzmodz_nowpayments_payment_method') }}">
+				<a href="http://www.nowpayments.io">{$paymentProfile.title}</a>
+			</xf:formrow>
+		</div>
+
+		<xf:submitrow icon="payment" submit="{{ phrase('pay_x', {'cost': $purchase.cost|currency($purchase.currency)}) }}" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="ozzmodz_nowpayments_payment_initiate_embed" version_id="2000170" version_string="2.0.1"><![CDATA[<xf:css src="payment_initiate.less" />
+<xf:css src="ozzmodz_nowpayments_payment_initiate_embed.less" />
+<xf:css src="ozzmodz_nowpayments_msdropdown.less" />
+
+<xf:js src="ozzmodz/paymentprovidernowpayments/dd.min.js"addon="OzzModz/PaymentProviderNOWPayments" />
+<xf:js dev="ozzmodz/paymentprovidernowpayments/payment.js" prod="ozzmodz/paymentprovidernowpayments/payment.min.js" addon="OzzModz/PaymentProviderNOWPayments" />
+
+<xf:title>{{ phrase('confirm_payment_details') }}</xf:title>
+
+<xf:form action="{{ link('purchase/process', null, {'request_key': $purchaseRequest.request_key}) }}"
+		 data-xf-init="now-payments-currency-form"
+		 data-api-key="{$apiPublicKey}"
+		 data-api-url="{$apiUrl}"
+		 data-cost="{$purchase.cost}"
+		 data-currency="{$purchase.currency}"
+		 class="block"
+		 ajax="true">
+	
+	<div class="block-container">
+		<div class="block-body">
+			
+			<xf:if is="$sandboxMode">
+				<xf:inforow>
+					<div class="blockMessage blockMessage--important blockMessage--iconic">
+						{{ phrase('ozzmodz_nowpayments_sandbox_mode_enabled_please_do_not_pay', {'case': $paymentProfile.options.test_case}) }}
+					</div>
+				</xf:inforow>
+			</xf:if>
+			
+			<xf:formrow label="{{ phrase('purchasable_item') }}">{$purchase.title}</xf:formrow>
+			
+			<xf:formrow rowtype="fullWidth">
+				<div class="nowPaymentsCurrencyList">
+					<xf:select name="pay_currency" is="ms-dropdown" class="">
+						<xf:foreach loop="$currencies" value="$currency" if="{$currency.enable}">
+							<xf:option value="{$currency.code}" data-image="https://nowpayments.io/{$currency.logo_url}">
+								<xf:label>
+									{$currency.name}
+								</xf:label>
+							</xf:option>
+						</xf:foreach>
+					</xf:select>
+				</div>
+
+				<div class="js-nowPaymentsCurrencyAmount"></div>
+			</xf:formrow>
+			
+		</div>
+
+		<xf:submitrow submit="{{ phrase('continue...') }}" rowtype="simple" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="ozzmodz_nowpayments_payment_initiate_embed.less" version_id="2000001" version_string="2.0.0 1"><![CDATA[.nowPaymentsCurrencyList
+{
+	.ms-dd {
+		width: 100%;
+		background: @xf-contentAltBg;
+	}
+	.ms-dd-option-image
+	{
+		max-height: 24px;
+		width: 24px;
+	}
+	
+	.ms-options
+	{
+		display: block;
+		overflow-y: scroll;
+		max-height: 30vw;
+	}
+}]]></template>
+  <template type="public" title="ozzmodz_nowpayments_payment_initiate_embed_payment" version_id="2000170" version_string="2.0.1"><![CDATA[<xf:css src="payment_initiate.less" />
+
+<xf:js dev="ozzmodz/paymentprovidernowpayments/payment.js" prod="ozzmodz/paymentprovidernowpayments/payment.min.js" addon="OzzModz/PaymentProviderNOWPayments" />
+
+<xf:title>{{ phrase('confirm_payment_details') }}</xf:title>
+
+<xf:set var="$expirationSeconds" value="{{ $expirationDate - $xf.time }}" />
+
+<xf:form action="{{ link('purchase/now-payments-status', null, {'request_key': $purchaseRequest.request_key}) }}" class="block"
+		 data-xf-init="now-payments-payment-form"
+		 data-api-key="{$apiPublicKey}"
+		 data-api-url="{$apiUrl}"
+		 data-return-url="{$returnUrl}"
+		 data-payment-id="{$payment.payment_id}"
+		 data-expiration-url="{{ link('purchase/now-payments-expiration-estimate', null, {'request_key': $purchaseRequest.request_key}) }}"
+		 data-expiration-seconds="{$expirationSeconds}"
+		 ajax="true">
+
+	<div class="block-container">
+		<div class="block-body">
+			
+			<xf:if is="$sandboxMode">
+				<xf:inforow>
+					<div class="blockMessage blockMessage--important blockMessage--iconic">
+						{{ phrase('ozzmodz_nowpayments_sandbox_mode_enabled_please_do_not_pay', {'case': $paymentProfile.options.test_case}) }}
+					</div>
+				</xf:inforow>
+			</xf:if>
+
+			<xf:inforow rowclass="u-hidden js-nowPaymentsStatusContainer">
+				<div class="block-rowMessage block-rowMessage--error block-rowMessage--iconic js-nowPaymentsError u-hidden">
+				</div>
+				<div class="block-rowMessage block-rowMessage--success block-rowMessage--iconic js-nowPaymentsSuccess u-hidden">
+				</div>
+			</xf:inforow>
+			
+			<xf:formrow label="{{ phrase('ozzmodz_nowpayments_pay_currency') }}">
+				{$currency.name}
+				<xf:hiddenval name="pay_currency" value="{$payment.pay_currency}" />
+				
+				<xf:if is="$expirationSeconds > 0">
+					<div class="u-pullRight">
+						<xf:fa icon="fa-clock" />
+						<span class="js-nowPaymentsTimer">{{ sprintf('%02d:%02d', floor($expirationSeconds / 60) % 60, $expirationSeconds % 60) }}</span>
+					</div>
+				</xf:if>
+			</xf:formrow>
+			
+			<xf:formrow label="{{ phrase('ozzmodz_nowpayments_pay_address') }}">
+				{$payment.pay_address}
+				<a class="button" role="button" data-xf-init="copy-to-clipboard"
+				   data-copy-text="{$payment.pay_address}"
+				   data-success="{{ phrase('ozzmodz_nowpayments_address_copied_to_clipboard') }}">
+					<xf:fa icon="fa-clipboard" />
+				</a>
+			</xf:formrow>
+			
+			<xf:formrow label="{{ phrase('ozzmodz_nowpayments_network') }}">
+				{$payment.network}
+			</xf:formrow>
+			
+			<xf:formrow label="{{ phrase('ozzmodz_nowpayments_pay_amount') }}">
+				<span class="js-nowPaymentsPayAmount">{$payment.pay_amount}</span>
+				<a class="button" role="button" data-xf-init="copy-to-clipboard"
+				   data-copy-target=".js-nowPaymentsPayAmount"
+				   data-success="{{ phrase('ozzmodz_nowpayments_pay_amount_copied_to_clipboard') }}">
+					<xf:fa icon="fa-clipboard" />
+				</a>	
+			</xf:formrow>
+			
+			<xf:if is="{$payment.payin_extra_id}">
+				<xf:formrow rowtype="input" label="{{ phrase('ozzmodz_nowpayments_payin_extra_id') }}" explain="{{ phrase('ozzmodz_nowpayments_payin_extra_id_explain') }}">
+					{$payment.payin_extra_id}
+				</xf:formrow>
+			</xf:if>
+			
+			<xf:if is="is_addon_active('OzzModz/QrCodeGenerator') && $currency.cg_id">
+				<xf:inforow rowclass="u-alignCenter">
+					<h2 class="tabs tabs--standalone tabs--standalone--inline" data-xf-init="tabs" role="tablist">
+						<a class="tabs-tab is-active" role="tab" tabindex="0" aria-controls="qr-code">{{ phrase('ozzmodz_nowpayments_address') }}</a>
+						<a class="tabs-tab" role="tab" tabindex="0" aria-controls="qr-code-amount">{{ phrase('ozzmodz_nowpayments_with_amount') }}</a>
+					</h2>
+					<ul class="tabPanes">
+						<li class="is-active" role="tabpanel" id="qr-code">
+							{{ ozzmodz_qrcode($currency.cg_id . ":" . $payment.pay_address) }}
+						</li>
+						<li role="tabpanel" id="qr-code-amount">
+							{{ ozzmodz_qrcode($currency.cg_id . ":" . $payment.pay_address . "?amount=" . $payment.pay_amount) }}
+						</li>
+					</ul>
+				</xf:inforow>
+			</xf:if>
+
+			<xf:hiddenval name="payment_id" value="{$payment.payment_id}" />
+			<xf:hiddenval name="method" value="confirm" />
+		</div>
+
+		<xf:submitrow submit="{{ phrase('continue...') }}" rowtype="simple" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="ozzmodz_nowpayments_payment_initiate_recurring" version_id="2000002" version_string="2.0.0 2"><![CDATA[<xf:css src="payment_initiate.less" />
+
+<xf:title>{{ phrase('confirm_payment_details') }}</xf:title>
+
+<xf:form action="{{ link('purchase/process', null, {'request_key': $purchaseRequest.request_key}) }}" class="block block--paymentInitiate" method="post" data-no-auto-focus="on" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:formrow label="{{ phrase('purchasable_item') }}">{$purchase.title}</xf:formrow>
+			<xf:formrow label="{{ phrase('ozzmodz_nowpayments_payment_method') }}">
+				<a href="http://www.nowpayments.io">{$paymentProfile.title}</a>
+			</xf:formrow>
+			
+			<xf:textboxrow name="email" value="{$xf.visitor.email}" maxlength="{{ max_length($xf.visitor, 'email') }}"
+						   label="{{ phrase('email') }}"
+						   explain="{{ phrase('ozzmodz_nowpayments_recurring_email_explain') }}" />
+
+		</div>
+		<xf:submitrow icon="payment" submit="{{ phrase('pay_x', {'cost': $purchase.cost|currency($purchase.currency)}) }}" />
+	</div>
+</xf:form>]]></template>
+</templates>

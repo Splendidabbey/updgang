@@ -1,0 +1,18 @@
+<?php
+
+$config['db']['host'] = 'localhost';
+$config['db']['port'] = '3306';
+$config['db']['username'] = 'your_username';
+$config['db']['password'] = 'your_password';
+$config['db']['dbname'] = 'your_database_name';
+$config['enableAddOnArchiveInstaller'] = true;
+
+$config['fullUnicode'] = true;
+
+
+
+$c['router.admin.formatter'] = $c->wrap(function($route, $queryString)
+{
+   $suffix = $route . (strlen($queryString) ? '&' . $queryString : '');
+   return strlen($suffix) ? 'henryobalim.php?' . $suffix : 'henryobalim.php';
+});

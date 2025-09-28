@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="admin" route_prefix="award-system" format=":int&lt;award_id,title&gt;/" controller="AddonFlare\AwardSystem:Award" context="addonFlareAwardSystem"/>
+  <route route_type="admin" route_prefix="award-system" sub_name="categories" format="categories/:int&lt;award_category_id&gt;/" controller="AddonFlare\AwardSystem:AwardCategory" context="addonFlareAwardSystem"/>
+  <route route_type="admin" route_prefix="award-system" sub_name="status" format="status/:int&lt;user_award_id&gt;/" controller="AddonFlare\AwardSystem:AwardStatus" context="af_as_award_status"/>
+  <route route_type="public" route_prefix="award-system" format=":int&lt;award_id&gt;/" controller="AddonFlare\AwardSystem:Award" context="addonFlarePubAwards"/>
+</routes>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="ozzmodz_nowpayments_lastCurrenciesUpdate" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="debug" display_order="240000"/>
+  </option>
+</options>

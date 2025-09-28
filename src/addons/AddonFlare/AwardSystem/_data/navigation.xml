@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation>
+  <navigation_entry navigation_id="addonFlarePubAwards" display_order="700" navigation_type_id="basic" enabled="1"><![CDATA[{"link":"{{ link('award-system\/list') }}","display_condition":"","extra_attributes":[]}]]></navigation_entry>
+  <navigation_entry navigation_id="af_as_my_awards" parent_navigation_id="addonFlarePubAwards" display_order="10" navigation_type_id="basic" enabled="1"><![CDATA[{"link":"{{ link('award-system\/user\/awards', null, {'user': $xf.visitor.user_id}) }}","display_condition":"$xf.visitor.user_id","extra_attributes":[]}]]></navigation_entry>
+  <navigation_entry navigation_id="af_as_pending_awards" parent_navigation_id="addonFlarePubAwards" display_order="20" navigation_type_id="basic" enabled="1"><![CDATA[{"link":"{{ link('award-system\/pending') }}","display_condition":"$xf.visitor.canManageAwards()","extra_attributes":[]}]]></navigation_entry>
+</navigation>

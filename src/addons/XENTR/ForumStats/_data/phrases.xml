@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="style_prop.xentr_forumStatistics" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics row]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsCounts" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics count row]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsIconSize" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics icon font size]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsLatestMember" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics latest member row]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsLatestMemberIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics latest member icon]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsMembers" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics members row]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsMembersIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics members icon]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsMessages" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics messages row]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsMessagesIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics messages icon]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsThreads" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics threads row]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics threads icon]]></phrase>
+  <phrase title="style_prop.xentr_forumStatisticsTitle" version_id="1000070" version_string="1.0.0"><![CDATA[Forum statistics title row]]></phrase>
+  <phrase title="style_prop.xentr_forum_statistics_title" version_id="1000170" version_string="1.0.1"><![CDATA[Enable forum statistics title]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatistics" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsCounts" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsIconSize" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsLatestMember" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsLatestMemberIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsMembers" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsMembersIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsMessages" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsMessagesIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsThreads" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsThreadsIcon" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forumStatisticsTitle" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.xentr_forum_statistics_title" version_id="1000170" version_string="1.0.1"><![CDATA[Enables the forum statistics title]]></phrase>
+  <phrase title="style_prop_group.xentr_forumStatistics" version_id="1000070" version_string="1.0.0"><![CDATA[↓├ XenTR ┤ Forum statistics]]></phrase>
+  <phrase title="style_prop_group_desc.xentr_forumStatistics" version_id="1000070" version_string="1.0.0"><![CDATA[Settings related to forum statistics customization]]></phrase>
+  <phrase title="widget_def.xentr_forum_statistics" version_id="1000070" version_string="1.0.0"><![CDATA[XenTR forum statistics]]></phrase>
+  <phrase title="widget_def_desc.xentr_forum_statistics" version_id="1000070" version_string="1.0.0"><![CDATA[Displays the XenTR forum statistics]]></phrase>
+</phrases>

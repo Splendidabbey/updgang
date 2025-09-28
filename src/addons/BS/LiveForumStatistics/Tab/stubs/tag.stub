@@ -1,0 +1,16 @@
+<ul class="content {$tab.tab_class}">
+    <xf:if is="$results is not empty">
+
+        <xf:foreach loop="$results" value="$result">
+
+            <xf:macro template="lfs_tab_tag_definition_macros"
+                      name="result"
+                      arg-result="{$result}" />
+        </xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>

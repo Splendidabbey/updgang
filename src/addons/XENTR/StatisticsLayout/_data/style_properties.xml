@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="xentr_liveStatsArticle" group_name="lfsContent" title="Article thread type icon color" property_type="value" value_type="color" value_group="ThreadItemIconColor" display_order="250">
+    <value>"rgb(132, 101, 60)"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsCountWidth" group_name="lfsContent" title="Reply and View column width" property_type="value" value_type="number" display_order="75">
+    <value_parameters>min=80
+units={{ phrase('units_pixels') }}</value_parameters>
+    <value>"80"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsDiscussion" group_name="lfsContent" title="Discussion thread type icon color" property_type="value" value_type="color" value_group="ThreadItemIconColor" display_order="210">
+    <value>"rgb(255, 0, 0)"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsHottestThreadsIcon" group_name="lfsContent" title="Hottest threads icon" property_type="value" value_type="string" depends_on="xentr_liveStatsTabGroupsIcons" value_group="TabGroupIcon" display_order="180">
+    <value>"f7b6"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsItemSticked" group_name="lfsContent" title="Sticked item" property_type="css" display_order="40" css_components="text,background,extra">
+    <value>{
+    "color": "@xf-textColorAccentContent",
+    "background-color": "@xf-contentAccentBg"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsLatestPostsIcon" group_name="lfsContent" title="Latest posts icon" property_type="value" value_type="string" depends_on="xentr_liveStatsTabGroupsIcons" value_group="TabGroupIcon" display_order="160">
+    <value>"f086"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsMostViewedIcon" group_name="lfsContent" title="Most vieweds icon" property_type="value" value_type="string" depends_on="xentr_liveStatsTabGroupsIcons" value_group="TabGroupIcon" display_order="190">
+    <value>"f201"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsMyThreadsIcon" group_name="lfsContent" title="My threads icon" property_type="value" value_type="string" depends_on="xentr_liveStatsTabGroupsIcons" value_group="TabGroupIcon" display_order="200">
+    <value>"f004"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsNewThreadsIcon" group_name="lfsContent" title="New threads icon" property_type="value" value_type="string" depends_on="xentr_liveStatsTabGroupsIcons" value_group="TabGroupIcon" display_order="170">
+    <value>"f07c"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsPoll" group_name="lfsContent" title="Poll thread type icon color" property_type="value" value_type="color" value_group="ThreadItemIconColor" display_order="240">
+    <value>"rgb(53, 155, 228)"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsQuestion" group_name="lfsContent" title="Question thread type icon color" description="Question thread type item icon color." property_type="value" value_type="color" value_group="ThreadItemIconColor" display_order="220">
+    <value>"rgb(245, 158, 17)"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsResource" group_name="lfsContent" title="Resource thread type icon color" property_type="value" value_type="color" value_group="ThreadItemIconColor" display_order="270">
+    <value>"rgb(216, 19, 241)"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsSolved" group_name="lfsContent" title="Solved thread type icon color" property_type="value" value_type="color" value_group="ThreadItemIconColor" display_order="230">
+    <value>"@xf-successFeatureColor"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsSuggestion" group_name="lfsContent" title="Suggestion thread type icon color" property_type="value" value_type="color" value_group="ThreadItemIconColor" display_order="260">
+    <value>"rgb(122, 52, 234)"</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsTabGroupsIcons" group_name="lfsContent" title="Enabled tab groups icons" property_type="value" value_type="boolean" value_group="TabGroupIcon" display_order="150">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsTabHeader" group_name="lfsTabs" title="Sub tab header" property_type="css" display_order="15" css_components="text,background,border,padding,extra">
+    <value>{
+    "color": "@xf-majorHeadingTextColor",
+    "background-color": "@xf-contentHighlightBg",
+    "border-bottom-width": "@xf-borderSize",
+    "border-bottom-color": "@xf-borderColor",
+    "extra": "background: linear-gradient(0deg, @xf-majorHeadingBg, mix(@xf-majorHeadingBg, @xf-contentBg, 50%));"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsUserOffline" group_name="lfsContent" title="User status is offline" property_type="css" display_order="220" css_components="text,background,border,extra">
+    <value>{
+    "background-color": "rgb(255, 0, 0)",
+    "border-width": "@xf-borderSize",
+    "border-color": "@xf-errorBg"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_liveStatsUserOnline" group_name="lfsContent" title="User status is online" property_type="css" display_order="210" css_components="text,background,border,extra">
+    <value>{
+    "background-color": "@xf-successFeatureColor",
+    "border-width": "@xf-borderSize",
+    "border-color": "@xf-successBg"
+}</value>
+  </style_property>
+  <style_property property_name="xentr_memberTabWidth" group_name="lfsContent" title="Member tab group width" description="This style property is control the members tab width if you use a style other than the default theme." property_type="value" value_type="number" display_order="76">
+    <value_parameters>min=20
+units={{ phrase('units_percentage') }}</value_parameters>
+    <value>"35"</value>
+  </style_property>
+</style_properties>

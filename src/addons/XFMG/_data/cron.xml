@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cron>
+  <entry entry_id="xfmgCacheStats" cron_class="XFMG\Cron\Statistics" cron_method="cacheGalleryStatistics" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[10,40]}]]></entry>
+  <entry entry_id="xfmgCleanUpDaily" cron_class="XFMG\Cron\CleanUp" cron_method="runDailyCleanUp" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[2],"minutes":[50]}]]></entry>
+  <entry entry_id="xfmgCleanUpHourly" cron_class="XFMG\Cron\CleanUp" cron_method="runHourlyCleanUp" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[0]}]]></entry>
+  <entry entry_id="xfmgGenerateRandomAlbum" cron_class="XFMG\Cron\RandomCache" cron_method="generateRandomAlbumCache" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[12,42]}]]></entry>
+  <entry entry_id="xfmgGenerateRandomMedia" cron_class="XFMG\Cron\RandomCache" cron_method="generateRandomMediaCache" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[22,52]}]]></entry>
+  <entry entry_id="xfmgViews" cron_class="XFMG\Cron\Views" cron_method="runViewUpdate" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[30]}]]></entry>
+</cron>

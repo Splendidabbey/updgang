@@ -1,0 +1,26 @@
+<ul class="content {$tab.tab_class}">
+    <xf:if is="$threads is not empty || $stickedLinks is not empty">
+
+        <xf:foreach loop="$stickedLinks" value="$stickedLink">
+            <xf:macro template="lfs_tab_thread_definition_macros" name="sticked_link_item"
+                      arg-stickedLink="{$stickedLink}" />
+        </xf:foreach>
+
+        <xf:foreach loop="$threads" value="$thread">
+            <xf:macro template="lfs_tab_thread_definition_macros" name="thread_item"
+                      arg-thread="{$thread}"
+                      arg-user="{$thread.LastPoster}"
+                      arg-date="{$thread.last_post_date}"
+                      arg-link="{{ link('threads/post', $thread, {'post_id': $thread.last_post_id}) }}" />
+        </xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+            link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+            wrapperclass="hidden-pageNav js-lfsPageNav" />

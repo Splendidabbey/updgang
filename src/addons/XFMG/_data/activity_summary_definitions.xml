@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<activity_summary_definitions>
+  <activity_summary_definition definition_id="xfmg_latest_albums" definition_class="XFMG:LatestAlbums"/>
+  <activity_summary_definition definition_id="xfmg_latest_comments" definition_class="XFMG:LatestComments"/>
+  <activity_summary_definition definition_id="xfmg_latest_media" definition_class="XFMG:LatestMedia"/>
+</activity_summary_definitions>

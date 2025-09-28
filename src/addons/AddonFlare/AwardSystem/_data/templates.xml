@@ -1,0 +1,1901 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="af_as_award_category_delete" version_id="1000470" version_string="1.0.4"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('award-system/categories/delete', $awardCategory) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('please_confirm_that_you_want_to_delete_following:') }}
+				<strong>
+					<a href="{{ link('award-system/categories/edit', $awardCategory) }}">{$awardCategory.title}</a>
+				</strong>
+				<xf:comment>
+					<div class="blockMessage blockMessage--important blockMessage--iconic">
+						{{ phrase('af_as_confirm_category_deletion') }}
+					</div>
+				</xf:comment>
+			</xf:inforow>
+			<xf:checkboxrow rowtype="noLabel" label="" explain="{{ phrase('af_as_delete_cat_awards_explain') }}">
+				<xf:option name="delete_awards" checked="{{ false }}">
+					<xf:label>{{ phrase('af_as_delete_cat_awards') }}</xf:label>
+				</xf:option>
+			</xf:checkboxrow>
+		</div>
+		<xf:submitrow rowtype="simple" icon="delete" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="af_as_award_category_edit" version_id="1030072" version_string="1.3.0.2"><![CDATA[<xf:if is="$awardCategory.isInsert()">
+	<xf:title>{{ phrase('af_as_add_category') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('af_as_edit_category:') }} {$awardCategory.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$awardCategory.isUpdate()">
+	<xf:button href="{{ link('award-system/categories/delete', $awardCategory) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('award-system/categories/save', $awardCategory) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="title" value="{$awardCategory.MasterTitle.phrase_text}"
+				label="{{ phrase('title') }}"/>
+			<xf:textarearow name="description" value="{$awardCategory.MasterDescription.phrase_text}" rows="5" autosize="true"
+				label="{{ phrase('description') }}"/>
+
+			<xf:selectrow name="display_mode" value="{$awardCategory.display_mode}"
+				label="{{ phrase('af_as_display_mode') }}">
+				<xf:options source="{$awardCategory.display_mode_options}" />
+			</xf:selectrow>
+
+			<xf:macro template="display_order_macros" name="row"
+				arg-value="{$awardCategory.display_order}" />
+
+			<xf:checkboxrow label="{{ phrase('af_as_overwrite') }}" explain="{{ phrase('af_as_overwrite_explain') }}">
+                <xf:option name="overwrite" selected="$awardCategory.overwrite"
+                    label="{{ phrase('yes') }}" />
+            </xf:checkboxrow>
+		</div>
+
+		<xf:submitrow icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="af_as_award_delete" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('award-system/delete', $award) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('please_confirm_that_you_want_to_delete_following:') }}
+				<strong>
+                    <a href="{{ link('award-system/edit', $award) }}">{$award.title}</a>
+                </strong>
+                <div class="blockMessage blockMessage--important blockMessage--iconic">
+                    {{ phrase('af_as_confirm_award_deletion') }}
+                </div>
+			</xf:inforow>
+		</div>
+		<xf:submitrow rowtype="simple" icon="delete" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="af_as_award_edit" version_id="1040070" version_string="1.4.0"><![CDATA[<xf:if is="$award.isInsert()">
+    <xf:title>{{ phrase('af_as_add_award') }}</xf:title>
+<xf:else />
+    <xf:title>{{ phrase('af_as_edit_award:') }} {$award.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$award.isUpdate()">
+    <xf:button href="{{ link('award-system/delete', $award) }}" icon="delete" upload="true" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('award-system/save', $award) }}" upload="true" ajax="true" class="block">
+
+    <div class="block-container">
+
+        <h2 class="block-tabHeader tabs hScroller" data-xf-init="h-scroller tabs" role="tablist">
+            <span class="hScroller-scroll">
+                <a class="tabs-tab is-active" role="tab" tabindex="0" aria-controls="award-options">{{ phrase('af_as_options') }}</a>
+                <xf:macro template="helper_criteria" name="user_tabs" arg-userTabTitle="{{ phrase('af_as_give_award_if...') }}" />
+                <a class="tabs-tab" role="tab" tabindex="0" aria-controls="award-copyFromTrophy">{{ phrase('af_as_copy_criteria_from_tropy') }}</a>
+            </span>
+        </h2>
+
+        <ul class="block-body tabPanes">
+            <li class="is-active" role="tabpanel" id="award-options">
+                <div class="block-body">
+                    <xf:textboxrow name="title" value="{$award.MasterTitle.phrase_text}"
+                        label="{{ phrase('name') }}" />
+
+                    <xf:textarearow name="description" value="{$award.MasterDescription.phrase_text}"  dir="ltr"
+                        rows="5" autosize="true"
+                        label="{{ phrase('description') }}" />
+
+                    <xf:numberboxrow name="award_points" value="{$award.award_points}" min="0"
+                        label="{{ phrase('af_as_award_points') }}" />
+
+                    <xf:uploadrow  name="award_icon"
+                        label="{{ phrase('upload_image') }}"
+                        accept="image/*"
+                        explain="{{ phrase('it_is_recommended_that_you_use_image_that_is_at_least_x_pixels', {'height': 125, 'width': 125}) }}"/>
+
+                    <xf:if is="$award.icon_url">
+                        <xf:formrow label="{{ phrase('af_as_existing_image') }}">
+                            <div style="max-width:100px;">
+                                {{ award_image($award) }}
+                            </div>
+                        </xf:formrow>
+                    </xf:if>
+
+                    <xf:codeeditorrow name="inline_css" value="{$award.inline_css}"
+                        mode="css" data-line-wrapping="true"
+                        class="codeEditor--autoSize"
+                        label="{{ phrase('af_as_inline_css') }}" />
+
+                    <xf:selectrow name="award_category_id" value="{$award.award_category_id}"
+                        label="{{ phrase('af_as_award_category') }}">
+
+                        <xf:option value="0" label="{{ phrase('(none)') }}" />
+                        <xf:options source="{$awardCategories}" />
+                    </xf:selectrow>
+
+                    <xf:checkboxrow label="{{ phrase('af_as_allow_multiple') }}" explain="{{ phrase('af_as_allow_multiple_explain') }}">
+                        <xf:option name="allow_multiple" selected="$award.allow_multiple"
+                            label="{{ phrase('yes') }}" />
+                    </xf:checkboxrow>
+
+                    <xf:macro template="display_order_macros" name="row"
+                        arg-value="{$award.display_order}" />
+
+                    <hr class="formRowSep" />
+
+                    <xf:checkboxrow label="{{ phrase('af_as_can_feature_label') }}">
+                        <xf:option name="can_feature" selected="$award.can_feature"
+                            label="{{ phrase('yes') }}" />
+                    </xf:checkboxrow>
+
+                    <xf:checkboxrow label="">
+                        <xf:option name="show_in_list" selected="$award.show_in_list"
+                            label="{{ phrase('af_as_show_in_awards_list') }}">
+                            <xf:checkbox>
+                                <xf:option name="can_request" selected="$award.can_request"
+                                    label="{{ phrase('af_as_can_be_requested') }}" />
+                                <xf:option name="can_recommend" selected="$award.can_recommend"
+                                    label="{{ phrase('af_as_can_be_recommended') }}" />
+                            </xf:checkbox>
+                        </xf:option>
+                    </xf:checkboxrow>
+                </div>
+            </li>
+
+            <xf:macro template="helper_criteria" name="user_panes"
+                arg-criteria="{{ $userCriteria.getCriteriaForTemplate() }}"
+                arg-data="{{ $userCriteria.getExtraTemplateData() }}" />
+
+            <li role="tabpanel" id="award-copyFromTrophy">
+                <div class="block-body">
+                    <xf:selectrow name="copy_trophy_id" value=""
+                        label="{{ phrase('af_as_copy_from_trophy') }}">
+
+                        <xf:option value="0" label="{{ phrase('(none)') }}" />
+                        <xf:options source="{$trophies}" />
+                    </xf:selectrow>
+                </div>
+            </li>
+
+        </ul>
+
+        <xf:submitrow icon="save" sticky="true" />
+
+    </div>
+</xf:form>]]></template>
+  <template type="admin" title="af_as_award_list" version_id="1040070" version_string="1.4.0"><![CDATA[<xf:title>{{ phrase('af_as_awards') }}</xf:title>
+
+<xf:pageaction>
+	<div class="buttonGroup">
+		<xf:button href="{{ link('award-system/add') }}" icon="add" overlay="true">{{ phrase('af_as_add_award') }}</xf:button>
+		<xf:button href="{{ link('award-system/categories/add') }}" icon="add" overlay="true">{{ phrase('af_as_add_category') }}</xf:button>
+	</div>
+</xf:pageaction>
+
+<xf:form action="{{ link(('award-system/toggle')) }}" ajax="true" class="block">
+	<div class="block-outer">
+		<xf:macro template="filter_macros" name="quick_filter" arg-key="awards" arg-class="block-outer-opposite" />
+	</div>
+	<div class="block-container">
+		<div class="block-body">
+			<xf:datalist>
+				<colgroup>
+					<col style="width: 3%">
+					<col style="width: 40%">
+					<col style="width: 1%">
+					<col style="width: 1%">
+				</colgroup>
+				<xf:foreach loop="$awardData.awardCategories" key="$awardCategoryId" value="$awardCategory">
+					<tbody class="dataList-rowGroup">
+						<xf:datarow rowtype="subsection"
+							rowclass="{{ !$awardCategoryId ? 'dataList-row--noHover' : '' }}">
+
+							<xf:if is="$awardCategoryId > 0">
+								<xf:cell href="{{ link('award-system/categories/edit', $awardCategory) }}"
+										 colspan="3" overlay="true">
+									{$awardCategory.title}
+								</xf:cell>
+								<xf:delete href="{{ link('award-system/categories/delete', $awardCategory) }}" />
+							<xf:else />
+								<xf:cell colspan="4">{$awardCategory.title}</xf:cell>
+							</xf:if>
+						</xf:datarow>
+
+						<xf:foreach loop="{$awardData.awards.{$awardCategoryId}}" key="$awardId" value="$award">
+							<xf:datarow>
+								<xf:cell class="dataList-cell--min dataList-cell--image dataList-cell--imageMedium">
+									<xf:if is="$award.icon_url">
+										{{ award_image($award, link('award-system/edit', $award)) }}
+									<xf:else />
+										<span class="dataList-imagePlaceholder"></span>
+									</xf:if>
+								</xf:cell>
+								<xf:cell href="{{ link('award-system/edit', $award) }}" class="dataList-cell--main">
+									<div class="dataList-mainRow" dir="auto">
+										{$award.title}
+										<xf:if is="$award.user_criteria">
+											<span class="dataList-hint contentRow-extra u-hideNarrow" dir="auto">{{ phrase('af_as_auto') }}</span>
+										</xf:if>
+									</div>
+									<div class="dataList-subRow">{$award.description|nl2br}</div>
+								</xf:cell>
+								<xf:cell class="dataList-cell--min dataList-cell--awardPoints">
+									<span class="u-dimmed">{$award.award_points|number}</span>
+								</xf:cell>
+								<xf:delete href="{{ link('award-system/delete', $award) }}" />
+							</xf:datarow>
+						<xf:else />
+							<xf:datarow rowclass="dataList-row--noHover dataList-row--note">
+								<xf:cell colspan="3" class="dataList-cell--noSearch">
+									<xf:if is="{{ count($awardData.awardCategories) > 1 }}">
+										{{ phrase('af_as_no_awards_in_category') }}
+									<xf:else />
+										{{ phrase('af_as_no_awards_added_yet') }}
+									</xf:if>
+								</xf:cell>
+							</xf:datarow>
+						</xf:foreach>
+					</tbody>
+				</xf:foreach>
+			</xf:datalist>
+		</div>
+		<div class="block-footer block-footer--split">
+			<span class="block-footer-counter">{{ display_totals($awardData.totalAwards) }}</span>
+		</div>
+	</div>
+</xf:form>
+
+<xf:css>
+.dataList-cell--awardPoints .u-dimmed::after {
+    content: "{{ phrase('points') }}";
+    font-size: 0.7em;
+    display: block;
+}
+</xf:css>]]></template>
+  <template type="admin" title="af_as_award_status_list" version_id="1040070" version_string="1.4.0"><![CDATA[<xf:title>{{ phrase('af_as_x_status_awards', {'status': $statusPhrase|to_upper('ucwords')}) }}</xf:title>
+
+<xf:pageaction>
+	<div class="buttonGroup">
+		<xf:button href="{{ link('award-system/status/add') }}" overlay="true" icon="add">{{ phrase('af_as_add_user_award') }}</xf:button>
+	</div>
+</xf:pageaction>
+
+<xf:form action="{{ link(('award-system/status/confirm-update')) }}" ajax="true" class="block" id="awardStatusUpdate">
+
+	<div class="block-outer">
+		<xf:macro template="filter_macros" name="quick_filter" arg-key="awards" arg-class="block-outer-opposite" />
+	</div>
+
+	<div class="block-container">
+		<div class="block-body">
+			<xf:datalist data-xf-init="responsive-data-list">
+				<colgroup>
+					<col style="width: 15%">
+					<col style="width: 10%">
+					<col style="width: 10%">
+					<col style="width: 10%">
+					<col style="width: 10%">
+					<col style="width: 30%">
+					<col style="width: 1%">
+				</colgroup>
+				<thead>
+				<xf:datarow rowtype="header">
+					<xf:cell>{{ phrase('af_as_x_status_date', {'status': $status|to_upper('ucwords')}) }}</xf:cell>
+					<xf:cell>{{ phrase('user') }}</xf:cell>
+					<xf:cell>{{ phrase('af_as_requested_by')|to_upper('ucwords') }}</xf:cell>
+					<xf:cell>{{ phrase('af_as_given_by')|to_upper('ucwords') }}</xf:cell>
+					<xf:cell>{{ phrase('af_as_award') }}</xf:cell>
+					<xf:cell>{{ phrase('reason') }}</xf:cell>
+                    <xf:cell>
+                    	<xf:checkbox standalone="true">
+                    		<xf:option check-all="< .block-container" data-xf-init="tooltip" title="{{ phrase('select_all')|for_attr }}" />
+                    	</xf:checkbox>
+                    </xf:cell>
+                 </xf:datarow>
+                 </thead>
+				 <xf:foreach loop="$userAwards" key="$userAwardId" value="$userAward">
+					<xf:datarow>
+						<xf:cell>
+							<xf:date time="{$userAward.date_requested}" />
+						</xf:cell>
+						<xf:cell>
+							<xf:username user="{$userAward.User}" />
+						</xf:cell>
+						<xf:cell>
+							<xf:username user="{$userAward.RecommendedUser}" />
+						</xf:cell>
+						<xf:cell>
+							<xf:if is="{$userAward.GivenUser}">
+								<xf:username user="{$userAward.GivenUser}" />
+							<xf:else />
+								<div>{{ phrase('af_as_auto') }}</div>
+							</xf:if>
+						</xf:cell>
+						<xf:cell>
+							<a href="{{ link('award-system/edit', $userAward.Award) }}">{$userAward.Award.title}</a>
+						</xf:cell>
+						<xf:cell>
+								{$userAward.award_reason}
+						</xf:cell>
+
+                        <xf:toggle name="user_award_ids[]" value="{$userAward.user_award_id}" />
+					</xf:datarow>
+				</xf:foreach>
+			</xf:datalist>
+		</div>
+
+		<div class="block-footer block-footer--split">
+			<span class="block-footer-counter">
+				{{ display_totals($userAwardsTotal, $total) }}
+			</span>
+			<span class="block-footer-select">
+				<xf:checkbox standalone="true">
+					<xf:option check-all="< .block-container" label="{{ phrase('select_all') }}" />
+				</xf:checkbox>
+			</span>
+			<span class="block-footer-controls">
+				<xf:select name="status" class="input--inline">
+					<xf:if is="in_array('approved', $actions)">
+						<xf:option value="approved">{{ phrase('approve') }}</xf:option>
+					</xf:if>
+					<xf:if is="in_array('rejected', $actions)">
+						<xf:option value="rejected">{{ phrase('reject') }}</xf:option>
+					</xf:if>
+					<xf:if is="in_array('delete', $actions)">
+						<xf:option value="delete">{{ phrase('delete') }}</xf:option>
+					</xf:if>
+				</xf:select>
+				<xf:button type="submit">{{ phrase('go') }}</xf:button>
+			</span>
+		</div>
+	</div>
+
+    <xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+        link="award-system/status/list"
+        params="{{ {'status': $status} }}"
+        wrapperclass="js-filterHide block-outer block-outer--after" />
+
+</xf:form>
+]]></template>
+  <template type="admin" title="af_as_award_system" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[<xf:title>{{ phrase('admin_navigation.addonFlareAwardSystem') }}</xf:title>
+
+<xf:macro template="section_nav_macros" name="section_nav" arg-section="addonFlareAwardSystem" />]]></template>
+  <template type="admin" title="af_as_import_config_masterbadge" version_id="1010070" version_string="1.1.0"><![CDATA[<h3 class="block-formSectionHeader">{{ phrase('options') }}</h3>
+
+<xf:comment>Needed so the form is processed correctly if the checkbox is not checked, bc unchecked values are not sent at all</xf:comment>
+<xf:hiddenval name="config[]" />
+
+<xf:checkboxrow label="Reset Existing Award Data">
+    <xf:explain>
+        WARNING: Only check this if you want to clear all the existing data of the XF2 Awards System add-on before importing the Master Badge data.
+    </xf:explain>
+    <xf:option name="config[reset_data]" selected="$reset_data"
+        label="{{ phrase('yes') }}" />
+</xf:checkboxrow>]]></template>
+  <template type="admin" title="af_as_option_macros" version_id="1040070" version_string="1.4.0"><![CDATA[<xf:macro name="option_form_block" arg-group="" arg-options="!" arg-containerBeforeHtml="" arg-headers="{{ [] }}">
+    <xf:if is="$options is not empty">
+        <xf:form action="{{ link('options/update') }}" ajax="true" class="block">
+            {$containerBeforeHtml|raw}
+            <div class="block-container">
+
+                <xf:foreach loop="$headers" value="$header">
+                    <xf:macro name="option_rows" arg-header="{$header.label}"
+                              arg-group="{$group}" arg-options="{$options}"
+                              arg-minDisplayOrder="{$header.minDisplayOrder}" arg-maxDisplayOrder="{$header.maxDisplayOrder}" />
+                </xf:foreach>
+
+                <xf:submitrow sticky="true" icon="save" />
+            </div>
+        </xf:form>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="option_form_block_tabs" arg-group="" arg-options="!" arg-containerBeforeHtml="" arg-headers="{{ [] }}">
+    <xf:if is="$options is not empty">
+        <xf:form action="{{ link('options/update') }}" ajax="true" class="block">
+            {$containerBeforeHtml|raw}
+            <div class="block-container">
+                <h2 class="block-tabHeader tabs" data-xf-init="tabs" role="tablist">
+                    <xf:foreach loop="$headers" key="$key" value="$header">
+                        <a class="tabs-tab{{ $header.active ? ' is-active' : '' }}" role="tab" tabindex="0" aria-controls="{$key}">{$header.label}</a>
+                    </xf:foreach>
+                </h2>
+                <ul class="tabPanes">
+                    <xf:foreach loop="$headers" key="$key" value="$header">
+                        <li class="{{ $header.active ? 'is-active' : '' }}" role="tabpanel" id="{$key}">
+                            <xf:macro name="option_rows"
+                                      arg-group="{$group}" arg-options="{$options}"
+                                      arg-minDisplayOrder="{$header.minDisplayOrder}" arg-maxDisplayOrder="{$header.maxDisplayOrder}" />
+                        </li>
+                    </xf:foreach>
+                </ul>
+                <xf:submitrow sticky="true" icon="save" />
+            </div>
+        </xf:form>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="option_rows" arg-header="" arg-group="!" arg-options="!" arg-minDisplayOrder="{{ 0 }}" arg-maxDisplayOrder="!">
+    <xf:set var="$hundred" value="0" />
+
+    <xf:if is="$header">
+        <h3 class="block-formSectionHeader">{$header}</h3>
+    </xf:if>
+
+    <div class="block-body">
+        <xf:foreach loop="$options" value="$option">
+            <xf:if is="{$option.Relations.{$group.group_id}.display_order} >= $minDisplayOrder AND ({$option.Relations.{$group.group_id}.display_order} < $maxDisplayOrder OR $maxDisplayOrder == -1)">
+                <xf:if is="$group">
+                    <xf:set var="$curHundred" value="{{ floor($option.Relations.{$group.group_id}.display_order / 100) }}" />
+                    <xf:if is="{{ $curHundred > $hundred }}">
+                        <xf:set var="$hundred" value="{$curHundred}" />
+                        <hr class="formRowSep" />
+                    </xf:if>
+                </xf:if>
+
+                <xf:macro template="option_macros" name="option_row"
+                          arg-group="{$group}" arg-option="{$option}" />
+            </xf:if>
+        </xf:foreach>
+    </div>
+</xf:macro>]]></template>
+  <template type="admin" title="af_as_option_template_level_up" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:formrow rowtype="input"
+    label="{$option.title}"
+    hint="{$hintHtml}"
+    explain="{$explainHtml}"
+    html="{$listedHtml}">
+
+    <span class="inputGroup-text">{{ phrase('af_as_amount_needed_levelup_increasesby:') }}</span>
+
+    <div class="inputGroup inputGroup--numbers" dir="ltr">
+        <xf:numberbox name="{$inputName}[increase_by]" min="0" required="{{ false }}" value="{$option.option_value.increase_by}" />
+        <span class="inputGroup-text">points, every</span>
+        <xf:numberbox name="{$inputName}[levels]" min="0" required="{{ false }}" value="{$option.option_value.levels}" />
+        <span class="inputGroup-text">levels</span>
+    </div>
+</xf:formrow>
+
+]]></template>
+  <template type="admin" title="af_as_option_template_most_recent_awards" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:checkboxrow
+    label="{$option.title}"
+    hint="{$hintHtml}"
+    explain="{$explainHtml}"
+    html="{$listedHtml}">
+
+    <xf:option name="{$inputName}[enabled]" label="{{ phrase('enabled') }}" value="1" selected="$option.option_value.enabled" data-hide="true">
+
+        <xf:dependent>
+            <div class="inputGroup">
+                <span class="inputGroup-text">
+                    {{ phrase('af_as_overlay_maximum_entries:') }}
+                </span>
+                <span class="inputGroup" dir="ltr">
+                    <xf:numberbox name="{$inputName}[entries]" class="input--inline input--autoSize"
+                        value="{$option.option_value.entries}" min="1" />
+                </span>
+            </div>
+            <p class="formRow-explain">
+                {{ phrase('af_as_most_recent_awards_explain') }}
+            </p>
+
+        </xf:dependent>
+
+    </xf:option>
+
+</xf:checkboxrow>]]></template>
+  <template type="admin" title="af_as_option_template_registrationDefaults" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:formrow
+    label="{$option.title}"
+    hint="{$hintHtml}"
+    explain="{$explainHtml}"
+    html="{$listedHtml}">
+
+    <xf:checkbox>
+        <xf:option name="{$inputName}[af_as_auto_feature]" selected="$option.option_value.af_as_auto_feature">{{ phrase('af_as_auto_feature_awards') }}</xf:option>
+    </xf:checkbox>
+</xf:formrow>]]></template>
+  <template type="admin" title="af_as_user_award_edit" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:if is="$userAward.isInsert()">
+    <xf:title>{{ phrase('af_as_add_user_award') }}</xf:title>
+<xf:else />
+    <xf:comment>Not used for now</xf:comment>
+    <xf:title>{{ phrase('af_as_edit_user_award:') }} {$award.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$userAward.isUpdate()">
+    <xf:button href="{{ link('award-system/status/delete', $award) }}" icon="delete" upload="true" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('award-system/status/save', $userAward) }}" upload="true" ajax="true" class="block">
+
+    <div class="block-container">
+        <div class="block-body">
+
+            <xf:selectrow name="award_id" value="{$userAward.award_id}"
+                data-xf-init="desc-loader"
+                data-desc-url="{{ link('award-system/get-award-icon', $award) }}"
+                label="{{ phrase('af_as_award') }}">
+                <xf:option />
+                <xf:options source="{$awardOptions}" />
+                <xf:html>
+                    <div class="js-descTarget formRow-explain">
+                        <xf:if is="$award">
+                            <img src="{$award.icon_url}" style="max-width:100px; max-height:75px;">
+                        </xf:if>
+                    </div>
+                </xf:html>
+            </xf:selectrow>
+
+            <xf:tokeninputrow name="recipients" value="" ac="true" href="{{ link('users/find') }}"
+                label="{{ phrase('recipients') }}"
+                explain="{{ phrase('separate_names_with_comma') }}" />
+
+            <xf:textarearow name="award_reason" rows="5" autosize="true"
+                label="{{ phrase('reason') }}" />
+        </div>
+
+        <xf:submitrow icon="save" sticky="true" />
+
+    </div>
+</xf:form>]]></template>
+  <template type="admin" title="af_as_user_award_update_list" version_id="1000170" version_string="1.0.1"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('award-system/status/update', null, {'status': $status}) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				<xf:if is="$status != 'delete'">
+					<xf:set var="$update" value="{{ $status == 'approved' ? phrase('approve') : phrase('reject') }}" />
+				<xf:else/>
+					<xf:set var="$update" value="{{ phrase('delete') }}"/>
+				</xf:if>
+				{{ phrase('af_as_please_confirm_x_status_x_total_items', {'status': $update, 'total': $total, 's': $total == 1 ? '' : 's'}) }}
+			</xf:inforow>
+		</div>
+		<xf:redirect />
+		<xf:foreach loop="$userAwardIds" value="$userAwardId">
+				<xf:hiddenval name="user_award_ids[]">{$userAwardId}</xf:hiddenval>
+		</xf:foreach>
+		<xf:submitrow rowtype="simple" submit="{$update|to_upper('ucwords')}"/>
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="option_af_as_level_colors" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:formrow rowtype="input"
+    label="{$option.title}"
+    hint="{$hintHtml}"
+    explain="{$explainHtml}"
+    html="{$listedHtml}">
+
+    <ul class="listPlain inputGroup-container">
+        <xf:foreach loop="$choices" value="$choice" i="$counter">
+            <li class="inputGroup inputGroup--allowCheckAll" dir="ltr">
+                <xf:textbox class="input--autoSize" name="{$inputName}[{$counter}][level]" value="{$choice.level}" placeholder="{{ phrase('af_as_min_level') }}" />
+                <span class="inputGroup-splitter"></span>
+                <xf:macro template="public:color_picker_macros" name="color_picker"
+                    arg-name="{$inputName}[{$counter}][color]"
+                    arg-value="{$choice.color}"
+                    arg-allowPalette="{{ true }}"
+                    arg-label="{{ phrase('af_as_color') }}"
+                    arg-row="{{ false }}"
+                    arg-required="{{ false }}"
+                    arg-includeScripts="{{ true }}" />
+                <span class="inputGroup-splitter"></span>
+                <span class="inputGroup-text">
+                    <xf:checkbox standalone="true" name="{$inputName}[{$counter}][remove]">
+                        <xf:option>{{ phrase('remove') }}</xf:option>
+                    </xf:checkbox>
+                </span>
+            </li>
+        </xf:foreach>
+
+        <li class="inputGroup" dir="ltr" data-xf-init="field-adder" data-clone-init="true" data-increment-format="{$inputName}[{counter}]">
+            <xf:textbox class="input--autoSize" name="{$inputName}[{$nextCounter}][level]" placeholder="{{ phrase('af_as_min_level') }}" />
+            <span class="inputGroup-splitter"></span>
+            <xf:macro template="public:color_picker_macros" name="color_picker"
+                arg-name="{$inputName}[{$nextCounter}][color]"
+                arg-value=""
+                arg-allowPalette="{{ true }}"
+                arg-label="{{ phrase('af_as_color') }}"
+                arg-row="{{ false }}"
+                arg-required="{{ false }}"
+                arg-includeScripts="{{ true }}" />
+            <span class="inputGroup-splitter"></span>
+            <span class="inputGroup-text">
+                <xf:checkbox standalone="true" name="{$inputName}[{$nextCounter}][remove]">
+                    <xf:option>{{ phrase('remove') }}</xf:option>
+                </xf:checkbox>
+            </span>
+        </li>
+    </ul>
+</xf:formrow>]]></template>
+  <template type="admin" title="option_af_as_max_featured_awards_per_level" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:formrow rowtype="input"
+    label="{$option.title}"
+    hint="{$hintHtml}"
+    explain="{$explainHtml}"
+    html="{$listedHtml}">
+
+    <ul class="listPlain inputGroup-container">
+        <xf:foreach loop="$choices" value="$choice" i="$counter">
+            <li class="inputGroup inputGroup--allowCheckAll" dir="ltr">
+                <xf:textbox class="input--autoSize" name="{$inputName}[{$counter}][level]" value="{$choice.level}" placeholder="{{ phrase('af_as_min_level') }}" />
+                <span class="inputGroup-splitter"></span>
+                <xf:textbox class="input--autoSize" name="{$inputName}[{$counter}][featured]" value="{$choice.featured}" placeholder="{{ phrase('option.af_as_max_featured_awards') }}" />
+                <span class="inputGroup-splitter"></span>
+                <span class="inputGroup-text">
+                    <xf:checkbox standalone="true" name="{$inputName}[{$counter}][remove]">
+                        <xf:option>{{ phrase('remove') }}</xf:option>
+                    </xf:checkbox>
+                </span>
+            </li>
+        </xf:foreach>
+
+        <li class="inputGroup" dir="ltr" data-xf-init="field-adder" data-clone-init="true" data-increment-format="{$inputName}[{counter}]">
+            <xf:textbox class="input--autoSize" name="{$inputName}[{$nextCounter}][level]" placeholder="{{ phrase('af_as_min_level') }}" />
+            <span class="inputGroup-splitter"></span>
+            <xf:textbox class="input--autoSize" name="{$inputName}[{$nextCounter}][featured]" placeholder="{{ phrase('option.af_as_max_featured_awards') }}" />
+            <span class="inputGroup-splitter"></span>
+            <span class="inputGroup-text">
+                <xf:checkbox standalone="true" name="{$inputName}[{$nextCounter}][remove]">
+                    <xf:option>{{ phrase('remove') }}</xf:option>
+                </xf:checkbox>
+            </span>
+        </li>
+    </ul>
+</xf:formrow>]]></template>
+  <template type="public" title="_help_page_awards" version_id="1000570" version_string="1.0.5"><![CDATA[<xf:if is="$awardData.totalAwards is empty">
+	<div class="blockMessage">{{ phrase('af_as_no_awards_added_yet') }}</div>
+<xf:else />
+	<xf:include template="af_as_award_categories" />
+</xf:if>]]></template>
+  <template type="public" title="af_as_award_categories" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:css>
+    .dataList-totalAwards {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+</xf:css>
+
+<xf:foreach loop="$awardData.awardCategories" key="$awardCategoryId" value="$awardCategory">
+    <xf:if is="($categoryId == -1 OR $awardCategoryId == $categoryId) AND count($awardCategory.Awards) > 0">
+        <div class="block">
+            <div class="block-container">
+                <div class="block-body">
+                    <xf:datalist>
+                        <colgroup>
+                            <col style="width: 5%">
+                            <col style="width: 40%">
+                            <col style="width: 8%">
+                        </colgroup>
+                        <xf:datarow rowtype="subsection"
+                                    rowclass="{{ !$awardCategoryId ? 'dataList-row--noHover' : '' }}">
+                            <xf:cell colspan="4">
+                                {$awardCategory.title}
+                                    <span class="block-desc">
+                                        {$awardCategory.description}
+                                    </span>
+                            </xf:cell>
+                        </xf:datarow>
+
+                        <xf:foreach loop="{$awardData.awards.{$awardCategoryId}}" key="$awardId" value="$award">
+                            <xf:datarow >
+                                <xf:cell class="dataList-cell--min dataList-cell--image dataList-cell--imageMedium">
+                                    <xf:if is="$award.icon_url">
+                                        {{ award_image($award) }}
+                                    <xf:else />
+                                        <span class="dataList-imagePlaceholder"></span>
+                                    </xf:if>
+                                </xf:cell>
+                                <xf:cell >
+                                    <div class="contentRow-main">
+                                        <div class="contentRow-header">{$award.title}</div>
+                                        <div class="contentRow-minor">{$award.description|nl2br}</div>
+                                    </div>
+                                </xf:cell>
+                                <xf:cell style="position:relative;">
+                                    <xf:if is="$xf.visitor.user_id">
+                                        <div class="contentRow-main">
+                                            <xf:if is="$xf.options.af_as_award_can_request AND $award.can_request AND ($award.allow_multiple OR {$award.UserAward.{$xf.visitor.user_id}} is empty)">
+                                                <div class="dataList-textRow">
+                                                    <a data-xf-click="overlay" href="{{ link('award-system/request', $award) }}">{{ phrase('af_as_request') }}</a>
+                                                </div>
+                                            </xf:if>
+                                            <xf:if is="$xf.options.af_as_award_can_recommend AND $award.can_recommend">
+                                                <div class="dataList-textRow">
+                                                    <a data-xf-click="overlay" href="{{ link('award-system/recommend', $award) }}">{{ phrase('af_as_recommend') }}</a>
+                                                </div>
+                                            </xf:if>
+                                        </div>
+                                    </xf:if>
+                                    <div class="dataList-totalAwards">
+                                        <xf:if is="$xf.options.af_as_most_recent_awards.enabled AND $xf.visitor.user_id">
+                                                <a href="{{ link('award-system/recent', $award) }}" data-xf-click="overlay">
+                                                    {{ phrase('af_as_total_awarded_x', {'total': $award.total_awarded|number}) }}
+                                                </a>
+                                        <xf:else/>
+                                            {{ phrase('af_as_total_awarded_x', {'total': $award.total_awarded|number}) }}
+                                        </xf:if>
+                                    </div>
+                                </xf:cell>
+                            </xf:datarow>
+                        </xf:foreach>
+                    </xf:datalist>
+                </div>
+            </div>
+        </div>
+    </xf:if>
+</xf:foreach>]]></template>
+  <template type="public" title="af_as_award_display.less" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:foreach loop="$xf.app.em.getRepository('AddonFlare\AwardSystem:Award').getAwardsFromCache()" key="$awardId" value="$award" if="$award.inline_css">
+    .afAwardImg--{$awardId}
+    {
+        {$award.inline_css|raw}
+    }
+</xf:foreach>]]></template>
+  <template type="public" title="af_as_awards_wrapper" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:sidenav>
+	<div class="block">
+		<div class="block-container">
+			<h3 class="block-header">{{ phrase('categories') }}</h3>
+			<div class="block-body">
+				<xf:if is="count($awardData.awardCategories) > 0">
+					<xf:macro name="simple_award_category_list"
+						arg-categories="{$awardData.awardCategories}"
+						arg-categoryId="{$categoryId}"
+						arg-total="{$awardData.totalAwards}"/>
+				<xf:else />
+					<div class="block-row">{{ phrase('n_a') }}</div>
+				</xf:if>
+			</div>
+		</div>
+	</div>
+</xf:sidenav>
+
+<xf:macro name="simple_award_category_list"
+	arg-categoryId="!"
+	arg-categories="!"
+	arg-total="!"
+>
+	<ol class="categoryList toggleTarget is-active">
+		<li class="categoryList-item">
+			<div class="categoryList-itemRow">
+				<a href="{{ link('award-system/list') }}" class="categoryList-link{{ $categoryId == -1 ? ' is-selected' : '' }}">
+					{{ phrase('af_as_all_categories') }}
+				</a>
+				<span class="categoryList-label">
+					<span class="label label--subtle label--smallest">{$total}</span>
+				</span>
+			</div>
+		</li>
+		<xf:foreach loop="$categories" key="$awardCategoryId" value="$awardCategory">
+			<xf:if is="count($awardCategory.Awards)">
+
+				<xf:set var="$isSelected" value="{{ $awardCategory.award_category_id == $categoryId }}" />
+
+				<li class="categoryList-item">
+					<div class="categoryList-itemRow">
+						<a href="{{ link('award-system/list', null, {'category': $awardCategory.award_category_id}) }}" class="categoryList-link{{ $isSelected ? ' is-selected' : '' }}">
+							{$awardCategory.title}
+						</a>
+						<span class="categoryList-label">
+							<span class="label label--subtle label--smallest">{{ count($awardCategory.Awards)|number_short }}</span>
+						</span>
+					</div>
+				</li>
+			</xf:if>
+		</xf:foreach>
+	</ol>
+</xf:macro>
+
+<xf:page option="sideNavTitle">{{ phrase('categories') }}</xf:page>
+{$innerContent|raw}]]></template>
+  <template type="public" title="af_as_extra.less" version_id="1010170" version_string="1.1.1"><![CDATA[.afAwardLevel
+{
+    display: inline-block;
+}
+
+.afAwardLevel--style
+{
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    height: 26px;
+    width: 26px;
+    text-align: center;
+}
+
+// make it smaller for postbit
+.message-cell.message-cell--user dl.pairs
+{
+    .afAwardLevel--style
+    {
+        height: 20px;
+        width: 20px;
+        font-size: 90%;
+    }
+}
+
+<xf:foreach loop="$xf.options.af_as_levels_colors" key="$afLevel" value="$afLevelColor" if="$afLevelColor">
+    .afAwardLevel--style-{$afLevel}
+    {
+        border-color: {$afLevelColor|raw};
+    }
+</xf:foreach>]]></template>
+  <template type="public" title="af_as_member_macros" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:macro name="member_stat_pairs" arg-user="!">
+    <xf:if is="property('af_as_profile_total') AND $user.af_as_award_total">
+        <dl class="pairs pairs--rows pairs--rows--centered fauxBlockLink">
+            <dt>{{ phrase('af_as_awards') }}</dt>
+            <dd>
+                <xf:if is="$user.canViewAwardsUserProfile()">
+                    <a href="{{ link('award-system/user/awards', null, {'user' : $user.user_id}) }}" data-xf-click="overlay"
+                       class="fauxBlockLink-linkRow u-concealed">
+                        {$user.af_as_award_total|number}
+                    </a>
+                <xf:else />
+                    {$user.af_as_award_total|number}
+                </xf:if>
+            </dd>
+        </dl>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="member_view" arg-user="!">
+    <xf:if is="$user.showAwardLevel()">
+        <div class="memberHeader-blurb">
+            <dl class="pairs pairs--inline">
+                <dt>{{ phrase('af_as_level') }}</dt>
+                <dd>{{ user_award_level($user) }}</dd>
+            </dl>
+        </div>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="member_tooltip" arg-user="!">
+    <xf:if is="$user.showAwardLevel()">
+        <div class="memberTooltip-blurb">
+            <dl class="pairs pairs--inline">
+                <dt>{{ phrase('af_as_level') }}</dt>
+                <dd>{{ user_award_level($user) }}</dd>
+            </dl>
+        </div>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="account_visitor_menu">
+    <xf:if is="$xf.visitor.showAwardLevel()">
+        <dl class="pairs pairs--justified fauxBlockLink">
+            <dt>{{ phrase('af_as_level') }}</dt>
+            <dd>
+                <a href="{{ link('award-system/user/awards', $xf.visitor, {'user': $xf.visitor.user_id}) }}" class="fauxBlockLink-linkRow u-concealed">
+                    {{ user_award_level($xf.visitor) }}
+                </a>
+            </dd>
+        </dl>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="level_progress_graph" arg-user="!">
+    <xf:css src="af_as_user_award_list.less" />
+
+    <xf:set var="$levelData" value="{$user.award_level_data}" />
+
+    <div class="awardLevelProgress-graph" aria-hidden="true" data-xf-init="tooltip" data-placement="right" title="{$levelData.currentLevelPercent|number(0)}%">
+        <span class="awardLevelProgress-bar">
+            <i style="width: {$levelData.currentLevelPercent}%"></i>
+        </span>
+    </div>
+</xf:macro>]]></template>
+  <template type="public" title="af_as_message_postbit" version_id="1040070" version_string="1.4.0"><![CDATA[<xf:if is="$user AND $xf.options.af_as_postbit AND property('af_as_postbit') AND property('af_as_postbit_position') == $postbitPosition">
+    <xf:css src="af_as_message_postbit.less" />
+
+    <div class="awardsPostbitContainer">
+        <xf:if is="$user.af_as_award_total > 0 AND $user.canShowFeaturedAwards() AND $user.max_featured_awards AND $user.AwardSystemUserAwards is not empty">
+            <xf:if is="property('af_as_postbit_type') == 'carousel'">
+                <xf:macro name="postbit_carousel" arg-user="{$user}" />
+            <xf:elseif is="property('af_as_postbit_type') == 'list'" />
+                <xf:macro name="postbit_list" arg-user="{$user}" />
+            </xf:if>
+        </xf:if>
+
+        <xf:if is="$xf.options.af_as_levels_enabled AND property('af_as_postbit_level_graph')">
+            <div class="awardsPostbitLevelGraph">
+                <div>{{ phrase('af_as_lv_x', {'level': user_award_level($user)}) }}&nbsp;</div>
+                <xf:macro template="af_as_member_macros" name="level_progress_graph" arg-user="{$user}" />
+            </div>
+        </xf:if>
+
+        <xf:if is="property('af_as_postbit_feature_button') AND (($xf.visitor.user_id == $user.user_id AND $user.canManuallyFeatureAwards()) OR $xf.visitor.canManageAwards())">
+            <div class="awardsPostbitFeatureBtn">
+                <xf:button class="button--link button--smaller" overlay="true" href="{{ link('award-system/user/sort', null, {'user': $user.user_id}) }}">{{ phrase('af_as_featureAwards') }}</xf:button>
+            </div>
+        </xf:if>
+    </div>
+</xf:if>
+
+<xf:macro name="postbit_carousel" arg-user="!">
+    <xf:css src="carousel.less" />
+    <xf:css src="lightslider.less" />
+
+    <xf:js prod="xf/carousel-compiled.js" dev="vendor/lightslider/lightslider.min.js, xf/carousel.js" />
+
+    <xf:set var="$userAwardRepo" value="{$xf.app.em.getRepository('AddonFlare\AwardSystem:UserAward')}" />
+
+    <div class="carousel awardsPostbitCarousel">
+        <ul class="carousel-body carousel-body--show2" data-xf-init="carousel">
+            <xf:foreach loop="$userAwardRepo.getSlicedCollection($user.AwardSystemUserAwards, 0, $user.max_featured_awards)" value="$userAward">
+                <li>
+                    <div class="carousel-item">
+                        {{ award_image($userAward.Award, $user.canViewAwardsUserProfile() ? (link('members', $user) . '#profile-awards') : '') }}
+                    </div>
+                </li>
+            </xf:foreach>
+        </ul>
+    </div>
+</xf:macro>
+
+<xf:macro name="postbit_list" arg-user="!">
+    <xf:set var="$userAwardRepo" value="{$xf.app.em.getRepository('AddonFlare\AwardSystem:UserAward')}" />
+
+    <ul class="listPlain awardsPostbitList">
+        <xf:foreach loop="$userAwardRepo.getSlicedCollection($user.AwardSystemUserAwards, 0, $user.max_featured_awards)" value="$userAward">
+            <li>
+                {{ award_image($userAward.Award, $user.canViewAwardsUserProfile() ? (link('members', $user) . '#profile-awards') : '') }}
+            </li>
+        </xf:foreach>
+    </ul>
+</xf:macro>
+
+<xf:macro name="award_total" arg-user="!">
+    <xf:if is="{{ property('af_as_postbit_total') }} AND $user.af_as_award_total">
+        <dl class="pairs pairs--justified">
+            <dt>{{ phrase('af_as_awards') }}</dt>
+            <dd>{$user.af_as_award_total|number}</dd>
+        </dl>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="award_level" arg-user="!">
+    <xf:if is="property('af_as_postbit_level') AND !property('af_as_postbit_level_graph') AND $user.showAwardLevel()">
+        <dl class="pairs pairs--justified">
+            <dt>{{ phrase('af_as_level') }}</dt>
+            <dd>{{ user_award_level($user) }}</dd>
+        </dl>
+    </xf:if>
+</xf:macro>]]></template>
+  <template type="public" title="af_as_message_postbit.less" version_id="1010170" version_string="1.1.1"><![CDATA[.awardsPostbitContainer
+{
+    margin-top: @xf-af_as_postbit_marginTop;
+    margin-bottom: @xf-af_as_postbit_marginBottom;
+}
+
+ul.awardsPostbitList
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+
+    > li
+    {
+        height: @xf-af_as_postbit_award_height;
+        margin-bottom: @xf-af_as_postbit_award_marginBottom;
+
+        img
+        {
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        &:last-child
+        {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.awardsPostbitCarousel
+{
+    margin-bottom: 0 !important; // override XF class
+
+    div.carousel-item
+    {
+        text-align: center;
+        padding: @xf-af_as_postbit_c_award_padding;
+
+        img
+        {
+            height: @xf-af_as_postbit_c_award_height;
+        }
+    }
+
+    // make dots take less space
+    .lSSlideOuter .lSPager.lSpg > li
+    {
+        height: 16px;
+        line-height: 16px;
+        padding: 0 3px;
+    }
+}
+
+.awardsPostbitLevelGraph
+{
+    display: flex;
+    align-items: center;
+
+    .awardsPostbitList + &, .awardsPostbitCarousel + &
+    {
+        margin-top: 3px;
+    }
+
+    .awardLevelProgress-graph
+    {
+        flex: 1 0 auto;
+    }
+}
+
+.awardsPostbitFeatureBtn
+{
+    text-align: center;
+
+    // add some margin if displaying with awards
+    .awardsPostbitList + &, .awardsPostbitCarousel + &, .awardsPostbitLevelGraph + &
+    {
+        margin-top: 3px;
+    }
+}
+
+@media (max-width: @xf-messageSingleColumnWidth)
+{
+    .awardsPostbitContainer
+    {
+        display: none;
+    }
+}]]></template>
+  <template type="public" title="af_as_notice_pending_user_awards" version_id="1000370" version_string="1.0.3"><![CDATA[<a href="{{ link('award-system/pending') }}"> {{ $awardsPendingTotal > 1 ? phrase('af_as_x_pending_awards', {'total' : $awardsPendingTotal }) : phrase('af_as_1_pending_award') }}</a>]]></template>
+  <template type="public" title="af_as_pending_user_awards_list" version_id="1000670" version_string="1.0.6"><![CDATA[<xf:title>{{ phrase('af_as_x_status_awards', {'status': $statusPhrase|to_upper('ucwords')}) }}</xf:title>
+
+<xf:form action="{{ link(('award-system/status-update')) }}" ajax="true" class="block" id="awardStatusUpdate">
+
+    <div class="block-container">
+        <div class="block-body">
+            <xf:datalist data-xf-init="responsive-data-list">
+                <colgroup>
+                    <col style="width: 15%">
+                    <col style="width: 10%">
+                    <col style="width: 10%">
+                    <col style="width: 10%">
+                    <col style="width: 30%">
+                    <col style="width: 1%">
+                </colgroup>
+                <thead>
+                <xf:datarow rowtype="header">
+                    <xf:cell>{{ phrase('date') }}</xf:cell>
+                    <xf:cell>{{ phrase('user') }}</xf:cell>
+                    <xf:cell>{{ phrase('af_as_requested_by')|to_upper('ucwords') }}</xf:cell>
+                    <xf:cell>{{ phrase('af_as_award') }}</xf:cell>
+                    <xf:cell>{{ phrase('reason') }}</xf:cell>
+                    <xf:cell>
+                        <xf:checkbox standalone="true">
+                            <xf:option check-all="< .block-container" data-xf-init="tooltip" title="{{ phrase('select_all')|for_attr }}" />
+                        </xf:checkbox>
+                    </xf:cell>
+                 </xf:datarow>
+                 </thead>
+                 <xf:foreach loop="$userAwards" key="$userAwardId" value="$userAward">
+                    <xf:datarow>
+                        <xf:cell>
+                            <xf:date time="{$userAward.date_requested}" />
+                        </xf:cell>
+                        <xf:cell>
+                            <xf:username user="{$userAward.User}" />
+                        </xf:cell>
+                        <xf:cell>
+                            <xf:username user="{$userAward.RecommendedUser}" />
+                        </xf:cell>
+                        <xf:cell>
+                            <a href="{{ link('award-system/edit', $userAward.Award) }}">{$userAward.Award.title}</a>
+                        </xf:cell>
+                        <xf:cell>
+                                {$userAward.award_reason}
+                        </xf:cell>
+
+                        <xf:toggle name="user_award_ids[]" value="{$userAward.user_award_id}" />
+                    </xf:datarow>
+                </xf:foreach>
+            </xf:datalist>
+        </div>
+
+        <div class="block-footer block-footer--split">
+            <span class="block-footer-counter">
+                {{ display_totals($userAwards, $total) }}
+            </span>
+            <span class="block-footer-select">
+                <xf:checkbox standalone="true">
+                    <xf:option check-all="< .block-container" label="{{ phrase('select_all') }}" />
+                </xf:checkbox>
+            </span>
+            <span class="block-footer-controls">
+                <xf:select name="status" class="input--inline">
+                    <xf:if is="in_array('approved', $actions)">
+                        <xf:option value="approved">{{ phrase('approve') }}</xf:option>
+                    </xf:if>
+                    <xf:if is="in_array('rejected', $actions)">
+                        <xf:option value="rejected">{{ phrase('reject') }}</xf:option>
+                    </xf:if>
+                    <xf:if is="in_array('delete', $actions)">
+                        <xf:option value="delete">{{ phrase('delete') }}</xf:option>
+                    </xf:if>
+                </xf:select>
+                <xf:button type="submit">{{ phrase('go') }}</xf:button>
+            </span>
+        </div>
+    </div>
+
+    <xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+        link="award-system/pending"
+        params="{{ {} }}"
+        wrapperclass="js-filterHide block-outer block-outer--after" />
+
+</xf:form>]]></template>
+  <template type="public" title="af_as_pub_award_list" version_id="1000570" version_string="1.0.5"><![CDATA[<xf:title>{{ phrase('af_as_awards') }}</xf:title>
+
+<xf:wrap template="af_as_awards_wrapper" />
+
+<xf:include template="af_as_award_categories" />]]></template>
+  <template type="public" title="af_as_pub_award_profile" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:title>{{ phrase('af_as_xs_awards', {'username': $user.username}) }}</xf:title>
+<xf:comment>OLD USER TEMPLATE, NOT USED ANYMORE</xf:comment>
+
+<div class="block">
+	<div class="block-container">
+		<xf:if is="$userAwards is not empty">
+			<div class="block-body">
+				<xf:foreach loop="$userAwards" key="$userAwardId" value="$userAward">
+					<xf:macro template="af_as_pub_award_profile" name="member_award_macro" arg-userAward="{$userAward}" />
+				</xf:foreach>
+			</div>
+			<xf:if contentcheck="true">
+	            <div class="block-footer block-footer--split">
+	            	<xf:contentcheck>
+		                <xf:if is="!$max">
+		                    <span class="block-footer-counter">{{ display_totals($userAwards, $total) }}</span>
+		                </xf:if>
+		                <xf:if contentcheck="true">
+		                    <span class="block-footer-controls">
+		                    	<xf:contentcheck>
+		                    		<xf:if is="$user.user_id == $xf.visitor.user_id">
+				                        <xf:button href="{{ link('award-system/user/sort', null, {'userId': $user.user_id}) }}">
+				                            {{ phrase('sort') }}
+				                        </xf:button>
+				                    </xf:if>
+			                    	<xf:if is="$max AND $max < $total">
+				                        <xf:button href="{{ link('award-system/user', null, {'userId': $user.user_id}) }}">
+				                            {{ phrase('see_more') }}
+				                        </xf:button>
+			                       </xf:if>
+			                    </xf:contentcheck>
+		                    </span>
+		                </xf:if>
+		            </xf:contentcheck>
+	            </div>
+	        </xf:if>
+		<xf:else />
+			<div class="block-body">
+				<div class="block-row">{{ phrase('af_as_x_user_has_no_awards', {'username': $user.username}) }}</div>
+			</div>
+		</xf:if>
+	</div>
+	<xf:if is="!$max">
+	    <xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+	        link="award-system/user"
+	        params="{{ {'userId': $user.user_id} }}"
+	        wrapperclass="block-outer block-outer--after" />
+	</xf:if>
+</div>
+
+<xf:macro name="member_award_macro" arg-userAward="!" >
+	<div class="block-row block-row--separated" data-author="{$userAward.User.username}">
+		<div class="contentRow">
+			<div class="contentRow-figure contentRow-figure--fixedSmall">
+				{{ award_image($userAward.Award) }}
+			</div>
+			<div class="contentRow-main">
+				<h3 class="contentRow-header">
+					{$userAward.Award.title}
+				</h3>
+
+				<xf:if is="$xf.visitor.is_admin OR $xf.visitor.user_id == $userAward.user_id">
+					<div class="contentRow-snippet">
+						{{ phrase('af_as_issue_reason:') }}
+						{$userAward.award_reason}
+					</div>
+				</xf:if>
+
+				<div class="contentRow-minor contentRow-minor--hideLinks">
+					<ul class="listInline listInline--bullet">
+						<li>
+							<xf:username user="{$userAward.User}" />
+						</li>
+						<li>
+							<xf:date time="{$userAward.date_received}" />
+						</li>
+						<li>
+							<a href="{{ link('award-system/list', null, {'category': $userAward.Award.award_category_id}) }}">{$userAward.Award.Category.title}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</xf:macro>]]></template>
+  <template type="public" title="af_as_pub_award_request" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:title>{{ phrase('af_as_x_request_award', {'request': $request_type}) }}</xf:title>
+
+<xf:form action="{{ link('award-system/create_request', $award) }}" ajax="true" data-force-flash-message="on" class="block">
+
+    <div class="block-container">
+        <div class="block-body">
+
+            <xf:formrow>
+                <div style="margin:0 auto; text-align: center;">
+                    <h2>{$award.title}</h2>
+                    <span class="contentRow-figure contentRow-figure--fixedSmall">
+                        <img src="{{ $award.icon_url }}" />
+                    </span>
+                </div>
+            </xf:formrow>
+
+            <xf:textboxrow name="username" value="{$user.username}" ac="single"
+                label="{{ phrase('user') }}"
+                readonly="{{ $user ? true : false }}" />
+
+            <xf:textarearow name="award_reason" rows="5" autosize="true"
+                label="{{ phrase('reason') }}" />
+
+        </div>
+        <xf:submitrow submit="{$request_type}" sticky="true" />
+    </div>
+</xf:form>]]></template>
+  <template type="public" title="af_as_pub_awarded_users" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:if is="$pagetitle">
+    <xf:title>{$pagetitle}</xf:title>
+<xf:else />
+    <xf:title>{$award.title} - {{ phrase('af_as_most_recent_users')}}</xf:title>
+</xf:if>
+
+<div class="block">
+    <div class="block-container">
+        <xf:if is="$total">
+            <div class="block-body">
+                <xf:foreach loop="{$userAwards}" key="$userAwardId" value="$userAward">
+                    <div class="block-row block-row--separated" data-author="{$userAward.User.username}">
+                            <div class="contentRow">
+                                <div class="contentRow-figure">
+                                    <xf:avatar user="$userAward.User" size="s"/>
+                                </div>
+                                <div class="contentRow-main">
+                                    <div class="contentRow-title">
+                                        <xf:username user="{$userAward.User}" />
+                                    </div>
+
+                                    <div class="contentRow-snippet">
+                                        {{ phrase('af_as_issue_reason:') }}
+                                        {$userAward.award_reason}
+                                    </div>
+
+                                    <div class="contentRow-minor contentRow-minor--hideLinks">
+                                        <ul class="listInline listInline--bullet">
+                                            <li>
+                                                <a href=""> {$userAward.Award.title} </a>
+                                            </li>
+                                            <li>
+                                                <xf:date time="{$userAward.date_received}" />
+                                            </li>
+                                            <li>
+                                                <a href="{{ link('award-system/list', null, {'category': $userAward.Award.award_category_id}) }}">{$userAward.Award.Category.title}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </xf:foreach>
+            </div>
+            <xf:if contentcheck="true">
+                <div class="block-footer block-footer--split">
+                    <xf:contentcheck>
+                        <xf:if is="!$max">
+                            <span class="block-footer-counter">{{ display_totals($userAwards, $total) }}</span>
+                        </xf:if>
+                        <xf:if is="$max AND $max < $total">
+                            <span class="block-footer-controls">
+                                <xf:button href="{{ link('award-system/recent', $userAward.Award, {'userId': $user.user_id}) }}">
+                                    {{ phrase('see_more') }}
+                                </xf:button>
+                            </span>
+                        </xf:if>
+                    </xf:contentcheck>
+                </div>
+            </xf:if>
+        <xf:else />
+            <div class="block-body">
+                <div class="block-row">{{ phrase('af_as_no_recent_awards') }}</div>
+            </div>
+        </xf:if>
+    </div>
+    <xf:if is="!$max">
+        <xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+            link="award-system/recent" data="{$userAward.Award}"
+            params="{{ {'userId': $user.user_id} }}"
+            wrapperclass="block-outer block-outer--after" />
+    </xf:if>
+</div>
+]]></template>
+  <template type="public" title="af_as_user_award_category_list" version_id="1040070" version_string="1.4.0"><![CDATA[<xf:title>{{ phrase('af_as_xs_awards', {'username': $user.username}) }}</xf:title>
+
+<xf:css src="af_as_user_award_list.less" />
+
+<div class="blockMessage blockMessage--highlights">
+    <div class="awardLevelInfo {{ $xf.options.af_as_levels_enabled ? '' : 'levelsDisabled' }}">
+        <xf:if is="$xf.options.af_as_levels_enabled">
+            <div>
+                <h4 class="block-textHeader">{{ phrase('af_as_level:') }} {{ user_award_level($user) }} ({$user.af_as_award_points|number} {{ phrase('af_as_points') }})</h4>
+            </div>
+            <div class="u-alignCenter">
+                <span>{{ phrase('af_as_x_points_until_level_y', {'points': $levelData.pointUntilNextLevel|number, 'level': $levelData.nextLevel.l|number}) }}</span>
+                <xf:macro template="af_as_member_macros" name="level_progress_graph" arg-user="{$user}" />
+            </div>
+        </xf:if>
+        <xf:if is="($xf.visitor.user_id == $user.user_id AND $user.canManuallyFeatureAwards()) OR $xf.visitor.canManageAwards()">
+            <div class="awardLevelInfo-sort">
+                <xf:button overlay="true" href="{{ link('award-system/user/sort', null, {'user': $user.user_id}) }}">
+                    {{ phrase('af_as_feature') }}
+                </xf:button>
+            </div>
+        </xf:if>
+    </div>
+</div>
+
+<xf:macro name="awardbit_useraward_total" arg-award="!" arg-total="!">
+    <xf:if is="$total > 1">
+        <div class="contentRow-extra contentRow-extra--larger">
+            <xf:comment>Show a number if the user has more than one of these awarded</xf:comment>
+                <a data-xf-click="overlay" href="{{ link('award-system/user/recent', null, {'user': $__globals.user.user_id, 'award': $award.award_id}) }}">{$total}</a>
+        </div>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="awardbit_contentRowInner" arg-award="!" arg-userAward="!" arg-isTwoColumn="!">
+    <div class="contentRow-figure contentRow-figure--{{ $isTwoColumn ? 'fixedMedium' : 'fixedSmall' }}">
+            {{ award_image($award) }}
+        </div>
+    <div class="contentRow-main">
+        <h2 class="contentRow-header">{$award.title}</h2>
+        <div class="contentRow-minor">
+            <ul class="listInline listInline--bullet">
+                <li><dl class="pairs pairs--inline">
+                    <dt>{{ phrase('af_as_points') }}</dt>
+                    <dd>{$award.award_points|number}</dd>
+                </dl></li>
+
+                <xf:if is="$userAward">
+                    <li><dl class="pairs pairs--inline">
+                        <dt>{{ phrase('date') }}</dt>
+                        <dd><xf:date time="{$userAward.date_received}" /></dd>
+                    </dl></li>
+                </xf:if>
+            </ul>
+        </div>
+
+        <xf:if is="$userAward AND ($xf.visitor.is_admin OR $xf.visitor.user_id == $userAward.user_id)">
+            <div class="contentRow-snippet">
+                {{ phrase('af_as_issue_reason:') }}
+                {$userAward.award_reason}
+            </div>
+        </xf:if>
+
+    </div>
+</xf:macro>
+
+<xf:macro name="awardbit_visible"
+    arg-award="!"
+    arg-userAward="!"
+    arg-total="0"
+    arg-isTwoColumn="{{ false }}"
+    arg-isNextAward="{{ false }}">
+
+    <li class="block-row block-row--separated {{ $isTwoColumn ? 'block-row--isTwoColumn' : '' }}">
+        <div class="contentRow {{ !$userAward ? 'showAsDeleted' : '' }}">
+
+            <xf:macro name="awardbit_contentRowInner" arg-award="{$award}" arg-userAward="{$userAward}" arg-isTwoColumn="{$isTwoColumn}" />
+
+            <xf:if is="!$isTwoColumn">
+                <xf:macro name="awardbit_useraward_total" arg-award="{$award}" arg-total="{$total}" />
+            </xf:if>
+        </div>
+    </li>
+
+    <xf:if is="$isTwoColumn">
+        <li class="block-row block-row--separated {{ $isTwoColumn ? 'block-row--isTwoColumn' : '' }}">
+            <div class="contentRow">
+                <div class="contentRow-main"></div>
+                <xf:macro name="awardbit_useraward_total" arg-award="{$award}" arg-total="{$total}" />
+            </div>
+        </li>
+    </xf:if>
+</xf:macro>
+
+<xf:macro name="awardbit_step"
+    arg-award="!"
+    arg-userAward="!"
+    arg-total="0"
+    arg-isTwoColumn="{{ false }}"
+    arg-isNextAward="{{ false }}">
+
+    <xf:set var="$isTwoColumn" value="{{ true }}" />
+
+    <li class="block-row block-row--separated {{ $isTwoColumn ? 'block-row--isTwoColumn' : '' }} {{ $isNextAward ? 'block-row--isNext' : '' }}">
+        <div class="contentRow">
+            <xf:macro name="awardbit_contentRowInner" arg-award="{$award}" arg-userAward="{$userAward}" arg-isTwoColumn="{$isTwoColumn}" />
+
+            <xf:macro name="awardbit_useraward_total" arg-award="{$award}" arg-total="{$total}" />
+        </div>
+    </li>
+</xf:macro>
+
+<xf:macro name="awardbit_hidden"
+    arg-award="!"
+    arg-userAward="!"
+    arg-total="0"
+    arg-isTwoColumn="{{ false }}"
+    arg-isNextAward="{{ false }}">
+
+    <xf:set var="$isTwoColumn" value="{{ true }}" />
+
+    <li class="block-row block-row--separated {{ $isTwoColumn ? 'block-row--isTwoColumn' : '' }}">
+        <div class="contentRow">
+            <xf:macro name="awardbit_contentRowInner" arg-award="{$award}" arg-userAward="{$userAward}" arg-isTwoColumn="{$isTwoColumn}" />
+
+            <xf:macro name="awardbit_useraward_total" arg-award="{$award}" arg-total="{$total}" />
+        </div>
+    </li>
+</xf:macro>
+
+<div class="blocks">
+    <xf:foreach loop="$grouped" key="$categoryId" value="$group">
+        <xf:set var="$category" value="{$categories.{$categoryId}}" />
+        <xf:set var="$displayMode" value="{{ $category ? $category.display_mode : 'visible' }}" />
+        <xf:set var="$isFirstInCategory" value="{{ true }}" />
+
+        <xf:if contentcheck="true">
+            <div class="block">
+                <div class="block-container">
+                    <h3 class="block-header">{{ $category ? $category.title : phrase('af_as_award_cat_title.uncategorized') }}</h3>
+                    <ol class="block-body userAwardsContainer">
+                        <xf:contentcheck>
+                            <xf:foreach loop="$group" key="$awardId" value="$userAwards" if="{{ $userAwards OR $displayMode == 'visible' }}">
+
+                                <xf:set var="$first" value="{{ $userAwards|first }}" />
+                                <xf:set var="$last" value="{{ $userAwards|last }}" />
+                                <xf:set var="$nextAward" value="{$nextAwards.{$categoryId}}" />
+
+                                <xf:comment>use the most recent award incase there are multiple</xf:comment>
+                                <xf:set var="$userAward" value="{$first}" />
+
+                                <xf:set var="$total" value="{{ count($userAwards) }}" />
+
+                                <xf:comment>Used only for visible type to display the most recent award</xf:comment>
+                                <xf:if is="$displayMode == 'visible' AND $isFirstInCategory">
+                                    <xf:set var="$mostRecentUserAward" value="{$mostRecentUserAwards.{$categoryId}}" />
+                                    <xf:if is="$mostRecentUserAward">
+                                        <xf:macro name="awardbit_{$displayMode}"
+                                            arg-award="{$awards.{$mostRecentUserAward.award_id}}"
+                                            arg-userAward="{$mostRecentUserAward}"
+                                            arg-isTwoColumn="{{ true }}" />
+                                    </xf:if>
+                                </xf:if>
+
+                                <xf:macro name="awardbit_{$displayMode}"
+                                    arg-award="{$awards.{$awardId}}"
+                                    arg-userAward="{$userAward}"
+                                    arg-isTwoColumn="{{ false }}"
+                                    arg-total="{$total}" />
+
+                                <xf:comment>Used only for step by step type to display the next award</xf:comment>
+                                <xf:if is="$nextAward AND $awardId == {$lastAwardIdsPerCategory.{$categoryId}}">
+                                    <xf:set var="$award" value="{$nextAward}" />
+                                    <xf:set var="$isNextAward" value="{{ true }}" />
+
+                                    <xf:macro name="awardbit_{$displayMode}"
+                                        arg-award="{$award}"
+                                        arg-userAward="{{ false }}"
+                                        arg-isTwoColumn="{{ true }}"
+                                        arg-isNextAward="{{ true }}" />
+                                </xf:if>
+
+                                <xf:set var="$isFirstInCategory" value="{{ false }}" />
+                            </xf:foreach>
+                        </xf:contentcheck>
+                    </ol>
+                </div>
+            </div>
+        </xf:if>
+    </xf:foreach>
+</div>]]></template>
+  <template type="public" title="af_as_user_award_list" version_id="1020170" version_string="1.2.1"><![CDATA[<xf:title>{{ phrase('af_as_xs_awards', {'username': $user.username}) }}</xf:title>
+
+<xf:css src="af_as_user_award_list.less" />
+
+<div class="blockMessage blockMessage--highlights">
+    <div class="awardLevelInfo {{ $xf.options.af_as_levels_enabled ? '' : 'levelsDisabled' }}">
+        <xf:if is="$xf.options.af_as_levels_enabled">
+            <div>
+                <h4 class="block-textHeader">{{ phrase('af_as_level:') }} {{ user_award_level($user) }} ({$user.af_as_award_points|number} {{ phrase('af_as_points') }})</h4>
+            </div>
+            <div class="u-alignCenter">
+                <span>{{ phrase('af_as_x_points_until_level_y', {'points': $levelData.pointUntilNextLevel|number, 'level': $levelData.nextLevel.l|number}) }}</span>
+                <xf:macro template="af_as_member_macros" name="level_progress_graph" arg-user="{$user}" />
+            </div>
+        </xf:if>
+        <xf:if is="($xf.visitor.user_id == $user.user_id AND $user.canManuallyFeatureAwards()) OR $xf.visitor.canManageAwards()">
+            <div class="awardLevelInfo-sort">
+                <xf:button overlay="true" href="{{ link('award-system/user/sort', null, {'user': $user.user_id}) }}">
+                    {{ phrase('af_as_feature') }}
+                </xf:button>
+            </div>
+        </xf:if>
+    </div>
+</div>
+
+<xf:foreach loop="$userAwards" value="$userAward">
+    <div class="block block--close">
+        <div class="block-container">
+            <h3 class="block-header"><a data-xf-click="overlay" href="{{ link('award-system/user/awards/category', null, {'user': $user.user_id, 'category': $userAward.Award.award_category_id}) }}">{{ $userAward.Award.Category ? $userAward.Award.Category.title : phrase('af_as_award_cat_title.uncategorized') }}</a></h3>
+            <div class="block-body block-row">
+                <div class="contentRow">
+                    <div class="contentRow-figure contentRow-figure--fixedSmall">
+                        {{ award_image($userAward.Award) }}
+                    </div>
+                    <div class="contentRow-main">
+                        <h2 class="contentRow-header">{$userAward.Award.title}</h2>
+                        <div class="contentRow-minor">{{ phrase('af_as_points:') }} {$userAward.Award.award_points}</div>
+                        <xf:if is="$xf.visitor.is_admin OR $xf.visitor.user_id == $userAward.user_id">
+                            <div class="contentRow-snippet">
+                                {{ phrase('af_as_issue_reason:') }}
+                                {$userAward.award_reason}
+                            </div>
+                        </xf:if>
+
+                        <div class="contentRow-minor contentRow-minor--hideLinks">
+                            <ul class="listInline listInline--bullet">
+                                <xf:if is="$user.user_id != $userAward.User.user_id">
+                                    <li><xf:username user="{$userAward.User}" /></li>
+                                </xf:if>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contentRow-extra">
+                        <xf:date time="{$userAward.date_received}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</xf:foreach>
+]]></template>
+  <template type="public" title="af_as_user_award_list.less" version_id="1040070" version_string="1.4.0"><![CDATA[.awardLevelInfo
+{
+    display: flex;
+    align-items: center;
+
+    > *
+    {
+        // flex: 1 1 auto;
+        width: 33.3333333333%;
+    }
+
+    .block-textHeader
+    {
+        font-size: @xf-fontSizeLarge;
+    }
+
+    > .awardLevelInfo-sort
+    {
+        text-align: right;
+    }
+
+    &.levelsDisabled
+    {
+        .awardLevelInfo-sort
+        {
+            width: 100%;
+        }
+    }
+}
+
+.awardLevelProgress-graph
+{
+    margin: 2% auto;
+}
+
+.awardLevelProgress-bar
+{
+    display: block;
+    position: relative;
+    height: .8em;
+
+    border: 1px solid @xf-progressBarColor;
+    border-radius: @xf-borderRadiusMedium;
+
+    &:empty
+    {
+        display: none;
+    }
+
+    > i
+    {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background: @xf-progressBarColor;
+        border-radius: @xf-borderRadiusMedium;
+    }
+}
+
+@media (max-width: @xf-responsiveMedium)
+{
+    .awardLevelInfo
+    {
+        > *
+        {
+            flex: 1 0 auto;
+            font-size: @xf-fontSizeSmall;
+        }
+
+        > .awardLevelInfo-sort
+        {
+            // flex: 0 1 auto;
+        }
+
+        .block-textHeader
+        {
+            font-size: @xf-fontSizeSmall;
+        }
+    }
+}
+
+ol.userAwardsContainer
+{
+    display: flex;
+    flex-wrap: wrap;
+
+    > li
+    {
+        width: 100%;
+
+        &.block-row
+        {
+            // border: 0 !important;
+        }
+
+        &.block-row--isTwoColumn
+        {
+            width: 50%;
+        }
+
+        &.block-row--isNext
+        {
+            .contentRow-figure
+            {
+                border: 2px dotted @xf-borderColorFaint;
+            }
+            .contentRow-figure:before
+            {
+                display: block;
+                width: 100px;
+                height: 75px;
+                content: "";
+            }
+            .contentRow-figure img
+            {
+                display: none;
+            }
+        }
+    }
+}
+
+.contentRow
+{
+    &.showAsDeleted
+    {
+        opacity: .45;
+    }
+}]]></template>
+  <template type="public" title="af_as_user_award_sort" version_id="1020170" version_string="1.2.1"><![CDATA[<xf:title>{{ phrase('af_as_feature_awards_user_x', {'user': $user.username}) }}</xf:title>
+
+<xf:css src="public:help_page_smilies.less" />
+
+<xf:macro template="public:nestable_macros" name="setup" />
+
+<xf:css>
+    img.afAwardImg {
+        max-height: 30px;
+        vertical-align: text-bottom;
+    }
+
+    .blockMessage--noMargin
+    {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .tabPanes--awards .nestable-content
+    {
+
+    }
+
+    #nestable-list-available .nestable-handle
+    {
+        display: none;
+    }
+
+    #nestable-list-available > .nestable-item
+    {
+        /*fix margin since handle is hidden for this list*/
+        margin-left: -30px;
+    }
+
+    .moveAward
+    {
+        width: 30px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .moveAward + .nestable-content
+    {
+        margin-left: 60px;
+    }
+
+    #featuredAwardsRemaining
+    {
+        font-weight: bold;
+        color: red;
+    }
+</xf:css>
+
+<div class="blockMessage blockMessage--noMargin blockMessage--close blockMessage--highlight">
+    <a onclick="return confirm('{{ phrase('confirm_action')|for_attr }}')" href="{{ link('award-system/user/sort', null, {'user': $user.user_id, 'remove': 1}) }}">{{ phrase('af_as_remove_featured_awards_from_profile') }}</a>
+</div>
+
+<xf:form action="{{ link('award-system/user-options', null, {'user': $user.user_id}) }}" ajax="true" data-force-flash-message="on" class="block">
+    <div class="block-container">
+        <div class="block-body">
+            <xf:checkboxrow standalone="true">
+                <xf:option data-xf-click="submit" name="af_as_auto_feature" selected="{$user.Option.af_as_auto_feature}"
+                label="{{ phrase('af_as_auto_feature_awards') }}"
+                hint="{{ phrase('af_as_auto_feature_awards_hint') }}" />
+            </xf:checkboxrow>
+        </div>
+    </div>
+</xf:form>
+
+<xf:form action="{{ link('award-system/user/sort', null, {'user': $user.user_id}) }}" class="block block--close" ajax="true" data-force-flash-message="on">
+    <div class="block-container">
+        <div class="block-body">
+            <h2 class="block-tabHeader tabs" data-xf-init="tabs" role="tablist">
+                <a class="tabs-tab is-active" role="tab" tabindex="0" aria-controls="{{ unique_id('af_as_featuredAwards') }}">{{ phrase('af_as_featuredAwards') }}</a>
+                <a class="tabs-tab" role="tab" tabindex="0" aria-controls="{{ unique_id('availableAwards') }}">{{ phrase('af_as_availableAwards') }}</a>
+            </h2>
+            <ul class="tabPanes tabPanes--awards">
+                <li class="is-active" role="tabpanel" id="{{ unique_id('af_as_featuredAwards') }}">
+                    <div class="block-body block-row">
+                        {{ phrase('af_as_featuredAwards_instructions') }}
+                    </div>
+                    <xf:macro name="nestable" arg-awards="{$featuredUserAwards}" arg-listKey="featured" />
+                </li>
+                <li role="tabpanel" id="{{ unique_id('availableAwards') }}">
+                    <div class="block-body block-row">
+                        {{ phrase('af_as_availableAwards_instructions_limit', {'limit': $featuredUserAwardsRemaining}) }}
+                    </div>
+                    <xf:macro name="nestable" arg-awards="{$availableUserAwards}" arg-listKey="available" />
+                </li>
+            </ul>
+        </div>
+        <xf:submitrow icon="save" rowtype="simple" sticky="true" />
+    </div>
+</xf:form>
+
+<xf:macro name="nestable" arg-awards="!" arg-listKey="!">
+    <div class="nestable-container" data-xf-init="nestable" data-max-depth="1" data-value-function="serialize">
+        <ol class="nestable-list" id="nestable-list-{$listKey}">
+            <xf:foreach loop="$awards" key="$userAwardId" value="$userAward" i="$i">
+                <li class="nestable-item" data-id="{$userAwardId}">
+                    <div class="nestable-handle nestable-handle--full" aria-label="{{ phrase('drag_handle')|for_attr }}"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                    <div class="nestable-content moveAward"><i class="fa fa-arrows-alt-h" aria-hidden="true"></i></div>
+                    <div class="nestable-content">{{ award_image($userAward.Award) }} {$userAward.Award.title} <span class="smilieText"><xf:date time="{$userAward.date_received}" /></span></div>
+                </li>
+            </xf:foreach>
+        </ol>
+        <xf:hiddenval name="awards-{$listKey}" value="" />
+    </div>
+</xf:macro>
+
+<xf:js>
+    $(function()
+    {
+        var maxFeatured = {$user.max_featured_awards},
+            currentlyFeatured = {$featuredUserAwardsCount},
+            $availableList = $('#nestable-list-available'),
+            $featuredList = $('#nestable-list-featured');
+
+        var updateFeaturedAwardsRemaining = function()
+        {
+            var remaining = Math.max(0, maxFeatured - currentlyFeatured);
+
+            $('#featuredAwardsRemaining').text(remaining);
+        };
+
+        $availableList.on('click', '.moveAward', function()
+        {
+            if (((currentlyFeatured + 1) > maxFeatured))
+            {
+                return false;
+            }
+
+            var $listItem = $(this).closest('li');
+            $listItem.fadeOut(XF.config.speed.fast, function()
+            {
+                currentlyFeatured++;
+                $listItem.appendTo($featuredList).show();
+                $featuredList.change();
+
+                updateFeaturedAwardsRemaining();
+            });
+        });
+
+        $featuredList.on('click', '.moveAward', function()
+        {
+            var $listItem = $(this).closest('li');
+            $listItem.fadeOut(XF.config.speed.fast, function()
+            {
+                currentlyFeatured--;
+                $listItem.appendTo($availableList).show();
+                $featuredList.change();
+
+                updateFeaturedAwardsRemaining();
+            });
+        });
+    });
+</xf:js>]]></template>
+  <template type="public" title="alert_af_as_award_award" version_id="1010070" version_string="1.1.0"><![CDATA[{{ phrase('af_as_you_have_been_awarded_an_award_x', {'award': '<a href="' . link('award-system/user/awards/category', null, {'category': $content.award_category_id}) . '" class="fauxBlockLink-blockLink">' . $content.title . '</a>'}) }}]]></template>
+  <template type="public" title="alert_user_af_as_level_up" version_id="1010070" version_string="1.1.0"><![CDATA[{{ phrase('af_as_you_have_reached_level_x', {'level_x': '<a href="' . link('award-system/user/awards') . '" class="fauxBlockLink-blockLink">' . phrase('af_as_level') . ' ' . $extra.level . '</a>'}) }}]]></template>
+</templates>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_event_listeners>
+  <listener event_id="app_pub_start_end" execute_order="10" callback_class="XFMG\Listener" callback_method="appPubStartEnd" active="1" description="Sets up the unviewed media cache for the current visitor"/>
+  <listener event_id="app_setup" execute_order="10" callback_class="XFMG\Listener" callback_method="appSetup" active="1" description="Adds the xfmgMediaFields container"/>
+  <listener event_id="criteria_page" execute_order="10" callback_class="XFMG\Listener" callback_method="criteriaPage" active="1" description="Add the media gallery-related page criteria."/>
+  <listener event_id="criteria_template_data" execute_order="10" callback_class="XFMG\Listener" callback_method="criteriaTemplateData" active="1" description="Adds gallery category data to the helper_criteria_user template"/>
+  <listener event_id="criteria_user" execute_order="10" callback_class="XFMG\Listener" callback_method="criteriaUser" active="1" description="Add the media gallery-related criteria."/>
+  <listener event_id="editor_dialog" execute_order="10" callback_class="XFMG\Listener" callback_method="editorDialog" active="1" hint="gallery" description="Add additional data and logic to the gallery editor dialog."/>
+  <listener event_id="import_importer_classes" execute_order="10" callback_class="XFMG\Listener" callback_method="importImporterClasses" active="1" description="Add gallery importer classes"/>
+  <listener event_id="member_stat_result_prepare" execute_order="10" callback_class="XFMG\Listener" callback_method="memberStatResultPrepare" active="1" description="Formats the media gallery member statistic sort orders"/>
+  <listener event_id="navigation_setup" execute_order="10" callback_class="XFMG\Listener" callback_method="navigationSetup" active="1" description="Listens to the navigation_setup event to add unviewed media counter"/>
+  <listener event_id="templater_setup" execute_order="10" callback_class="XFMG\Listener" callback_method="templaterSetup" active="1" description="Adds new templater functions"/>
+  <listener event_id="templater_template_pre_render" execute_order="10" callback_class="XFMG\Listener" callback_method="templaterTemplatePreRenderPublicEditor" active="1" hint="public:editor" description="Extends the params passed into the public:editor template so that the custom BB code button can be disabled based on permissions"/>
+  <listener event_id="user_content_change_init" execute_order="10" callback_class="XFMG\Listener" callback_method="userContentChangeInit" active="1" description="Register the updates that need to happen when a user is renamed, deleted, etc."/>
+  <listener event_id="user_delete_clean_init" execute_order="10" callback_class="XFMG\Listener" callback_method="userDeleteCleanInit" active="1" description="Register the clean up queries that need to run when a user is deleted."/>
+  <listener event_id="user_searcher_orders" execute_order="10" callback_class="XFMG\Listener" callback_method="userSearcherOrders" active="1" description="Adds xfmg_media_count and xfmg_album_count fields to the user searcher sort orders"/>
+</code_event_listeners>

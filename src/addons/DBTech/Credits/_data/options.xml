@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="dbtechCreditsSmartNegate" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="dbtech_credits" display_order="2015"/>
+  </option>
+  <option option_id="dbtech_credits_best_event" edit_format="radio" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <edit_format_params>1={{ phrase('dbtech_credits_best') }}
+0={{ phrase('dbtech_credits_all') }}</edit_format_params>
+    <relation group_id="dbtech_credits" display_order="2020"/>
+  </option>
+  <option option_id="dbtech_credits_enable_events" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="dbtech_credits" display_order="2010"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_content_bbcode" edit_format="textbox" data_type="string" advanced="0">
+    <default_value>charge</default_value>
+    <relation group_id="dbtech_credits" display_order="3010"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_content_currency" edit_format="callback" data_type="unsigned_integer" advanced="0">
+    <default_value>0</default_value>
+    <edit_format_params>DBTech\Credits\Option\Currency::renderSelect</edit_format_params>
+    <relation group_id="dbtech_credits" display_order="3020"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_donate_whole" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="dbtech_credits" display_order="3410"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_interest_interval" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>30</default_value>
+    <relation group_id="dbtech_credits" display_order="3510"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_message_multiple" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="dbtech_credits" display_order="3210"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_paycheck_interval" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="dbtech_credits" display_order="3310"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_purchase_currency" edit_format="template" data_type="string" advanced="0">
+    <default_value>USD</default_value>
+    <edit_format_params>option_template_dbtech_credits_eventtrigger_purchase_currency</edit_format_params>
+    <relation group_id="dbtech_credits" display_order="3710"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_revival_threshold" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>1209600</default_value>
+    <relation group_id="dbtech_credits" display_order="3110"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_taxation_interval" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>30</default_value>
+    <relation group_id="dbtech_credits" display_order="3610"/>
+  </option>
+  <option option_id="dbtech_credits_eventtrigger_taxation_user" edit_format="username" data_type="unsigned_integer" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="dbtech_credits" display_order="3630"/>
+  </option>
+  <option option_id="dbtech_credits_licensekey" edit_format="textbox" data_type="string" advanced="0">
+    <default_value>L-XFCREDITS-25217IKETHW9JAC</default_value>
+    <relation group_id="debug" display_order="10000"/>
+  </option>
+  <option option_id="dbtech_credits_navbar" edit_format="template" data_type="array" advanced="0">
+    <default_value>{"enabled":1,"right_position":false,"right_text":true}</default_value>
+    <edit_format_params>option_template_dbtech_credits_navbar</edit_format_params>
+    <sub_options>enabled
+right_position
+right_text</sub_options>
+    <relation group_id="dbtech_credits" display_order="1400"/>
+  </option>
+  <option option_id="dbtech_credits_size_words" edit_format="radio" data_type="boolean" advanced="0">
+    <default_value>0</default_value>
+    <edit_format_params>1={{ phrase('dbtech_credits_size_words') }}
+0={{ phrase('dbtech_credits_size_chars') }}</edit_format_params>
+    <relation group_id="dbtech_credits" display_order="2100"/>
+  </option>
+  <option option_id="dbtech_credits_transactions" edit_format="spinbox" data_type="positive_integer" advanced="0">
+    <default_value>25</default_value>
+    <relation group_id="dbtech_credits" display_order="1010"/>
+  </option>
+</options>

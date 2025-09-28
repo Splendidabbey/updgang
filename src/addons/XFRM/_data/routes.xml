@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="admin" route_prefix="permissions" sub_name="resource-categories" format="resource-categories/:int&lt;resource_category_id,title&gt;/" controller="XFRM:Permission" context="xfrmCategoryPermissions" action_prefix="category"/>
+  <route route_type="admin" route_prefix="resource-manager" controller="XFRM:ResourceItem" context="xfrm"/>
+  <route route_type="admin" route_prefix="resource-manager" sub_name="categories" format="categories/:int&lt;resource_category_id,title&gt;/" controller="XFRM:Category" context="xfrmCategories"/>
+  <route route_type="admin" route_prefix="resource-manager" sub_name="fields" format="fields/:str&lt;field_id&gt;/" controller="XFRM:ResourceField" context="xfrmFields"/>
+  <route route_type="admin" route_prefix="resource-manager" sub_name="prefixes" format="prefixes/:int&lt;prefix_id,title&gt;/" controller="XFRM:ResourcePrefix" context="xfrmPrefixes"/>
+  <route route_type="admin" route_prefix="resource-manager" sub_name="prefixes/group" format="prefixes/group/:int&lt;prefix_group_id,title&gt;/" controller="XFRM:ResourcePrefix" context="xfrmPrefixes" action_prefix="Group"/>
+  <route route_type="admin" route_prefix="resource-manager" sub_name="review-fields" format="review-fields/:str&lt;field_id&gt;/" controller="XFRM:ResourceReviewField" context="xfrmReviewFields"/>
+  <route route_type="api" route_prefix="resource-categories" controller="XFRM:Categories"/>
+  <route route_type="api" route_prefix="resource-categories" sub_name="-" format=":+int&lt;resource_category_id&gt;/" controller="XFRM:Category"/>
+  <route route_type="api" route_prefix="resource-reviews" controller="XFRM:ResourceReviews"/>
+  <route route_type="api" route_prefix="resource-reviews" sub_name="-" format=":+int&lt;resource_rating_id&gt;/" controller="XFRM:ResourceReview"/>
+  <route route_type="api" route_prefix="resource-updates" controller="XFRM:ResourceUpdates"/>
+  <route route_type="api" route_prefix="resource-updates" sub_name="-" format=":+int&lt;resource_update_id&gt;/" controller="XFRM:ResourceUpdate"/>
+  <route route_type="api" route_prefix="resource-versions" controller="XFRM:ResourceVersions"/>
+  <route route_type="api" route_prefix="resource-versions" sub_name="-" format=":+int&lt;resource_version_id&gt;/" controller="XFRM:ResourceVersion"/>
+  <route route_type="api" route_prefix="resources" controller="XFRM:ResourceItems"/>
+  <route route_type="api" route_prefix="resources" sub_name="-" format=":+int&lt;resource_id&gt;/" controller="XFRM:ResourceItem"/>
+  <route route_type="public" route_prefix="resources" format=":int&lt;resource_id,title&gt;/" controller="XFRM:ResourceItem" context="xfrm"/>
+  <route route_type="public" route_prefix="resources" sub_name="authors" format="authors/:int&lt;user_id,username&gt;/" controller="XFRM:Author" context="xfrm"/>
+  <route route_type="public" route_prefix="resources" sub_name="categories" format="categories/:int&lt;resource_category_id,title&gt;/" controller="XFRM:Category" context="xfrm"/>
+  <route route_type="public" route_prefix="resources" sub_name="review" format=":+int&lt;resource_id,resource_title&gt;/review/:+int&lt;resource_rating_id&gt;/" controller="XFRM:ResourceReview" context="xfrm"/>
+  <route route_type="public" route_prefix="resources" sub_name="update" format=":+int&lt;resource_id,resource_title&gt;/update/:+int&lt;resource_update_id&gt;/" controller="XFRM:ResourceUpdate" context="xfrm"/>
+  <route route_type="public" route_prefix="resources" sub_name="version" format=":+int&lt;resource_id,resource_title&gt;/version/:+int&lt;resource_version_id&gt;/" controller="XFRM:ResourceVersion" context="xfrm"/>
+  <route route_type="public" route_prefix="whats-new" sub_name="resources" format="resources/:int&lt;find_new_id&gt;/:page" controller="XFRM:WhatsNewResource" context="xfrm"/>
+</routes>

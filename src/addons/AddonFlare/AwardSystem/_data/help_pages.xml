@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<help_pages>
+  <help_page page_id="awards" page_name="awards" display_order="35" callback_class="AddonFlare\AwardSystem\Help\Awards" callback_method="renderAwards" advanced_mode="1" active="1"/>
+</help_pages>

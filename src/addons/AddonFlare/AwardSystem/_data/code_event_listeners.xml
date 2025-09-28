@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_event_listeners>
+  <listener event_id="controller_post_dispatch" execute_order="10" callback_class="AddonFlare\AwardSystem\Listener" callback_method="adminOptionControllerPostDispatch" active="1" hint="XF\Admin\Controller\Option" description="Change section context for admin options page"/>
+  <listener event_id="import_importer_classes" execute_order="10" callback_class="AddonFlare\AwardSystem\Listener" callback_method="importImporterClasses" active="1"/>
+  <listener event_id="notices_setup" execute_order="10" callback_class="AddonFlare\AwardSystem\Listener" callback_method="noticesSetup" active="1"/>
+  <listener event_id="templater_macro_pre_render" execute_order="10" callback_class="AddonFlare\AwardSystem\Listener" callback_method="templaterMacroPreRender" active="1" hint="admin:option_macros:option_form_block" description="Tabbed admin options"/>
+  <listener event_id="templater_setup" execute_order="10" callback_class="AddonFlare\AwardSystem\Listener" callback_method="templaterSetup" active="1" description="Add templater funcs"/>
+</code_event_listeners>

@@ -1,0 +1,28 @@
+<ul class="content {$tab.tab_class}">
+    <xf:if is="$items is not empty">
+
+        <xf:foreach loop="$items" value="$item">
+            <li class="block-row structItem--lfsItem structItem--latestActivity{{ $xf.visitor.isIgnoring($item.user_id) ? ' is-ignored' : '' }}"
+                id="js-lfsItemNewsFeed-{$item.news_feed_id}"
+                data-date="{$item.event_date}">
+                <div class="contentRow{{ $item.isVisible() ? '' : ' is-deleted' }}">
+					<span class="contentRow-figure">
+						<xf:avatar user="$item.User" size="xxs" defaultname="{$item.username}" />
+					</span>
+                    <div class="contentRow-main">
+                        {$item.render()|raw}
+                    </div>
+                </div>
+            </li>
+        </xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+            link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+            wrapperclass="hidden-pageNav js-lfsPageNav" />

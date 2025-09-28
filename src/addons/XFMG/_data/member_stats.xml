@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<member_stats>
+  <member_stat member_stat_key="xfmg_most_albums" sort_order="xfmg_album_count" sort_direction="desc" permission_limit="xfmg-view" show_value="1" user_limit="20" display_order="210" overview_display="1" active="1" cache_lifetime="0"><![CDATA[[]]]></member_stat>
+  <member_stat member_stat_key="xfmg_most_media_items" sort_order="xfmg_media_count" sort_direction="desc" permission_limit="xfmg-view" show_value="1" user_limit="20" display_order="200" overview_display="1" active="1" cache_lifetime="0"><![CDATA[[]]]></member_stat>
+</member_stats>

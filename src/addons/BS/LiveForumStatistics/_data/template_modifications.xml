@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="lfs_PAGE_CONTAINER_above_body_content_widgetpos" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/<div class="p-body-main.*?>/s]]></find>
+    <replace><![CDATA[<xf:if is="$template == 'forum_list'">
+    <xf:widgetpos id="lfs_above_body_content" />
+</xf:if>
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="account_preferences" modification_key="lfs_account_preferences_options" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/<xf:option name="option\[content_show_signature\]".*?\/>/s]]></find>
+    <replace><![CDATA[$0
+<xf:if is="$xf.visitor.canHideLfs()">
+	<xf:option name="option[bs_lfs_disable]" checked="{$xf.visitor.Option.bs_lfs_disable}"
+			   label="{{ phrase('lfs_hide_widget') }}" />
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="find_threads_list" modification_key="lfs_find_threads_list_ignored_threads_title" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:elseif is="$pageSelected == 'contributed'" />]]></find>
+    <replace><![CDATA[<xf:elseif is="$pageSelected == 'ignored_in_lfs'" />
+	<xf:title page="{$page}">{{ phrase('lfs_ignored_threads_in_statistics') }}</xf:title>
+$0]]></replace>
+  </modification>
+  <modification type="public" template="find_threads_list" modification_key="lfs_find_threads_list_links" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[rel="nofollow">{{ phrase('watched_threads') }}</a>]]></find>
+    <replace><![CDATA[$0
+<xf:if is="$xf.visitor.canIgnoreThreadInLfs()">
+	<a class="{$baseClass} {{ $pageSelected == 'ignored_in_lfs' ? {$selectedClass} : '' }}"
+	   href="{{ link('watched/ignored-in-lfs') }}" rel="nofollow">{{ phrase('lfs_ignored_threads_in_statistics') }}</a>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="search_result_ams_article" modification_key="lfs_search_result_ams_article_avatar_size_option" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(xf:avatar user="\$article.User" size=")(.*?)(")/s]]></find>
+    <replace><![CDATA[$1{{ $options.avatarSize ?: '$2' }}$3]]></replace>
+  </modification>
+  <modification type="public" template="search_result_resource" modification_key="lfs_search_result_resource_avatar_size_option" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(xf:avatar user="{\$resource.User}" size=")(.*?)(")/s]]></find>
+    <replace><![CDATA[$1{{ $options.avatarSize ?: '$2' }}$3]]></replace>
+  </modification>
+  <modification type="public" template="search_result_thread" modification_key="lfs_search_result_thread_avatar_size_option" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(xf:avatar user="{\$thread.User}" size=")(.*?)(")/s]]></find>
+    <replace><![CDATA[$1{{ $options.avatarSize ?: '$2' }}$3]]></replace>
+  </modification>
+  <modification type="public" template="thread_view" modification_key="lfs_thread_view_stick_button" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="$thread.canStickUnstick()">]]></find>
+    <replace><![CDATA[<xf:if is="$xf.visitor.canStickUnstickThreadInLfs()">
+	<a href="{{ link('threads/sticking-in-lfs', $thread) }}"
+	   class="menu-linkRow"
+	   data-xf-click="overlay">
+		{{ phrase('lfs_stick_thread_in_statistics') }}
+	</a>
+	<xf:elseif is="$xf.visitor.canPurchaseThreadInLfs($thread)" />
+	<a href="{{ link('threads/purchase-in-lfs', $thread) }}"
+	   class="menu-linkRow"
+	   data-xf-click="overlay">
+		{{ phrase('lfs_stick_thread_in_statistics') }}
+	</a>
+</xf:if>
+
+<xf:if is="$xf.visitor.canIgnoreThreadInLfs($thread)">
+	<a href="{{ link('threads/ignore-in-lfs', $thread) }}"
+	   class="menu-linkRow"
+	   data-xf-click="switch"
+	   data-sk-ignore="{{ phrase('lfs_ignore_thread_in_statistics') }}"
+	   data-sk-unignore="{{ phrase('lfs_unignore_thread_in_statistics') }}">
+		{{ $xf.visitor.isIgnoringThreadInLfs($thread)
+			? phrase('lfs_unignore_thread_in_statistics') 
+			: phrase('lfs_ignore_thread_in_statistics') }}
+	</a>
+</xf:if>
+
+$0]]></replace>
+  </modification>
+</template_modifications>

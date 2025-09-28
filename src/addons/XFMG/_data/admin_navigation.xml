@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<admin_navigation>
+  <admin_navigation_entry navigation_id="xfmg" display_order="2100" link="media-gallery" icon="fa-camera" admin_permission_id="mediaGallery" debug_only="0" development_only="0" hide_no_children="1"/>
+  <admin_navigation_entry navigation_id="xfmgBatchUpdate" parent_navigation_id="xfmg" display_order="30" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="xfmgBatchUpdateAlbums" parent_navigation_id="xfmgBatchUpdate" display_order="20" link="media-gallery/batch-update/albums" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="xfmgBatchUpdateMedia" parent_navigation_id="xfmgBatchUpdate" display_order="10" link="media-gallery/batch-update/media" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="xfmgCategories" parent_navigation_id="xfmg" display_order="10" link="media-gallery/categories" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="xfmgCategoryPermissions" parent_navigation_id="permissions" display_order="310" link="permissions/media-categories" admin_permission_id="mediaGallery" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="xfmgFields" parent_navigation_id="xfmg" display_order="20" link="media-gallery/fields" admin_permission_id="mediaGallery" debug_only="0" development_only="0" hide_no_children="0"/>
+</admin_navigation>

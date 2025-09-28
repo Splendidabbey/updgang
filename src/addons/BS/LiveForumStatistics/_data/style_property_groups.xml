@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_property_groups>
+  <style_property_group group_name="lfsContent" title="Live forum statistics content" display_order="865"/>
+  <style_property_group group_name="lfsTabs" title="Live forum statistics tabs" display_order="860"/>
+</style_property_groups>

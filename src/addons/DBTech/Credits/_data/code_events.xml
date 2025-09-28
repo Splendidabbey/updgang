@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code_events>
+  <event event_id="dbtech_credits_transaction_log_searcher_orders"><![CDATA[<p>Fired inside the <code>DBTech\Credits\Searcher\TransactionLog</code> class in the <code>getDefaultOrderOptions()</code> method.</p>
+
+<p>This allows you to add additional fields that transactions can be ordered by. This affects transaction searches in the control panel.</p>
+
+<p>Callback signature:</p>
+<blockquote><code><em>\DBTech\Credits\Searcher\TransactionLog</em> $transactionSearcher, <em>array</em> &amp;$sortOrders</code></blockquote>
+
+<p>Arguments:</p>
+<ol>
+	<li><code><em>\DBTech\Credits\Searcher\TransactionLog</em> $transactionSearcher</code> - TransactionLog searcher object.</li>
+	<li><code><em>array</em> &amp;$sortOrders</code> - Array of existing sort order fields.</li>
+</ol>]]></event>
+</code_events>

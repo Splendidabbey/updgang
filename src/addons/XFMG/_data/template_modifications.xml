@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="attachment_macros" modification_key="xfmg_attachment_macros_lb" description="Adds media mirror information to the lightbox." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<a class="file-preview {{ $canView ? 'js-lbImage' : '' }}"]]></find>
+    <replace><![CDATA[<xf:set var="$args" value="{{ {'attachment': $attachment} }}" />
+$0 data-lb-sidebar-href="{{ call_macro('xfmg_attachment_mirror_macros::lightbox_sidebar_href', $args)|for_attr }}" data-lb-caption-extra-html="{{ call_macro('xfmg_attachment_mirror_macros::lightbox_caption', $args)|for_attr }}"]]></replace>
+  </modification>
+  <modification type="public" template="bb_code_tag_attach" modification_key="xfmg_bb_code_tag_attach_full" description="Adds media mirror information to the lightbox for full size embeds." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro name="lightbox_macros::single_image"]]></find>
+    <replace><![CDATA[<xf:set var="$args" value="{{ {'attachment': $attachment} }}" />
+$0 arg-sidebarHref="{{ call_macro('xfmg_attachment_mirror_macros::lightbox_sidebar_href', $args) }}" arg-captionExtraHtml="{{ call_macro('xfmg_attachment_mirror_macros::lightbox_caption', $args) }}"]]></replace>
+  </modification>
+  <modification type="public" template="bb_code_tag_attach" modification_key="xfmg_bb_code_tag_attach_thumbnail_lb" description="Adds media mirror information to the lightbox for embedded thumbnails." execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/<a [^>]+class="js-lbImage"/]]></find>
+    <replace><![CDATA[<xf:set var="$args" value="{{ {'attachment': $attachment} }}" />
+$0 data-lb-sidebar-href="{{ call_macro('xfmg_attachment_mirror_macros::lightbox_sidebar_href', $args)|for_attr }}" data-lb-caption-extra-html="{{ call_macro('xfmg_attachment_mirror_macros::lightbox_caption', $args)|for_attr }}"]]></replace>
+  </modification>
+  <modification type="public" template="core.less" modification_key="xfmg_core_less_append" description="Append core_xfmg.less to core.less" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/$/]]></find>
+    <replace><![CDATA[{{ include('core_xfmg.less') }}]]></replace>
+  </modification>
+  <modification type="public" template="editor" modification_key="xfmg_editor_js" description="Adds the JS file for the gallery BB code button." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:include_js]-->]]></find>
+    <replace><![CDATA[<xf:js src="xfmg/editor.js" min="1" />
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="forum_edit" modification_key="xfmg_forum_edit_mirror" description="Displays the mirror media category option" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/<xf:numberboxrow name="min_tags"/i]]></find>
+    <replace><![CDATA[<xf:include template="xfmg_forum_edit_mirror" />
+
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="xfmg_helper_criteria_page" description="Add the gallery page criteria." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:page:after_nodes]-->]]></find>
+    <replace><![CDATA[$0
+			<xf:checkboxrow label="{{ phrase('xfmg_media_categories') }}">
+				<xf:option name="page_criteria[xfmg_categories][rule]" value="xfmg_categories" selected="{$criteria.xfmg_categories}"
+					label="{{ phrase('xfmg_page_is_within_categories:') }}">
+
+					<xf:select name="page_criteria[xfmg_categories][data][category_ids]" multiple="true" value="{$criteria.xfmg_categories.category_ids}">
+						<xf:foreach loop="$data.xfmgCategories" value="$option">
+							<xf:option value="{$option.value}" label="{$option.label}" />
+						</xf:foreach>
+					</xf:select>
+					<xf:checkbox>
+						<xf:option name="page_criteria[xfmg_categories][data][category_only]" value="1" selected="{$criteria.xfmg_categories.category_only}"
+							label="{{ phrase('only_display_within_selected_categories_no_children') }}" />
+					</xf:checkbox>
+
+				</xf:option>
+			</xf:checkboxrow>
+
+<hr class="formRowSep" />]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="xfmg_helper_criteria_user" description="Add the gallery user criteria." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:user:content_after_messages]-->]]></find>
+    <replace><![CDATA[$0
+<xf:option name="user_criteria[xfmg_media_count][rule]" value="xfmg_media_count" selected="{$criteria.xfmg_media_count}"
+	label="{{ phrase('xfmg_user_has_added_at_least_x_media_items:') }}">
+	<xf:numberbox name="user_criteria[xfmg_media_count][data][media_items]" value="{$criteria.xfmg_media_count.media_items}"
+		size="5" min="0" step="1" />
+</xf:option>
+<xf:option name="user_criteria[xfmg_album_count][rule]" value="xfmg_album_count" selected="{$criteria.xfmg_album_count}"
+	label="{{ phrase('xfmg_user_has_created_at_least_x_albums:') }}">
+	<xf:numberbox name="user_criteria[xfmg_album_count][data][albums]" value="{$criteria.xfmg_album_count.albums}"
+		size="5" min="0" step="1" />
+</xf:option>]]></replace>
+  </modification>
+  <modification type="public" template="member_list_macros" modification_key="xfmg_member_list_macros_counts" description="Add the media related counts to member stats." execution_order="50" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:stats:after_messages]-->]]></find>
+    <replace><![CDATA[$0
+<xf:if is="$xf.visitor.canViewMedia()">
+	<xf:if is="$user.xfmg_media_count">
+		<li><dl class="pairs pairs--inline">
+			<dt>{{ phrase('xfmg_media') }}</dt>
+			<dd>{$user.xfmg_media_count|number}</dd>
+		</dl></li>
+	</xf:if>
+	<xf:if is="$user.xfmg_album_count">
+		<li><dl class="pairs pairs--inline">
+			<dt>{{ phrase('xfmg_albums') }}</dt>
+			<dd>{$user.xfmg_album_count|number}</dd>
+		</dl></li>
+	</xf:if>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="member_macros" modification_key="xfmg_member_macros_counts" description="Add the media related counts to the member stats." execution_order="8" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:stat_pairs:above_likes]-->]]></find>
+    <replace><![CDATA[<xf:if is="$xf.visitor.canViewMedia()">
+	<xf:if is="$user.xfmg_media_count">
+		<dl class="pairs pairs--rows pairs--rows--centered menu-fauxLinkRow">
+			<dt>{{ phrase('xfmg_media') }}</dt>
+			<dd>
+				<a href="{{ link('media/users', $user) }}" class="menu-fauxLinkRow-linkRow u-concealed">
+					{$user.xfmg_media_count|number}
+				</a>
+			</dd>
+		</dl>
+	</xf:if>
+</xf:if>
+$0]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="xfmg_member_view_add_tab_panes" description="Add the &quot;Media&quot; and &quot;Albums&quot; tab panes." execution_order="62" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:tab_panes:after_recent_content]-->]]></find>
+    <replace><![CDATA[$0
+
+<xf:if is="$xf.visitor.canViewMedia() AND $user.xfmg_media_count">
+	<li data-href="{{ link('media/users', $user) }}" role="tabpanel" aria-labelledby="xfmgMedia">
+		<div class="blockMessage">{{ phrase('loading...') }}</div>
+	</li>
+</xf:if>
+
+<xf:if is="$xf.visitor.canViewMedia() AND $user.xfmg_album_count">
+	<li data-href="{{ link('media/albums/users', $user) }}" role="tabpanel" aria-labelledby="xfmgAlbums">
+		<div class="blockMessage">{{ phrase('loading...') }}</div>
+	</li>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="xfmg_member_view_add_tabs" description="Add the &quot;Media&quot; and &quot;Albums&quot; tabs." execution_order="62" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:tabs:after_recent_content]-->]]></find>
+    <replace><![CDATA[$0
+
+<xf:if is="$xf.visitor.canViewMedia() AND $user.xfmg_media_count">
+	<a href="{{ link('media/users', $user) }}"
+	   class="tabs-tab"
+	   id="xfmgMedia"
+	   role="tab">{{ phrase('xfmg_media') }}</a>
+</xf:if>
+
+<xf:if is="$xf.visitor.canViewMedia() AND $user.xfmg_album_count">
+	<a href="{{ link('media/albums/users', $user) }}"
+	   class="tabs-tab"
+	   id="xfmgAlbums"
+	   role="tab">{{ phrase('xfmg_albums') }}</a>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="admin" template="tools_rebuild" modification_key="xfmg_tools_rebuild" description="Append the xfmg_tools_rebuild template to the end of the tools_rebuild template" execution_order="20" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:rebuild_bottom]-->]]></find>
+    <replace><![CDATA[$0
+<xf:include template="xfmg_tools_rebuild" />]]></replace>
+  </modification>
+  <modification type="public" template="whats_new_wrapper" modification_key="xfmg_whats_new_wrapper_links" description="Adds additional tabs to the whats_new_wrapper links" execution_order="5" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:links:after_thread]-->]]></find>
+    <replace><![CDATA[<xf:if is="$xf.visitor.canViewMedia()">
+	<a class="{$baseClass} {{ $pageSelected == 'xfmg_new_media' ? {$selectedClass} : '' }}" href="{{ link('whats-new/media') }}" rel="nofollow">{{ phrase('xfmg_new_media') }}</a>
+	<a class="{$baseClass} {{ $pageSelected == 'xfmg_new_comment' ? {$selectedClass} : '' }}" href="{{ link('whats-new/media-comments') }}" rel="nofollow">{{ phrase('xfmg_new_media_comments') }}</a>
+</xf:if>
+$0]]></replace>
+  </modification>
+</template_modifications>

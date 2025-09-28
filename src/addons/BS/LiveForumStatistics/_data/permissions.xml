@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <permission permission_group_id="lfs" permission_id="approveUnapprove" permission_type="flag" interface_group_id="liveForumStatisticsModerator" display_order="20"/>
+  <permission permission_group_id="lfs" permission_id="hide" permission_type="flag" interface_group_id="liveForumStatistics" display_order="50"/>
+  <permission permission_group_id="lfs" permission_id="ignoreForums" permission_type="flag" interface_group_id="liveForumStatistics" display_order="20"/>
+  <permission permission_group_id="lfs" permission_id="ignoreThreads" permission_type="flag" interface_group_id="liveForumStatistics" display_order="10"/>
+  <permission permission_group_id="lfs" permission_id="purchaseStickedLink" permission_type="flag" interface_group_id="liveForumStatistics" display_order="40"/>
+  <permission permission_group_id="lfs" permission_id="purchaseStickedThread" permission_type="flag" interface_group_id="liveForumStatistics" display_order="30"/>
+  <permission permission_group_id="lfs" permission_id="stickUnstickThread" permission_type="flag" interface_group_id="liveForumStatisticsModerator" display_order="10"/>
+  <permission permission_group_id="lfs" permission_id="view" permission_type="flag" interface_group_id="liveForumStatistics" display_order="1"/>
+</permissions>

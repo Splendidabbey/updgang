@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="dbtech_credits_copyright_footer_display" description="Copyright Footer" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:copyright />]]></find>
+    <replace><![CDATA[$0
+				<xf:callback class="DBTech\Credits\Template\Callback\Copyright" method="getCopyrightText"></xf:callback>]]></replace>
+  </modification>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="dbtech_credits_navbar_loop" description="Remove the navbar entry from the main loop if needed" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[#(<xf:macro\s+name="nav_entry"\s+arg-[^/]+>)(.*)(<\/xf:macro>)#siU]]></find>
+    <replace><![CDATA[$1
+<xf:if is="$navId != 'dbtechCredits' OR $xf.options.dbtech_credits_navbar.enabled == 1">$2</xf:if>
+$3]]></replace>
+  </modification>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="dbtech_credits_navbar_right_end" description="Add Navbar (Right Side - End)" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[#(<a href="{{ link\('account/alerts'\) }}"\s+class="[\w\-\s]+p-navgroup-link--alerts.*</div>.+)(</xf:if>)#siU]]></find>
+    <replace><![CDATA[$1	<xf:macro template="dbtech_credits_navbar_macro" name="navbar" arg-section="end" arg-nav="{$navTree.dbtechCredits}" />
+						$2]]></replace>
+  </modification>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="dbtech_credits_navbar_right_middle" description="Add Navbar (Right Side - Middle)" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[#<a href="{{ link\('account/alerts'\) }}"\s+class="[\w\-\s]+p-navgroup-link--alerts#siU]]></find>
+    <replace><![CDATA[<xf:macro template="dbtech_credits_navbar_macro" name="navbar" arg-section="middle" arg-nav="{$navTree.dbtechCredits}" />
+							$0]]></replace>
+  </modification>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="dbtech_credits_navbar_right_start" description="Add Navbar (Right Side - Start)" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[#<a href="{{ link\('account'\) }}"\s+class="[\w\-\s]+p-navgroup-link--user"\s+data-xf-click="menu"#siU]]></find>
+    <replace><![CDATA[<xf:macro template="dbtech_credits_navbar_macro" name="navbar" arg-section="start" arg-nav="{$navTree.dbtechCredits}" />
+							$0]]></replace>
+  </modification>
+  <modification type="public" template="account_visitor_menu" modification_key="dbtech_credits_account_visitor_menu" description="Adds credits displays to the visitor menu" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:stats_pairs:above_messages]-->]]></find>
+    <replace><![CDATA[<xf:include template="dbtech_credits_member_dropdown" />
+				$0]]></replace>
+  </modification>
+  <modification type="public" template="app_nav.less" modification_key="dbtech_credits_app_nav_less_append" description="Append dbtech_credits_app_nav.less to app_nav.less" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/$/]]></find>
+    <replace><![CDATA[{{ include('dbtech_credits_app_nav.less') }}]]></replace>
+  </modification>
+  <modification type="public" template="core_button.less" modification_key="dbtech_credits_core_button_less" description="Add gift icon" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[&--purchase]]></find>
+    <replace><![CDATA[&--gift	    { .m-buttonIcon(@fa-var-gift, .875em); }
+		$0]]></replace>
+  </modification>
+  <modification type="public" template="editor" modification_key="dbtech_credits_add_js" description="Add a call to our JS file" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:include_js]-->]]></find>
+    <replace><![CDATA[<xf:js src="DBTech/Credits/editor.js" min="1" addon="DBTech/Credits" />
+	$0]]></replace>
+  </modification>
+  <modification type="public" template="forum_post_quick_thread" modification_key="dbtech_credits_forum_post_quick_thread" description="Add access cost to post quick thread form" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="helper_thread_options" name="watch_input"]]></find>
+    <replace><![CDATA[<xf:macro name="dbtech_credits_helper_thread_options::access_cost" arg-thread="{$thread}" arg-rowType="fullWidth noGutter" />
+			$0]]></replace>
+  </modification>
+  <modification type="public" template="forum_post_thread" modification_key="dbtech_credits_forum_post_thread" description="Add access cost to post thread form" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="helper_thread_options" name="thread_status"]]></find>
+    <replace><![CDATA[<xf:macro name="dbtech_credits_helper_thread_options::access_cost" arg-thread="{$thread}" />
+					$0]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="dbtech_credits_trophy_criteria" description="Add user criteria" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:user:after_content]-->]]></find>
+    <replace><![CDATA[$0
+			<xf:include template="dbtech_credits_user_criteria" />]]></replace>
+  </modification>
+  <modification type="admin" template="helper_user_search_criteria" modification_key="dbtech_credits_helper_user_search_criteria" description="Insert credits search rows" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:checkboxrow name="criteria[user_state]" readonly="{$readOnly}"]]></find>
+    <replace><![CDATA[<xf:include template="dbtech_credits_helper_user_search_criteria" />
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="member_macros" modification_key="dbtech_credits_member_stats" description="Adds credits displays to the member stats" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:stat_pairs:below_trophies]-->]]></find>
+    <replace><![CDATA[<xf:include template="dbtech_credits_member_stats" />
+	$0]]></replace>
+  </modification>
+  <modification type="public" template="message_macros" modification_key="dbtech_credits_postbit" description="Add postbit information" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="$extras.custom_fields">]]></find>
+    <replace><![CDATA[<xf:include template="dbtech_credits_postbit" />
+	$0]]></replace>
+  </modification>
+  <modification type="public" template="thread_edit" modification_key="dbtech_credits_thread_edit" description="Add access cost to edit thread form" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="helper_thread_options" name="thread_status"]]></find>
+    <replace><![CDATA[<xf:macro name="dbtech_credits_helper_thread_options::access_cost" arg-thread="{$thread}" />
+			$0]]></replace>
+  </modification>
+  <modification type="admin" template="tools_rebuild" modification_key="dbtech_credits_tools_rebuild" description="Append Credits rebuilds to the end of the rebuild caches system." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:rebuild_bottom]-->]]></find>
+    <replace><![CDATA[$0
+<xf:include template="dbtech_credits_tools_rebuild" />]]></replace>
+  </modification>
+  <modification type="admin" template="user_edit" modification_key="dbtech_credits_user_edit_pane" description="Currency Edit (Tab Content)" execution_order="20" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:tab_panes:end]-->]]></find>
+    <replace><![CDATA[<xf:include template="dbtech_credits_user_edit_pane" />
+			$0]]></replace>
+  </modification>
+  <modification type="admin" template="user_edit" modification_key="dbtech_credits_user_edit_tabs" description="Currency Edit (Tabs)" execution_order="20" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:tabs:end]-->]]></find>
+    <replace><![CDATA[<xf:include template="dbtech_credits_user_edit_tab" />
+				$0]]></replace>
+  </modification>
+</template_modifications>

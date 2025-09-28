@@ -1,0 +1,3970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="lfs" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('admin_navigation.lfs') }}</xf:title>
+
+<xf:macro template="section_nav_macros" name="section_nav" arg-section="lfs" />]]></template>
+  <template type="admin" title="lfs_addon_macros" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:macro name="addon_edit" arg-addOnId="!">
+	<xf:set var="$addOnRepo" value="{{ $xf.app.em.getRepository('XF:AddOn') }}" />
+	<xf:if is="$addOnRepo.canChangeAddOn()">
+		<hr class="formRowSep" />
+		
+		<xf:formrow rowtype="input"
+					label="{{ phrase('add_on') }}"
+					explain="{{ phrase('lfs_addon_field_warn_explain') }}">
+		
+			<xf:macro template="addon_macros" name="addon_select" 
+					  arg-addOnId="{$addOnId}" arg-row="{{ false }}" />
+		</xf:formrow>
+	<xf:else />
+		<xf:hiddenval name="addon_id">{$addOnId}</xf:hiddenval>
+	</xf:if>
+</xf:macro>]]></template>
+  <template type="admin" title="lfs_definition_edit" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:if is="$tabDefinition.isInsert()">
+	<xf:title>{{ phrase('lfs_add_definition') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('lfs_edit_definition:') }} {$tabDefinition.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$tabDefinition.isUpdate()">
+	<xf:button href="{{ link('lfs/definitions/delete', $tabDefinition) }}" icon="delete" />
+</xf:pageaction>
+
+<xf:form action="{{ link('lfs/definitions/save', $tabDefinition) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="title" value="{{ $tabDefinition.definition_id ? $tabDefinition.title : '' }}" type="text"
+						   label="{{ phrase('title') }}" />
+			
+			<xf:textboxrow name="definition_id" value="{$tabDefinition.definition_id}" type="text"
+						   label="{{ phrase('definition_id') }}" />
+			
+			<xf:textboxrow name="definition_class" value="{$tabDefinition.definition_class}" type="text"
+						   label="{{ phrase('definition_class') }}" />
+			
+			<xf:macro template="addon_macros" name="addon_edit" arg-addOnId="{{ $tabDefinition.definition_id ? $tabDefinition.addon_id : false }}" />
+		</div>
+		<xf:submitrow icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="lfs_definition_list" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_definitions') }}</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('lfs/definitions/add') }}" icon="add">{{ phrase('lfs_add_definition') }}</xf:button>
+</xf:pageaction>
+
+<xf:if is="$tabDefinitions is not empty">
+	<div class="block">
+		<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" arg-key="tab-definitions" arg-class="block-outer-opposite" />
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$tabDefinitions" value="$tabDefinition">
+						<xf:datarow
+							label="{$tabDefinition.title}"
+							hint="{$tabDefinition.definition_class}"
+							href="{{ link('lfs/definitions/edit', $tabDefinition) }}"
+							delete="{{ link('lfs/definitions/delete', $tabDefinition) }}">
+
+							<xf:action href="{{ link('lfs/tabs/add', null, {'definition_id': $tabDefinition.definition_id}) }}">
+								{{ phrase('lfs_add_tab') }}
+							</xf:action>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">{{ display_totals($tabDefinitions) }}</span>
+			</div>
+		</div>
+	</div>
+<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>]]></template>
+  <template type="admin" title="lfs_definition_options_macros" version_id="1000671" version_string="1.2.1"><![CDATA[<xf:macro name="language_checkboxes"
+		  arg-label="{{ phrase('lfs_displayed_for_users_with_language') }}"
+		  arg-name="options[language_ids]"
+		  arg-id="usable_languages"
+		  arg-languages=""
+		  arg-selectedLanguages="!"
+		  arg-withRow="1">
+
+	<xf:if is="!$languages">
+		<xf:set var="$languageRepo" value="{$xf.app.em.getRepository('XF:Language')}" />
+		<xf:set var="$languages" value="{$languageRepo.getLanguageCacheData()}" />
+	</xf:if>
+	<xf:set var="$allLanguages" value="{{ array_keys($languages) == $selectedLanguages || in_array('-1', $selectedLanguages) }}" />
+
+	<xf:set var="$inner">
+		<xf:radio name="{$name}" id="{$id}">
+			<xf:option value="all" selected="$allLanguages">{{ phrase('lfs_all_languages') }}</xf:option>
+			<xf:option value="sel" selected="!$allLanguages" label="{{ phrase('lfs_selected_languages:') }}">
+				<xf:dependent>
+					<xf:checkbox name="{$name}" listclass="listColumns">
+						<xf:foreach loop="$languages" key="$languageId" value="$language">
+							<xf:option value="{$languageId}" selected="{{ in_array($languageId, $selectedLanguages) || $allLanguages  }}">
+								{$language.title}
+							</xf:option>
+						</xf:foreach>
+					</xf:checkbox>
+
+					<xf:checkbox>
+						<xf:option data-xf-init="check-all" data-container="{{ '#' . $id }}">{{ phrase('select_all') }}</xf:option>
+					</xf:checkbox>
+				</xf:dependent>
+			</xf:option>
+		</xf:radio>
+	</xf:set>
+
+	<xf:if is="$withRow">
+		<xf:formrow label="{$label}" name="{$id}" id="{$id}">
+			{$inner|raw}
+		</xf:formrow>
+		<xf:else />
+		{$inner|raw}
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="select_categories"
+	arg-categoryIds="!"
+	arg-categoryTree="!"
+	arg-selectName="options[category_ids]">
+
+	<ul class="inputList">
+		<li><xf:select name="{$selectName}[]" value="{$categoryIds}" size="7" multiple="multiple" id="js-applicableCategories">
+
+			<xf:option value="" selected="!{$categoryIds}">{{ phrase('(none)') }}</xf:option>
+
+			<xf:foreach loop="$categoryTree.getFlattened(0)" value="$treeEntry">
+				<xf:option value="{$treeEntry.record.category_id}"
+						   label="{{ repeat('&nbsp;&nbsp;', $treeEntry.depth)|raw }} {$treeEntry.record.title}" />
+			</xf:foreach>
+
+			</xf:select></li>
+
+		<xf:checkbox>
+			<xf:option label="{{ phrase('select_all') }}" id="js-selectAllCategories" />
+		</xf:checkbox>
+	</ul>
+
+	<xf:js>
+		$(function()
+		{
+			$('#js-selectAllCategories').click(function(e)
+			{
+				$('#js-applicableCategories').find('option:enabled:not([value=""])').prop('selected', this.checked);
+			});
+		});
+	</xf:js>
+</xf:macro>]]></template>
+  <template type="admin" title="lfs_group_edit" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:if is="$tabGroup.isInsert()">
+	<xf:title>{{ phrase('lfs_add_group') }}</xf:title>
+	<xf:else />
+	<xf:title>{{ phrase('lfs_edit_group:') }} {$tabGroup.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$tabGroup.isUpdate()">
+	<xf:button href="{{ link('lfs/groups/delete', $tabGroup) }}" icon="delete" />
+</xf:pageaction>
+
+<xf:form action="{{ link('lfs/groups/save', $tabGroup) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="group_id" value="{{ $tabGroup.group_id ? $tabGroup.group_id : '' }}" type="text"
+						   label="{{ phrase('definition_id') }}" />
+
+			<xf:textboxrow name="title" value="{{ $tabGroup.group_id ? $tabGroup.title : '' }}" type="text"
+						   label="{{ phrase('title') }}" />
+			
+			<xf:checkboxrow>
+				<xf:option name="is_active" checked="{$tabGroup.is_active}">{{ phrase('lfs_is_active') }}</xf:option>
+			</xf:checkboxrow>
+			
+			<xf:numberboxrow name="carousel_interval" value="{$tabGroup.carousel_interval}"
+							 label="{{ phrase('lfs_carousel_interval') }}"
+							 explain="{{ phrase('lfs_carousel_interval_explain') }}"
+							 units="{{ phrase('units_seconds') }}" />
+
+			<xf:numberboxrow name="display_order" value="{{ $tabGroup.group_id ? $tabGroup.display_order : 0 }}" min="0" step="10"
+							 label="{{ phrase('display_order') }}" />
+
+			<xf:macro template="lfs_addon_macros" name="addon_edit" arg-addOnId="{{ $tabGroup.group_id ? $tabGroup.addon_id : false }}" />
+		</div>
+		
+		<xf:submitrow icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="lfs_group_list" version_id="1000670" version_string="1.2.1"><![CDATA[<xf:title>{{ phrase('lfs_groups') }}</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('lfs/groups/add') }}" icon="add">{{ phrase('lfs_add_group') }}</xf:button>
+	<xf:button href="{{ link('lfs/groups/sort') }}" icon="sort" overlay="true" />
+</xf:pageaction>
+
+<xf:if is="$tabGroups is not empty">
+	<xf:form action="{{ link('lfs/groups/toggle') }}" class="block" ajax="true">
+		<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" arg-key="tabs"
+					  arg-ajax="{{ link('lfs/groups') }}"
+					  arg-class="block-outer-opposite" />
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$tabGroups" value="$tabGroup">
+						<xf:datarow>
+							<xf:main href="{{ link('lfs/groups/edit', $tabGroup) }}" label="{$tabGroup.title}" />
+							
+							<xf:toggle name="is_active[{$tabGroup.group_id}]" selected="$tabGroup.is_active"
+									   class="dataList-cell--separated" submit="true"
+									   tooltip="{{ phrase('enable_disable_x', {'title': $tabGroup.title}) }}"/>
+							
+							<xf:delete href="{{ link('lfs/groups/delete', $tabGroup) }}" />
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer block-footer--split">
+				<span class="block-footer-counter">{{ display_totals($tabGroups) }}</span>
+			</div>
+		</div>
+	</xf:form>
+	<xf:else />
+	<div class="blockMessage">
+		{{ phrase('no_items_have_been_created_yet') }}
+	</div>
+</xf:if>]]></template>
+  <template type="admin" title="lfs_group_sort" version_id="1000670" version_string="1.2.1"><![CDATA[<xf:title>{{ phrase('lfs_sort_groups') }}</xf:title>
+
+<xf:macro template="public:nestable_macros" name="setup" />
+
+<xf:form action="{{ link('lfs/groups/sort') }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="nestable-container" data-xf-init="nestable">
+				<xf:macro name="group_list" arg-tabGroups="{$tabGroups}" />
+				<xf:hiddenval name="groups" value="" />
+			</div>
+		</div>
+		<xf:submitrow icon="save" rowtype="simple" />
+	</div>
+</xf:form>
+
+<xf:macro name="group_list" arg-tabGroups="!">
+	<ol class="nestable-list">
+		<xf:foreach loop="$tabGroups" key="$id" value="$tabGroup">
+			<li class="nestable-item" data-id="{$id}">
+				<div class="nestable-handle" aria-label="{{ phrase('drag_handle')|for_attr }}"><xf:fa icon="fa-bars" /></div>
+				<div class="nestable-content">{$tabGroup.title}</div>
+			</li>
+		</xf:foreach>
+	</ol>
+</xf:macro>]]></template>
+  <template type="admin" title="lfs_sticked_attribute_edit" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:if is="$attribute.isInsert()">
+	<xf:title>{{ phrase('lfs_add_attribute') }}</xf:title>
+	<xf:else />
+	<xf:title>{{ phrase('lfs_edit_attribute:') }} {$attribute.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$attribute.isUpdate()">
+	<xf:button href="{{ link('lfs/sticked-attributes/delete', $attribute) }}" overlay="true" icon="delete" />
+</xf:pageaction>
+
+<xf:form action="{{ link('lfs/sticked-attributes/save', $attribute) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="attribute_key" value="{$attribute.attribute_key}" type="text"
+						   label="{{ phrase('lfs_attribute_key') }}" />
+			
+			<xf:textboxrow name="title" value="{$attribute.title}" type="text"
+						   label="{{ phrase('title') }}" />
+
+			<xf:numberboxrow name="cost_amount" label="{{ phrase('cost') }}" 
+							 explain="{{ phrase('lfs_attribute_cost_amount_explain') }}"
+							 value="{$attribute.cost_amount}"
+							 step="0.01" />
+			
+			<xf:selectrow name="type" label="{{ phrase('lfs_attribute_type') }}">
+				<xf:option value="style">{{ phrase('lfs_attribute_type.style') }}</xf:option>
+				<xf:option value="another">{{ phrase('lfs_attribute_type.another') }}</xf:option>
+			</xf:selectrow>
+
+			<xf:formrow rowtype="input"
+						label="{{ phrase('lfs_allowable_values') }}"
+						explain="{{ phrase('lfs_allowable_values_explain') }}">
+
+				<ul class="listPlain inputGroup-container">
+					<xf:foreach loop="$attribute.allowable" value="$value">
+						<li class="inputGroup" dir="ltr">
+							<xf:textbox name="allowable[]" value="{$value}" placeholder="{{ phrase('value') }}" />
+						</li>
+					</xf:foreach>
+					<li class="inputGroup" data-xf-init="field-adder" dir="ltr">
+						<xf:textbox name="allowable[]" placeholder="{{ phrase('value') }}" />
+					</li>
+				</ul>
+			</xf:formrow>
+		</div>
+
+		<xf:submitrow icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="lfs_sticked_attribute_list" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_sticked_attributes') }}</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('lfs/sticked-attributes/add') }}" icon="add">{{ phrase('lfs_add_attribute') }}</xf:button>
+</xf:pageaction>
+
+<xf:if is="$attributes is not empty">
+	<div class="block">
+		<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" 
+					  arg-key="sticked-attributes" 
+					  arg-ajax="{{ link('lfs/sticked-attributes') }}"
+					  arg-class="block-outer-opposite" />
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$attributes" value="$attribute">
+						<xf:datarow label="{$attribute.title}"
+									hint="{$attribute.type_phrase}"
+									href="{{ link('lfs/sticked-attributes/edit', $attribute) }}"
+									delete="{{ link('lfs/sticked-attributes/delete', $attribute) }}">
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">{{ display_totals($attributes, $total) }}</span>
+			</div>
+		</div>
+
+		<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+					link="lfs/sticked-attributes"
+					wrapperclass="block-outer block-outer--after" />
+	</div>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>]]></template>
+  <template type="admin" title="lfs_sticked_link_edit" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:if is="$stickedLink.isInsert()">
+	<xf:title>{{ phrase('lfs_stick_link') }}</xf:title>
+	<xf:else />
+	<xf:title>{{ phrase('lfs_edit_sticked_link:') }} {$stickedLink.title}</xf:title>
+</xf:if>
+
+<xf:macro template="public:lfs_macros" name="date_time_picker" />
+
+<xf:pageaction if="$stickedLink.isUpdate()">
+	<xf:button href="{{ link('lfs/sticked-links/delete', $stickedLink) }}" overlay="true" icon="delete" />
+</xf:pageaction>
+
+<xf:form action="{{ link('lfs/sticked-links/save', $stickedLink) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="title" value="{$stickedLink.title}" type="text"
+						   label="{{ phrase('title') }}" />
+
+			<xf:textboxrow name="link" value="{$stickedLink.link}" type="text"
+						   label="{{ phrase('link') }}" />
+			
+			<xf:checkboxrow>
+				<xf:option name="is_active" checked="{$stickedLink.is_active}">{{ phrase('lfs_is_active') }}</xf:option>
+			</xf:checkboxrow>
+
+			<xf:numberboxrow name="sticked_order" value="{$stickedLink.sticked_order}" 
+							 label="{{ phrase('lfs_sticky_order') }}" />
+
+			<xf:checkboxrow>
+				<xf:option name="has_end_date" label="{{ phrase('end_date') }}" data-hide="true" 
+						   checked="{{ $stickedLink.end_date ? true : false }}">
+					<xf:dependent>
+						<xf:textbox name="end_date"
+									data-xf-init="date-time-picker"
+									data-min-date="{{ date($xf.time, 'd.m.Y') }}"
+									data-week-start="{$xf.language.week_start}"
+									data-locale="{{ $xf.language.language_code|substr(0, 2) }}"
+									value="{{ $stickedLink.end_date ? date($stickedLink.end_date, 'd F Y H:i') : '' }}" />
+					</xf:dependent>
+				</xf:option>
+			</xf:checkboxrow>
+
+			<xf:formrow rowtype="input"
+						label="{{ phrase('extra_attributes') }}">
+
+				<ul class="listPlain inputGroup-container">
+					<xf:foreach loop="$stickedLink.attributes" key="$name" value="$value">
+						<li class="inputGroup" dir="ltr">
+							<xf:textbox name="attributes[extra_attr_names][]" value="{$name}" size="15" code="true"
+										placeholder="{{ phrase('name') }}" />
+							<span class="inputGroup-splitter"></span>
+							<xf:textbox name="attributes[extra_attr_values][]" value="{$value}" size="25" code="true"
+										placeholder="{{ phrase('value') }}" />
+						</li>
+					</xf:foreach>
+					<li class="inputGroup" data-xf-init="field-adder" dir="ltr">
+						<xf:textbox name="attributes[extra_attr_names][]" size="15" code="true"
+									placeholder="{{ phrase('name') }}" />
+						<span class="inputGroup-splitter"></span>
+						<xf:textbox name="attributes[extra_attr_values][]" size="25" code="true"
+									placeholder="{{ phrase('value') }}" />
+					</li>
+				</ul>
+			</xf:formrow>
+		</div>
+
+		<xf:submitrow icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="lfs_sticked_link_list" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_sticked_links') }}</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('lfs/sticked-links/add') }}" icon="add">{{ phrase('lfs_stick_link') }}</xf:button>
+</xf:pageaction>
+
+<xf:if is="$stickedLinks is not empty">
+	<xf:form action="{{ link('lfs/sticked-links/toggle') }}" class="block" ajax="true">
+		<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" 
+					  arg-key="sticked-links" 
+					  arg-ajax="{{ link('lfs/sticked-links') }}"
+					  arg-class="block-outer-opposite" />
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$stickedLinks" value="$stickedLink">
+						<xf:datarow
+									label="{$stickedLink.title}"
+									hint="{$stickedLink.link}"
+									href="{{ link('lfs/sticked-links/edit', $stickedLink) }}"
+									delete="{{ link('lfs/sticked-links/delete', $stickedLink) }}">
+
+							<xf:toggle name="is_active[{$stickedLink.link_id}]" selected="$stickedLink.is_active"
+									   class="dataList-cell--separated" submit="true"
+									   tooltip="{{ phrase('enable_disable_x', {'title': $stickedLink.title}) }}"/>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">{{ display_totals($stickedLinks, $total) }}</span>
+			</div>
+		</div>
+
+		<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+					link="lfs/sticked-links"
+					wrapperclass="block-outer block-outer--after" />
+	</xf:form>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>]]></template>
+  <template type="admin" title="lfs_sticked_thread_list" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_sticked_threads') }}</xf:title>
+
+<xf:if is="$threads is not empty">
+	<div class="block">
+		<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" 
+					  arg-key="sticked-threads" 
+					  arg-ajax="{{ link('lfs/sticked-threads') }}"
+					  arg-class="block-outer-opposite" />
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$threads" value="$thread">
+						<xf:datarow label="{$thread.title}"
+									href="{{ link_type('public', 'threads', $thread) }}"
+									target="_blank">
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">{{ display_totals($threads, $total) }}</span>
+			</div>
+		</div>
+		
+		<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+					link="lfs/sticked-threads"
+					wrapperclass="block-outer block-outer--after" />
+	</div>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>]]></template>
+  <template type="admin" title="lfs_tab_def_options.ams_article" version_id="1000872" version_string="1.0.8b"><![CDATA[<hr class="formRowSep" />
+
+<xf:formrow rowtype="input" label="{{ phrase('order_by') }}">
+	<ul class="listPlain inputGroup-container">
+		<xf:if is="$options.order">
+			<xf:foreach loop="$options.order" key="$k" value="$order">
+				<li class="inputGroup">
+					<xf:select name="options[order][{$k}][0]" value="{$order.0}" 
+							   class="input--autosize">
+						<xf:option></xf:option>
+						<xf:option value="last_update">{{ phrase('xa_ams_last_update') }}</xf:option>
+						<xf:option value="comment_count">{{ phrase('xa_ams_comment_count') }}</xf:option>
+						<xf:option value="rating_count">{{ phrase('xa_ams_rating_count') }}</xf:option>
+						<xf:option value="rating_avg">{{ phrase('ams_rating') }}</xf:option>
+						<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+						<xf:option value="publish_date">{{ phrase('xa_ams_publish_date') }}</xf:option>
+						<xf:option value="reaction_score">{{ phrase('reaction_score') }}</xf:option>
+					</xf:select>
+					<span class="inputGroup-splitter"></span>
+					<xf:select name="options[order][{$k}][1]" value="{$order.1}" 
+							   class="input--autosize">
+						<xf:option></xf:option>
+						<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+						<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+					</xf:select>
+				</li>
+			</xf:foreach>
+			<xf:else />
+			<li class="inputGroup">
+				<xf:select name="options[order][0][0]" class="input--autosize">
+					<xf:option></xf:option>
+					<xf:option value="last_update">{{ phrase('xa_ams_last_update') }}</xf:option>
+					<xf:option value="comment_count">{{ phrase('xa_ams_comment_count') }}</xf:option>
+					<xf:option value="rating_count">{{ phrase('xa_ams_rating_count') }}</xf:option>
+					<xf:option value="rating_avg">{{ phrase('ams_rating') }}</xf:option>
+					<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+					<xf:option value="publish_date">{{ phrase('xa_ams_publish_date') }}</xf:option>
+					<xf:option value="reaction_score">{{ phrase('reaction_score') }}</xf:option>
+				</xf:select>
+				<span class="inputGroup-splitter"></span>
+				<xf:select name="options[order][0][1]" class="input--autosize">
+					<xf:option></xf:option>
+					<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+					<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+				</xf:select>
+			</li>
+		</xf:if>
+		
+		<li class="inputGroup" data-xf-init="field-adder" data-increment-format="options[order][{counter}]">
+			<xf:select name="options[order][{{ count($options.order) + 1 }}][0]" class="input--autosize">
+				<xf:option></xf:option>
+				<xf:option value="last_update">{{ phrase('xa_ams_last_update') }}</xf:option>
+				<xf:option value="comment_count">{{ phrase('xa_ams_comment_count') }}</xf:option>
+				<xf:option value="rating_count">{{ phrase('xa_ams_rating_count') }}</xf:option>
+				<xf:option value="rating_avg">{{ phrase('ams_rating') }}</xf:option>
+				<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+				<xf:option value="publish_date">{{ phrase('xa_ams_publish_date') }}</xf:option>
+				<xf:option value="reaction_score">{{ phrase('reaction_score') }}</xf:option>
+			</xf:select>
+			<span class="inputGroup-splitter"></span>
+			<xf:select name="options[order][{{ count($options.order) + 1 }}][1]" class="input--autosize">
+				<xf:option></xf:option>
+				<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+				<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+			</xf:select>
+		</li>
+	</ul>
+</xf:formrow>
+
+<xf:formrow label="{{ phrase('lfs_exclude_categories') }}">
+	<xf:macro template="lfs_definition_options_macros" 
+			  name="select_categories"
+			  arg-categoryIds="{$options.exclude_category_ids}"
+			  arg-categoryTree="{$categoryTree}"
+			  arg-selectName="options[exclude_category_ids]" />
+</xf:formrow>
+
+<xf:numberboxrow name="options[limit]" value="{{ $options.limit ?: 15 }}" min="0" step="1"
+				 label="{{ phrase('maximum_entries') }}" />
+
+<h2 class="block-formSectionHeader">
+	<span class="collapseTrigger collapseTrigger--block" data-xf-click="toggle" data-target="< :up :next">
+		<span class="block-formSectionHeader-aligner">{{ phrase('advanced_options') }}</span>
+	</span>
+</h2>
+<div class="block-body block-body--collapsible">
+	
+	<xf:textboxrow name="options[article_ids]" 
+			   label="{{ phrase('lfs_article_id_is') }}"
+			   explain="{{ phrase('lfs_separate_multiple_ids_by_comma') }}"
+			   value="{{ $options.article_ids|join(', ') }}" />
+	
+	<xf:textboxrow name="options[not_article_ids]" 
+			   label="{{ phrase('lfs_article_id_is_not') }}"
+			   explain="{{ phrase('lfs_separate_multiple_ids_by_comma') }}"
+			   value="{{ $options.not_article_ids|join(', ') }}" />
+	
+	<xf:if is="$prefixesGrouped is not empty">
+
+		<xf:macro template="public:prefix_macros" name="row" 
+				  arg-label="{{ phrase('lfs_has_this_prefix') }}"
+				  arg-type="ams_article"
+				  arg-prefixes="{{ $prefixesGrouped }}"
+				  arg-selected="{{ $options.prefix_ids }}" 
+				  arg-name="options[prefix_ids]"
+				  arg-multiple="{{ true }}" />
+
+		<xf:macro template="public:prefix_macros" name="row" 
+				  arg-label="{{ phrase('lfs_has_not_this_prefix') }}"
+				  arg-type="ams_article"
+				  arg-prefixes="{{ $prefixesGrouped }}"
+				  arg-selected="{{ $options.exclude_prefix_ids }}" 
+				  arg-name="options[exclude_prefix_ids]"
+				  arg-multiple="{{ true }}" />
+	</xf:if>
+	
+	<xf:selectrow label="{{ phrase('xa_ams_comments_open') }}"
+				  name="options[comments_open]"
+				  value="{$options.comments_open}">
+		<xf:option value="">{{ phrase('lfs_consider_everything') }}</xf:option>
+		<xf:option value="1">{{ phrase('yes') }}</xf:option>
+		<xf:option value="0">{{ phrase('no') }}</xf:option>
+	</xf:selectrow>
+	
+	<xf:selectrow label="{{ phrase('xa_ams_featured') }}"
+				  name="options[featured]"
+				  value="{$options.featured}">
+		<xf:option value="">{{ phrase('lfs_consider_everything') }}</xf:option>
+		<xf:option value="1">{{ phrase('yes') }}</xf:option>
+		<xf:option value="0">{{ phrase('no') }}</xf:option>
+	</xf:selectrow>
+
+	<xf:checkboxrow>
+		<xf:option name="post_date_filter" checked="{{ $options.cut_off.1 > 0 }}" label="{{ phrase('lfs_post_cutoff_date') }}" data-hide="true">
+			<xf:dependent>
+				<div class="inputGroup u-inputSpacer">
+					<xf:select name="options[cut_off][0]" value="{{ $options.cut_off.0 ?: '' }}" 
+							   class="input--autosize">
+						<xf:option value="<">{{ phrase('lfs_cut_off_less') }}</xf:option>
+						<xf:option value=">">{{ phrase('lfs_cut_off_more') }}</xf:option>
+					</xf:select>
+					<span class="inputGroup-splitter"></span>
+					<xf:numberbox name="options[cut_off][1]" value="{{ $options.cut_off.1 ?: 0 }}" 
+								  class="input--autosize" units="{{ phrase('units_days') }}" />
+				</div>
+			</xf:dependent>
+		</xf:option>
+	</xf:checkboxrow>
+</div>
+
+<h2 class="block-formSectionHeader">
+	<span class="collapseTrigger collapseTrigger--block" data-xf-click="toggle" data-target="< :up :next">
+		<span class="block-formSectionHeader-aligner">{{ phrase('user_criteria') }}</span>
+	</span>
+</h2>
+<div class="block-body block-body--collapsible">
+	
+	<xf:tokeninputrow name="options[by_user]" 
+					  href="{{ link('users/find') }}"
+					  label="{{ phrase('lfs_article_author_is') }}"
+					  explain="{{ phrase('lfs_article_author_is_explain') }}"
+					  value="{$options.by_user}" />
+	
+	<xf:tokeninputrow name="options[user_is_not]" 
+					  href="{{ link('users/find') }}"
+					  label="{{ phrase('lfs_article_author_is_not') }}"
+					  explain="{{ phrase('lfs_article_author_is_not_explain') }}"
+					  value="{$options.user_is_not}" />
+	
+	<xf:if is="$userGroups is not empty">
+		<xf:selectrow name="options[user_has_groups]"
+					  label="{{ phrase('lfs_article_author_is_a_member_of_any_of_these_groups') }}"
+					  value="{$options.user_has_groups}"
+					  multiple="true">
+			<xf:options source="$userGroups" />
+		</xf:selectrow>
+		
+		<xf:selectrow name="options[user_has_not_groups]"
+					  label="{{ phrase('lfs_article_author_is_not_a_member_of_any_of_these_groups') }}"
+					  value="{$options.user_has_not_groups}"
+					  multiple="true">
+			<xf:options source="$userGroups" />
+		</xf:selectrow>
+	</xf:if>
+	
+	<xf:checkboxrow>
+		<xf:option name="options[watched]" checked="{$options.watched}">{{ phrase('lfs_user_is_watching_article') }}</xf:option>
+	</xf:checkboxrow>
+	
+	<xf:macro template="lfs_definition_options_macros" name="language_checkboxes" 
+			  arg-selectedLanguages="{{ $options.language_ids ?: [-1] }}" />
+	
+</div>]]></template>
+  <template type="admin" title="lfs_tab_def_options.latest_activity" version_id="1000670" version_string="1.2.1"><![CDATA[<hr class="formRowSep" />
+
+<xf:selectrow label="{{ phrase('lfs_exclude_content_types') }}"
+			  name="options[exclude_content_types]"
+			  multiple="true"
+			  value="{$options.exclude_content_types}">
+
+	<xf:option value="">{{ phrase('(none)') }}</xf:option>
+	<xf:options source="{{ $xf.app.getContentTypePhrases(true, 'news_feed_handler_class') }}" />
+</xf:selectrow>
+
+<xf:numberboxrow name="options[limit]" value="{{ $options.limit ?: 15 }}" min="0" step="1"
+				 label="{{ phrase('maximum_entries') }}" />]]></template>
+  <template type="admin" title="lfs_tab_def_options.members" version_id="1000970" version_string="1.0.9"><![CDATA[<hr class="formRowSep" />
+
+<xf:if is="$tab && $tab.isInsert()">
+	<xf:macro template="lfs_tab_def_options_macros" name="presets_row"
+			  arg-definition="{$definition}"
+			  arg-presets="{$presets}"
+			  arg-selected="{$preset}" />
+	
+	<xf:selectrow label="{{ phrase('template') }}"
+				  name="member_definition_template"
+				  value="{$options.template}">
+		
+		<xf:option value="default">{{ phrase('default') }}</xf:option>
+		<xf:option value="preset">{{ phrase('lfs_preset_template') }}</xf:option>
+		<xf:option value="messages">{{ phrase('messages') }}</xf:option>
+		<xf:option value="reactions">{{ phrase('reactions') }}</xf:option>
+		<xf:option value="trophies">{{ phrase('trophies') }}</xf:option>
+	</xf:selectrow>
+	
+	<hr class="formRowSep" />
+</xf:if>
+
+
+<xf:radiorow name="options[type]" label="{{ phrase('lfs_type') }}" value="{$options.type}">
+	<xf:option value="" label="{{ phrase('none') }}" data-hide="true">
+		<xf:dependent>
+			{{ phrase('order_by:') }}
+			<div class="inputGroup u-inputSpacer">
+				<xf:select name="options[order][order]" value="{{ $options.order.0 ? $options.order.0 : '' }}" 
+						   class="input--autosize">
+					<xf:option value="register_date">{{ phrase('registration_date') }}</xf:option>
+					<xf:option value="message_count">{{ phrase('messages') }}</xf:option>
+					<xf:option value="reaction_score">{{ phrase('reactions') }}</xf:option>
+					<xf:option value="last_activity">{{ phrase('last_activity') }}</xf:option>
+					<xf:option value="trophy_points">{{ phrase('trophy_points') }}</xf:option>
+				</xf:select>
+				<span class="inputGroup-splitter"></span>
+				<xf:select name="options[order][direction]" value="{{ $options.order.1 ? $options.order.1 : '' }}" 
+						   class="input--autosize">
+					<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+					<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+				</xf:select>
+			</div>
+		</xf:dependent>
+	</xf:option>
+	<xf:option value="top_posters" label="{{ phrase('lfs_members_type_top_posters') }}" data-hide="true">
+		<xf:dependent>
+			<xf:macro name="type_cutoff_dependent" arg-options="{$options}" />
+		</xf:dependent>
+	</xf:option>
+	<xf:option value="top_reactions" label="{{ phrase('lfs_members_type_top_reactions') }}" data-hide="true">
+		<xf:dependent>
+			<xf:macro name="type_cutoff_dependent" arg-options="{$options}" />
+		</xf:dependent>
+	</xf:option>
+</xf:radiorow>
+
+<xf:if is="$userGroups is not empty">
+	<xf:selectrow name="options[user_has_groups]"
+				  label="{{ phrase('lfs_user_is_a_member_of_any_of_these_groups') }}"
+				  value="{$options.user_has_groups}"
+				  multiple="true">
+		<xf:options source="$userGroups" />
+	</xf:selectrow>
+
+	<xf:selectrow name="options[user_has_not_groups]"
+				  label="{{ phrase('lfs_user_is_not_a_member_of_any_of_these_groups') }}"
+				  value="{$options.user_has_not_groups}"
+				  multiple="true">
+		<xf:options source="$userGroups" />
+	</xf:selectrow>
+</xf:if>
+
+<xf:checkboxrow>
+	<xf:option name="options[is_birthday]" label="{{ phrase('user_birthday_is_today') }}" 
+			   checked="{$options.is_birthday}" />
+</xf:checkboxrow>
+
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="0" step="1"
+				 label="{{ phrase('maximum_entries') }}"/>
+
+<xf:macro name="type_cutoff_dependent" arg-options="!">
+	{{ phrase('lfs_for_the_last:') }}
+	<div class="u-inputSpacer">
+		<xf:numberbox name="options[type_cutoff]" value="{$options.type_cutoff}"
+					  units="{{ phrase('days') }}" />
+	</div>
+</xf:macro>]]></template>
+  <template type="admin" title="lfs_tab_def_options.showcase_item" version_id="1000872" version_string="1.0.8b"><![CDATA[<hr class="formRowSep" />
+
+<xf:formrow rowtype="input" label="{{ phrase('order_by') }}">
+	<ul class="listPlain inputGroup-container">
+		<xf:if is="$options.order">
+			<xf:foreach loop="$options.order" key="$k" value="$order">
+				<li class="inputGroup">
+					<xf:select name="options[order][{$k}][0]" value="{$order.0}" 
+							   class="input--autosize">
+						<xf:option></xf:option>
+						<xf:option value="last_update">{{ phrase('xa_sc_last_update') }}</xf:option>
+						<xf:option value="comment_count">{{ phrase('xa_sc_comment_count') }}</xf:option>
+						<xf:option value="rating_count">{{ phrase('xa_sc_rating_count') }}</xf:option>
+						<xf:option value="rating_avg">{{ phrase('sc_rating') }}</xf:option>
+						<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+						<xf:option value="create_date">{{ phrase('xa_sc_create_date') }}</xf:option>
+						<xf:option value="reaction_score">{{ phrase('reaction_score') }}</xf:option>
+					</xf:select>
+					<span class="inputGroup-splitter"></span>
+					<xf:select name="options[order][{$k}][1]" value="{$order.1}" 
+							   class="input--autosize">
+						<xf:option></xf:option>
+						<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+						<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+					</xf:select>
+				</li>
+			</xf:foreach>
+			<xf:else />
+			<li class="inputGroup">
+				<xf:select name="options[order][0][0]" class="input--autosize">
+					<xf:option></xf:option>
+					<xf:option value="last_update">{{ phrase('xa_sc_last_update') }}</xf:option>
+					<xf:option value="comment_count">{{ phrase('xa_sc_comment_count') }}</xf:option>
+					<xf:option value="rating_count">{{ phrase('xa_sc_rating_count') }}</xf:option>
+					<xf:option value="rating_avg">{{ phrase('sc_rating') }}</xf:option>
+					<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+					<xf:option value="create_date">{{ phrase('xa_sc_create_date') }}</xf:option>
+					<xf:option value="reaction_score">{{ phrase('reaction_score') }}</xf:option>
+				</xf:select>
+				<span class="inputGroup-splitter"></span>
+				<xf:select name="options[order][0][1]" class="input--autosize">
+					<xf:option></xf:option>
+					<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+					<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+				</xf:select>
+			</li>
+		</xf:if>
+		
+		<li class="inputGroup" data-xf-init="field-adder" data-increment-format="options[order][{counter}]">
+			<xf:select name="options[order][{{ count($options.order) + 1 }}][0]" class="input--autosize">
+				<xf:option></xf:option>
+				<xf:option value="last_update">{{ phrase('xa_sc_last_update') }}</xf:option>
+				<xf:option value="comment_count">{{ phrase('xa_sc_comment_count') }}</xf:option>
+				<xf:option value="rating_count">{{ phrase('xa_sc_rating_count') }}</xf:option>
+				<xf:option value="rating_avg">{{ phrase('sc_rating') }}</xf:option>
+				<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+				<xf:option value="create_date">{{ phrase('xa_sc_create_date') }}</xf:option>
+				<xf:option value="reaction_score">{{ phrase('reaction_score') }}</xf:option>
+			</xf:select>
+			<span class="inputGroup-splitter"></span>
+			<xf:select name="options[order][{{ count($options.order) + 1 }}][1]" class="input--autosize">
+				<xf:option></xf:option>
+				<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+				<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+			</xf:select>
+		</li>
+	</ul>
+</xf:formrow>
+
+<xf:formrow label="{{ phrase('lfs_exclude_categories') }}">
+	<xf:macro template="lfs_definition_options_macros" 
+			  name="select_categories"
+			  arg-categoryIds="{$options.exclude_category_ids}"
+			  arg-categoryTree="{$categoryTree}"
+			  arg-selectName="options[exclude_category_ids]" />
+</xf:formrow>
+
+<xf:numberboxrow name="options[limit]" value="{{ $options.limit ?: 15 }}" min="0" step="1"
+				 label="{{ phrase('maximum_entries') }}" />
+
+<h2 class="block-formSectionHeader">
+	<span class="collapseTrigger collapseTrigger--block" data-xf-click="toggle" data-target="< :up :next">
+		<span class="block-formSectionHeader-aligner">{{ phrase('advanced_options') }}</span>
+	</span>
+</h2>
+<div class="block-body block-body--collapsible">
+	
+	<xf:textboxrow name="options[item_ids]" 
+			   label="{{ phrase('lfs_sc_item_id_is') }}"
+			   explain="{{ phrase('lfs_separate_multiple_ids_by_comma') }}"
+			   value="{{ $options.item_ids|join(', ') }}" />
+	
+	<xf:textboxrow name="options[not_item_ids]" 
+			   label="{{ phrase('lfs_sc_item_id_is_not') }}"
+			   explain="{{ phrase('lfs_separate_multiple_ids_by_comma') }}"
+			   value="{{ $options.not_item_ids|join(', ') }}" />
+	
+	<xf:if is="$prefixesGrouped is not empty">
+
+		<xf:macro template="public:prefix_macros" name="row" 
+				  arg-label="{{ phrase('lfs_has_this_prefix') }}"
+				  arg-type="sc_item"
+				  arg-prefixes="{{ $prefixesGrouped }}"
+				  arg-selected="{{ $options.prefix_ids }}" 
+				  arg-name="options[prefix_ids]"
+				  arg-multiple="{{ true }}" />
+
+		<xf:macro template="public:prefix_macros" name="row" 
+				  arg-label="{{ phrase('lfs_has_not_this_prefix') }}"
+				  arg-type="sc_item"
+				  arg-prefixes="{{ $prefixesGrouped }}"
+				  arg-selected="{{ $options.exclude_prefix_ids }}" 
+				  arg-name="options[exclude_prefix_ids]"
+				  arg-multiple="{{ true }}" />
+	</xf:if>
+	
+	<xf:selectrow label="{{ phrase('xa_sc_comments_open') }}"
+				  name="options[comments_open]"
+				  value="{$options.comments_open}">
+		<xf:option value="">{{ phrase('lfs_consider_everything') }}</xf:option>
+		<xf:option value="1">{{ phrase('yes') }}</xf:option>
+		<xf:option value="0">{{ phrase('no') }}</xf:option>
+	</xf:selectrow>
+	
+	<xf:selectrow label="{{ phrase('xa_sc_featured') }}"
+				  name="options[featured]"
+				  value="{$options.featured}">
+		<xf:option value="">{{ phrase('lfs_consider_everything') }}</xf:option>
+		<xf:option value="1">{{ phrase('yes') }}</xf:option>
+		<xf:option value="0">{{ phrase('no') }}</xf:option>
+	</xf:selectrow>
+
+	<xf:checkboxrow>
+		<xf:option name="post_date_filter" checked="{{ $options.cut_off.1 > 0 }}" label="{{ phrase('lfs_post_cutoff_date') }}" data-hide="true">
+			<xf:dependent>
+				<div class="inputGroup u-inputSpacer">
+					<xf:select name="options[cut_off][0]" value="{{ $options.cut_off.0 ?: '' }}" 
+							   class="input--autosize">
+						<xf:option value="<">{{ phrase('lfs_cut_off_less') }}</xf:option>
+						<xf:option value=">">{{ phrase('lfs_cut_off_more') }}</xf:option>
+					</xf:select>
+					<span class="inputGroup-splitter"></span>
+					<xf:numberbox name="options[cut_off][1]" value="{{ $options.cut_off.1 ?: 0 }}" 
+								  class="input--autosize" units="{{ phrase('units_days') }}" />
+				</div>
+			</xf:dependent>
+		</xf:option>
+	</xf:checkboxrow>
+</div>
+
+<h2 class="block-formSectionHeader">
+	<span class="collapseTrigger collapseTrigger--block" data-xf-click="toggle" data-target="< :up :next">
+		<span class="block-formSectionHeader-aligner">{{ phrase('user_criteria') }}</span>
+	</span>
+</h2>
+<div class="block-body block-body--collapsible">
+	
+	<xf:tokeninputrow name="options[by_user]" 
+					  href="{{ link('users/find') }}"
+					  label="{{ phrase('lfs_sc_item_author_is') }}"
+					  explain="{{ phrase('lfs_sc_item_author_is_explain') }}"
+					  value="{$options.by_user}" />
+	
+	<xf:tokeninputrow name="options[user_is_not]" 
+					  href="{{ link('users/find') }}"
+					  label="{{ phrase('lfs_sc_item_author_is_not') }}"
+					  explain="{{ phrase('lfs_sc_item_author_is_not_explain') }}"
+					  value="{$options.user_is_not}" />
+	
+	<xf:if is="$userGroups is not empty">
+		<xf:selectrow name="options[user_has_groups]"
+					  label="{{ phrase('lfs_sc_item_author_is_a_member_of_any_of_these_groups') }}"
+					  value="{$options.user_has_groups}"
+					  multiple="true">
+			<xf:options source="$userGroups" />
+		</xf:selectrow>
+		
+		<xf:selectrow name="options[user_has_not_groups]"
+					  label="{{ phrase('lfs_sc_item_author_is_not_a_member_of_any_of_these_groups') }}"
+					  value="{$options.user_has_not_groups}"
+					  multiple="true">
+			<xf:options source="$userGroups" />
+		</xf:selectrow>
+	</xf:if>
+	
+	<xf:checkboxrow>
+		<xf:option name="options[watched]" checked="{$options.watched}">{{ phrase('lfs_user_is_watching_sc_item') }}</xf:option>
+	</xf:checkboxrow>
+	
+	<xf:macro template="lfs_definition_options_macros" name="language_checkboxes" 
+			  arg-selectedLanguages="{{ $options.language_ids ?: [-1] }}" />
+	
+</div>]]></template>
+  <template type="admin" title="lfs_tab_def_options.tag" version_id="1000670" version_string="1.2.1"><![CDATA[<hr class="formRowSep" />
+
+<xf:tokeninputrow name="options[tags]" value="{$options.tags}" href="{{ link_type('public', 'misc/tag-auto-complete') }}"
+				  label="{{ phrase('tags') }}"
+				  required="true" />
+
+<xf:selectrow label="{{ phrase('lfs_match_type') }}"
+			  name="options[match]"
+			  value="{$options.match}">
+
+	<xf:option value="all">{{ phrase('lfs_contains_all_tags') }}</xf:option>
+	<xf:option value="any">{{ phrase('lfs_contains_one_of_the_tags') }}</xf:option>
+</xf:selectrow>
+
+<xf:selectrow label="{{ phrase('lfs_exclude_content_types') }}"
+			  name="options[exclude_content_types]"
+			  multiple="true"
+			  value="{$options.exclude_content_types}">
+
+	<xf:option value="">{{ phrase('(none)') }}</xf:option>
+	<xf:options source="{{ $xf.app.getContentTypePhrases(true, 'tag_handler_class') }}" />
+</xf:selectrow>
+
+<xf:numberboxrow name="options[limit]" value="{{ $options.limit ?: 15 }}" min="0" step="1"
+				 label="{{ phrase('maximum_entries') }}" />]]></template>
+  <template type="admin" title="lfs_tab_def_options.threads" version_id="1000772" version_string="1.0.7b"><![CDATA[<hr class="formRowSep" />
+
+<xf:if is="$tab && $tab.isInsert()">
+	<xf:macro template="lfs_tab_def_options_macros" name="presets_row"
+			  arg-definition="{$definition}"
+			  arg-presets="{$presets}"
+			  arg-selected="{$preset}" />
+	
+	<xf:selectrow label="{{ phrase('template') }}"
+				  name="thread_definition_template"
+				  value="{$options.template}">
+		
+		<xf:option value="default">{{ phrase('default') }}</xf:option>
+		<xf:option value="adaptive">{{ phrase('lfs_for_widget_adaptive_display') }}</xf:option>
+		<xf:option value="preset">{{ phrase('lfs_preset_template') }}</xf:option>
+	</xf:selectrow>
+	
+	<hr class="formRowSep" />
+</xf:if>
+
+<xf:formrow rowtype="input" label="{{ phrase('order_by') }}">
+	<ul class="listPlain inputGroup-container">
+		<xf:if is="$options.order">
+			<xf:foreach loop="$options.order" key="$k" value="$order">
+				<li class="inputGroup">
+					<xf:select name="options[order][{$k}][0]" value="{$order.0}" 
+							   class="input--autosize">
+						<xf:option></xf:option>
+						<xf:option value="last_post_date">{{ phrase('last_reply_date') }}</xf:option>
+						<xf:option value="reply_count">{{ phrase('replies') }}</xf:option>
+						<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+						<xf:option value="post_date">{{ phrase('post_date') }}</xf:option>
+						<xf:option value="first_post_reaction_score">{{ phrase('reaction_score') }}</xf:option>
+					</xf:select>
+					<span class="inputGroup-splitter"></span>
+					<xf:select name="options[order][{$k}][1]" value="{$order.1}" 
+							   class="input--autosize">
+						<xf:option></xf:option>
+						<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+						<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+					</xf:select>
+				</li>
+			</xf:foreach>
+			<xf:else />
+			<li class="inputGroup">
+				<xf:select name="options[order][0][0]" class="input--autosize">
+					<xf:option></xf:option>
+					<xf:option value="last_post_date">{{ phrase('last_reply_date') }}</xf:option>
+					<xf:option value="reply_count">{{ phrase('replies') }}</xf:option>
+					<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+					<xf:option value="post_date">{{ phrase('post_date') }}</xf:option>
+					<xf:option value="first_post_reaction_score">{{ phrase('reaction_score') }}</xf:option>
+				</xf:select>
+				<span class="inputGroup-splitter"></span>
+				<xf:select name="options[order][0][1]" class="input--autosize">
+					<xf:option></xf:option>
+					<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+					<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+				</xf:select>
+			</li>
+		</xf:if>
+		
+		<li class="inputGroup" data-xf-init="field-adder" data-increment-format="options[order][{counter}]">
+			<xf:select name="options[order][{{ count($options.order) + 1 }}][0]" class="input--autosize">
+				<xf:option></xf:option>
+				<xf:option value="last_post_date">{{ phrase('last_reply_date') }}</xf:option>
+				<xf:option value="reply_count">{{ phrase('replies') }}</xf:option>
+				<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+				<xf:option value="post_date">{{ phrase('post_date') }}</xf:option>
+				<xf:option value="first_post_reaction_score">{{ phrase('reaction_score') }}</xf:option>
+			</xf:select>
+			<span class="inputGroup-splitter"></span>
+			<xf:select name="options[order][{{ count($options.order) + 1 }}][1]" class="input--autosize">
+				<xf:option></xf:option>
+				<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+				<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+			</xf:select>
+		</li>
+	</ul>
+</xf:formrow>
+
+<xf:formrow label="{{ phrase('lfs_exclude_forums') }}">
+	<xf:macro template="forum_selection_macros" name="select_forums"
+			  arg-nodeIds="{$options.exclude_node_ids}"
+			  arg-nodeTree="{$nodeTree}"
+			  arg-selectName="options[exclude_node_ids]"
+			  arg-withRow="{{ false }}" />
+</xf:formrow>
+
+<xf:numberboxrow name="options[limit]" value="{{ $options.limit ?: 15 }}" min="0" step="1"
+				 label="{{ phrase('maximum_entries') }}" />
+
+<h2 class="block-formSectionHeader">
+	<span class="collapseTrigger collapseTrigger--block" data-xf-click="toggle" data-target="< :up :next">
+		<span class="block-formSectionHeader-aligner">{{ phrase('advanced_options') }}</span>
+	</span>
+</h2>
+<div class="block-body block-body--collapsible">
+	
+	<xf:textboxrow name="options[thread_ids]" 
+			   label="{{ phrase('lfs_thread_id_is') }}"
+			   explain="{{ phrase('lfs_separate_multiple_ids_by_comma') }}"
+			   value="{{ $options.thread_ids|join(', ') }}" />
+	
+	<xf:textboxrow name="options[not_thread_ids]" 
+			   label="{{ phrase('lfs_thread_id_is_not') }}"
+			   explain="{{ phrase('lfs_separate_multiple_ids_by_comma') }}"
+			   value="{{ $options.not_thread_ids|join(', ') }}" />
+	
+	<xf:if is="$prefixesGrouped is not empty">
+
+		<xf:macro template="public:prefix_macros" name="row" 
+				  arg-label="{{ phrase('lfs_has_this_prefix') }}"
+				  arg-type="thread"
+				  arg-prefixes="{{ $prefixesGrouped }}"
+				  arg-selected="{{ $options.prefix_ids }}" 
+				  arg-name="options[prefix_ids]"
+				  arg-multiple="{{ true }}" />
+
+		<xf:macro template="public:prefix_macros" name="row" 
+				  arg-label="{{ phrase('lfs_has_not_this_prefix') }}"
+				  arg-type="thread"
+				  arg-prefixes="{{ $prefixesGrouped }}"
+				  arg-selected="{{ $options.exclude_prefix_ids }}" 
+				  arg-name="options[exclude_prefix_ids]"
+				  arg-multiple="{{ true }}" />
+	</xf:if>
+	
+	<xf:selectrow label="{{ phrase('lfs_thread_is_closed') }}"
+				  name="options[discussion_open]"
+				  value="{$options.discussion_open}">
+		<xf:option value="">{{ phrase('lfs_consider_everything') }}</xf:option>
+		<xf:option value="1">{{ phrase('yes') }}</xf:option>
+		<xf:option value="0">{{ phrase('no') }}</xf:option>
+	</xf:selectrow>
+
+	<xf:selectrow label="{{ phrase('lfs_thread_is_sticky') }}"
+				  name="options[sticky]"
+				  value="{$options.sticky}">
+		<xf:option value="">{{ phrase('lfs_consider_everything') }}</xf:option>
+		<xf:option value="1">{{ phrase('yes') }}</xf:option>
+		<xf:option value="0">{{ phrase('no') }}</xf:option>
+	</xf:selectrow>
+
+	<xf:checkboxrow>
+		<xf:option name="post_date_filter" checked="{{ $options.cut_off.1 > 0 }}" label="{{ phrase('lfs_post_cutoff_date') }}" data-hide="true">
+			<xf:dependent>
+				<div class="inputGroup u-inputSpacer">
+					<xf:select name="options[cut_off][0]" value="{{ $options.cut_off.0 ?: '' }}" 
+							   class="input--autosize">
+						<xf:option value="<">{{ phrase('lfs_cut_off_less') }}</xf:option>
+						<xf:option value=">">{{ phrase('lfs_cut_off_more') }}</xf:option>
+					</xf:select>
+					<span class="inputGroup-splitter"></span>
+					<xf:numberbox name="options[cut_off][1]" value="{{ $options.cut_off.1 ?: 0 }}" 
+								  class="input--autosize" units="{{ phrase('units_days') }}" />
+				</div>
+			</xf:dependent>
+		</xf:option>
+	</xf:checkboxrow>
+</div>
+
+<h2 class="block-formSectionHeader">
+	<span class="collapseTrigger collapseTrigger--block" data-xf-click="toggle" data-target="< :up :next">
+		<span class="block-formSectionHeader-aligner">{{ phrase('user_criteria') }}</span>
+	</span>
+</h2>
+<div class="block-body block-body--collapsible">
+	
+	<xf:tokeninputrow name="options[by_user]" 
+					  href="{{ link('users/find') }}"
+					  label="{{ phrase('lfs_thread_author_is') }}"
+					  explain="{{ phrase('lfs_thread_author_is_explain') }}"
+					  value="{$options.by_user}" />
+	
+	<xf:tokeninputrow name="options[user_is_not]" 
+					  href="{{ link('users/find') }}"
+					  label="{{ phrase('lfs_thread_author_is_not') }}"
+					  explain="{{ phrase('lfs_thread_author_is_not_explain') }}"
+					  value="{$options.user_is_not}" />
+	
+	<xf:if is="$userGroups is not empty">
+		<xf:selectrow name="options[user_has_groups]"
+					  label="{{ phrase('lfs_thread_author_is_a_member_of_any_of_these_groups') }}"
+					  value="{$options.user_has_groups}"
+					  multiple="true">
+			<xf:options source="$userGroups" />
+		</xf:selectrow>
+		
+		<xf:selectrow name="options[user_has_not_groups]"
+					  label="{{ phrase('lfs_thread_author_is_not_a_member_of_any_of_these_groups') }}"
+					  value="{$options.user_has_not_groups}"
+					  multiple="true">
+			<xf:options source="$userGroups" />
+		</xf:selectrow>
+	</xf:if>
+	
+	<xf:checkboxrow>
+		<xf:option name="options[watched]" checked="{$options.watched}">{{ phrase('lfs_user_is_watching_thread') }}</xf:option>
+	</xf:checkboxrow>
+	
+	<xf:macro template="lfs_definition_options_macros" name="language_checkboxes" arg-selectedLanguages="{{ $options.language_ids ?: [-1] }}" />
+	
+</div>]]></template>
+  <template type="admin" title="lfs_tab_def_options_macros" version_id="1000772" version_string="1.0.7b"><![CDATA[<xf:macro name="presets_row" arg-definition="!" arg-presets="!" arg-selected="!">
+	<xf:selectrow name="preset" label="{{ phrase('lfs_preset') }}"
+				  data-xf-init="options-loader"
+				  data-link="{{ link('lfs/definitions/options', null, {'definition_id': $definition.definition_id}) }}"
+				  data-replace=".js-tabOptions"
+				  data-is-loaded="true"
+				  data-load-when-empty="true"
+				  value="{$selected}">
+		
+		<xf:option value=""></xf:option>
+		<xf:foreach loop="$presets" key="$k" value="$preset">
+			<xf:option value="{$k}">{$preset.title}</xf:option>
+		</xf:foreach>
+	</xf:selectrow>
+</xf:macro>]]></template>
+  <template type="admin" title="lfs_tab_edit" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:if is="$tab.isInsert()">
+	<xf:title>{{ phrase('lfs_add_tab') }}</xf:title>
+	<xf:else />
+	<xf:title>{{ phrase('lfs_edit_tab:') }} {$tab.title}</xf:title>
+</xf:if>
+
+<xf:js src="bs/lfs/tab-edit.js" min="1" />
+
+<xf:pageaction if="$tab.isUpdate()">
+	<xf:button href="{{ link('lfs/tabs/delete', $tab) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('lfs/tabs/save', $tab) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:selectrow label="{{ phrase('lfs_definition') }}"
+						  value="{{ $tab.definition_id ? $tab.definition_id : '' }}"
+						  hint="{{ phrase('required') }}"
+						  data-xf-init="options-loader"
+						  data-link="{{ link('lfs/definitions/options') }}"
+						  data-is-loaded="{{ $tab.definition_id ? 'true' : 'false' }}"
+						  data-replace=".js-tabOptions"
+						  data-params="{{ $tab.tab_id ? {'tab_id': $tab.tab_id}|json : '{}' }}"
+						  required="required"
+						  name="definition_id">
+				
+				<xf:option value=""></xf:option>
+				<xf:foreach loop="$tabDefinitions" value="$tabDefinition">
+					<xf:if is="$tabDefinition.isAvailable() || $tab.definition_id == $tabDefinition.definition_id">
+						<xf:option value="{$tabDefinition.definition_id}">{$tabDefinition.title}</xf:option>
+					</xf:if>
+				</xf:foreach>
+			</xf:selectrow>
+
+			<xf:selectrow label="{{ phrase('lfs_group') }}"
+						  value="{{ $tab.group_id ? $tab.group_id : '' }}"
+						  hint="{{ phrase('required') }}"
+						  required="required"
+						  name="group_id">
+				<xf:option value=""></xf:option>
+				<xf:foreach loop="$tabGroups" value="$tabGroup">
+					<xf:option value="{$tabGroup.group_id}">{$tabGroup.title}</xf:option>
+				</xf:foreach>
+			</xf:selectrow>
+
+			<hr class="formRowSep" />
+
+			<xf:textboxrow name="tab_id" value="{$tab.tab_id}" maxlength="{{ max_length($tab, 'tab_id') }}"
+						   label="{{ phrase('definition_id') }}"
+						   hint="{{ phrase('required') }}"
+						   required="required"
+						   dir="ltr" />
+
+			<xf:textboxrow name="title" value="{{ ($tab.hasOption('title') &&  $tab.getOption('title')) ? $tab.getOption('title') : $tab.title }}"
+						   label="{{ phrase('title') }}"
+						   hint="{{ phrase('optional') }}" />
+						   
+			<xf:textboxrow name="link" value="{$tab.link}"
+						   label="{{ phrase('link') }}"
+						   explain="{{ phrase('lfs_tab_link_explain') }}"
+						   hint="{{ phrase('optional') }}" />
+			
+			<div class="js-tabOptions">
+				<xf:if is="$tab.definition_id">
+					{$tab.renderOptions()|raw}
+				</xf:if>
+			</div>
+
+			<hr class="formRowSep" />
+
+			<xf:checkboxrow>
+				<xf:option name="is_active" checked="{$tab.is_active}">{{ phrase('lfs_is_active') }}</xf:option>
+			</xf:checkboxrow>
+
+			<xf:numberboxrow name="display_order" value="{$tab.display_order}" min="0" step="10"
+							 label="{{ phrase('display_order') }}" />
+			
+			<xf:macro template="lfs_addon_macros" name="addon_edit" arg-addOnId="{{ $tab.addon_id ? $tab.addon_id : false }}" />
+		</div>
+		
+		<xf:submitrow sticky="true" icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="lfs_tab_list" version_id="1000570" version_string="1.0.5"><![CDATA[<xf:title>{{ phrase('lfs_tabs') }}</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('lfs/tabs/add') }}" icon="add">{{ phrase('lfs_add_tab') }}</xf:button>
+	<xf:button href="{{ link('lfs/tabs/sort') }}" icon="sort" overlay="true" />
+</xf:pageaction>
+
+<xf:if is="$tabs is not empty">
+	<xf:form action="{{ link('lfs/tabs/toggle') }}" class="block" ajax="true">
+		<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" arg-key="tabs" arg-class="block-outer-opposite" />
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$tabGroups" value="$tabGroup">
+						<xf:if is="$tabGroup.Tabs is not empty">
+							<tbody class="dataList-rowGroup">
+								<xf:datarow rowtype="subsection" rowclass="dataList-row--noHover"
+											label="{$tabGroup.title}"
+											colspan="4" />
+								<xf:foreach loop="$tabGroup.Tabs" value="$tab">
+									<xf:datarow
+												label="{$tab.title}"
+												hint="{$tab.tab_id}"
+												href="{{ link('lfs/tabs/edit', $tab) }}">
+										
+										<xf:toggle name="is_active[{$tab.tab_id}]" selected="$tab.is_active"
+												   class="dataList-cell--separated" submit="true"
+												   tooltip="{{ phrase('enable_disable_x', {'title': $tab.title}) }}"/>
+										
+										<xf:action href="{{ link('lfs/tabs/add', null, {'copy': $tab.tab_id}) }}">{{ phrase('button.copy') }}</xf:action>
+										<xf:delete href="{{ link('lfs/tabs/delete', $tab) }}" />
+									</xf:datarow>
+								</xf:foreach>
+							</tbody>
+						</xf:if>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">{{ display_totals($tabs) }}</span>
+			</div>
+		</div>
+	</xf:form>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>]]></template>
+  <template type="admin" title="lfs_tab_sort" version_id="1000670" version_string="1.2.1"><![CDATA[<xf:title>{{ phrase('lfs_sort_tabs') }}</xf:title>
+
+<xf:macro template="public:nestable_macros" name="setup" />
+
+<xf:form action="{{ link('lfs/tabs/sort') }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="nestable-container" data-xf-init="nestable">
+				<xf:macro name="tab_list" arg-tabGroups="{$tabGroups}" />
+				<xf:hiddenval name="tabs" value="" />
+			</div>
+		</div>
+		<xf:submitrow icon="save" rowtype="simple" />
+	</div>
+</xf:form>
+
+<xf:macro name="tab_list" arg-tabGroups="!">
+	<ol class="nestable-list">
+		<xf:foreach loop="$tabGroups" value="$tabGroup">
+			<div class="block-minorHeader">
+				{$tabGroup.title}
+			</div>
+			<xf:foreach loop="$tabGroup.Tabs_" value="$tab">
+				<xf:macro name="tab_entry" arg-tab="{$tab}" />
+			</xf:foreach>
+		</xf:foreach>
+	</ol>
+</xf:macro>
+
+<xf:macro name="tab_entry" arg-tab="!">
+	<li class="nestable-item" data-id="{$tab.tab_id}">
+		<div class="nestable-handle" aria-label="{{ phrase('drag_handle')|for_attr }}"><xf:fa icon="fa-bars" /></div>
+		<div class="nestable-content">{$tab.title}</div>
+	</li>
+</xf:macro>]]></template>
+  <template type="admin" title="option_template_lfsCurrency" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:set var="$currencyData" value="{{ $xf.app.data('XF:Currency') }}" />
+<xf:set var="$currencies" value="{$currencyData.getCurrencyOptions()}" />
+<xf:set var="$popularCurrencies" value="{$currencyData.getCurrencyOptions(true)}" />
+
+<xf:selectrow rowtype="input"
+	label="{$option.title}"
+	hint="{$hintHtml}"
+	explain="{$explainHtml}"
+	html="{$listedHtml}"
+	name="{$inputName}"
+	value="{$option.option_value}">
+	
+	<xf:option value="">&nbsp;</xf:option>
+	
+	<xf:optgroup label="{{ phrase('popular_currencies') }}">
+		<xf:options source="{$popularCurrencies}" />
+	</xf:optgroup>
+	<xf:optgroup label="{{ phrase('other_currencies') }}">
+		<xf:options source="{$currencies}" />
+	</xf:optgroup>
+</xf:selectrow>]]></template>
+  <template type="admin" title="option_template_lfsPaymentProfiles" version_id="1000370" version_string="1.0.3"><![CDATA[<xf:checkboxrow label="{$option.title}"
+				hint="{$hintHtml}"
+				explain="{$explainHtml}"
+				html="{$listedHtml}"
+				name="{$inputName}">
+	
+	<xf:option label="{{ phrase('all') }}"
+			   value="-1" selected="{{ in_array(-1, $option.option_value) }}"
+			   data-invert="true">
+		<xf:dependent>
+			<xf:foreach loop="$profiles" value="$profile">
+				<xf:checkbox name="{$inputName}">
+					<xf:option value="{$profile.payment_profile_id}" selected="{{ in_array($profile.payment_profile_id, $option.option_value) }}">{{ $profile.display_title ?: $profile.title }}</xf:option>
+				</xf:checkbox>
+			</xf:foreach>
+		</xf:dependent>
+	</xf:option>
+	
+</xf:checkboxrow>]]></template>
+  <template type="admin" title="option_template_lfsThreadLimit" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:checkboxrow
+	hint="{$hintHtml}"
+	explain="{$explainHtml}"
+	html="{$listedHtml}">
+	
+	<xf:option name="{$inputName}[enable_custom_limit]" label="{$option.title}" checked="{$option.option_value.enable_custom_limit}" data-hide="true">
+		<xf:dependent>
+			<ul class="listPlain inputGroup-container">
+				<xf:foreach loop="$limits" key="$counter" value="$limit">
+					<li class="inputGroup">
+						<xf:numberbox value="{$limit}" name="{$inputName}[custom_limits][{$counter}]" max="500" />
+					</li>
+				</xf:foreach>
+				
+				<li class="inputGroup" data-xf-init="field-adder" data-increment-format="{$inputName}[custom_limits][{counter}]">
+					<xf:numberbox name="{$inputName}[custom_limits][{$nextCounter}]" max="500" />
+				</li>
+			</ul>
+		</xf:dependent>
+	</xf:option>
+</xf:checkboxrow>]]></template>
+  <template type="admin" title="widget_def_options_live_forum_statistics" version_id="1000670" version_string="1.2.1"><![CDATA[<xf:if is="$tabGroups is not empty">
+	<hr class="formRowSep" />
+	
+	<xf:numberboxrow label="{{ phrase('lfs_update_interval') }}" name="options[update_interval]"
+					 value="{$options.update_interval}"
+					 units="{{ phrase('seconds') }} "/>
+	
+	<xf:checkboxrow label="{{ phrase('lfs_display_these_groups_and_tabs') }}">
+		<xf:foreach loop="$tabGroups" value="$tabGroup">
+			<xf:option name="options[show_groups][]" value="{$tabGroup.group_id}" 
+					   checked="{{ in_array($tabGroup.group_id, $options.show_groups) }}"
+					   label="{$tabGroup.title}">
+				<xf:checkbox>
+					<xf:foreach loop="$tabGroup.Tabs" value="$tab">
+						<xf:option name="options[show_tabs][]" value="{$tab.tab_id}" 
+								   checked="{{ in_array($tab.tab_id, $options.show_tabs) && in_array($tabGroup.group_id, $options.show_groups) }}"
+								   label="{$tab.title}" />
+					</xf:foreach>
+				</xf:checkbox>
+			</xf:option>
+		</xf:foreach>
+	</xf:checkboxrow>
+	
+	<xf:textboxrow label="{{ phrase('lfs_sound_notification_link') }}"
+				   explain="{{ phrase('lfs_sound_notification_link_explain') }}"
+				   name="options[sound_link]"
+				   value="{$options.sound_link}" />
+</xf:if>]]></template>
+  <template type="email" title="lfs_sticked_link_approved" version_id="1020100" version_string="1.0.0"><![CDATA[<mail:subject>
+	{{ phrase('lfs_sticked_link_approved_subject', {'board_title': $xf.options.boardTitle}) }}
+</mail:subject>
+
+{{ phrase('lfs_sticked_link_approved_body_html', {
+	'username': $user.username,
+	'board': '<a href="' . link('canonical:index') . '">' . $xf.options.boardTitle . '</a>',
+	'title': $link.title
+}) }}
+
+<h2>{{ phrase('lfs_sticked_link_approved_pay_html', {'url': link('canonical:lfs/store/sticked-links/pay', $link)}) }}</h2>]]></template>
+  <template type="public" title="alert_lfs_sticked_link_purchase_awaiting_payment" version_id="1020100" version_string="1.0.0"><![CDATA[{{ phrase('lfs_a_sticked_link_is_awaiting_payment', {
+	'link': link('lfs/store/sticked-links/pay', $content)
+}) }}]]></template>
+  <template type="public" title="alert_lfs_sticked_link_purchase_rejected" version_id="1020100" version_string="1.0.0"><![CDATA[{{ phrase('lfs_your_request_to_purchase_a_stick_link_title_has_been_rejected', {
+	'title': $content.title
+}) }}]]></template>
+  <template type="public" title="approval_item_lfs_sticked_link_purchase" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:set var="$linkHtml"><a href="{$content.link}" {{ attributes($content.attributes) }}>{$content.title}</a></xf:set>
+
+<xf:macro template="approval_queue_macros" name="item_message_type"
+	arg-content="{$content}"
+	arg-contentDate="{$content.purchase_date}"
+	arg-user="{$content.User}"
+	arg-messageHtml="{$linkHtml}"
+	arg-typePhraseHtml="{{ phrase('lfs_sticked_link_noun') }}"
+	arg-unapprovedItem="{$unapprovedItem}"
+	arg-handler="{$handler}"
+	arg-headerPhraseHtml="{{ phrase('lfs_sticking_the_link_for_x_days_for_cost', {
+		'days': $content.number_of_days,
+		'cost': $content.cost_amount|currency($content.cost_currency)
+	}) }}" />]]></template>
+  <template type="public" title="lfs_article_definition_macros" version_id="1000671" version_string="1.2.1"><![CDATA[<xf:macro name="article_item" 
+		  arg-article="!" 
+		  arg-user="!"
+		  arg-date="!">
+	
+	<li class="structItem--lfsItem block-row block-row--separated item--article{{ $article.prefix_id ? ' is-prefix' . $article.prefix_id : '' }}{{ $article.isUnread() ? ' is-unread' : '' }}{{ $article.isIgnored() ? ' is-ignored' : '' }} article--{$article.article_id}" 
+		data-author="{{ $article.User.username ?: $article.username }}"
+		id="js-lfsItemArticle-{$article.article_id}"
+		data-date="{$date}">
+		
+			<div class="contentRow {{ !$article.isVisible() ? 'is-deleted' : '' }} amsArticleSearchResultRow">
+				<span class="contentRow-figure">
+					<xf:if is="$article.cover_image_id">
+						<a href="{{ link('ams', $article) }}">
+							{{ ams_article_thumbnail($article) }}
+						</a>				
+						<xf:elseif is="$article.series_part_id && $article.SeriesPart.Series && $article.SeriesPart.Series.icon_date" />
+						{{ ams_series_icon($article.SeriesPart.Series, 's', link('ams', $article)) }}
+						<xf:elseif is="$article.Category.content_image" />
+						<a href="{{ link('ams', $article) }}">
+							{{ ams_category_icon($article) }}
+						</a>				
+						<xf:else />
+						<xf:avatar user="$user" size="s" />
+					</xf:if>
+				</span>
+				<div class="contentRow-main">
+					<h3 class="contentRow-title">
+						<a href="{{ link('ams', $article) }}">{{ prefix('ams_article', $article) }}{$article.title}</a>
+					</h3>
+
+					<div class="contentRow-snippet">
+						{{ snippet($article.message, 300, {'stripQuote': true}) }}
+						<xf:if is="strlen($article.message) > 300">
+							<a href="{{ link('ams', $article) }}">{{ phrase('xa_ams_read_more') }}</a>
+						</xf:if>
+					</div>
+
+					<div class="contentRow-minor contentRow-minor--hideLinks">
+						<ul class="listInline listInline--bullet">
+							<li><xf:username user="{$user}" rich="true" /></li>
+							<li><xf:date time="{$date}" /></li>
+							<xf:if is="$article.comment_count"><li>{{ phrase('comments:') }} {$article.comment_count|number}</li></xf:if>
+							<li>{{ phrase('category:') }} <a href="{{ link('ams/categories', $article.Category) }}">{$article.Category.title}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+</xf:macro>]]></template>
+  <template type="public" title="lfs_forum_selection_macros" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:macro name="select_forums"
+	arg-nodeIds="!"
+	arg-nodeTree="!"
+	arg-withRow="1"
+	arg-selectName="node_ids">
+
+	<xf:set var="$inner">
+		<ul class="inputList">
+			<li><xf:select name="{$selectName}[]" value="{$nodeIds}" size="7" multiple="multiple" id="js-applicableForums">
+
+				<xf:option value="" selected="!{$nodeIds}">{{ phrase('(none)') }}</xf:option>
+
+				<xf:foreach loop="$nodeTree.getFlattened(0)" value="$treeEntry">
+					<xf:option value="{$treeEntry.record.node_id}"
+						disabled="{{ $treeEntry.record.node_type_id != 'Forum' }}"
+						label="{{ repeat('&nbsp;&nbsp;', $treeEntry.depth)|raw }} {$treeEntry.record.title}" />
+				</xf:foreach>
+
+			</xf:select></li>
+
+			<xf:checkbox>
+				<xf:option label="{{ phrase('select_all') }}" id="js-selectAllForums" />
+			</xf:checkbox>
+		</ul>
+	</xf:set>
+
+	<xf:if is="$withRow">
+		<xf:formrow rowtype="input" label="{{ phrase('applicable_forums') }}">
+			{$inner|raw}
+		</xf:formrow>
+	<xf:else />
+		{$inner|raw}
+	</xf:if>
+
+	<xf:js>
+		$(function()
+		{
+			$('#js-selectAllForums').click(function(e)
+			{
+				$('#js-applicableForums').find('option:enabled:not([value=""])').prop('selected', this.checked);
+			});
+		});
+	</xf:js>
+</xf:macro>]]></template>
+  <template type="public" title="lfs_group.latest_activity" version_id="1000170" version_string="1.0.1"><![CDATA[<xf:macro template="lfs_macros" name="tab_group" arg-tabGroup="{$tabGroup}" />]]></template>
+  <template type="public" title="lfs_group.members" version_id="1000770" version_string="1.0.7"><![CDATA[<xf:set var="$tabsHtml">
+	<ul class="tabs tabs--list" data-is-menu="true">
+		<li class="tab tab--menu menu-open is-selected" 
+			data-xf-click="menu">
+			<span class="title">{{ $tabGroup.getFirstRenderTab($xf.app.request).title }}</span>
+			<xf:fa class="left-mrg-icon" icon="fas fa-caret-down" />
+		</li>
+
+		<div class="menu menu--structural" data-menu="menu" aria-hidden="true">
+			<div class="menu-content">
+				<xf:foreach loop="$tabGroup.TabsViewable" value="$tab">
+					<xf:set var="$tabHtml">
+						<li class="tab tab--{$tab.tab_id} {{ $tabGroup.isFirstSelected($tab, $xf.app.request) ? 'is-selected' : '' }} menu-linkRow js-offCanvasCopy" 
+							data-tab-id="{$tab.tab_id}"
+							data-menu-closer="true">
+							<span class="title">{$tab.title}</span>
+						</li>
+					</xf:set>
+					
+					<xf:if is="$tab.link">
+						<a class="tab-link" href="{$tab.link}">{$tabHtml}</a>
+						<xf:else />
+						{$tabHtml}
+					</xf:if>
+				</xf:foreach>
+			</div>
+		</div>
+	</ul>
+</xf:set>
+
+<xf:macro template="lfs_macros" name="tab_group" arg-tabsHtml="{$tabsHtml}" arg-tabGroup="{$tabGroup}" />]]></template>
+  <template type="public" title="lfs_group.threads" version_id="1000770" version_string="1.0.7"><![CDATA[<xf:set var="$tabsHtml">
+	<div class="tabs tabs--list tabs--scroller hScroller" data-xf-init="h-scroller" data-auto-scroll=".tab.is-selected">
+		<div class="hScroller-scroll">
+			<ul class="tabs">
+				<xf:foreach loop="$tabGroup.TabsViewable" value="$tab">
+					<xf:set var="$tabHtml">
+						<li class="tab tab--{$tab.tab_id} {{ $tabGroup.isFirstSelected($tab, $xf.app.request) ? 'is-selected' : '' }}" 
+							data-tab-id="{$tab.tab_id}"
+							data-can-setting="{{ $tab.canSetting() ? 'true' : 'false' }}"
+							data-setting-href="{{ link('lfs/tab/setting', $tab) }}">
+							<span class="title">{$tab.title}</span>
+						</li>
+					</xf:set>
+					
+					<xf:if is="$tab.link">
+						<a class="tab-link" href="{$tab.link}">{$tabHtml}</a>
+						<xf:else />
+						{$tabHtml}
+					</xf:if>
+				</xf:foreach>
+			</ul>
+		</div>
+	</div>
+
+	<div class="tabs-buttons">
+		<xf:set var="$firstTab" value="{{ $tabGroup.getFirstRenderTab($xf.app.request) }}" />
+
+		<xf:if is="$options.sound_link && property('lfsShowMuteButtonIfSound')">
+			<a class="extra-button js-muteButton mute-button {{ $isMuted ? ' is-muted' : '' }}"
+			   data-xf-init="tooltip" 
+			   data-xf-click="lfs-mute"
+			   data-widget-id="{$widget.id}"
+			   title="{{ phrase('lfs_mute') }}">
+				<i aria-hidden="true"></i>
+			</a>
+		</xf:if>
+		
+		<xf:if is="property('lfsShowHideButton')">
+			<a class="extra-button hide-button"
+			   data-xf-init="tooltip" 
+			   title="{{ phrase('lfs_hide_widget') }}"
+			   href="{{ link('account/preferences') }}">
+				<xf:fa icon="fa-eye-slash" />
+			</a>
+		</xf:if>
+
+		<a class="extra-button js-settingButton setting-button{{ $firstTab.canSetting() ? ' is-active' : ''}}"
+		   data-xf-init="tooltip" 
+		   title="{{ phrase('lfs_tab_setting') }}" 
+		   data-xf-click="overlay"
+		   data-href="{{ link('lfs/tab/setting', $firstTab) }}"
+		   data-cache="false">
+			<xf:fa icon="fa-cogs" />
+		</a>
+
+		<xf:if is="$xf.visitor.canUseLfsStore()">
+			<a class="extra-button store-button" data-xf-init="tooltip" title="{{ phrase('lfs_store') }}" 
+			   href="{{ link('lfs/store') }}"><xf:fa icon="fa-store" /></a>
+		</xf:if>
+
+		<a class="extra-button refresh-button js-refreshButton" data-xf-init="tooltip"
+		   title="{{ phrase('lfs_refresh') }}"><xf:fa icon="fas fa-sync-alt" /></a>
+
+	</div>
+</xf:set>
+
+<xf:macro template="lfs_macros" name="tab_group" 
+		  arg-tabGroup="{$tabGroup}"
+		  arg-extraAttrs="{$extraAttrs}"
+		  arg-tabsHtml="{$tabsHtml}" />]]></template>
+  <template type="public" title="lfs_macros" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:macro name="tab_group" arg-tabGroup="!" arg-tabsHtml="{{ false }}" arg-extraClass="" arg-extraAttrs="">
+	<xf:css src="structured_list.less" />
+	
+	<div class="tabGroup {$tabGroup.getGroupClass()}{{ $extraClass ? ' ' . $extraClass : '' }}" 
+		data-group-id="{$tabGroup.group_id}" 
+		data-carousel-interval="{$tabGroup.carousel_interval}"
+		{$extraAttrs}>
+		<div class="tabs-container">
+			<xf:if is="{$tabsHtml}">
+				{{ $tabsHtml|raw }}
+				<xf:else />
+				<div class="tabs tabs--list tabs--scroller hScroller" data-xf-init="h-scroller" data-auto-scroll=".tab.is-selected">
+					<div class="hScroller-scroll">
+						<ul class="tabs">
+							<xf:foreach loop="$tabGroup.TabsViewable" value="$tab">
+								<xf:set var="$tabHtml">
+									<li class="tab tab--{$tab.tab_id} {{ $tabGroup.isFirstSelected($tab, $xf.app.request) ? 'is-selected' : '' }}" data-tab-id="{$tab.tab_id}">
+										<span class="title">{$tab.title}</span>
+									</li>
+								</xf:set>
+								
+								<xf:if is="$tab.link">
+									<a class="tab-link" href="{$tab.link}">{$tabHtml}</a>
+									<xf:else />
+									{$tabHtml}
+								</xf:if>
+							</xf:foreach>
+						</ul>
+					</div>
+				</div>
+			</xf:if>
+		</div>
+
+		<div class="tabGroup-content">
+			<div class="tabGroup-scroller" data-append=".js-paginationContent"
+				 data-filter=".content">
+				
+				{{ $tabGroup.render(true, $xf.app.request)|raw }}
+				
+				<div class="pagination-content js-paginationContent"></div>
+			</div>
+		</div>
+	</div>
+</xf:macro>
+
+<xf:macro name="empty_block">
+	<div class="empty-block">
+		<img src="{{ base_url('styles/default/bs/lfs/bad-luck.gif') }}" />
+		<div class="empty-text">{{ phrase('no_items_to_display') }} </div>
+	</div>
+</xf:macro>
+
+<xf:macro name="date_time_picker">
+	<xf:css src="public:lfs_xdsoft_datetimepicker.less" />
+	<xf:js src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js" />
+	<xf:js src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" />
+	<xf:js src="bs/lfs/date-time-picker.js" min="1" />
+</xf:macro>]]></template>
+  <template type="public" title="lfs_sc_item_definition_macros" version_id="1000872" version_string="1.0.8b"><![CDATA[<xf:macro name="sc_item" 
+		  arg-item="!" 
+		  arg-user="!"
+		  arg-date="!">
+	
+	<li class="structItem--lfsItem block-row block-row--separated item--scItem{{ $item.prefix_id ? ' is-prefix' . $item.prefix_id : '' }}{{ $item.isUnread() ? ' is-unread' : '' }}{{ $item.isIgnored() ? ' is-ignored' : '' }} scItem--{$item.item_id}" 
+		data-author="{{ $item.User.username ?: $item.username }}"
+		id="js-lfsScItem-{$item.item_id}"
+		data-date="{$date}">
+
+		<div class="contentRow {{ !$item.isVisible() ? 'is-deleted' : '' }} scItemSearchResultRow">
+			<span class="contentRow-figure">
+				<xf:if is="$item.cover_image_id">
+					<a href="{{ link('showcase', $item) }}">
+						{{ sc_item_thumbnail($item) }}
+					</a>				
+					<xf:elseif is="$item.Category.content_image" />
+					<a href="{{ link('showcase', $item) }}">
+						{{ sc_category_icon($item) }}
+					</a>					
+					<xf:else />
+					<xf:avatar user="$user" size="s" />
+				</xf:if>
+			</span>
+			<div class="contentRow-main">
+				<h3 class="contentRow-title">
+					<a href="{{ link('showcase', $item) }}">{{ prefix('sc_item', $item) }}{$item.title}</a>
+				</h3>
+
+				<div class="contentRow-snippet">
+					{{ snippet($item.message, 300, {'term': $options.term, 'stripQuote': true}) }}
+					<xf:if is="strlen($item.message) > 300">
+						<a href="{{ link('showcase', $item) }}">{{ phrase('xa_sc_read_more') }}</a>
+					</xf:if>
+				</div>
+
+				<div class="contentRow-minor contentRow-minor--hideLinks">
+					<ul class="listInline listInline--bullet">
+						<li><xf:username user="{$user}" rich="true" /></li>
+						<li><xf:date time="{$date}" /></li>
+						<xf:if is="$item.comment_count"><li>{{ phrase('comments:') }} {$item.comment_count|number_short}</li></xf:if>
+						<xf:if is="$item.review_count"><li>{{ phrase('xa_sc_reviews:') }} {$item.review_count|number_short}</li></xf:if>
+						<li>{{ phrase('category:') }} <a href="{{ link('showcase/categories', $item.Category) }}">{$item.Category.title}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</li>
+
+</xf:macro>]]></template>
+  <template type="public" title="lfs_sticked_link_purchase_pay" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_payment_stick_link_x', {'title': $purchase.title}) }}</xf:title>
+
+<xf:js src="xf/payment.js" min="1" />
+
+<xf:form class="block" action="{{ link('purchase', $purchase) }}" 
+		 ajax="true" data-xf-init="payment-provider-container">
+
+	<div class="block-container">
+		<div class="block-body">
+			<xf:formrow label="{{ phrase('link') }}">
+				<a href="{$purchase.link}" {{ attributes($purchase.attributes) }}>{$purchase.title}</a>
+			</xf:formrow>
+			
+			<xf:formrow label="{{ phrase('payment_profile') }}" rowtype="input">
+				<xf:if is="$paymentProfiles.count() > 1">
+					<xf:select name="payment_profile_id">
+						<xf:option>{{ phrase('(choose_payment_method)') }}</xf:option>
+						<xf:foreach loop="$paymentProfiles" value="$profile">
+							<xf:option value="{$profile.payment_profile_id}">{{ $profile.display_title ?: $profile.title }}</xf:option>
+						</xf:foreach>
+					</xf:select>
+					<xf:else />
+					{{ $paymentProfiles.first().display_title ?: $paymentProfiles.first().title }}
+					<xf:hiddenval name="payment_profile_id">{$paymentProfiles.first().payment_profile_id}</xf:hiddenval>
+				</xf:if>
+			</xf:formrow>
+			
+			<div class="js-paymentProviderReply-lfs_sticked_link_purchase{$purchase.purchase_id}"></div>
+			
+			<xf:formrow label="{{ phrase('cost') }}">{$purchase.cost_amount|currency($purchase.cost_currency)}</xf:formrow>
+		</div>
+		
+		<xf:hiddenval name="purchase_id" value="{$purchase.purchase_id}" />
+		
+		<xf:submitrow icon="purchase" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="lfs_sticked_link_purchase_purchase" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('thanks_for_your_purchase') }}</xf:title>
+
+<div class="blockMessage">{{ phrase('lfs_thank_you_for_purchasing_stick_link') }}</div>]]></template>
+  <template type="public" title="lfs_sticking_thread_edit" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_sticking_thread_in_statistics') }}</xf:title>
+
+<xf:macro template="public:lfs_macros" name="date_time_picker" />
+
+<xf:breadcrumb source="$thread.getBreadcrumbs()" />
+
+<xf:form action="{{ link('threads/sticking-in-lfs', $thread) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:checkboxrow>
+				<xf:option name="has_end_date" label="{{ phrase('end_date') }}" data-hide="true" 
+						   checked="{{ $thread.bs_lfs_sticked_end_date ? true : false }}">
+					<xf:dependent>
+						<xf:textbox name="end_date"
+									data-xf-init="date-time-picker"
+									data-min-date="{{ date($xf.time, 'd.m.Y') }}"
+									data-week-start="{$xf.language.week_start}"
+									data-locale="{{ $xf.language.language_code|substr(0, 2) }}"
+									value="{{ $thread.bs_lfs_sticked_end_date ? date($thread.bs_lfs_sticked_end_date, 'd F Y H:i') : '' }}" />
+					</xf:dependent>
+				</xf:option>
+			</xf:checkboxrow>
+			
+			<xf:numberboxrow name="sticked_order" label="{{ phrase('lfs_sticky_order') }}" value="{$thread.bs_lfs_sticked_order}" />
+			
+			<xf:formrow rowtype="input"
+						label="{{ phrase('extra_attributes') }}">
+
+				<ul class="listPlain inputGroup-container">
+					<xf:foreach loop="$thread.bs_lfs_sticked_attributes" key="$name" value="$value">
+						<li class="inputGroup" dir="ltr">
+							<xf:textbox name="attributes[extra_attr_names][]" value="{$name}" size="15" code="true"
+										placeholder="{{ phrase('name') }}" />
+							<span class="inputGroup-splitter"></span>
+							<xf:textbox name="attributes[extra_attr_values][]" value="{$value}" size="25" code="true"
+										placeholder="{{ phrase('value') }}" />
+						</li>
+					</xf:foreach>
+					<li class="inputGroup" data-xf-init="field-adder" dir="ltr">
+						<xf:textbox name="attributes[extra_attr_names][]" size="15" code="true"
+									placeholder="{{ phrase('name') }}" />
+						<span class="inputGroup-splitter"></span>
+						<xf:textbox name="attributes[extra_attr_values][]" size="25" code="true"
+									placeholder="{{ phrase('value') }}" />
+					</li>
+				</ul>
+			</xf:formrow>
+			
+			<xf:if is="$thread.bs_lfs_is_sticked">
+				<hr class="formRowSep" />
+				
+				<xf:checkboxrow>
+					<xf:option label="{{ phrase('lfs_unstick_thread') }}" name="unstick" />
+				</xf:checkboxrow>
+			</xf:if>
+		</div>
+
+		<xf:submitrow icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="lfs_store" version_id="1000473" version_string="1.0.4c"><![CDATA[<xf:title>{{ phrase('lfs_store') }}</xf:title>
+
+<xf:pageaction if="$xf.visitor.canPurchaseLinkInLfs()">
+	<xf:button href="{{ link('lfs/store/stick-link') }}" overlay="true" icon="add">{{ phrase('lfs_stick_link') }}</xf:button>
+</xf:pageaction>
+
+<div class="block">
+	<div class="block-container">
+		<h3 class="block-header">{{ phrase('lfs_your_pinned_links_history') }}</h3>
+		<div class="block-body">
+			<xf:if is="$stickedLinkPurchases is not empty">
+				<div class="structItemContainer">
+					<xf:foreach loop="$stickedLinkPurchases" value="$stickedLinkPurchase">
+						<xf:macro template="lfs_store_macros" name="sticked_link_purchase_item" arg-purchase="{$stickedLinkPurchase}" />
+					</xf:foreach>
+				</div>
+				<xf:else />
+				<div class="block-row">{{ phrase('lfs_at_the_moment_you_dont_have_sticked_links') }}</div>
+			</xf:if>
+		</div>
+	</div>
+</div>
+
+<div class="block">
+	<div class="block-container">
+		<h3 class="block-header">{{ phrase('lfs_your_sticked_threads') }}</h3>
+		<div class="block-body">
+			<xf:if is="$stickedThreads is not empty">
+				<div class="structItemContainer">
+					<xf:foreach loop="$stickedThreads" value="$thread">
+						<xf:macro template="lfs_store_macros" name="sticked_thread_item" arg-thread="{$thread}" />
+					</xf:foreach>
+				</div>
+				<xf:else />
+				<div class="block-row">{{ phrase('lfs_at_the_moment_you_dont_have_sticked_threads') }}</div>
+			</xf:if>
+		</div>
+	</div>
+</div>]]></template>
+  <template type="public" title="lfs_store_macros" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:macro name="sticked_link_purchase_item" arg-purchase="!">
+	<xf:css src="structured_list.less" />
+
+	<div class="structItem structItem--stickedLinkPurchase {{ $purchase.status == 'moderated' ? 'is-moderated' : '' }}{{ $purchase.status == 'rejected' ? 'is-rejected' : '' }}">
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			<div class="structItem-title">
+				<a href="{$purchase.link}">{$purchase.title}</a>
+			</div>
+
+			<div class="structItem-minor">
+				<xf:if is="$purchase.canPay()">
+					<ul class="structItem-extraInfo">
+						<li class="structItem-extraInfoMinor">
+							<a href="{{ link('lfs/store/sticked-links/pay', $purchase) }}" data-xf-click="overlay">{{ phrase('lfs_pay') }}</a>
+						</li>
+					</ul>
+				</xf:if>
+				
+				<ul class="structItem-parts">
+					<li class="structItem-startDate"
+						data-xf-init="tooltip"
+						title="{{ phrase('lfs_purchase_request_date') }}"><xf:date time="{$purchase.purchase_date}" /></li>
+					<li>{$purchase.cost_amount|currency($purchase.cost_currency)}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="structItem-cell structItem-cell--meta">
+			<dl class="pairs pairs--justified structItem-minor structItem-metaItem">
+				<dt>{{ phrase('status') }}</dt>
+				<dd>
+					{$purchase.status_title}
+				</dd>
+			</dl>
+			<xf:if is="$purchase.end_date">
+				<dl class="pairs pairs--justified structItem-minor structItem-metaItem">
+					<dt>{{ phrase('lfs_end_date') }}</dt>
+					<dd>
+						<xf:date time="{$purchase.end_date}" />
+					</dd>
+				</dl>
+			</xf:if>
+		</div>
+	</div>
+</xf:macro>
+
+<xf:macro name="sticked_thread_item" arg-thread="!" arg-forceRead="{{ false }}">
+
+	<xf:css src="structured_list.less" />
+
+	<div class="structItem structItem--thread{{ $thread.prefix_id ? ' is-prefix' . $thread.prefix_id : '' }}{{ $thread.isIgnored() ? ' is-ignored' : '' }}{{ ($thread.isUnread() AND !$forceRead) ? ' is-unread' : '' }}{{ $thread.discussion_state == 'moderated' ? ' is-moderated' : '' }}{{ $thread.discussion_state == 'deleted' ? ' is-deleted' : '' }} js-inlineModContainer js-threadListItem-{$thread.thread_id}" data-author="{{ $thread.User.username ?: $thread.username }}">
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<xf:avatar user="$thread.User" size="s" defaultname="{$thread.username}" />
+				<xf:if is="$thread.getUserPostCount()">
+					<xf:avatar user="$xf.visitor" size="s"
+							   href=""
+							   class="avatar--separated structItem-secondaryIcon"
+							   tabindex="0"
+							   data-xf-init="tooltip"
+							   data-trigger="auto"
+							   title="{{ phrase('you_have_posted_x_messages_in_this_thread', {'count': $thread.getUserPostCount() }) }}" />
+				</xf:if>
+			</div>
+		</div>
+		<div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+			<xf:if contentcheck="true">
+				<ul class="structItem-statuses">
+					<xf:contentcheck>
+						<xf:if is="property('reactionSummaryOnLists') == 'status' && $thread.first_post_reactions">
+							<li><xf:reactions summary="true" reactions="{$thread.first_post_reactions}" /></li>
+						</xf:if>
+						<xf:if is="$thread.discussion_state == 'moderated'">
+							<li>
+								<i class="structItem-status structItem-status--moderated" aria-hidden="true" title="{{ phrase('awaiting_approval')|for_attr }}"></i>
+								<span class="u-srOnly">{{ phrase('awaiting_approval') }}</span>
+							</li>
+						</xf:if>
+						<xf:if is="$thread.discussion_state == 'deleted'">
+							<li>
+								<i class="structItem-status structItem-status--deleted" aria-hidden="true" title="{{ phrase('deleted')|for_attr }}"></i>
+								<span class="u-srOnly">{{ phrase('deleted') }}</span>
+							</li>
+						</xf:if>
+						<xf:if is="!$thread.discussion_open">
+							<li>
+								<i class="structItem-status structItem-status--locked" aria-hidden="true" title="{{ phrase('locked')|for_attr }}"></i>
+								<span class="u-srOnly">{{ phrase('locked') }}</span>
+							</li>
+						</xf:if>
+						<xf:if is="$thread.discussion_type == 'redirect'">
+							<li>
+								<i class="structItem-status structItem-status--redirect" aria-hidden="true" title="{{ phrase('redirect')|for_attr }}"></i>
+								<span class="u-srOnly">{{ phrase('redirect') }}</span>
+							</li>
+							<xf:elseif is="$thread.discussion_type == 'poll'" />
+							<li>
+								<i class="structItem-status structItem-status--poll" aria-hidden="true" title="{{ phrase('poll')|for_attr }}"></i>
+								<span class="u-srOnly">{{ phrase('poll') }}</span>
+							</li>
+						</xf:if>
+						<xf:if is="$thread.sticky">
+							<li>
+								<i class="structItem-status structItem-status--sticky" aria-hidden="true" title="{{ phrase('sticky')|for_attr }}"></i>
+								<span class="u-srOnly">{{ phrase('sticky') }}</span>
+							</li>
+						</xf:if>
+					</xf:contentcheck>
+				</ul>
+			</xf:if>
+
+			<div class="structItem-title">
+				<xf:set var="$canPreview" value="{{ $thread.canPreview() }}" />
+				<xf:if is="$thread.prefix_id">
+					<xf:if is="$forum">
+						<a href="{{ link('forums', $forum, {'prefix_id': $thread.prefix_id}) }}" class="labelLink" rel="nofollow">{{ prefix('thread', $thread, 'html', '') }}</a>
+						<xf:else />
+						{{ prefix('thread', $thread, 'html', '') }}
+					</xf:if>
+				</xf:if>
+				<a href="{{ link('threads' . (($thread.isUnread() AND !$forceRead) ? '/unread' : ''), $thread) }}" class="" data-tp-primary="on" data-xf-init="{{ $canPreview ? 'preview-tooltip' : '' }}" data-preview-url="{{ $canPreview ? link('threads/preview', $thread) : '' }}">{$thread.title}</a>
+			</div>
+
+			<div class="structItem-minor">
+				<xf:if contentcheck="true">
+					<ul class="structItem-extraInfo">
+						<xf:contentcheck>
+							<xf:if is="property('reactionSummaryOnLists') == 'minor_opposite' && $thread.first_post_reactions">
+								<li><xf:reactions summary="true" reactions="{$thread.first_post_reactions}" /></li>
+							</xf:if>
+						</xf:contentcheck>
+					</ul>
+				</xf:if>
+
+				<xf:if is="$thread.discussion_state == 'deleted'">
+					<xf:macro template="deletion_macros" name="notice" arg-log="{$thread.DeletionLog}" />
+					<xf:else />
+					<ul class="structItem-parts">
+						<li><xf:username user="$thread.User" defaultname="{$thread.username}" /></li>
+						<li class="structItem-startDate"><a href="{{ link('threads', $thread) }}" rel="nofollow"><xf:date time="{$thread.post_date}" /></a></li>
+						<xf:if is="!$forum">
+							<li><a href="{{ link('forums', $thread.Forum) }}">{$thread.Forum.title}</a></li>
+						</xf:if>
+					</ul>
+
+					<xf:if is="$thread.discussion_type != 'redirect' && $thread.reply_count >= $xf.options.messagesPerPage && $xf.options.lastPageLinks">
+						<span class="structItem-pageJump">
+							<xf:foreach loop="{{ last_pages($thread.reply_count + 1, $xf.options.messagesPerPage, $xf.options.lastPageLinks) }}" value="$p">
+								<a href="{{ link('threads', $thread, {'page': $p}) }}">{$p}</a>
+							</xf:foreach>
+						</span>
+					</xf:if>
+				</xf:if>
+			</div>
+		</div>
+		<div class="structItem-cell structItem-cell--meta" title="{{ phrase('first_message_reaction_score:')|for_attr }} {$thread.first_post_reaction_score|number}">
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>{{ phrase('lfs_end_date') }}</dt>
+				<dd>
+					<xf:if is="$thread.bs_lfs_sticked_end_date">
+						<xf:date time="{$thread.bs_lfs_sticked_end_date}" />
+						<xf:else />
+						{{ phrase('never') }}
+					</xf:if>
+				</dd>
+			</dl>
+			<dl class="pairs pairs--justified structItem-minor">
+				<dt>{{ phrase('views') }}</dt>
+				<dd>{{ $thread.discussion_type == 'redirect' ? '&ndash;' : ($thread.view_count > $thread.reply_count ? $thread.view_count|number_short : number_short($thread.reply_count+1)) }}</dd>
+			</dl>
+		</div>
+	</div>
+</xf:macro>
+
+<xf:macro name="attribute_input" arg-attribute="!">
+	<li class="inputGroup" dir="ltr">
+		<xf:if is="$attribute.allowable">
+			<xf:select name="attributes[{$attribute.attribute_id}]">
+				<xf:option value="">{$attribute.title}</xf:option>
+				<xf:foreach loop="$attribute.allowable" value="$value">
+					<xf:option value="{$value}">{$value}</xf:option>
+				</xf:foreach>
+			</xf:select>
+			<xf:else />
+			<xf:textbox name="attributes[{$attribute.attribute_id}]" placeholder="{$attribute.title}" />
+		</xf:if>
+		<span class="inputGroup-text">{{ $attribute.cost_amount > 0 ? '+' . $attribute.cost_amount|currency($xf.options.lfsCurrency) : phrase('lfs_free') }}</span>
+	</li>
+</xf:macro>]]></template>
+  <template type="public" title="lfs_store_stick_link" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_sticking_link_in_statistics') }}</xf:title>
+
+<xf:form action="{{ link('lfs/store/stick-link') }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow label="{{ phrase('title') }}" name="title" 
+						   value="{$stickedLink.title}" type="text" />
+
+			<xf:textboxrow label="{{ phrase('link') }}" name="link" 
+						   value="{$stickedLink.link}" type="text" />
+
+			<xf:numberboxrow label="{{ phrase('lfs_number_of_days') }}" name="number_of_days"
+							 explain="{{ phrase('lfs_cost_per_day_x', {'cost': $xf.options.lfsStickedLinkCost|currency($xf.options.lfsCurrency)}) }}"
+							 min="1" />
+
+			<xf:if is="$attributes is not empty">
+				<xf:formrow rowtype="input"
+							label="{{ phrase('extra_attributes') }}">
+
+					<ul class="listPlain inputGroup-container">
+						<xf:foreach loop="$attributes" value="$attribute">
+							<xf:macro template="lfs_store_macros" name="attribute_input" arg-attribute="{$attribute}" />
+						</xf:foreach>
+					</ul>
+				</xf:formrow>
+			</xf:if>
+			
+			<xf:if is="$xf.options.lfsStickedLinkRules">
+				<xf:checkboxrow>
+					<xf:option name="accept">{{ phrase('lfs_i_agree_to_the_rules_for_the_purchase_of_a_sticked_link', {'url': link('lfs/store/sticked-link-rules')}) }}</xf:option>
+				</xf:checkboxrow>
+			</xf:if>
+		</div>
+
+		<xf:submitrow icon="save" />
+	</div>
+
+	<xf:redirect />
+</xf:form>]]></template>
+  <template type="public" title="lfs_store_stick_thread" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_sticking_thread_in_statistics') }}</xf:title>
+
+<xf:form action="{{ link('threads/purchase-in-lfs', $thread) }}" class="block" ajax="true" data-overlay="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:numberboxrow label="{{ phrase('lfs_number_of_days') }}" name="number_of_days"
+							 explain="{{ phrase('lfs_cost_per_day_x', {'cost': $xf.options.lfsStickedThreadCost|currency($xf.options.lfsCurrency)}) }}"
+							 min="1" />
+
+			<xf:if is="$attributes is not empty">
+				<xf:formrow rowtype="input"
+							label="{{ phrase('extra_attributes') }}">
+
+					<ul class="listPlain inputGroup-container">
+						<xf:foreach loop="$attributes" value="$attribute">
+							<xf:macro template="lfs_store_macros" name="attribute_input" arg-attribute="{$attribute}" />
+						</xf:foreach>
+					</ul>
+				</xf:formrow>
+			</xf:if>
+		</div>
+
+		<xf:submitrow icon="purchase" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="lfs_store_stick_thread_pay" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_payment_stick_thread_x', {'title': $purchase.Thread.title}) }}</xf:title>
+
+<xf:js src="xf/payment.js" min="1" />
+
+<xf:form class="block" action="{{ link('purchase', $purchase) }}" 
+		 ajax="true" data-xf-init="payment-provider-container">
+
+	<div class="block-container">
+		<div class="block-body">
+			<xf:formrow label="{{ phrase('thread') }}">
+				<a href="{{ link('threads', $purchase.Thread) }}" {{ attributes($purchase.attributes) }}>{$purchase.Thread.title}</a>
+			</xf:formrow>
+			
+			<xf:formrow label="{{ phrase('payment_profile') }}" rowtype="input">
+				<xf:if is="$paymentProfiles.count() > 1">
+					<xf:select name="payment_profile_id">
+						<xf:option>{{ phrase('(choose_payment_method)') }}</xf:option>
+						<xf:foreach loop="$paymentProfiles" value="$profile">
+							<xf:option value="{$profile.payment_profile_id}">{{ $profile.display_title ?: $profile.title }}</xf:option>
+						</xf:foreach>
+					</xf:select>
+					<xf:else />
+					{{ $paymentProfiles.first().display_title ?: $paymentProfiles.first().title }}
+					<xf:hiddenval name="payment_profile_id">{$paymentProfiles.first().payment_profile_id}</xf:hiddenval>
+				</xf:if>
+			</xf:formrow>
+			
+			<div class="js-paymentProviderReply-lfs_sticked_thread{$purchase.purchase_id}"></div>
+			
+			<xf:formrow label="{{ phrase('cost') }}">{$purchase.cost_amount|currency($purchase.cost_currency)}</xf:formrow>
+		</div>
+		
+		<xf:hiddenval name="purchase_id" value="{$purchase.purchase_id}" />
+		
+		<xf:submitrow icon="purchase" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="lfs_store_sticked_link_rules" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('lfs_sticked_link_purchase_rules') }}</xf:title>
+
+<div class="block">
+	<div class="block-container">
+		<div class="block-row">
+			{{ phrase('lfs_sticked_link_rules') }}
+		</div>
+	</div>
+</div>]]></template>
+  <template type="public" title="lfs_tab.hottest_threads" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+	<xf:if is="$threads is not empty || $stickedLinks is not empty">
+		
+		<xf:foreach loop="$stickedLinks" value="$stickedLink">
+			<xf:macro template="lfs_tab_thread_definition_macros" name="sticked_link_item"
+					  arg-stickedLink="{$stickedLink}" />
+		</xf:foreach>
+
+		<xf:foreach loop="$threads" value="$thread">
+			<xf:macro template="lfs_tab_thread_definition_macros" name="thread_item"
+					  arg-thread="{$thread}"
+					  arg-user="{$thread.User}"
+					  arg-date="{$thread.post_date}" />
+		</xf:foreach>
+		
+		<xf:else />
+		
+		<xf:macro template="lfs_macros" name="empty_block" />
+		
+	</xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.la_latest_posts" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$threads is not empty">
+        <xf:foreach loop="$threads" value="$thread">
+			<li class="block-row structItem--lfsItem" id="js-lfsItemThread-{$thread.thread_id}"
+				data-date="{$thread.last_post_date}">
+				<xf:macro template="thread_list_macros" name="item_new_posts"
+						  arg-thread="{$thread}" />
+			</li>
+		</xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+		
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.la_new_threads" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$threads is not empty">
+        <xf:foreach loop="$threads" value="$thread">
+			<li class="block-row structItem--lfsItem" id="js-lfsItemThread-{$thread.thread_id}"
+				data-date="{$thread.post_date}">
+				<xf:macro template="thread_list_macros" name="item_new_threads"
+						  arg-thread="{$thread}" />
+			</li>
+		</xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.latest_activity" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$items is not empty">
+
+        <xf:foreach loop="$items" value="$item">
+            <li class="block-row structItem--lfsItem structItem--latestActivity{{ $xf.visitor.isIgnoring($item.user_id) ? ' is-ignored' : '' }}"
+				id="js-lfsItemNewsFeed-{$item.news_feed_id}"
+				data-date="{$item.event_date}">
+                <div class="contentRow{{ $item.isVisible() ? '' : ' is-deleted' }}">
+					<span class="contentRow-figure">
+						<xf:avatar user="$item.User" size="xxs" defaultname="{$item.username}" />
+					</span>
+                    <div class="contentRow-main">
+                        {$item.render()|raw}
+                    </div>
+                </div>
+            </li>
+        </xf:foreach>
+
+        <xf:else />
+
+        <xf:macro template="lfs_macros" name="empty_block" />
+
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.latest_posts" version_id="1010070" version_string="1.1.0"><![CDATA[<ul class="content {$tab.tab_class}">
+	<xf:if is="$threads is not empty || $stickedLinks is not empty">
+		
+		<xf:foreach loop="$stickedLinks" value="$stickedLink">
+			<xf:macro template="lfs_tab_thread_definition_macros" name="sticked_link_item"
+					  arg-stickedLink="{$stickedLink}" />
+		</xf:foreach>
+
+		<xf:foreach loop="$threads" value="$thread">
+			<xf:macro template="lfs_tab_thread_definition_macros" name="thread_item"
+					  arg-thread="{$thread}"
+					  arg-user="{$thread.LastPoster}"
+					  arg-date="{$thread.last_post_date}"
+					  arg-link="{{ link('threads/post', $thread, {'post_id': $thread.last_post_id}) }}" />
+		</xf:foreach>
+		
+		<xf:else />
+		
+		<xf:macro template="lfs_macros" name="empty_block" />
+		
+	</xf:if>
+</ul>
+	
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.most_messages" version_id="1010071" version_string="1.1.0 Patch 1"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$users is not empty">
+		
+        <xf:foreach loop="$users" value="$user">
+			<xf:set var="$rightIcon">
+				<span title="{{ phrase('messages:') }} {$user.message_count|number}" data-xf-init="tooltip" class="item--info">
+					<xf:fa icon="far fa-comments" /> {$user.message_count|number}
+				</span>
+			</xf:set>
+			
+            <xf:macro template="lfs_tab_member_definition_macros"
+					  name="user_item"
+					  arg-user="{$user}"
+					  arg-rightIcon="{$rightIcon}" />
+        </xf:foreach>
+		
+        <xf:else />
+		
+        <xf:macro template="lfs_macros" name="empty_block" />
+		
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.most_reactions" version_id="1010071" version_string="1.1.0 Patch 1"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$users is not empty">
+		
+        <xf:foreach loop="$users" value="$user">
+			<xf:set var="$rightIcon">
+				<span title="{{ phrase('reactions:') }} {$user.reaction_score|number}" data-xf-init="tooltip" class="item--info">
+					<xf:fa icon="far fa-smile-plus" /> {$user.reaction_score|number}
+				</span>
+			</xf:set>
+			
+			<xf:macro template="lfs_tab_member_definition_macros"
+					  name="user_item"
+					  arg-user="{$user}"
+					  arg-rightIcon="{$rightIcon}" />
+        </xf:foreach>
+		
+        <xf:else />
+		
+        <xf:macro template="lfs_macros" name="empty_block" />
+		
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.most_trophies" version_id="1010071" version_string="1.1.0 Patch 1"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$users is not empty">
+		
+        <xf:foreach loop="$users" value="$user">
+			<xf:set var="$rightIcon">
+				<span title="{{ phrase('trophy_points:') }} {$user.trophy_points|number}" data-xf-init="tooltip" class="item--info">
+					<xf:fa icon="far fa-trophy" /> {$user.trophy_points|number}
+				</span>
+			</xf:set>
+			
+			<xf:macro template="lfs_tab_member_definition_macros"
+					  name="user_item"
+					  arg-user="{$user}"
+					  arg-rightIcon="{$rightIcon}" />
+        </xf:foreach>
+		
+        <xf:else />
+		
+        <xf:macro template="lfs_macros" name="empty_block" />
+		
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.most_viewable" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$threads is not empty || $stickedLinks is not empty">
+		
+        <xf:foreach loop="$stickedLinks" value="$stickedLink">
+            <xf:macro template="lfs_tab_thread_definition_macros" name="sticked_link_item"
+					  arg-stickedLink="{$stickedLink}" />
+        </xf:foreach>
+		
+        <xf:foreach loop="$threads" value="$thread">
+			<xf:set var="$extraData">
+				<span class="postDate contentRow-minor">
+					<xf:if is="$thread.bs_lfs_is_sticked">
+						{{ phrase('lfs_sticked') }}
+						<xf:else />
+						{$thread.view_count} {{ phrase('views') }}
+					</xf:if>
+				</span>
+			</xf:set>
+			
+			<xf:macro template="lfs_tab_thread_definition_macros" name="thread_item"
+					  arg-thread="{$thread}"
+					  arg-user="{$thread.User}"
+					  arg-date="{$thread.post_date}"
+					  arg-extraData="{$extraData}" />
+        </xf:foreach>
+		
+        <xf:else />
+		
+        <xf:macro template="lfs_macros" name="empty_block" />
+		
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.my_threads" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$threads is not empty">
+		
+       <xf:foreach loop="$threads" value="$thread">
+			<xf:macro template="lfs_tab_thread_definition_macros" name="thread_item"
+					  arg-thread="{$thread}"
+					  arg-user="{$thread.User}"
+					  arg-date="{$thread.post_date}" />
+		</xf:foreach>
+		
+        <xf:else />
+		
+        <xf:macro template="lfs_macros" name="empty_block" />
+		
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.new_members" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+	<xf:if is="$users is not empty">
+
+		<xf:foreach loop="$users" value="$user">
+			<xf:set var="$rightIcon">
+				<span title="{{ phrase('joined:') }} {{ date_time($user.register_date) }}" data-xf-init="tooltip">
+					<xf:fa icon="far fa-clock" />
+				</span>
+			</xf:set>
+			
+			<xf:macro template="lfs_tab_member_definition_macros"
+					  name="user_item"
+					  arg-user="{$user}"
+					  arg-date="{$user.register_date}"
+					  arg-rightIcon="{$rightIcon}" />
+		</xf:foreach>
+
+		<xf:else />
+
+		<xf:macro template="lfs_macros" name="empty_block" />
+
+	</xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab.new_threads" version_id="1000970" version_string="1.0.9"><![CDATA[<ul class="content {$tab.tab_class}">
+    <xf:if is="$threads is not empty || $stickedLinks is not empty">
+		
+		<xf:foreach loop="$stickedLinks" value="$stickedLink">
+			<xf:macro template="lfs_tab_thread_definition_macros" name="sticked_link_item"
+					  arg-stickedLink="{$stickedLink}" />
+		</xf:foreach>
+
+		<xf:foreach loop="$threads" value="$thread">
+			<xf:macro template="lfs_tab_thread_definition_macros" name="thread_item"
+					  arg-thread="{$thread}"
+					  arg-user="{$thread.User}"
+					  arg-date="{$thread.post_date}" />
+		</xf:foreach>
+		
+        <xf:else />
+		
+        <xf:macro template="lfs_macros" name="empty_block" />
+		
+    </xf:if>
+</ul>
+
+<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="lfs/tab" params="{{ {'tab_id': $tab.tab_id} }}"
+			wrapperclass="hidden-pageNav js-lfsPageNav" />]]></template>
+  <template type="public" title="lfs_tab_member_definition_macros" version_id="1000471" version_string="1.0.4a"><![CDATA[<xf:macro name="user_item"
+		  arg-user="!"
+		  arg-date="{{ false }}"
+		  arg-rightIcon="{{ false }}">
+
+	<li class="structItem structItem--lfsItem" id="js-lfsItemUser-{$user.user_id}"
+		{{ $date ? 'data-date="' . $date . '"' : ''}}>
+		
+		<div class="structItem-cell structItem-cell--icon">
+			<xf:fa icon="fas fa-user" />
+		</div>
+
+		<xf:if is="{{ property('lfsShowAvatarsInMemberGroup') }}">
+			<div class="structItem-cell structItem-cell--avatar">
+				<xf:avatar user="$user" size="xxs" />
+			</div>
+		</xf:if>
+
+		<div class="structItem-cell structItem-cell--title">
+			<xf:username user="$user" rich="true" />
+		</div>
+		
+		<xf:if is="$rightIcon is not empty">
+			<div class="structItem-cell structItem-cell--rightIcon">
+				{{ $rightIcon|raw }}
+			</div>
+		</xf:if>
+	</li>
+</xf:macro>]]></template>
+  <template type="public" title="lfs_tab_setting.threads" version_id="1000771" version_string="1.0.7a"><![CDATA[<xf:title>{{ phrase('lfs_tab_setting:') }} {$tab.title}</xf:title>
+
+<xf:form action="{{ link('lfs/tab/save', $tab) }}" ajax="true" 
+		 class="block" 
+		 data-xf-init="lfs-submit-refresh"
+		 data-force-flash-message="true"
+		 data-redirect="false">
+	
+	<div class="block-container">
+		<div class="block-body">
+			<xf:if is="$xf.options.lfsThreadsLimit.enable_custom_limit">
+				<xf:selectrow name="limit" label="{{ phrase('lfs_limit_records') }}" value="{$currentLimit}">
+					<xf:foreach loop="$xf.options.lfsThreadsLimit.custom_limits" value="$limit">
+						<xf:option value="{$limit}">{{ phrase('lfs_x_records', {'x': $limit}) }}</xf:option>
+					</xf:foreach>
+				</xf:selectrow>
+			</xf:if>
+			
+			<xf:if is="$xf.visitor.canIgnoreForumInLfs()">
+				<xf:formrow label="{{ phrase('lfs_exclude_forums') }}">
+					<xf:macro template="lfs_forum_selection_macros" name="select_forums"
+						  arg-nodeIds="{{ $excludedNodes }}"
+						  arg-nodeTree="{$nodeTree}"
+						  arg-selectName="exclude_node_ids"
+						  arg-withRow="{{ false }}" />
+				</xf:formrow>
+			</xf:if>
+		</div>
+		
+		<xf:submitrow icon="save" sticky="true" />
+	</div>
+	
+	<xf:redirect />
+</xf:form>]]></template>
+  <template type="public" title="lfs_tab_tag_definition_macros" version_id="1000670" version_string="1.2.1"><![CDATA[<xf:macro name="result" 
+		  arg-result="!">
+
+	<xf:set var="$entity" value="{$result.getResult()}" />
+
+	<div class="structItem--lfsItem"
+		 id="js-lfsItem{$entity.getEntityContentType()}-{$entity.getEntityId()}"
+		 data-date="{{ $result.getHandler().getResultDate($entity) }}">
+
+		{$result.render({'avatarSize': property('lfsAvatarSizeForTagContent')})|raw}
+	</div>
+</xf:macro>]]></template>
+  <template type="public" title="lfs_tab_thread_definition_macros" version_id="1010072" version_string="1.1.0 Patch 2"><![CDATA[<xf:macro name="sticked_link_item"
+		  arg-stickedLink="!">
+	
+	<li class="structItem structItem--lfsItem item--stickedLink is-sticked stickedLink--{$stickedLink.link_id}{{ property('lfsItemIconRightLayout') ? ' item--iconRightLayout' : '' }}"
+		id="js-lfsItemStickedLink-{$stickedLink.link_id}">
+		
+		<xf:if is="! property('lfsItemIconRightLayout')">
+			<div class="structItem-cell structItem-cell--icon">
+				<xf:fa icon="{{ property('lfsPinnedFaIcon') }}" />
+			</div>
+		</xf:if>
+
+		<xf:if is="{{ property('lfsShowAvatarsInThreadGroup') }}">
+			<div class="structItem-cell structItem-cell--avatar">
+				<xf:avatar user="{{ null }}" size="xxs" />
+			</div>
+		</xf:if>
+
+		<div class="structItem-cell structItem-cell--title">
+			<a href="{$stickedLink.link}" {{ attributes($stickedLink.attributes) }}>{$stickedLink.title}</a>
+		</div>
+
+		<div class="structItem-cell structItem-cell--mainData">
+			<span class="postDate contentRow-minor">
+				{{ phrase('lfs_sticked') }}
+			</span>
+
+			<span class="username contentRow-minor fl-r">
+				{{ phrase('lfs_sticked') }}
+			</span>
+		</div>
+
+		<xf:if is="property('lfsItemIconRightLayout')">
+			<div class="structItem-cell structItem-cell--icon">
+				<xf:fa icon="{{ property('lfsPinnedFaIcon') }}" />
+			</div>
+		</xf:if>
+
+	</li>
+</xf:macro>
+
+<xf:macro name="thread_item" 
+		  arg-thread="!" 
+		  arg-user="!"
+		  arg-date="!"
+		  arg-link="{{ false }}"
+		  arg-extraData="{{ false }}">
+	
+	<li class="structItem structItem--lfsItem item--thread{{ $thread.prefix_id ? ' is-prefix' . $thread.prefix_id : '' }}{{ $thread.isUnread() ? ' is-unread' : '' }}{{ $thread.bs_lfs_is_sticked ? ' is-sticked' : '' }}{{ $thread.sticky ? ' is-sticky' : '' }}{{ property('lfsItemIconRightLayout') ? ' item--iconRightLayout' : '' }} thread--{$thread.thread_id}"
+		id="js-lfsItemThread-{$thread.thread_id}"
+		data-date="{$date}">
+
+		<xf:if is="! property('lfsItemIconRightLayout')">
+			<div class="structItem-cell structItem-cell--icon">
+				<xf:fa icon="{{ $thread.bs_lfs_is_sticked ? property('lfsPinnedFaIcon') : property('lfsItemFaIcon') }}" />
+			</div>
+		</xf:if>
+
+		<xf:if is="{{ property('lfsShowAvatarsInThreadGroup') }}">
+			<div class="structItem-cell structItem-cell--avatar">
+				<xf:avatar user="{$user}" size="xxs" />
+			</div>
+		</xf:if>
+
+		<div class="structItem-cell structItem-cell--title">
+
+			<xf:set var="$canPreview" value="{{ $thread.canPreview() }}" />
+			<xf:if is="$thread.prefix_id">
+				<xf:if is="$forum">
+					<a href="{{ link('forums', $forum, {'prefix_id': $thread.prefix_id}) }}" class="labelLink">{{ prefix('thread', $thread, 'html', '') }}</a>
+					<xf:else />
+					{{ prefix('thread', $thread, 'html', '') }}
+				</xf:if>
+			</xf:if>
+			
+			<xf:set var="$link">{{ $link ?: link('threads', $thread) }}</xf:set>
+			<a href="{{ $xf.visitor.user_id ? link('threads/unread', $thread) : $link }}" 
+			   data-tp-primary="on" 
+			   data-xf-init="{{ $canPreview ? 'preview-tooltip' : '' }}" 
+			   data-preview-url="{{ $canPreview ? link('threads/preview', $thread) : '' }}"
+			   {{ attributes($thread.bs_lfs_sticked_attributes) }}>{$thread.title}</a>
+			
+			<xf:if is="$thread.isUnread() && property('lfsShowUnreadPostfix')">
+				<span class="unread-postfix">{{ phrase('lfs_new') }}</span>
+			</xf:if>
+		</div>
+
+		<xf:if is="{{ property('lfsShowReplyCountInThreads') }}">
+			<div class="structItem-cell structItem-cell--replyCount" data-xf-init="tooltip"
+				 title="{{ phrase('replies') }}">
+				<span class="contentRow-minor">
+					<xf:fa icon="{{ property('lfsReplyCountFaIcon') }}" /> {$thread.reply_count}
+				</span>
+			</div>
+		</xf:if>
+
+		<div class="structItem-cell structItem-cell--mainData">
+			
+			<xf:if is="$extraData is empty">
+				<xf:set var="$extraData">
+					<span class="postDate contentRow-minor">
+						<xf:if is="$thread.bs_lfs_is_sticked">
+							{{ phrase('lfs_sticked') }}
+							<xf:else />
+							<xf:date time="$date" />
+						</xf:if>
+					</span>
+				</xf:set>
+			</xf:if>
+			
+			{{ $extraData|raw }}
+
+			<span class="username contentRow-minor fl-r">
+				<xf:if is="$thread.bs_lfs_is_sticked">
+					{{ phrase('lfs_sticked') }}
+					<xf:else />
+					<xf:username user="$thread.LastPoster" rich="true" />
+				</xf:if>
+			</span>
+
+		</div>
+
+		<div class="structItem-cell structItem-cell--secondData">
+
+			<span class="forum contentRow-minor">
+				<a href="{{ link('forums', $thread.Forum) }}">{$thread.Forum.title}</a>
+			</span>
+
+			<xf:if contentcheck="true">
+				<span class="action-buttons fl-r">
+					<xf:contentcheck>
+						<xf:if is="$xf.visitor.canIgnoreThreadInLfs($thread)">
+							<a href="{{ link('threads/ignore-in-lfs', $thread) }}"
+							   data-xf-init="tooltip"
+							   data-xf-click="overlay"
+							   title="{{ $xf.visitor.isIgnoringThreadInLfs($thread)
+							   	   ? phrase('lfs_unignore_thread_in_statistics') 
+								   : phrase('lfs_ignore_thread_in_statistics') 
+							   }}">
+								
+								<xf:fa icon="fa-eye-slash" />
+							</a>
+						</xf:if>
+						
+						<xf:if is="$thread.FirstPost">
+							<xf:macro template="bookmark_macros" name="link"
+									  arg-content="{$thread.FirstPost}"
+									  arg-class="bookmarkLink--highlightable"
+									  arg-confirmUrl="{{ link('posts/bookmark', $thread.FirstPost) }}"
+									  arg-showText="{{ false }}"/>
+
+							<xf:if is="$thread.FirstPost.canReport()">
+								<a href="{{ link('posts/report', $thread.FirstPost) }}"
+								   data-xf-init="tooltip"
+								   data-xf-click="overlay"
+								   title="{{ phrase('report_verb') }}">
+									<xf:fa icon="fa-bullhorn" />
+								</a>
+							</xf:if>
+						</xf:if>
+					</xf:contentcheck>
+				</span>
+			</xf:if>
+
+		</div>
+
+		<xf:if is="property('lfsItemIconRightLayout')">
+			<div class="structItem-cell structItem-cell--icon">
+				<xf:fa icon="{{ $thread.bs_lfs_is_sticked ? property('lfsPinnedFaIcon') : property('lfsItemFaIcon') }}" />
+			</div>
+		</xf:if>
+
+	</li>
+</xf:macro>]]></template>
+  <template type="public" title="lfs_thread_ignore" version_id="1020100" version_string="1.0.0"><![CDATA[<xf:title>{{ $isIgnoring ? phrase('lfs_stop_ignoring_thread_x', {'title': $thread.title}) : phrase('lfs_ignore_thread_x', {'title': $thread.title}) }}</xf:title>
+
+<xf:breadcrumb href="{{ link('threads', $thread) }}">{$thread.title}</xf:breadcrumb>
+
+<xf:form action="{{ link('threads/ignore-in-lfs', $thread) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				<xf:if is="$isIgnoring">
+					{{ phrase('lfs_please_confirm_that_you_wish_to_stop_ignoring_this_thread:') }}
+				<xf:else />
+					{{ phrase('lfs_please_confirm_that_you_wish_to_start_ignoring_this_thread:') }}
+				</xf:if>
+				<strong><a href="{{ link('threads', $thread) }}">{$thread.title}</a></strong>
+			</xf:inforow>
+		</div>
+		
+		<xf:submitrow submit="{{ $isIgnoring ? phrase('unignore') : phrase('ignore') }}" rowtype="simple" />
+	</div>
+
+	<xf:redirect />
+</xf:form>]]></template>
+  <template type="public" title="lfs_xdsoft_datetimepicker.less" version_id="1020100" version_string="1.0.0"><![CDATA[@xdsoft-text-color: @xf-textColor;
+@xdsoft-title-color: @xf-textColorEmphasized;
+@xdsoft-title-bg: transparent;
+@xdsoft-picker-bg: @xf-contentBg;
+@xdsoft-picker-border: @xf-borderColorHeavy;
+@xdsoft-picker-border-radius: @xf-borderRadiusMedium;
+@xdsoft-th-color: @xf-textColorEmphasized;
+@xdsoft-day-color: @xf-textColor;
+@xdsoft-day-bg: @xf-contentHighlightBg;
+@xdsoft-day-hover-color: @xf-textColor;
+@xdsoft-day-hover-bg: xf-intensify(@xdsoft-day-bg, 5%);
+@xdsoft-day-today-color: @xf-textColorFeature;
+@xdsoft-day-selected-color: contrast(@xf-textColorFeature);
+@xdsoft-day-selected-bg: @xf-textColorFeature;
+@xdsoft-day-selected-shadow: transparent;
+@xdsoft-day-disabled-color: @xf-textColor;
+@xdsoft-week-color: @xf-textColorEmphasized;
+@xdsoft-range-color: @xf-textColorAccentContent;
+@xdsoft-range-bg: @xf-contentAccentBg;
+@xdsoft-range-border: @xf-borderColorAccentContent;
+
+.xdsoft_datetimepicker {
+	.m-dropShadow(0, 5px, 10px, 0, .25);
+	background: @xdsoft-picker-bg;
+	border: 1px solid @xdsoft-picker-border;
+	border-radius: @xdsoft-picker-border-radius;
+	color: @xdsoft-text-color;
+	padding: 8px;
+	padding-left: 0;
+	padding-top: 2px;
+	position: absolute;
+	z-index: 9999;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: none;
+	
+	iframe {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 75px;
+		height: 210px;
+		background: transparent;
+		border: none;
+	}
+	
+	button {
+		border: none !important;
+	}
+	
+	* {
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+	.xdsoft_datepicker {
+		display: none;
+		width: 224px;
+		float: left;
+		margin-left: 8px;
+	}
+	.xdsoft_timepicker {
+		display: none;
+		width: 58px;
+		float: left;
+		text-align: center;
+		margin-left: 8px;
+		margin-top: 0;
+		
+		.xdsoft_prev 
+		{
+			float: none;
+			height: 15px;
+			width: 30px;
+			display: block;
+			margin-left: 14px;
+			margin-top: 7px;
+			margin-bottom: 7px;
+			margin-top: 0;
+			
+			&::before
+			{
+				.m-faContent(@fa-var-caret-up);
+			}
+		}
+		
+		.xdsoft_next 
+		{
+			float: none;
+			height: 15px;
+			width: 30px;
+			display: block;
+			margin-left: 14px;
+			margin-top: 7px;
+			
+			&::before
+			{
+				.m-faContent(@fa-var-caret-down);
+			}
+		}
+		
+		.xdsoft_time_box {
+			height: 151px;
+			overflow: hidden;
+			>div {
+				>div {
+					cursor: pointer;
+					display: block;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					outline: none;
+					border: 0;
+					margin: 0;
+					width: 100%;
+					padding: 5px;
+					color: @xdsoft-day-color;
+					font-size: 12px;
+					line-height: 15px;
+					text-align: center;
+					background: @xdsoft-day-bg;
+					
+					&:hover {
+						color: @xdsoft-day-hover-color;
+						background: @xdsoft-day-hover-bg;
+						box-shadow: none;
+						border-radius: 3px;
+					}
+				}
+				
+				>div.xdsoft_current {
+					color: @xdsoft-day-selected-color;
+					font-weight: bold;
+					background: @xdsoft-day-selected-bg;
+					box-shadow: inset 0 1px 3px @xdsoft-day-selected-shadow;
+					border-radius: 3px;
+				}
+				
+				>div.xdsoft_disabled {
+					pointer-events: none;
+					cursor: default;
+					color: @xdsoft-day-disabled-color;
+					opacity: .3;
+					
+					&:hover {
+						color: inherit !important;
+						background: inherit !important;
+						box-shadow: inherit !important;
+					}
+				}
+			}
+		}
+	}
+	.xdsoft_datepicker.active {
+		display: block;
+	}
+	.xdsoft_timepicker.active {
+		display: block;
+	}
+	.xdsoft_datepicker.active+.xdsoft_timepicker {
+		margin-top: 8px;
+		margin-bottom: 3px;
+	}
+	.xdsoft_monthpicker {
+		position: relative;
+		text-align: center;
+	}
+	.xdsoft_label {
+		i {
+			display: none;
+		}
+		display: inline-block;
+		*display: inline;
+		position: relative;
+		z-index: 9999;
+		margin: 0;
+		padding: 5px 3px;
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: bold;
+		color: @xdsoft-title-color;
+		background-color: @xdsoft-title-bg;
+		&:hover {
+			i {
+				opacity: 1.0;
+			}
+		}
+		>.xdsoft_select {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			z-index: 101;
+			display: none;
+			background: @xdsoft-picker-bg;
+			max-height: 160px;
+			overflow-y: hidden;
+			border: 1px solid @xdsoft-picker-border;
+			.m-dropShadow(0, 5px, 10px, 0, .25);
+			border-radius: 3px;
+			
+			>div {
+				>.xdsoft_option {
+					color: @xdsoft-day-color;
+					font-size: 12px;
+					padding: 5px;
+					padding-right: 13px;
+					background: @xdsoft-day-bg;
+					&:hover {
+						color: @xdsoft-day-hover-color;
+						background: @xdsoft-day-hover-bg;
+						box-shadow: none;
+						border-radius: 3px;
+					}
+				}
+				>.xdsoft_option.xdsoft_current {
+					color: @xdsoft-day-selected-color;
+					font-weight: bold;
+					background: @xdsoft-day-selected-bg;
+					box-shadow: inset 0 1px 3px @xdsoft-day-selected-shadow;
+					border-radius: 3px;
+				}
+			}
+		}
+		>.xdsoft_select.xdsoft_monthselect {
+			right: -7px;
+		}
+		>.xdsoft_select.xdsoft_yearselect {
+			right: 2px;
+		}
+	}
+	.xdsoft_prev,
+	.xdsoft_next {
+		display: block;
+		cursor: pointer;
+		position: relative;
+		outline: none;
+		background: none;
+		border: 0;
+		padding: 0;
+		width: 20px;
+		height: 30px;
+		white-space: nowrap;
+		overflow: hidden;
+		opacity: .5;
+		font-size: 0;
+		color: @xdsoft-title-color;
+		background-color: @xdsoft-title-bg;
+		
+		&::before
+		{
+			.m-faBase();
+			font-size: @xf-fontSizeLarge;
+			vertical-align: middle;
+			display: inline-block;
+			margin: -4px 6px -4px 0;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+	
+	.xdsoft_prev
+	{
+		&::before
+		{
+			.m-faContent(@fa-var-caret-left);
+		}
+	}
+
+	.xdsoft_next
+	{
+		&::before
+		{
+			.m-faContent(@fa-var-caret-right);
+		}
+	}
+	
+	.xdsoft_prev,
+	.is-rtl .xdsoft_next {
+		float: left;
+		*left: 0;
+	}
+
+	.xdsoft_next,
+	.is-rtl .xdsoft_prev {
+		float: right;
+		*right: 0;
+	}
+	
+	.xdsoft_today_button {
+		color: @xdsoft-title-color;
+		font-weight: bold;		
+		float: left;
+		background-position: -70px 0;
+		margin-left: 5px;
+		background: none;
+		background-repeat: no-repeat;
+		border: 0 none;
+		cursor: pointer;
+		display: block;
+		height: 28px;
+		opacity: 0.5;
+		outline: medium none;
+		overflow: hidden;
+		padding: 0;
+		position: relative;
+		white-space: nowrap;
+		min-width: 0;
+		
+		&::before
+		{
+			.m-faBase();
+			.m-faContent(@fa-var-home);
+		}
+		
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.xdsoft_month {
+		width: 100px;
+		text-align: right;
+	}
+	.xdsoft_calendar {
+		clear: both;
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td {
+			>div {
+				padding-right: 5px;
+			}
+			
+			width: 14.285714285714286%;
+			padding: 0;
+			cursor: pointer;
+			text-align: right;
+			vertical-align: middle;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			outline: none;
+			border: 0;
+			margin: 0;
+			padding: 5px;
+			color: @xdsoft-day-color;
+			font-size: 12px;
+			line-height: 15px;
+			text-align: right;
+			background: @xdsoft-day-bg;
+
+			&:hover {
+				color: @xdsoft-day-hover-color;
+				background: @xdsoft-day-hover-bg;
+				box-shadow: none;
+				border-radius: 3px;
+			}
+		}
+		th {
+			width: 14.285714285714286%;
+			padding: 0;
+			color: @xdsoft-th-color;
+			font-size: 12px;
+			line-height: 25px;
+			font-weight: bold;
+			text-align: center;
+		}
+		td.xdsoft_today {
+			color: @xdsoft-day-today-color;
+			font-weight: bold;
+		}
+		td.xdsoft_highlighted_default {
+			background: #ffe9d2;
+			box-shadow: #ffb871 0 1px 4px 0 inset;
+			color: #000;
+		}
+		td.xdsoft_highlighted_mint {
+			background: #c1ffc9;
+			box-shadow: #00dd1c 0 1px 4px 0 inset;
+			color: #000;
+		}
+		td.xdsoft_default {
+			color: @xdsoft-day-selected-color;
+			font-weight: bold;
+			box-shadow: inset 0 1px 3px @xdsoft-day-selected-shadow;
+			border-radius: 3px;
+		}
+		td.xdsoft_current {
+			color: @xdsoft-day-selected-color;
+			font-weight: bold;
+			background: @xdsoft-day-selected-bg;
+			box-shadow: inset 0 1px 3px @xdsoft-day-selected-shadow;
+			border-radius: 3px;
+		}
+		
+		td.xdsoft_disabled,
+		td.xdsoft_other_monthd {
+			pointer-events: none;
+			cursor: default;
+			color: @xdsoft-day-disabled-color;
+			opacity: .3;
+		}
+		
+		td.xdsoft_current.xdsoft_disabled {
+			&:hover {
+				background: #33aaff !important;
+				box-shadow: #178fe5 0 1px 3px 0 inset !important;
+				color: @xdsoft-picker-bg !important;
+			}
+		}
+	}
+	.xdsoft_year {
+		width: 48px;
+		margin-left: 5px;
+	}
+	.xdsoft_time_box {
+		>div {
+			>div.xdsoft_disabled {
+				opacity: 0.5;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+				cursor: default;
+			}
+		}
+	}
+	.xdsoft_copyright {
+		color: #ccc !important;
+		font-size: 10px;
+		clear: both;
+		float: none;
+		margin-left: 8px;
+		a {
+			color: #eee !important;
+			&:hover {
+				color: #aaa !important;
+			}
+		}
+	}
+	.xdsoft_save_selected {
+		display: block;
+		border: 1px solid #dddddd !important;
+		margin-top: 5px;
+		width: 100%;
+		color: #454551;
+		font-size: 13px;
+	}
+	.blue-gradient-button {
+		font-family: "museo-sans", "Book Antiqua", sans-serif;
+		font-size: 12px;
+		font-weight: 300;
+		color: #82878c;
+		height: 28px;
+		position: relative;
+		padding: 4px 17px 4px 33px;
+		border: 1px solid #d7d8da;
+		background: -moz-linear-gradient(top, @xdsoft-picker-bg 0%, #f4f8fa 73%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @xdsoft-picker-bg), color-stop(73%, #f4f8fa));
+		background: -webkit-linear-gradient(top, @xdsoft-picker-bg 0%, #f4f8fa 73%);
+		background: -o-linear-gradient(top, @xdsoft-picker-bg 0%, #f4f8fa 73%);
+		background: -ms-linear-gradient(top, @xdsoft-picker-bg 0%, #f4f8fa 73%);
+		background: linear-gradient(to bottom, @xdsoft-picker-bg 0%, #f4f8fa 73%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@xdsoft-picker-bg', endColorstr='#f4f8fa',GradientType=0 );
+		&:hover {
+			color: #454551;
+			background: -moz-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f8fa), color-stop(73%, @xdsoft-picker-bg));
+			background: -webkit-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: -o-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: -ms-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: linear-gradient(to bottom, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f8fa', endColorstr='@xdsoft-picker-bg',GradientType=0 );
+			span {
+				color: #454551;
+				background: -moz-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f8fa), color-stop(73%, @xdsoft-picker-bg));
+				background: -webkit-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: -o-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: -ms-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: linear-gradient(to bottom, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f8fa', endColorstr='@xdsoft-picker-bg',GradientType=0 );
+			}
+		}
+		&:focus {
+			color: #454551;
+			background: -moz-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f8fa), color-stop(73%, @xdsoft-picker-bg));
+			background: -webkit-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: -o-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: -ms-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			background: linear-gradient(to bottom, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f8fa', endColorstr='@xdsoft-picker-bg',GradientType=0 );
+			span {
+				color: #454551;
+				background: -moz-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f8fa), color-stop(73%, @xdsoft-picker-bg));
+				background: -webkit-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: -o-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: -ms-linear-gradient(top, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				background: linear-gradient(to bottom, #f4f8fa 0%, @xdsoft-picker-bg 73%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f8fa', endColorstr='@xdsoft-picker-bg',GradientType=0 );
+			}
+		}
+	}
+}
+.xdsoft_datetimepicker.xdsoft_rtl {
+	padding: 8px 0 8px 8px;
+	.xdsoft_datepicker {
+		float: right;
+		margin-right: 8px;
+		margin-left: 0;
+	}
+	.xdsoft_timepicker {
+		float: right;
+		margin-right: 8px;
+		margin-left: 0;
+		.xdsoft_prev {
+			float: none;
+			margin-left: 0;
+			margin-right: 14px;
+		}
+		.xdsoft_next {
+			float: none;
+			margin-left: 0;
+			margin-right: 14px;
+		}
+	}
+	.xdsoft_scrollbar {
+		left: 0;
+		right: auto;
+	}
+}
+.xdsoft_noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	&::selection {
+		background: transparent;
+	}
+	&::-moz-selection {
+		background: transparent;
+	}
+}
+.xdsoft_datetimepicker.xdsoft_inline {
+	display: inline-block;
+	position: static;
+	box-shadow: none;
+}
+.xdsoft_datetimepicker.xdsoft_showweeks {
+	.xdsoft_datepicker {
+		width: 256px;
+	}
+	.xdsoft_calendar {
+		td {
+			width: 12.5%;
+		}
+		th {
+			width: 12.5%;
+		}
+	}
+}
+.xdsoft_time_box {
+	position: relative;
+	border-radius: 3px;
+}
+.xdsoft_scrollbar {
+	>.xdsoft_scroller {
+		background: @xf-borderColorHeavy !important;
+		height: 20px;
+		border-radius: 3px;
+	}
+	position: absolute;
+	width: 7px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	cursor: pointer;
+}
+.xdsoft_scroller_box {
+	position: relative;
+}]]></template>
+  <template type="public" title="widget_live_forum_statistics" version_id="1000970" version_string="1.0.9"><![CDATA[<xf:if is="$tabGroups is not empty">
+	<xf:css src="widget_live_forum_statistics.less" />
+	<xf:js prod="bs/lfs/core-compiled.js" dev="bs/lfs/core.js, bs/lfs/group.js, bs/lfs/tabs.js, bs/lfs/scroll-paginator.js, bs/lfs/form.js, bs/lfs/buttons.js" />
+	
+	<div class="block lfs"
+		 data-xf-init="lfs"
+		 data-update-interval="{$options.update_interval}"
+		 data-update-link="{{ link('lfs/tab') }}"
+		 data-different-timeout="{{ property('lfsItemDifferentAnimationDuration') }}"
+		 data-poll-unfocused="{{ $xf.options.lfsPollUnfocused ? 'true' : 'false' }}"
+		 {{ widget_data($widget) }}>
+		
+		<xf:foreach loop="$tabGroups" value="$tabGroup">
+			<xf:include template="{$tabGroup.getTemplateName()}" />
+		</xf:foreach>
+		
+		<xf:if is="$options.sound_link">
+			<audio class="js-sound" src="{$options.sound_link}" />
+		</xf:if>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="widget_live_forum_statistics.less" version_id="1000970" version_string="1.0.9"><![CDATA[.lfs {
+	position: relative;
+	display: -webkit-flex;
+	display: flex;
+
+	@media (max-width: @xf-lfsHideWidth)
+	{
+		display: none !important;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.tabs-container {
+		.xf-lfsTabsContainer();
+		display: flex;
+	}
+
+	.tabs {
+		&--list {
+			.xf-lfsTabsList();
+			flex: 1 auto;
+		}	
+
+		&--scroller {
+			.hScroller-action {
+				.xf-lfsTabsHScrollerAction();
+
+				width: auto;
+
+				&:hover {
+					.xf-lfsTabsHScrollerActionHover();
+				}
+			}
+		}
+
+		.tab {
+			.xf-lfsTab();
+
+			white-space: nowrap;
+			cursor: pointer;
+
+			&:not(.is-selected):hover {
+				.xf-lfsTabHover();
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.is-selected {
+				.xf-lfsTabSelected();
+			}
+
+			&.menu-open {
+				margin-right: 0;
+			}
+		}
+	}
+
+	a.tab-link {
+		.xf-lfsTabLink();
+	}
+
+	.tabs-buttons {
+		.xf-lfsTabsButtons();
+		white-space: nowrap;
+
+		.extra-button,
+		a.extra-button {
+			.xf-lfsTabsButton();
+			cursor: pointer;
+
+			&:hover {
+				.xf-lfsTabsButtonHover();
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.mute-button {
+			i {
+				&:before {
+					.m-faBase();
+					.m-faContent(@fa-var-volume-up);
+				}
+			}
+
+			&.is-muted {
+				i {
+					.m-faBefore(@fa-var-volume-mute);
+				}
+			}
+		}
+
+		.setting-button {
+			display: none;
+
+			&.is-active {
+				display: inline;
+			}
+		}
+	}
+
+	.tabGroup {
+		.xf-contentBase();
+		.xf-blockBorder();
+		.xf-lfsTabGroup();
+
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		flex: 1 1 100%;
+		max-width: 100%;
+		overflow: hidden;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		.tabGroup-content {
+			.xf-lfsTabGroupContent();
+			position: relative;
+			
+			.tabGroup-scroller {
+				overflow-y: auto;
+				scroll-behavior: smooth;
+				max-height: 100%;
+				height: 100%;
+
+				> .content {
+					.structItem--lfsItem:first-child {
+						border-top: none;
+					}
+				}
+			}
+
+			&.is-updating {
+				.content {
+					opacity: .7;
+				}
+				
+				.loader-block {
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+			}
+		}
+
+		&--members {
+			flex-basis: 35% !important;
+
+			.tab {
+				width: 100%;
+			}
+
+			.empty-block img {
+				width: 100%;
+			}
+		}
+
+		&--threads {
+			.tabGroup-content {
+				span .label {
+					margin-right: 5px;
+					white-space: nowrap;
+				}
+			}
+		}
+
+		.structItem {
+			// FIX UI.X TITLE OVERFLOW
+			table-layout: fixed;
+
+			&--lfsItem {
+				.xf-lfsItem();
+
+				a {
+					.xf-lfsItemLink();
+
+					&:hover {
+						.xf-lfsItemLinkHover();
+					}
+				}
+
+				&:hover {
+					.xf-lfsItemHover();
+				}
+
+				&.is-unread {
+					.xf-lfsItemUnread();
+
+					.structItem-cell--icon {
+						.xf-lfsItemUnreadIcon();
+					}
+				}
+
+				&.item--iconRightLayout {
+					.structItem-cell--icon {
+						.xf-lfsItemRightIcon();
+					}
+				}
+				
+				<xf:if is="property('lfsEnableThreadSecondData')">
+				&:not(.item--stickedLink):hover {
+					.structItem-cell--mainData {
+						display: none;
+					}
+
+					.structItem-cell--secondData {
+						display: table-cell;
+					}
+				}
+				</xf:if>
+
+				.contentRow-title {
+					font-size: @xf-fontSizeNormal;
+				}
+			}
+
+			&--different {
+				.xf-lfsItemDifferent();
+			}
+		}
+
+		.structItem-cell {
+			.xf-lfsItemSection();
+
+			&--icon {
+				.xf-lfsItemIcon();
+			}
+
+			&--avatar {
+				width: 32px;
+				padding-right: 0;
+
+				.avatar {
+					.xf-lfsItemAvatar();
+				}
+			}
+
+			&--title {
+				<xf:if is="property('lfsCropTooLongTitles')">
+				.m-overflowEllipsis();
+				</xf:if>
+			}
+
+			&--replyCount {
+				width: 90px;
+			}
+
+			&--mainData {
+				width: 250px;
+
+				.username {
+					max-width: 75px;
+					.m-overflowEllipsis();
+				}
+			}
+
+			&--secondData {
+				display: none;
+				width: 250px;
+			}
+
+			&--rightIcon {
+				.xf-lfsItemInfo();
+
+				float: right;
+			}
+
+			.unread-postfix {
+				.xf-lfsThreadUnreadPostfix();
+			}
+		}
+	}
+
+	.fl-r {
+		float: right;
+	}
+
+	.action-buttons {
+		a {
+			margin-right: 5px;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.left-mrg-icon {
+		margin-left: 2px;
+	}
+
+	.empty-block {
+		.xf-lfsEmptyBlock();
+		width: 100%;
+
+		img {
+			width: 30%;
+		}
+	}
+
+	.loader-block {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		z-index: @zIndex-2;
+	}
+
+	.loader {
+		display: inline-block;
+		position: relative;
+		width: 126px;
+		height: 126px;
+
+		div {
+			position: absolute;
+			border: 4px solid @xf-textColorFeature;
+			opacity: 1;
+			border-radius: 50%;
+			animation: loader 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+			&:nth-child(2) {
+				animation-delay: -0.5s;
+			}
+		}
+	}
+
+	.page-loading-spinner {
+		padding: 5px 10px;
+		text-align: center;
+
+		.spins { 
+			display: inline-block;
+			position: relative;
+			height: 13px;
+			width: 75px;
+			
+			div {
+				position: absolute;
+				width: 13px;
+				height: 13px;
+				border-radius: 50%;
+				background: @xf-textColorFeature;
+				animation-timing-function: cubic-bezier(0, 1, 1, 0);
+
+				&:nth-child(1) {
+					left: 8px;
+					animation: page-loading-ellipsis1 0.6s infinite;
+				}
+
+				&:nth-child(2) {
+					left: 8px;
+					animation: page-loading-ellipsis2 0.6s infinite;
+				}
+
+				&:nth-child(3) {
+					left: 32px;
+					animation: page-loading-ellipsis2 0.6s infinite;
+				}
+
+				&:nth-child(4) {
+					left: 56px;
+					animation: page-loading-ellipsis3 0.6s infinite;
+				}
+			}
+		}
+	}
+
+	.hidden-pageNav {
+		display: none;
+	}
+}
+
+@keyframes loader {
+	0% {
+		top: 55px;
+		left: 55px;
+		width: 0;
+		height: 0;
+		opacity: 1;
+	}
+	100% {
+		top: -1px;
+		left: -1px;
+		width: 115px;
+		height: 115px;
+		opacity: 0;
+	}
+}
+
+@keyframes page-loading-ellipsis1 {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes page-loading-ellipsis2 {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(24px, 0);
+	}
+}
+
+@keyframes page-loading-ellipsis3 {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+
+.menu-content {
+	.tab {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+@media (max-width: @xf-responsiveWide)
+{
+	.lfs {
+		display: block;
+
+		.tabs--list,
+		.tabs-buttons {
+			font-size: 13px;
+		}
+
+		.tabGroup {
+			display: block;
+			width: 100%;
+			margin-bottom: 5px;
+
+			&--members {
+				display: none;
+			}
+
+			&--threads {				
+				.tabGroup-content {
+
+					.structItem--lfsItem {
+						display: flex;
+						flex-flow: row wrap;
+						
+						<xf:if is="property('lfsEnableThreadSecondData')">
+						&:hover {
+							.structItem-cell--mainData {
+								display: block;
+							}
+
+							.structItem-cell--secondData {
+								display: none;
+							}
+						}
+						</xf:if>
+
+						&.item--iconRightLayout {
+							.structItem-cell { 
+
+								&--title {
+									padding-left: 10px;
+									padding-right: 0;
+								}
+
+								&--mainData {
+									padding-left: 10px;
+								}
+							}
+						}
+
+						&.item--stickedLink,
+						&.item--thread.is-sticked {
+							.structItem-cell { 
+								&--title {
+									padding-bottom: 5px;
+								}
+
+								&--mainData {
+									display: none;
+								}
+							}
+						}
+
+						.structItem-cell {
+							&--icon,
+							&--replyCount {
+								display: none;
+							}
+
+							&--title {
+								padding-bottom: 0;
+								word-wrap: anywhere;
+								flex-basis: 85%;
+							}
+
+							&--mainData {
+								display: block;
+								padding-top: 0;
+								width: 100%;
+							}
+
+							&--secondData {
+								display: none !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}]]></template>
+</templates>

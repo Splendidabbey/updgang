@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="lfsAvatarSizeForTagContent" group_name="lfsContent" title="Avatar size for tag content" property_type="value" value_type="select" display_order="140">
+    <value_parameters>xxs=24px
+xs=36px
+s=48px
+m=96px
+l=192px
+h=384px</value_parameters>
+    <value>"xxs"</value>
+  </style_property>
+  <style_property property_name="lfsCropTooLongTitles" group_name="lfsContent" title="Crop too long titles" property_type="value" value_type="boolean" display_order="100">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="lfsEmptyBlock" group_name="lfsContent" title="Empty block" property_type="css" display_order="30" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "color": "@xf-paletteNeutral2",
+    "extra": "text-align: center;"
+}</value>
+  </style_property>
+  <style_property property_name="lfsEnableThreadSecondData" group_name="lfsContent" title="Enable second data display for thread items" description="Second data is forum and interaction buttons that appear on hover" property_type="value" value_type="boolean" display_order="130">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="lfsHideWidth" group_name="lfsContent" title="Hide widget if screen size is smaller" property_type="value" value_type="unit" display_order="30">
+    <value>"0px"</value>
+  </style_property>
+  <style_property property_name="lfsItem" group_name="lfsContent" title="Item" property_type="css" display_order="100" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+    <value>{
+    "border-top-width": "1px",
+    "border-top-color": "xf-diminish(@xf-borderColor, 6%)",
+    "extra": ".m-transition(background);"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemAvatar" group_name="lfsContent" title="Item avatar" property_type="css" display_order="200" css_components="background,border,border_radius,padding,extra">
+    <value>{
+    "extra": "height: 22px;\nwidth: 22px;"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemDifferent" group_name="lfsContent" title="Item different" property_type="css" display_order="160" css_components="text,background,padding,extra">
+    <value>{
+    "background-color": "@xf-contentHighlightBg"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemDifferentAnimationDuration" group_name="lfsContent" title="Item different animation duration" property_type="value" value_type="number" display_order="10">
+    <value_parameters>units={{ phrase('lfs_milliseconds') }}</value_parameters>
+    <value>"400"</value>
+  </style_property>
+  <style_property property_name="lfsItemFaIcon" group_name="lfsContent" title="Item FA icon" property_type="value" value_type="string" display_order="40">
+    <value>"fa-chevron-double-right"</value>
+  </style_property>
+  <style_property property_name="lfsItemHover" group_name="lfsContent" title="Item hover" property_type="css" display_order="110" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+    <value>{
+    "background-color": "@xf-contentHighlightBg"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemIcon" group_name="lfsContent" title="Item icon" property_type="css" display_order="120" css_components="text,background,padding,extra">
+    <value>{
+    "font-size": "12px",
+    "color": "@xf-paletteColor4",
+    "padding-top": "8px",
+    "padding-right": "0",
+    "extra": "margin-right: 2px;\nwidth: 20px;"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemIconRightLayout" group_name="lfsContent" title="Display item icon on the right" property_type="value" value_type="boolean" display_order="80">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="lfsItemInfo" group_name="lfsContent" title="Item info" property_type="css" display_order="150" css_components="text,background,border,padding,extra">
+    <value>{
+    "font-size": "12px",
+    "color": "@xf-paletteNeutral2",
+    "padding-top": "7px",
+    "extra": "max-width: 75px;\n.m-overflowEllipsis();"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemLink" group_name="lfsContent" title="Item link" property_type="css" display_order="170" css_components="text,background,padding,extra">
+    <value>[]</value>
+  </style_property>
+  <style_property property_name="lfsItemLinkHover" group_name="lfsContent" title="Item link hover" property_type="css" display_order="175" css_components="text,background,padding,extra">
+    <value>[]</value>
+  </style_property>
+  <style_property property_name="lfsItemRightIcon" group_name="lfsContent" title="Item right icon" property_type="css" display_order="125" css_components="text,background,padding,extra">
+    <value>{
+    "padding-right": "10px",
+    "padding-left": "0"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemSection" group_name="lfsContent" title="Item section" property_type="css" display_order="180" css_components="text,background,border,padding,extra">
+    <value>{
+    "padding": "5px 10px",
+    "extra": "border: none;"
+}</value>
+  </style_property>
+  <style_property property_name="lfsItemUnread" group_name="lfsContent" title="Item unread" property_type="css" display_order="101" css_components="text,background,border,border_radius,padding,extra">
+    <value>[]</value>
+  </style_property>
+  <style_property property_name="lfsItemUnreadIcon" group_name="lfsContent" title="Item unread icon" property_type="css" display_order="130" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "color": "#FF0000"
+}</value>
+  </style_property>
+  <style_property property_name="lfsPinnedFaIcon" group_name="lfsContent" title="Pinned item FA icon" property_type="value" value_type="string" display_order="50">
+    <value>"fa-thumbtack fas"</value>
+  </style_property>
+  <style_property property_name="lfsReplyCountFaIcon" group_name="lfsContent" title="Reply count fa icon" property_type="value" value_type="string" display_order="70">
+    <value>"fa-comments"</value>
+  </style_property>
+  <style_property property_name="lfsShowAvatarsInMemberGroup" group_name="lfsContent" title="Show avatars in member group" property_type="value" value_type="boolean" display_order="25">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="lfsShowAvatarsInThreadGroup" group_name="lfsContent" title="Show avatars in thread group" property_type="value" value_type="boolean" display_order="20">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="lfsShowHideButton" group_name="lfsContent" title="Show hide button" description="If enabled, a button will be displayed that will lead to account preferences" property_type="value" value_type="boolean" display_order="120">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="lfsShowMuteButtonIfSound" group_name="lfsContent" title="Display the mute button in statistics, if the widget is set to sound" property_type="value" value_type="boolean" display_order="110">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="lfsShowReplyCountInThreads" group_name="lfsContent" title="Show reply count in threads group" property_type="value" value_type="boolean" display_order="60">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="lfsShowUnreadPostfix" group_name="lfsContent" title="Show thread unread postfix" property_type="value" value_type="boolean" display_order="90">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="lfsTab" group_name="lfsTabs" title="Tab" property_type="css" display_order="100" css_components="text,background,border,border_color_simple,padding,extra">
+    <value>{
+    "padding-top": "10px",
+    "padding-right": "12px",
+    "padding-bottom": "10px",
+    "padding-left": "12px"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabGroup" group_name="lfsContent" title="Tab group" property_type="css" display_order="10" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+    <value>{
+    "border-radius": "@xf-blockBorderRadius",
+    "padding": "0",
+    "extra": "margin-right: 5px;"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabGroupContent" group_name="lfsContent" title="Tab group content" property_type="css" display_order="20" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "extra": "max-height: 255px;\nheight: 255px;"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabHover" group_name="lfsTabs" title="Tab hover" property_type="css" display_order="110" css_components="text,background,border,border_color_simple,padding,extra">
+    <value>{
+    "border-bottom-width": "3px",
+    "border-bottom-color": "xf-intensify(@xf-contentBg, 3.5%)"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabLink" group_name="lfsTabs" title="Tab link" property_type="css" display_order="160" css_components="text,extra">
+    <value>{
+    "color": "@xf-textColorFeature",
+    "text-decoration": "none"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabSelected" group_name="lfsTabs" title="Tab selected" property_type="css" display_order="120" css_components="text,background,border,padding,extra">
+    <value>{
+    "border-bottom-width": "3px",
+    "border-bottom-color": "@xf-textColorFeature"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabsButton" group_name="lfsTabs" title="Tabs button" property_type="css" display_order="140" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "color": "@xf-linkColor",
+    "extra": "margin-right: 5px;"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabsButtonHover" group_name="lfsTabs" title="Tabs button hover" property_type="css" display_order="150" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "text-decoration": "none"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabsButtons" group_name="lfsTabs" title="Tabs buttons block" description="Button block to the right of the tabs" property_type="css" display_order="130" css_components="text,background,border,padding,extra">
+    <value>{
+    "padding-top": "11px",
+    "padding-right": "10px",
+    "padding-bottom": "11px",
+    "padding-left": "10px"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabsContainer" group_name="lfsTabs" title="Tabs container" property_type="css" display_order="10" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+    <value>{
+    "border-bottom-width": "1px",
+    "border-bottom-color": "#eee"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabsHScrollerAction" group_name="lfsTabs" title="Tabs scroller button" property_type="css" display_order="30" css_components="text,background,padding,extra">
+    <value>{
+    "color": "@xf-textColorFeature",
+    "background-color": "@xf-contentBg",
+    "padding": "0",
+    "padding-bottom": "3px"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabsHScrollerActionHover" group_name="lfsTabs" title="Tabs scroller button hover" property_type="css" display_order="40" css_components="text,background">
+    <value>{
+    "color": "@xf-linkColor"
+}</value>
+  </style_property>
+  <style_property property_name="lfsTabsList" group_name="lfsTabs" title="Tabs list" property_type="css" display_order="20" css_components="text,background,border,padding,extra">
+    <value>{
+    "font-size": "15px",
+    "color": "@xf-textColorFeature"
+}</value>
+  </style_property>
+  <style_property property_name="lfsThreadUnreadPostfix" group_name="lfsContent" title="Item thread unread postfix" property_type="css" display_order="190" css_components="text,background,border,border_radius,padding,extra">
+    <value>{
+    "font-size": "12px",
+    "color": "@xf-buttonTextColor",
+    "background-color": "@xf-buttonPrimaryBg",
+    "border-radius": "@xf-borderRadiusMedium",
+    "padding": "2px 4px"
+}</value>
+  </style_property>
+</style_properties>

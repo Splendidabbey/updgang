@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="admin_navigation.addonFlareAwardSystem" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Award System]]></phrase>
+  <phrase title="admin_navigation.af_as_add_user_award" version_id="1010070" version_string="1.1.0"><![CDATA[Add user award]]></phrase>
+  <phrase title="admin_navigation.af_as_approved_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Approved Awards]]></phrase>
+  <phrase title="admin_navigation.af_as_award_manager" version_id="1010070" version_string="1.1.0"><![CDATA[Award manager]]></phrase>
+  <phrase title="admin_navigation.af_as_award_status" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Award Status]]></phrase>
+  <phrase title="admin_navigation.af_as_award_system_settings" version_id="1010070" version_string="1.1.0"><![CDATA[Award system settings]]></phrase>
+  <phrase title="admin_navigation.af_as_pending_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Pending Awards]]></phrase>
+  <phrase title="admin_navigation.af_as_rejected_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Rejected Awards]]></phrase>
+  <phrase title="admin_permission.af_as" version_id="1010070" version_string="1.1.0"><![CDATA[[AddonFlare] XF2 Awards System]]></phrase>
+  <phrase title="af_as_1_pending_award" version_id="1000370" version_string="1.0.3"><![CDATA[1 Pending Award]]></phrase>
+  <phrase title="af_as_add_award" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Add award]]></phrase>
+  <phrase title="af_as_add_category" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Add category]]></phrase>
+  <phrase title="af_as_add_user_award" version_id="1000070" version_string="1.0.0"><![CDATA[Add user award]]></phrase>
+  <phrase title="af_as_all_categories" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[All Categories]]></phrase>
+  <phrase title="af_as_allow_multiple" version_id="1010070" version_string="1.1.0"><![CDATA[Allow multiple]]></phrase>
+  <phrase title="af_as_allow_multiple_explain" version_id="1010070" version_string="1.1.0"><![CDATA[Allow users to have more than 1 of this award]]></phrase>
+  <phrase title="af_as_allow_view_profile" version_id="1040070" version_string="1.4.0"><![CDATA[View awards tab on profile]]></phrase>
+  <phrase title="af_as_amount_needed_levelup_increasesby" version_id="1010070" version_string="1.1.0"><![CDATA[ The amount needed to level up increases by]]></phrase>
+  <phrase title="af_as_auto" version_id="1040070" version_string="1.4.0"><![CDATA[Auto]]></phrase>
+  <phrase title="af_as_auto_award_features" version_id="1010170" version_string="1.1.1"><![CDATA[Auto award features]]></phrase>
+  <phrase title="af_as_auto_feature_awards" version_id="1010170" version_string="1.1.1"><![CDATA[Auto feature awards]]></phrase>
+  <phrase title="af_as_auto_feature_awards_hint" version_id="1010170" version_string="1.1.1"><![CDATA[Automatically feature awards when awarded]]></phrase>
+  <phrase title="af_as_automaticaly_awarded" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Automatically awarded]]></phrase>
+  <phrase title="af_as_availableAwards" version_id="1010070" version_string="1.1.0"><![CDATA[Available Awards]]></phrase>
+  <phrase title="af_as_availableAwards_instructions_limit" version_id="1010070" version_string="1.1.0"><![CDATA[Click on the arrows to feature. You may select up to <span id="featuredAwardsRemaining">{limit}</span> award(s).]]></phrase>
+  <phrase title="af_as_availableAwards_instructions_nolimit" version_id="1010070" version_string="1.1.0"><![CDATA[Click on the arrows to feature.]]></phrase>
+  <phrase title="af_as_award" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Award]]></phrase>
+  <phrase title="af_as_award_cat_desc.uncategorized" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="af_as_award_cat_display_mode_hidden" version_id="1010070" version_string="1.1.0"><![CDATA[Hidden]]></phrase>
+  <phrase title="af_as_award_cat_display_mode_step" version_id="1010070" version_string="1.1.0"><![CDATA[Step by step]]></phrase>
+  <phrase title="af_as_award_cat_display_mode_visible" version_id="1010070" version_string="1.1.0"><![CDATA[Visible]]></phrase>
+  <phrase title="af_as_award_cat_title.uncategorized" version_id="1000070" version_string="1.0.0"><![CDATA[Uncategorized awards]]></phrase>
+  <phrase title="af_as_award_category" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Award category]]></phrase>
+  <phrase title="af_as_award_points" version_id="1010070" version_string="1.1.0"><![CDATA[Award points]]></phrase>
+  <phrase title="af_as_award_recommend_not_allowed" version_id="1010070" version_string="1.1.0"><![CDATA[This award is not allowed to be recommended]]></phrase>
+  <phrase title="af_as_award_request_not_allowed" version_id="1010070" version_string="1.1.0"><![CDATA[This award is not allowed to be requested]]></phrase>
+  <phrase title="af_as_awarded" version_id="1010070" version_string="1.1.0"><![CDATA[Awarded]]></phrase>
+  <phrase title="af_as_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Awards]]></phrase>
+  <phrase title="af_as_can_be_recommended" version_id="1010070" version_string="1.1.0"><![CDATA[Can be recommended]]></phrase>
+  <phrase title="af_as_can_be_requested" version_id="1010070" version_string="1.1.0"><![CDATA[Can be requested]]></phrase>
+  <phrase title="af_as_can_feature_label" version_id="1010070" version_string="1.1.0"><![CDATA[Can be featured?]]></phrase>
+  <phrase title="af_as_color" version_id="1010170" version_string="1.1.1"><![CDATA[Color]]></phrase>
+  <phrase title="af_as_confirm_award_deletion" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Any users with this award will lose the award following the deletion.]]></phrase>
+  <phrase title="af_as_confirm_category_deletion" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Any awards belonging to this category will be uncategorized following the deletion.]]></phrase>
+  <phrase title="af_as_copy_criteria_from_tropy" version_id="1040070" version_string="1.4.0"><![CDATA[Copy criteria from trophy]]></phrase>
+  <phrase title="af_as_copy_from_trophy" version_id="1040070" version_string="1.4.0"><![CDATA[Copy from trophy]]></phrase>
+  <phrase title="af_as_current_trophy" version_id="1010070" version_string="1.1.0"><![CDATA[Current trophy]]></phrase>
+  <phrase title="af_as_delete_cat_awards" version_id="1000470" version_string="1.0.4"><![CDATA[Delete category awards]]></phrase>
+  <phrase title="af_as_delete_cat_awards_explain" version_id="1000470" version_string="1.0.4"><![CDATA[If checked, any awards belonging to this category will be permanently deleted.<br>
+If not checked, any awards belonging to this category will be moved to the "Uncategorized" category.]]></phrase>
+  <phrase title="af_as_display_mode" version_id="1010070" version_string="1.1.0"><![CDATA[Display mode]]></phrase>
+  <phrase title="af_as_edit_award" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Edit award]]></phrase>
+  <phrase title="af_as_edit_category" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Edit category]]></phrase>
+  <phrase title="af_as_edit_user_award" version_id="1000070" version_string="1.0.0"><![CDATA[Edit user award]]></phrase>
+  <phrase title="af_as_existing_image" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Existing image]]></phrase>
+  <phrase title="af_as_feature" version_id="1010070" version_string="1.1.0"><![CDATA[Feature]]></phrase>
+  <phrase title="af_as_featureAwards" version_id="1010071" version_string="1.1.0.1"><![CDATA[Feature Awards]]></phrase>
+  <phrase title="af_as_feature_award_on_my_profile" version_id="1010070" version_string="1.1.0"><![CDATA[Feature award on my profile]]></phrase>
+  <phrase title="af_as_feature_awards" version_id="1010070" version_string="1.1.0"><![CDATA[Feature awards]]></phrase>
+  <phrase title="af_as_feature_awards_user_x" version_id="1020170" version_string="1.2.1"><![CDATA[Feature awards: {user}]]></phrase>
+  <phrase title="af_as_featuredAwards" version_id="1010070" version_string="1.1.0"><![CDATA[Featured Awards]]></phrase>
+  <phrase title="af_as_featuredAwards_instructions" version_id="1010070" version_string="1.1.0"><![CDATA[Click on the arrows to unfeature. Re-order by dragging from the bars.]]></phrase>
+  <phrase title="af_as_give_award_if" version_id="1040070" version_string="1.4.0"><![CDATA[Give this award if]]></phrase>
+  <phrase title="af_as_given_by" version_id="1040070" version_string="1.4.0"><![CDATA[Given By]]></phrase>
+  <phrase title="af_as_inline_css" version_id="1010170" version_string="1.1.1"><![CDATA[Inline CSS]]></phrase>
+  <phrase title="af_as_invalid_award_specified" version_id="1000070" version_string="1.0.0"><![CDATA[Invalid award specified]]></phrase>
+  <phrase title="af_as_invalid_recipients" version_id="1000070" version_string="1.0.0"><![CDATA[Invalid recipients specified]]></phrase>
+  <phrase title="af_as_issue_reason" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Issue Reason]]></phrase>
+  <phrase title="af_as_level" version_id="1010070" version_string="1.1.0"><![CDATA[Level]]></phrase>
+  <phrase title="af_as_level_system_options" version_id="1040070" version_string="1.4.0"><![CDATA[Level system options]]></phrase>
+  <phrase title="af_as_level_x" version_id="1010070" version_string="1.1.0"><![CDATA[Level: {level}]]></phrase>
+  <phrase title="af_as_link_trophy" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Link trophy]]></phrase>
+  <phrase title="af_as_lv_x" version_id="1010170" version_string="1.1.1"><![CDATA[LV {level}]]></phrase>
+  <phrase title="af_as_min_level" version_id="1010170" version_string="1.1.1"><![CDATA[Min Level]]></phrase>
+  <phrase title="af_as_most_recent_awards_explain" version_id="1000070" version_string="1.0.0"><![CDATA[The max amount of entries to show in the overlay before the "see more" button appears.]]></phrase>
+  <phrase title="af_as_most_recent_users" version_id="1000070" version_string="1.0.0"><![CDATA[Most recent users]]></phrase>
+  <phrase title="af_as_no_awards_added" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[No awards added]]></phrase>
+  <phrase title="af_as_no_awards_added_yet" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[No awards have been added yet.]]></phrase>
+  <phrase title="af_as_no_awards_in_category" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[No awards have been added to this category yet]]></phrase>
+  <phrase title="af_as_no_awards_x_status" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[No awards {status}]]></phrase>
+  <phrase title="af_as_no_awards_x_status_in_category" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[No awards {status} in this category]]></phrase>
+  <phrase title="af_as_no_reason_specified" version_id="1000070" version_string="1.0.0"><![CDATA[No reason specified]]></phrase>
+  <phrase title="af_as_no_recent_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[There are no recent awards.]]></phrase>
+  <phrase title="af_as_no_request_reason" version_id="1000070" version_string="1.0.0"><![CDATA[No reason specified]]></phrase>
+  <phrase title="af_as_options" version_id="1040070" version_string="1.4.0"><![CDATA[Award Options]]></phrase>
+  <phrase title="af_as_overlay_maximum_entries" version_id="1000070" version_string="1.0.0"><![CDATA[Overlay maximum entries]]></phrase>
+  <phrase title="af_as_overwrite" version_id="1030071" version_string="1.3.0.1"><![CDATA[Overwrite]]></phrase>
+  <phrase title="af_as_overwrite_explain" version_id="1030071" version_string="1.3.0.1"><![CDATA[If checked, awards in this category will be replaced by the last award the user receives from the category. Users will only be able to have one award from this category at a time.]]></phrase>
+  <phrase title="af_as_please_confirm_x_status_x_total_items" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Please confirm that you want to {status} {total} item{s}.]]></phrase>
+  <phrase title="af_as_please_enter_valid_award_css_rules" version_id="1010170" version_string="1.1.1"><![CDATA[Please enter valid award CSS rules.]]></phrase>
+  <phrase title="af_as_points" version_id="1010070" version_string="1.1.0"><![CDATA[Points]]></phrase>
+  <phrase title="af_as_postbit_bottom_userDetails" version_id="1000270" version_string="1.0.2"><![CDATA[User Details: Bottom]]></phrase>
+  <phrase title="af_as_postbit_bottom_userExtras" version_id="1000270" version_string="1.0.2"><![CDATA[User Extras: Bottom]]></phrase>
+  <phrase title="af_as_postbit_manual" version_id="1000270" version_string="1.0.2"><![CDATA[Manual]]></phrase>
+  <phrase title="af_as_postbit_new_first" version_id="1000270" version_string="1.0.2"><![CDATA[Most recently awarded first]]></phrase>
+  <phrase title="af_as_postbit_old_first" version_id="1000270" version_string="1.0.2"><![CDATA[Most recently awarded last]]></phrase>
+  <phrase title="af_as_postbit_top_userDetails" version_id="1000270" version_string="1.0.2"><![CDATA[User Details: Top]]></phrase>
+  <phrase title="af_as_postbit_top_userExtras" version_id="1000270" version_string="1.0.2"><![CDATA[User Extras: Top]]></phrase>
+  <phrase title="af_as_postbit_type_carousel" version_id="1010070" version_string="1.1.0"><![CDATA[Carousel]]></phrase>
+  <phrase title="af_as_postbit_type_list" version_id="1010070" version_string="1.1.0"><![CDATA[List]]></phrase>
+  <phrase title="af_as_reason_for_recommendation" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Reason for recommendation]]></phrase>
+  <phrase title="af_as_recommend" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Recommend]]></phrase>
+  <phrase title="af_as_recommendation_submitted" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Award Recommendation Submitted!]]></phrase>
+  <phrase title="af_as_recommended_by" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[recommended by]]></phrase>
+  <phrase title="af_as_recommended_for" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[recommended for]]></phrase>
+  <phrase title="af_as_remove_featuredAwards" version_id="1010070" version_string="1.1.0"><![CDATA[Remove featured awards from my profile]]></phrase>
+  <phrase title="af_as_remove_featured_awards_from_profile" version_id="1020170" version_string="1.2.1"><![CDATA[Remove featured awards from profile]]></phrase>
+  <phrase title="af_as_request" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Request]]></phrase>
+  <phrase title="af_as_request_submitted" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Award Request Submitted!]]></phrase>
+  <phrase title="af_as_requested_by" version_id="1000070" version_string="1.0.0"><![CDATA[Requested by]]></phrase>
+  <phrase title="af_as_show_in_awards_list" version_id="1010070" version_string="1.1.0"><![CDATA[Show in awards list page]]></phrase>
+  <phrase title="af_as_sort_awards" version_id="1000670" version_string="1.0.6"><![CDATA[Sort awards]]></phrase>
+  <phrase title="af_as_the_following_users_x_already_have_this_award" version_id="1000070" version_string="1.0.0"><![CDATA[The following users already have this award: {names}.]]></phrase>
+  <phrase title="af_as_total_awarded_x" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Total awarded: {total}]]></phrase>
+  <phrase title="af_as_trophy" version_id="1000070" version_string="1.0.0"><![CDATA[Trophy]]></phrase>
+  <phrase title="af_as_user_award_status.approved" version_id="1000670" version_string="1.0.6"><![CDATA[approved]]></phrase>
+  <phrase title="af_as_user_award_status.pending" version_id="1000670" version_string="1.0.6"><![CDATA[pending]]></phrase>
+  <phrase title="af_as_user_award_status.rejected" version_id="1000670" version_string="1.0.6"><![CDATA[rejected]]></phrase>
+  <phrase title="af_as_user_award_tooltip" version_id="1040070" version_string="1.4.0"><![CDATA[{title}: {description}]]></phrase>
+  <phrase title="af_as_user_has_completed_user_fields_x" version_id="1020070" version_string="1.2.0"><![CDATA[User has completed user fields]]></phrase>
+  <phrase title="af_as_user_has_posted_at_least_x_messages_in_y_forums_z_days" version_id="1020070" version_string="1.2.0"><![CDATA[User has posted at least X messages in Y forum(s) in the last Z days]]></phrase>
+  <phrase title="af_as_user_has_reached_at_least_award_level_x" version_id="1020070" version_string="1.2.0"><![CDATA[User has reached at least award level X]]></phrase>
+  <phrase title="af_as_user_has_thread_in_x_forums_at_least_y_replies" version_id="1020070" version_string="1.2.0"><![CDATA[User has posted a thread in X forum(s) that has at least Y replies]]></phrase>
+  <phrase title="af_as_view_your_awards_tab_on_your_profile_page" version_id="1010170" version_string="1.1.1"><![CDATA[View your awards tab on your profile page]]></phrase>
+  <phrase title="af_as_viewing_awards_list" version_id="1040070" version_string="1.4.0"><![CDATA[Viewing awards list]]></phrase>
+  <phrase title="af_as_x_pending_awards" version_id="1000370" version_string="1.0.3"><![CDATA[{total} Pending Awards]]></phrase>
+  <phrase title="af_as_x_points_until_level_y" version_id="1010070" version_string="1.1.0"><![CDATA[{points} Points Until Level {level}]]></phrase>
+  <phrase title="af_as_x_request_award" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{request} Award]]></phrase>
+  <phrase title="af_as_x_status_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{status} awards]]></phrase>
+  <phrase title="af_as_x_status_date" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{status} date]]></phrase>
+  <phrase title="af_as_x_user_already_has_award" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{username} already has this award.]]></phrase>
+  <phrase title="af_as_x_user_already_has_pending_request" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{username} has this award currently pending.]]></phrase>
+  <phrase title="af_as_x_user_already_rejected_x_times" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{username} has been reject too many times for this award.]]></phrase>
+  <phrase title="af_as_x_user_has_no_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{username} has no awards.]]></phrase>
+  <phrase title="af_as_xs_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{username}'s Awards]]></phrase>
+  <phrase title="af_as_you_have_been_awarded_an_award_x" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[<strong class="subject">You</strong> have earned a new award: {award}]]></phrase>
+  <phrase title="af_as_you_have_reached_level_x" version_id="1010070" version_string="1.1.0"><![CDATA[Congratulations! You have reached {level_x}!]]></phrase>
+  <phrase title="af_as_z" version_id="1000270" version_string="1.0.2"><![CDATA[No license found for add-on: XF2 Awards System. <br>Please <a href="https://www.addonflare.com/xenforo-2-addons/xf2-awards-system.12/" rel="nofollow" target="_blank">purchase a license</a> or <a href="admin.php?add-ons/AddonFlare-AwardSystem/uninstall" rel="nofollow" target="_blank">uninstall</a> the add-on.<br>
+If you have a valid license, please <a href="admin.php?add-ons/" rel="nofollow" target="_blank">disable</a> the add-on to remove this message and <a href="https://www.addonflare.com/licenses/" rel="nofollow" target="_blank">submit a support ticket</a>.]]></phrase>
+  <phrase title="cron_entry.af_as_user_award" version_id="1040070" version_string="1.4.0"><![CDATA[[AddonFlare] XF2 Awards System: Update user awards]]></phrase>
+  <phrase title="help_page_desc.awards" version_id="1000670" version_string="1.0.6"><![CDATA[You can earn awards by carrying out different actions. This page shows a list of the awards that are available.]]></phrase>
+  <phrase title="help_page_title.awards" version_id="1000570" version_string="1.0.5"><![CDATA[Awards]]></phrase>
+  <phrase title="nav.addonFlarePubAwards" version_id="1000070" version_string="1.0.0"><![CDATA[Awards]]></phrase>
+  <phrase title="nav.af_as_my_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Your Awards]]></phrase>
+  <phrase title="nav.af_as_pending_awards" version_id="1000370" version_string="1.0.3"><![CDATA[Pending Awards]]></phrase>
+  <phrase title="no_awards_added" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[No awards have been added yet]]></phrase>
+  <phrase title="option.af_as_auto_reject_request" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Auto Reject Request]]></phrase>
+  <phrase title="option.af_as_award_can_recommend" version_id="1010070" version_string="1.1.0"><![CDATA[Global: Allow Award Recommendations]]></phrase>
+  <phrase title="option.af_as_award_can_request" version_id="1010070" version_string="1.1.0"><![CDATA[Global: Allow Award Requests]]></phrase>
+  <phrase title="option.af_as_levels_colors" version_id="1010170" version_string="1.1.1"><![CDATA[Level Colors]]></phrase>
+  <phrase title="option.af_as_levels_enabled" version_id="1010070" version_string="1.1.0"><![CDATA[Enable Levels System]]></phrase>
+  <phrase title="option.af_as_levels_levelup" version_id="1010070" version_string="1.1.0"><![CDATA[Level up increments]]></phrase>
+  <phrase title="option.af_as_levels_levelup_alert" version_id="1010070" version_string="1.1.0"><![CDATA[Alert users when they level up]]></phrase>
+  <phrase title="option.af_as_levels_maxlevel" version_id="1010070" version_string="1.1.0"><![CDATA[Max level]]></phrase>
+  <phrase title="option.af_as_levels_maxpoints" version_id="1010070" version_string="1.1.0"><![CDATA[Max Points (internal value)]]></phrase>
+  <phrase title="option.af_as_levels_pointsper" version_id="1010070" version_string="1.1.0"><![CDATA[Points per level]]></phrase>
+  <phrase title="option.af_as_levels_show_level0" version_id="1010070" version_string="1.1.0"><![CDATA[Show Level 0]]></phrase>
+  <phrase title="option.af_as_max_featured_awards" version_id="1010070" version_string="1.1.0"><![CDATA[Max Featured Awards]]></phrase>
+  <phrase title="option.af_as_max_featured_awards_per_level" version_id="1010170" version_string="1.1.1"><![CDATA[Max Featured Awards: Level Override]]></phrase>
+  <phrase title="option.af_as_max_profile_awards" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Max Profile Awards]]></phrase>
+  <phrase title="option.af_as_most_recent_awards" version_id="1000070" version_string="1.0.0"><![CDATA[Users Awarded List]]></phrase>
+  <phrase title="option.af_as_pending_notice_show" version_id="1000370" version_string="1.0.3"><![CDATA[Show pending award requests notice in these templates:]]></phrase>
+  <phrase title="option.af_as_postbit" version_id="1000070" version_string="1.0.0"><![CDATA[Global: Show awards in postbit]]></phrase>
+  <phrase title="option.af_as_registrationDefaults" version_id="1010170" version_string="1.1.1"><![CDATA[Default registration option values]]></phrase>
+  <phrase title="option.af_as_ugs_can_manually_feature" version_id="1020070" version_string="1.2.0"><![CDATA[User groups: Allowed to manually feature awards]]></phrase>
+  <phrase title="option.af_as_ugs_can_not_manually_feature" version_id="1020070" version_string="1.2.0"><![CDATA[User groups: NOT Allowed to manually feature awards]]></phrase>
+  <phrase title="option.af_as_ugs_can_show_featured" version_id="1020070" version_string="1.2.0"><![CDATA[User groups: Allowed to show featured awards]]></phrase>
+  <phrase title="option.af_as_ugs_manage" version_id="1020070" version_string="1.2.0"><![CDATA[User groups: Allowed to manage system]]></phrase>
+  <phrase title="option_explain.af_as_auto_reject_request" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Automatically reject an award request when user has x amount of rejections per award.]]></phrase>
+  <phrase title="option_explain.af_as_award_can_recommend" version_id="1010070" version_string="1.1.0"><![CDATA[You can enable/disable per award in the award manager]]></phrase>
+  <phrase title="option_explain.af_as_award_can_request" version_id="1010070" version_string="1.1.0"><![CDATA[You can enable/disable per award in the award manager]]></phrase>
+  <phrase title="option_explain.af_as_levels_colors" version_id="1010170" version_string="1.1.1"><![CDATA[]]></phrase>
+  <phrase title="option_explain.af_as_levels_enabled" version_id="1010070" version_string="1.1.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.af_as_levels_levelup" version_id="1010070" version_string="1.1.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.af_as_levels_levelup_alert" version_id="1010070" version_string="1.1.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.af_as_levels_maxlevel" version_id="1010070" version_string="1.1.0"><![CDATA[Use 0 for no limit]]></phrase>
+  <phrase title="option_explain.af_as_levels_maxpoints" version_id="1010070" version_string="1.1.0"><![CDATA[Should only be modified programmatically when there's a higher amount]]></phrase>
+  <phrase title="option_explain.af_as_levels_pointsper" version_id="1010070" version_string="1.1.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.af_as_levels_show_level0" version_id="1010070" version_string="1.1.0"><![CDATA[Show when user's are on Level 0 in postbit, visitor menu, profile, etc.]]></phrase>
+  <phrase title="option_explain.af_as_max_featured_awards" version_id="1010170" version_string="1.1.1"><![CDATA[Max number of awards users can feature]]></phrase>
+  <phrase title="option_explain.af_as_max_featured_awards_per_level" version_id="1010170" version_string="1.1.1"><![CDATA[Max number of awards users can feature depending on their level on<br>
+Use 0 for no limit]]></phrase>
+  <phrase title="option_explain.af_as_max_profile_awards" version_id="1000070" version_string="1.0.0"><![CDATA[Maximum amount of awards shown in the user's profile before the "see more" button appears.]]></phrase>
+  <phrase title="option_explain.af_as_most_recent_awards" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.af_as_pending_notice_show" version_id="1000370" version_string="1.0.3"><![CDATA[Show "X Award Requests Pending" notice in these templates<br>
+Only visible for manage user groups<br>
+Separate templates with a comma.<br>
+Use "*" to show in all templates<br>
+Default: forum_list]]></phrase>
+  <phrase title="option_explain.af_as_postbit" version_id="1000070" version_string="1.0.0"><![CDATA[You can enable/disable awards in postbit per style in <a href="admin.php?style-properties/">Style properties</a>]]></phrase>
+  <phrase title="option_explain.af_as_registrationDefaults" version_id="1010170" version_string="1.1.1"><![CDATA[]]></phrase>
+  <phrase title="option_explain.af_as_ugs_can_manually_feature" version_id="1020070" version_string="1.2.0"><![CDATA[User groups allowed to sort and manually feature/un-feature awards]]></phrase>
+  <phrase title="option_explain.af_as_ugs_can_not_manually_feature" version_id="1020070" version_string="1.2.0"><![CDATA[User groups NOT allowed to sort and manually feature/un-feature awards<br>
+<b>Note: This setting overrides "User groups: Allowed to manually feature awards"</b>]]></phrase>
+  <phrase title="option_explain.af_as_ugs_can_show_featured" version_id="1020070" version_string="1.2.0"><![CDATA[Featured awards will only show in the postbit for these user groups]]></phrase>
+  <phrase title="option_explain.af_as_ugs_manage" version_id="1000370" version_string="1.0.3"><![CDATA[These user groups will be able to approve/reject award requests through the fron-end (without needing admin access)]]></phrase>
+  <phrase title="option_group.af_awardSystem" version_id="1010070" version_string="1.1.0"><![CDATA[[AddonFlare] XF2 Awards System: General]]></phrase>
+  <phrase title="option_group_description.af_awardSystem" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[]]></phrase>
+  <phrase title="style_prop.af_as_postbit" version_id="1010070" version_string="1.1.0"><![CDATA[Show Awards In Postbit]]></phrase>
+  <phrase title="style_prop.af_as_postbit_award_height" version_id="1010070" version_string="1.1.0"><![CDATA[List: Award Image Height]]></phrase>
+  <phrase title="style_prop.af_as_postbit_award_marginBottom" version_id="1010070" version_string="1.1.0"><![CDATA[List: Award Image - Bottom Margin]]></phrase>
+  <phrase title="style_prop.af_as_postbit_c_award_height" version_id="1010070" version_string="1.1.0"><![CDATA[Carousel: Award Image Height]]></phrase>
+  <phrase title="style_prop.af_as_postbit_c_award_padding" version_id="1010070" version_string="1.1.0"><![CDATA[Carousel: Award Padding]]></phrase>
+  <phrase title="style_prop.af_as_postbit_feature_button" version_id="1010071" version_string="1.1.0.1"><![CDATA[Show Feature Button]]></phrase>
+  <phrase title="style_prop.af_as_postbit_level" version_id="1010070" version_string="1.1.0"><![CDATA[Show Level In Postbit]]></phrase>
+  <phrase title="style_prop.af_as_postbit_level_graph" version_id="1010170" version_string="1.1.1"><![CDATA[Show Level Graph In Postbit]]></phrase>
+  <phrase title="style_prop.af_as_postbit_marginBottom" version_id="1010070" version_string="1.1.0"><![CDATA[Postbit: Awards Container - Bottom Margin]]></phrase>
+  <phrase title="style_prop.af_as_postbit_marginTop" version_id="1010070" version_string="1.1.0"><![CDATA[Postbit: Awards Container - Top Margin]]></phrase>
+  <phrase title="style_prop.af_as_postbit_position" version_id="1000070" version_string="1.0.0"><![CDATA[Postbit Position]]></phrase>
+  <phrase title="style_prop.af_as_postbit_total" version_id="1000570" version_string="1.0.5"><![CDATA[Show Total Awards In Postbit]]></phrase>
+  <phrase title="style_prop.af_as_postbit_type" version_id="1010070" version_string="1.1.0"><![CDATA[Postbit Type]]></phrase>
+  <phrase title="style_prop.af_as_profile_total" version_id="1000570" version_string="1.0.5"><![CDATA[Show Total Awards In Profile]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_award_height" version_id="1000070" version_string="1.0.0"><![CDATA[Default: 35px]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_award_marginBottom" version_id="1000070" version_string="1.0.0"><![CDATA[Default: 2%]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_c_award_height" version_id="1010070" version_string="1.1.0"><![CDATA[Default: 25px]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_c_award_padding" version_id="1010070" version_string="1.1.0"><![CDATA[Default: 5px 5px]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_feature_button" version_id="1010071" version_string="1.1.0.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_level" version_id="1010070" version_string="1.1.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_level_graph" version_id="1010170" version_string="1.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_marginBottom" version_id="1000070" version_string="1.0.0"><![CDATA[Default: 5px]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_marginTop" version_id="1000070" version_string="1.0.0"><![CDATA[Default: 5px]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_position" version_id="1000270" version_string="1.0.2"><![CDATA["Manual" position directions:<br>
+Use the following code in your "message_macros" template:<br>
+&lt;xf:include template=&quot;af_as_message_postbit&quot;&gt;
+&lt;xf:set var=&quot;$postbitPosition&quot; value=&quot;manual&quot; /&gt;
+&lt;/xf:include&gt;]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_total" version_id="1000570" version_string="1.0.5"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.af_as_postbit_type" version_id="1010070" version_string="1.1.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.af_as_profile_total" version_id="1000570" version_string="1.0.5"><![CDATA[Show total awards count in profile and profile hover menu]]></phrase>
+  <phrase title="style_prop_group.afAwardSystem" version_id="1000070" version_string="1.0.0"><![CDATA[[AddonFlare] XF2 Awards System]]></phrase>
+  <phrase title="style_prop_group_desc.afAwardSystem" version_id="1000170" version_string="1.0.1"><![CDATA[A number of properties to control the appearance of the XF2 Awards System add-on]]></phrase>
+</phrases>

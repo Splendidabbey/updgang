@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="af_as_auto_reject_request" edit_format="textbox" data_type="positive_integer">
+    <default_value>5</default_value>
+    <relation group_id="af_awardSystem" display_order="10"/>
+  </option>
+  <option option_id="af_as_award_can_recommend" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="af_awardSystem" display_order="36"/>
+  </option>
+  <option option_id="af_as_award_can_request" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="af_awardSystem" display_order="35"/>
+  </option>
+  <option option_id="af_as_levels_colors" edit_format="callback" data_type="array" validation_class="AddonFlare\AwardSystem\Option\LevelColors" validation_method="verifyOption">
+    <default_value>[]</default_value>
+    <edit_format_params>AddonFlare\AwardSystem\Option\LevelColors::render</edit_format_params>
+    <sub_options>*</sub_options>
+    <relation group_id="af_awardSystem" display_order="260"/>
+  </option>
+  <option option_id="af_as_levels_enabled" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="af_awardSystem" display_order="201"/>
+  </option>
+  <option option_id="af_as_levels_levelup" edit_format="template" data_type="array">
+    <default_value>{"increase_by":"100","levels":"1"}</default_value>
+    <edit_format_params>af_as_option_template_level_up</edit_format_params>
+    <sub_options>increase_by
+levels</sub_options>
+    <relation group_id="af_awardSystem" display_order="220"/>
+  </option>
+  <option option_id="af_as_levels_levelup_alert" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="af_awardSystem" display_order="240"/>
+  </option>
+  <option option_id="af_as_levels_maxlevel" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>0</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="af_awardSystem" display_order="230"/>
+  </option>
+  <option option_id="af_as_levels_maxpoints" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>0</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="debug" display_order="5000"/>
+  </option>
+  <option option_id="af_as_levels_pointsper" edit_format="spinbox" data_type="positive_integer">
+    <default_value>100</default_value>
+    <edit_format_params>min=1</edit_format_params>
+    <relation group_id="af_awardSystem" display_order="210"/>
+  </option>
+  <option option_id="af_as_levels_show_level0" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="af_awardSystem" display_order="250"/>
+  </option>
+  <option option_id="af_as_max_featured_awards" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>10</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="af_awardSystem" display_order="41"/>
+  </option>
+  <option option_id="af_as_max_featured_awards_per_level" edit_format="callback" data_type="array" validation_class="AddonFlare\AwardSystem\Option\FeaturedAwardsPerLevel" validation_method="verifyOption">
+    <default_value>[]</default_value>
+    <edit_format_params>AddonFlare\AwardSystem\Option\FeaturedAwardsPerLevel::render</edit_format_params>
+    <sub_options>*</sub_options>
+    <relation group_id="af_awardSystem" display_order="270"/>
+  </option>
+  <option option_id="af_as_max_profile_awards" edit_format="textbox" data_type="positive_integer">
+    <default_value>10</default_value>
+    <relation group_id="af_awardSystem" display_order="20"/>
+  </option>
+  <option option_id="af_as_most_recent_awards" edit_format="template" data_type="array">
+    <default_value>{"enabled":"1","entries":"10"}</default_value>
+    <edit_format_params>af_as_option_template_most_recent_awards</edit_format_params>
+    <sub_options>enabled
+entries</sub_options>
+    <relation group_id="af_awardSystem" display_order="30"/>
+  </option>
+  <option option_id="af_as_pending_notice_show" edit_format="onofftextbox" data_type="array">
+    <default_value>{"enabled":"1","templates":"forum_list"}</default_value>
+    <edit_format_params>onoff=enabled
+value=templates
+default=forum_list</edit_format_params>
+    <sub_options>enabled
+templates</sub_options>
+    <relation group_id="af_awardSystem" display_order="60"/>
+  </option>
+  <option option_id="af_as_postbit" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="af_awardSystem" display_order="38"/>
+  </option>
+  <option option_id="af_as_registrationDefaults" edit_format="template" data_type="array">
+    <default_value>{"af_as_auto_feature":"1"}</default_value>
+    <edit_format_params>af_as_option_template_registrationDefaults</edit_format_params>
+    <sub_options>af_as_auto_feature
+*</sub_options>
+    <relation group_id="af_awardSystem" display_order="70"/>
+  </option>
+  <option option_id="af_as_ugs_can_manually_feature" edit_format="callback" data_type="array">
+    <default_value>[2,3,4]</default_value>
+    <edit_format_params>XF\Option\UserGroup::renderSelectMultiple</edit_format_params>
+    <sub_options>*</sub_options>
+    <relation group_id="af_awardSystem" display_order="43"/>
+  </option>
+  <option option_id="af_as_ugs_can_not_manually_feature" edit_format="callback" data_type="array">
+    <default_value>[]</default_value>
+    <edit_format_params>XF\Option\UserGroup::renderSelectMultiple</edit_format_params>
+    <sub_options>*</sub_options>
+    <relation group_id="af_awardSystem" display_order="44"/>
+  </option>
+  <option option_id="af_as_ugs_can_show_featured" edit_format="callback" data_type="array">
+    <default_value>[2,3,4]</default_value>
+    <edit_format_params>XF\Option\UserGroup::renderSelectMultiple</edit_format_params>
+    <sub_options>*</sub_options>
+    <relation group_id="af_awardSystem" display_order="40"/>
+  </option>
+  <option option_id="af_as_ugs_manage" edit_format="callback" data_type="array">
+    <default_value>[3,4]</default_value>
+    <edit_format_params>XF\Option\UserGroup::renderSelectMultiple</edit_format_params>
+    <sub_options>*</sub_options>
+    <relation group_id="af_awardSystem" display_order="5"/>
+  </option>
+</options>

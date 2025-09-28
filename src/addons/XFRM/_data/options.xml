@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="xfrmAllowAnonReview" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="xfrm" display_order="32"/>
+  </option>
+  <option option_id="xfrmAllowIcons" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xfrm" display_order="50"/>
+  </option>
+  <option option_id="xfrmAuthorOtherResourcesCount" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>5</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="xfrm" display_order="310"/>
+  </option>
+  <option option_id="xfrmEnableTeams" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="xfrm" display_order="1000"/>
+  </option>
+  <option option_id="xfrmFilelessViewFull" edit_format="onofftextbox" data_type="array">
+    <default_value>{"limit":"1","length":"250"}</default_value>
+    <edit_format_params>min=1
+onoff=limit
+value=length
+default=250
+type=spinbox
+units={{ phrase('characters') }}</edit_format_params>
+    <sub_options>limit
+length</sub_options>
+    <relation group_id="xfrm" display_order="60"/>
+  </option>
+  <option option_id="xfrmListDefaultOrder" edit_format="select" data_type="string">
+    <default_value>last_update</default_value>
+    <edit_format_params>last_update={{ phrase('xfrm_last_update') }}
+resource_date={{ phrase('xfrm_submission_date') }}
+rating_weighted={{ phrase('rating') }}
+download_count={{ phrase('xfrm_downloads') }}
+title={{ phrase('title') }}</edit_format_params>
+    <relation group_id="xfrm" display_order="80"/>
+  </option>
+  <option option_id="xfrmMinimumReviewLength" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>0</default_value>
+    <relation group_id="xfrm" display_order="31"/>
+  </option>
+  <option option_id="xfrmPaidResourceThreadTitleTemplate" edit_format="textbox" data_type="string">
+    <default_value>{title} [Paid]</default_value>
+    <relation group_id="xfrm" display_order="10"/>
+  </option>
+  <option option_id="xfrmRecentReviewsCount" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>10</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="xfrm" display_order="330"/>
+  </option>
+  <option option_id="xfrmRecentUpdatesCount" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>3</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="xfrm" display_order="320"/>
+  </option>
+  <option option_id="xfrmRequireDownloadToRate" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xfrm" display_order="20"/>
+  </option>
+  <option option_id="xfrmResourceCurrencies" edit_format="textbox" data_type="string">
+    <default_value>usd
+cad
+aud
+gbp
+eur</default_value>
+    <edit_format_params>rows=2</edit_format_params>
+    <relation group_id="xfrm" display_order="400"/>
+  </option>
+  <option option_id="xfrmResourceDeleteThreadAction" edit_format="template" data_type="array">
+    <default_value>{"action":"close","update_title":"1","title_template":"{title} [Deleted]","add_post":"1"}</default_value>
+    <edit_format_params>option_template_xfrmResourceDeleteThreadAction</edit_format_params>
+    <sub_options>action
+update_title
+title_template
+add_post</sub_options>
+    <relation group_id="xfrm" display_order="70"/>
+  </option>
+  <option option_id="xfrmResourceExtensions" edit_format="textbox" data_type="string">
+    <default_value>zip
+txt
+pdf
+png
+jpg
+jpeg
+jpe
+gif
+psd
+tif</default_value>
+    <edit_format_params>rows=6</edit_format_params>
+    <relation group_id="xfrm" display_order="120"/>
+  </option>
+  <option option_id="xfrmResourceMaxFileSize" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>2048</default_value>
+    <edit_format_params>min=0
+step=1
+units={{ phrase('units_kb') }}</edit_format_params>
+    <relation group_id="xfrm" display_order="100"/>
+  </option>
+  <option option_id="xfrmResourceMaxFiles" edit_format="spinbox" data_type="positive_integer">
+    <default_value>5</default_value>
+    <edit_format_params>min=1</edit_format_params>
+    <relation group_id="xfrm" display_order="110"/>
+  </option>
+  <option option_id="xfrmResourcesPerPage" edit_format="spinbox" data_type="positive_integer">
+    <default_value>20</default_value>
+    <edit_format_params>min=1</edit_format_params>
+    <relation group_id="xfrm" display_order="200"/>
+  </option>
+  <option option_id="xfrmReviewRequired" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="xfrm" display_order="30"/>
+  </option>
+  <option option_id="xfrmReviewVoting" edit_format="radio" data_type="string">
+    <default_value>yes</default_value>
+    <edit_format_params>yes={{ phrase('yes_upvoting_and_downvoting') }}
+upvote={{ phrase('yes_upvoting_only') }}
+={{ phrase('no') }}</edit_format_params>
+    <relation group_id="xfrm" display_order="35"/>
+  </option>
+  <option option_id="xfrmReviewsPerPage" edit_format="spinbox" data_type="positive_integer">
+    <default_value>20</default_value>
+    <edit_format_params>min=1</edit_format_params>
+    <relation group_id="xfrm" display_order="210"/>
+  </option>
+  <option option_id="xfrmUpdateMaxLength" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>50000</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="xfrm" display_order="180"/>
+  </option>
+  <option option_id="xfrmUpdatesPerPage" edit_format="spinbox" data_type="positive_integer">
+    <default_value>10</default_value>
+    <edit_format_params>min=1</edit_format_params>
+    <relation group_id="xfrm" display_order="220"/>
+  </option>
+</options>

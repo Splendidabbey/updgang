@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class_extensions>
+  <extension from_class="XF\Admin\Controller\User" to_class="DBTech\Credits\XF\Admin\Controller\User" execute_order="10" active="1"/>
+  <extension from_class="XF\Attachment\Post" to_class="DBTech\Credits\XF\Attachment\Post" execute_order="10" active="1"/>
+  <extension from_class="XF\BbCode\Renderer\ApiHtml" to_class="DBTech\Credits\XF\BbCode\Renderer\ApiHtml" execute_order="10" active="1"/>
+  <extension from_class="XF\BbCode\Renderer\EmailHtml" to_class="DBTech\Credits\XF\BbCode\Renderer\EmailHtml" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\ConversationMessage" to_class="DBTech\Credits\XF\Entity\ConversationMessage" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\LikedContent" to_class="DBTech\Credits\XF\Entity\LikedContent" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\Poll" to_class="DBTech\Credits\XF\Entity\Poll" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\Post" to_class="DBTech\Credits\XF\Entity\Post" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\ProfilePost" to_class="DBTech\Credits\XF\Entity\ProfilePost" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\ReactionContent" to_class="DBTech\Credits\XF\Entity\ReactionContent" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\ReportComment" to_class="DBTech\Credits\XF\Entity\ReportComment" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\TagContent" to_class="DBTech\Credits\XF\Entity\TagContent" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\Thread" to_class="DBTech\Credits\XF\Entity\Thread" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\User" to_class="DBTech\Credits\XF\Entity\User" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\UserFollow" to_class="DBTech\Credits\XF\Entity\UserFollow" execute_order="10" active="1"/>
+  <extension from_class="XF\Entity\Warning" to_class="DBTech\Credits\XF\Entity\Warning" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Forum" to_class="DBTech\Credits\XF\Pub\Controller\Forum" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Member" to_class="DBTech\Credits\XF\Pub\Controller\Member" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Thread" to_class="DBTech\Credits\XF\Pub\Controller\Thread" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\Attachment" to_class="DBTech\Credits\XF\Repository\Attachment" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\Poll" to_class="DBTech\Credits\XF\Repository\Poll" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\Tag" to_class="DBTech\Credits\XF\Repository\Tag" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\Thread" to_class="DBTech\Credits\XF\Repository\Thread" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\Trophy" to_class="DBTech\Credits\XF\Repository\Trophy" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\Post\Editor" to_class="DBTech\Credits\XF\Service\Post\Editor" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\Post\Preparer" to_class="DBTech\Credits\XF\Service\Post\Preparer" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\Report\Creator" to_class="DBTech\Credits\XF\Service\Report\Creator" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\Thread\Creator" to_class="DBTech\Credits\XF\Service\Thread\Creator" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\Thread\Editor" to_class="DBTech\Credits\XF\Service\Thread\Editor" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\Thread\Merger" to_class="DBTech\Credits\XF\Service\Thread\Merger" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\Thread\Replier" to_class="DBTech\Credits\XF\Service\Thread\Replier" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\User\Merge" to_class="DBTech\Credits\XF\Service\User\Merge" execute_order="10" active="1"/>
+  <extension from_class="XF\Service\User\RegistrationComplete" to_class="DBTech\Credits\XF\Service\User\RegistrationComplete" execute_order="10" active="1"/>
+  <extension from_class="XF\Str\Formatter" to_class="DBTech\Credits\XF\Str\Formatter" execute_order="10" active="1"/>
+  <extension from_class="XFMG\Entity\Comment" to_class="DBTech\Credits\XFMG\Entity\Comment" execute_order="10" active="1"/>
+  <extension from_class="XFMG\Entity\MediaItem" to_class="DBTech\Credits\XFMG\Entity\MediaItem" execute_order="10" active="1"/>
+  <extension from_class="XFMG\Entity\Rating" to_class="DBTech\Credits\XFMG\Entity\Rating" execute_order="10" active="1"/>
+  <extension from_class="XFMG\Service\Comment\Creator" to_class="DBTech\Credits\XFMG\Service\Comment\Creator" execute_order="10" active="1"/>
+  <extension from_class="XFMG\Service\Media\Creator" to_class="DBTech\Credits\XFMG\Service\Media\Creator" execute_order="10" active="1"/>
+  <extension from_class="XFRM\Entity\ResourceItem" to_class="DBTech\Credits\XFRM\Entity\ResourceItem" execute_order="10" active="1"/>
+  <extension from_class="XFRM\Entity\ResourceRating" to_class="DBTech\Credits\XFRM\Entity\ResourceRating" execute_order="10" active="1"/>
+  <extension from_class="XFRM\Entity\ResourceUpdate" to_class="DBTech\Credits\XFRM\Entity\ResourceUpdate" execute_order="10" active="1"/>
+  <extension from_class="XFRM\Repository\ResourceVersion" to_class="DBTech\Credits\XFRM\Repository\ResourceVersion" execute_order="10" active="1"/>
+</class_extensions>

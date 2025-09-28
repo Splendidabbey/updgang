@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget_positions>
+  <widget_position position_id="xfrm_category_above_resources" active="1"/>
+  <widget_position position_id="xfrm_category_sidenav" active="1"/>
+  <widget_position position_id="xfrm_overview_above_resources" active="1"/>
+  <widget_position position_id="xfrm_overview_sidenav" active="1"/>
+</widget_positions>

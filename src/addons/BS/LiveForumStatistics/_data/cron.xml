@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cron>
+  <entry entry_id="lfsClearThreadPurchases" cron_class="BS\LiveForumStatistics\Cron\Sticks" cron_method="clearThreadPurchases" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[0],"minutes":[0]}]]></entry>
+  <entry entry_id="lfsDeleteExpiredThreads" cron_class="BS\LiveForumStatistics\Cron\Sticks" cron_method="clearThreads" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[0,10,20,30,40,50]}]]></entry>
+  <entry entry_id="lfsDisableExpiredLinks" cron_class="BS\LiveForumStatistics\Cron\Sticks" cron_method="disableLinks" active="1"><![CDATA[{"day_type":"dom","dom":[-1],"hours":[-1],"minutes":[0,10,20,30,40,50]}]]></entry>
+</cron>

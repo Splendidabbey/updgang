@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="xtrStatisticsExtra" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="10"/>
+  </option>
+  <option option_id="xtrStatisticsForum" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="20"/>
+  </option>
+  <option option_id="xtrStatisticsForumIcon" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="30"/>
+  </option>
+  <option option_id="xtrStatisticsItemIcon" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="70"/>
+  </option>
+  <option option_id="xtrStatisticsMemberItemIcon" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="80"/>
+  </option>
+  <option option_id="xtrStatisticsReplyCount" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="40"/>
+  </option>
+  <option option_id="xtrStatisticsSearch" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="60"/>
+  </option>
+  <option option_id="xtrStatisticsUserOnline" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="90"/>
+  </option>
+  <option option_id="xtrStatisticsViewCount" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="xtrStatisticsLayout" display_order="50"/>
+  </option>
+</options>

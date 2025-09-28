@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="admin_navigation.lfs" version_id="1020100" version_string="1.0.0"><![CDATA[Live forum statistics]]></phrase>
+  <phrase title="admin_navigation.lfsDefinitions" version_id="1020100" version_string="1.0.0"><![CDATA[Definitions]]></phrase>
+  <phrase title="admin_navigation.lfsGroups" version_id="1020100" version_string="1.0.0"><![CDATA[Groups]]></phrase>
+  <phrase title="admin_navigation.lfsStickedAttributes" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned attributes]]></phrase>
+  <phrase title="admin_navigation.lfsStickedLinks" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned links]]></phrase>
+  <phrase title="admin_navigation.lfsStickedThreads" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned threads]]></phrase>
+  <phrase title="admin_navigation.lfsTabs" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs]]></phrase>
+  <phrase title="cron_entry.lfsClearThreadPurchases" version_id="1020100" version_string="1.0.0"><![CDATA[Clear thread purchases]]></phrase>
+  <phrase title="cron_entry.lfsDeleteExpiredThreads" version_id="1020100" version_string="1.0.0"><![CDATA[Delete expired threads]]></phrase>
+  <phrase title="cron_entry.lfsDisableExpiredLinks" version_id="1020100" version_string="1.0.0"><![CDATA[Disable expired links]]></phrase>
+  <phrase title="lfs_a_sticked_link_is_awaiting_payment" version_id="1000470" version_string="1.0.4"><![CDATA[A <a href="{link}" data-xf-click="overlay">pinned link</a> is awaiting payment.]]></phrase>
+  <phrase title="lfs_add_attribute" version_id="1020100" version_string="1.0.0"><![CDATA[Add attribute]]></phrase>
+  <phrase title="lfs_add_definition" version_id="1020100" version_string="1.0.0"><![CDATA[Add definition]]></phrase>
+  <phrase title="lfs_add_group" version_id="1020100" version_string="1.0.0"><![CDATA[Add group]]></phrase>
+  <phrase title="lfs_add_tab" version_id="1020100" version_string="1.0.0"><![CDATA[Add tab]]></phrase>
+  <phrase title="lfs_addon_field_warn_explain" version_id="1010070" version_string="1.1.0"><![CDATA[When updating the add-on, the data is rebuilt and may be lost. To avoid this, do not attach data to add-ons that can be updated.<br>
+Create your own add-on or leave this field blank.]]></phrase>
+  <phrase title="lfs_all_languages" version_id="1020100" version_string="1.0.0"><![CDATA[All languages]]></phrase>
+  <phrase title="lfs_allowable_values" version_id="1020100" version_string="1.0.0"><![CDATA[Allowed values]]></phrase>
+  <phrase title="lfs_allowable_values_explain" version_id="1020100" version_string="1.0.0"><![CDATA[Values that a user can specify. If empty, the user can specify their value.]]></phrase>
+  <phrase title="lfs_an_attribute_with_this_key_already_exists" version_id="1020100" version_string="1.0.0"><![CDATA[An attribute with this key already exists.]]></phrase>
+  <phrase title="lfs_article_author_is" version_id="1000671" version_string="1.2.1"><![CDATA[Article author is]]></phrase>
+  <phrase title="lfs_article_author_is_a_member_of_any_of_these_groups" version_id="1000671" version_string="1.2.1"><![CDATA[Article author is a member of any of these groups]]></phrase>
+  <phrase title="lfs_article_author_is_explain" version_id="1000671" version_string="1.2.1"><![CDATA[Enter {visitor} to display visitor's articles]]></phrase>
+  <phrase title="lfs_article_author_is_not" version_id="1000671" version_string="1.2.1"><![CDATA[Article author is NOT]]></phrase>
+  <phrase title="lfs_article_author_is_not_a_member_of_any_of_these_groups" version_id="1000872" version_string="1.0.8b"><![CDATA[Article author is NOT a member of any of these groups]]></phrase>
+  <phrase title="lfs_article_author_is_not_explain" version_id="1000671" version_string="1.2.1"><![CDATA[Enter {visitor} to hide visitor's articles]]></phrase>
+  <phrase title="lfs_article_id_is" version_id="1000671" version_string="1.2.1"><![CDATA[Article ID is]]></phrase>
+  <phrase title="lfs_article_id_is_not" version_id="1000872" version_string="1.0.8b"><![CDATA[Article ID is NOT]]></phrase>
+  <phrase title="lfs_at_the_moment_you_dont_have_sticked_links" version_id="1000470" version_string="1.0.4"><![CDATA[At the moment you don't have pinned links.]]></phrase>
+  <phrase title="lfs_at_the_moment_you_dont_have_sticked_threads" version_id="1000470" version_string="1.0.4"><![CDATA[At the moment you don't have pinned threads.]]></phrase>
+  <phrase title="lfs_attribute_cost_amount_explain" version_id="1020100" version_string="1.0.0"><![CDATA[If set, adding this attribute will be paid]]></phrase>
+  <phrase title="lfs_attribute_key" version_id="1020100" version_string="1.0.0"><![CDATA[Attribute key]]></phrase>
+  <phrase title="lfs_attribute_type" version_id="1020100" version_string="1.0.0"><![CDATA[Type]]></phrase>
+  <phrase title="lfs_attribute_type.another" version_id="1020100" version_string="1.0.0"><![CDATA[Another]]></phrase>
+  <phrase title="lfs_attribute_type.style" version_id="1020100" version_string="1.0.0"><![CDATA[Style]]></phrase>
+  <phrase title="lfs_attribute_x_has_an_invalid_value" version_id="1020100" version_string="1.0.0"><![CDATA[Attribute {attribute} has an invalid value.]]></phrase>
+  <phrase title="lfs_carousel_interval" version_id="1000473" version_string="1.0.4c"><![CDATA[Carousel interval]]></phrase>
+  <phrase title="lfs_carousel_interval_explain" version_id="1000473" version_string="1.0.4c"><![CDATA[If specified, tabs will switch automatically after this period of time]]></phrase>
+  <phrase title="lfs_consider_everything" version_id="1000370" version_string="1.0.3"><![CDATA[Consider everything]]></phrase>
+  <phrase title="lfs_contains_all_tags" version_id="1000570" version_string="1.0.5"><![CDATA[Contains all tags]]></phrase>
+  <phrase title="lfs_contains_one_of_the_tags" version_id="1000570" version_string="1.0.5"><![CDATA[Contains one of the tags]]></phrase>
+  <phrase title="lfs_cost_per_day_x" version_id="1020100" version_string="1.0.0"><![CDATA[Cost per day: {cost}]]></phrase>
+  <phrase title="lfs_cut_off_less" version_id="1020100" version_string="1.0.0"><![CDATA[Under]]></phrase>
+  <phrase title="lfs_cut_off_more" version_id="1020100" version_string="1.0.0"><![CDATA[Older]]></phrase>
+  <phrase title="lfs_definition" version_id="1020100" version_string="1.0.0"><![CDATA[Definition]]></phrase>
+  <phrase title="lfs_definitions" version_id="1020100" version_string="1.0.0"><![CDATA[Definitions]]></phrase>
+  <phrase title="lfs_display_these_groups_and_tabs" version_id="1000670" version_string="1.2.1"><![CDATA[Display these groups and tabs]]></phrase>
+  <phrase title="lfs_displayed_for_users_with_language" version_id="1000370" version_string="1.0.3"><![CDATA[User language]]></phrase>
+  <phrase title="lfs_edit_attribute" version_id="1020100" version_string="1.0.0"><![CDATA[Edit attribute]]></phrase>
+  <phrase title="lfs_edit_definition" version_id="1020100" version_string="1.0.0"><![CDATA[Edit definition]]></phrase>
+  <phrase title="lfs_edit_group" version_id="1020100" version_string="1.0.0"><![CDATA[Edit group]]></phrase>
+  <phrase title="lfs_edit_sticked_link" version_id="1000470" version_string="1.0.4"><![CDATA[Edit pinned link]]></phrase>
+  <phrase title="lfs_edit_tab" version_id="1020100" version_string="1.0.0"><![CDATA[Edit tab]]></phrase>
+  <phrase title="lfs_end_date" version_id="1020100" version_string="1.0.0"><![CDATA[End date]]></phrase>
+  <phrase title="lfs_exclude_categories" version_id="1000671" version_string="1.2.1"><![CDATA[Exclude categories]]></phrase>
+  <phrase title="lfs_exclude_content_types" version_id="1000370" version_string="1.0.3"><![CDATA[Exclude content types]]></phrase>
+  <phrase title="lfs_exclude_forums" version_id="1020100" version_string="1.0.0"><![CDATA[Exclude forums]]></phrase>
+  <phrase title="lfs_final_cost" version_id="1020100" version_string="1.0.0"><![CDATA[Final cost]]></phrase>
+  <phrase title="lfs_for_the_last" version_id="1000772" version_string="1.0.7b"><![CDATA[For the last]]></phrase>
+  <phrase title="lfs_for_widget_adaptive_display" version_id="1000570" version_string="1.0.5"><![CDATA[For widget (adaptive) display]]></phrase>
+  <phrase title="lfs_free" version_id="1020100" version_string="1.0.0"><![CDATA[Free]]></phrase>
+  <phrase title="lfs_group" version_id="1020100" version_string="1.0.0"><![CDATA[Group]]></phrase>
+  <phrase title="lfs_group.latest_activity" version_id="1000170" version_string="1.0.1"><![CDATA[Latest activity]]></phrase>
+  <phrase title="lfs_group.members" version_id="1020100" version_string="1.0.0"><![CDATA[Members]]></phrase>
+  <phrase title="lfs_group.threads" version_id="1020100" version_string="1.0.0"><![CDATA[Threads]]></phrase>
+  <phrase title="lfs_groups" version_id="1020100" version_string="1.0.0"><![CDATA[Groups]]></phrase>
+  <phrase title="lfs_has_not_this_prefix" version_id="1000370" version_string="1.0.3"><![CDATA[Has not this prefix]]></phrase>
+  <phrase title="lfs_has_this_prefix" version_id="1000370" version_string="1.0.3"><![CDATA[Has this prefix]]></phrase>
+  <phrase title="lfs_hide_widget" version_id="1000170" version_string="1.0.1"><![CDATA[Hide statistics widget]]></phrase>
+  <phrase title="lfs_i_agree_to_the_rules_for_the_purchase_of_a_sticked_link" version_id="1000470" version_string="1.0.4"><![CDATA[I agree to the <a href="{url}" data-xf-click="overlay">rules for the purchase of a pinned link</a>]]></phrase>
+  <phrase title="lfs_ignore_thread_in_statistics" version_id="1020100" version_string="1.0.0"><![CDATA[Ignore thread in statistics]]></phrase>
+  <phrase title="lfs_ignore_thread_x" version_id="1020100" version_string="1.0.0"><![CDATA[Ignore thread '{title}']]></phrase>
+  <phrase title="lfs_ignored_threads_in_statistics" version_id="1000970" version_string="1.0.9"><![CDATA[Ignored threads in statistics]]></phrase>
+  <phrase title="lfs_is_active" version_id="1020100" version_string="1.0.0"><![CDATA[Active]]></phrase>
+  <phrase title="lfs_limit_records" version_id="1020100" version_string="1.0.0"><![CDATA[Record limit]]></phrase>
+  <phrase title="lfs_match_type" version_id="1000570" version_string="1.0.5"><![CDATA[Match type]]></phrase>
+  <phrase title="lfs_member_preset.top_posters" version_id="1000870" version_string="1.0.8"><![CDATA[Top posters for the last X days]]></phrase>
+  <phrase title="lfs_member_preset.top_reactions" version_id="1000870" version_string="1.0.8"><![CDATA[Top reactions for the last X days]]></phrase>
+  <phrase title="lfs_members_type_top_posters" version_id="1000772" version_string="1.0.7b"><![CDATA[Top posters]]></phrase>
+  <phrase title="lfs_members_type_top_reactions" version_id="1000772" version_string="1.0.7b"><![CDATA[Top reactions]]></phrase>
+  <phrase title="lfs_milliseconds" version_id="1000270" version_string="1.0.2"><![CDATA[milliseconds]]></phrase>
+  <phrase title="lfs_mute" version_id="1000473" version_string="1.0.4c"><![CDATA[Mute]]></phrase>
+  <phrase title="lfs_new" version_id="1000471" version_string="1.0.4a"><![CDATA[New]]></phrase>
+  <phrase title="lfs_number_of_days" version_id="1020100" version_string="1.0.0"><![CDATA[Number of days]]></phrase>
+  <phrase title="lfs_pay" version_id="1020100" version_string="1.0.0"><![CDATA[Pay]]></phrase>
+  <phrase title="lfs_payment_stick_link" version_id="1000470" version_string="1.0.4"><![CDATA[Payment pin link]]></phrase>
+  <phrase title="lfs_payment_stick_link_x" version_id="1000470" version_string="1.0.4"><![CDATA[Payment pin link '{title}']]></phrase>
+  <phrase title="lfs_payment_stick_thread" version_id="1000470" version_string="1.0.4"><![CDATA[Payment pin thread]]></phrase>
+  <phrase title="lfs_payment_stick_thread_x" version_id="1000470" version_string="1.0.4"><![CDATA[Payment pin thread '{title}']]></phrase>
+  <phrase title="lfs_please_confirm_that_you_wish_to_start_ignoring_this_thread" version_id="1020100" version_string="1.0.0"><![CDATA[Please confirm that you wish to start ignoring this thread]]></phrase>
+  <phrase title="lfs_please_confirm_that_you_wish_to_stop_ignoring_this_thread" version_id="1020100" version_string="1.0.0"><![CDATA[Please confirm that you wish to stop ignoring this thread]]></phrase>
+  <phrase title="lfs_post_cutoff_date" version_id="1000370" version_string="1.0.3"><![CDATA[Post cutoff date]]></phrase>
+  <phrase title="lfs_preset" version_id="1000772" version_string="1.0.7b"><![CDATA[Preset]]></phrase>
+  <phrase title="lfs_preset_template" version_id="1000772" version_string="1.0.7b"><![CDATA[Preset template]]></phrase>
+  <phrase title="lfs_purchase_date" version_id="1020100" version_string="1.0.0"><![CDATA[Purchase date]]></phrase>
+  <phrase title="lfs_purchase_request_date" version_id="1020100" version_string="1.0.0"><![CDATA[Purchase request date]]></phrase>
+  <phrase title="lfs_purchase_status.awaiting_payment" version_id="1020100" version_string="1.0.0"><![CDATA[Awaiting payment]]></phrase>
+  <phrase title="lfs_purchase_status.moderated" version_id="1020100" version_string="1.0.0"><![CDATA[Moderated]]></phrase>
+  <phrase title="lfs_purchase_status.paid" version_id="1020100" version_string="1.0.0"><![CDATA[Paid]]></phrase>
+  <phrase title="lfs_purchase_status.rejected" version_id="1020100" version_string="1.0.0"><![CDATA[Rejected]]></phrase>
+  <phrase title="lfs_refresh" version_id="1020100" version_string="1.0.0"><![CDATA[Refresh]]></phrase>
+  <phrase title="lfs_sc_item_author_is" version_id="1000872" version_string="1.0.8b"><![CDATA[Item author is]]></phrase>
+  <phrase title="lfs_sc_item_author_is_a_member_of_any_of_these_groups" version_id="1000872" version_string="1.0.8b"><![CDATA[Item author is a member of any of these groups]]></phrase>
+  <phrase title="lfs_sc_item_author_is_explain" version_id="1000872" version_string="1.0.8b"><![CDATA[Enter {visitor} to display visitor's items]]></phrase>
+  <phrase title="lfs_sc_item_author_is_not" version_id="1000872" version_string="1.0.8b"><![CDATA[Item author is NOT]]></phrase>
+  <phrase title="lfs_sc_item_author_is_not_a_member_of_any_of_these_groups" version_id="1000872" version_string="1.0.8b"><![CDATA[Item author is NOT a member of any of these groups]]></phrase>
+  <phrase title="lfs_sc_item_author_is_not_explain" version_id="1000872" version_string="1.0.8b"><![CDATA[Enter {visitor} to hide visitor's items]]></phrase>
+  <phrase title="lfs_sc_item_id_is" version_id="1000872" version_string="1.0.8b"><![CDATA[Item ID is]]></phrase>
+  <phrase title="lfs_sc_item_id_is_not" version_id="1000872" version_string="1.0.8b"><![CDATA[Item ID is NOT]]></phrase>
+  <phrase title="lfs_selected_languages" version_id="1020100" version_string="1.0.0"><![CDATA[Selected languages]]></phrase>
+  <phrase title="lfs_separate_multiple_ids_by_comma" version_id="1000370" version_string="1.0.3"><![CDATA[Separate multiple IDs by comma]]></phrase>
+  <phrase title="lfs_set_limit_for_all_tabs" version_id="1020100" version_string="1.0.0"><![CDATA[Set this limit for all tabs]]></phrase>
+  <phrase title="lfs_sort_groups" version_id="1000670" version_string="1.2.1"><![CDATA[Sort groups]]></phrase>
+  <phrase title="lfs_sort_tabs" version_id="1000570" version_string="1.0.5"><![CDATA[Sort tabs]]></phrase>
+  <phrase title="lfs_sound_notification_link" version_id="1000473" version_string="1.0.4c"><![CDATA[Sound notification link]]></phrase>
+  <phrase title="lfs_sound_notification_link_explain" version_id="1000473" version_string="1.0.4c"><![CDATA[If set, this sound will play when items change.]]></phrase>
+  <phrase title="lfs_specify_at_least_one_tag" version_id="1000570" version_string="1.0.5"><![CDATA[Specify at least one tag]]></phrase>
+  <phrase title="lfs_stick_link" version_id="1000470" version_string="1.0.4"><![CDATA[Pin link]]></phrase>
+  <phrase title="lfs_stick_thread_in_statistics" version_id="1000472" version_string="1.0.4b"><![CDATA[Pinning thread in statistics]]></phrase>
+  <phrase title="lfs_sticked" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned]]></phrase>
+  <phrase title="lfs_sticked_attributes" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned attributes]]></phrase>
+  <phrase title="lfs_sticked_link_approved_body_html" version_id="1000470" version_string="1.0.4"><![CDATA[<p>{username}, your purchase of a pinned link '{title}' at {board} is approved. Now you may pay it.</p>]]></phrase>
+  <phrase title="lfs_sticked_link_approved_pay_html" version_id="1020100" version_string="1.0.0"><![CDATA[<a href="{url}">Pay for purchase</a>]]></phrase>
+  <phrase title="lfs_sticked_link_approved_subject" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned link approved on {board_title}]]></phrase>
+  <phrase title="lfs_sticked_link_noun" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned link]]></phrase>
+  <phrase title="lfs_sticked_link_purchase" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned link purchase]]></phrase>
+  <phrase title="lfs_sticked_link_purchase_rules" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned link purchase rules]]></phrase>
+  <phrase title="lfs_sticked_link_rules" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="lfs_sticked_links" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned links]]></phrase>
+  <phrase title="lfs_sticked_threads" version_id="1000470" version_string="1.0.4"><![CDATA[Pinned threads]]></phrase>
+  <phrase title="lfs_sticking_link_in_statistics" version_id="1000470" version_string="1.0.4"><![CDATA[Pinning link in statistics]]></phrase>
+  <phrase title="lfs_sticking_the_link_for_x_days_for_cost" version_id="1000470" version_string="1.0.4"><![CDATA[Pinning the link for {days} days for {cost}]]></phrase>
+  <phrase title="lfs_sticking_thread_in_statistics" version_id="1000470" version_string="1.0.4"><![CDATA[Pinning thread in statistics]]></phrase>
+  <phrase title="lfs_sticking_thread_x" version_id="1000470" version_string="1.0.4"><![CDATA[Pinning thread '{title}'.]]></phrase>
+  <phrase title="lfs_sticky_order" version_id="1000470" version_string="1.0.4"><![CDATA[Pin order]]></phrase>
+  <phrase title="lfs_stop_ignoring_thread_x" version_id="1020100" version_string="1.0.0"><![CDATA[Stop ignoring thread '{title}']]></phrase>
+  <phrase title="lfs_store" version_id="1020100" version_string="1.0.0"><![CDATA[Statistics store]]></phrase>
+  <phrase title="lfs_tab.hottest_threads" version_id="1000570" version_string="1.0.5"><![CDATA[Hottest threads]]></phrase>
+  <phrase title="lfs_tab.la_latest_posts" version_id="1000170" version_string="1.0.1"><![CDATA[Latest posts]]></phrase>
+  <phrase title="lfs_tab.la_new_threads" version_id="1000370" version_string="1.0.3"><![CDATA[New threads]]></phrase>
+  <phrase title="lfs_tab.latest_activity" version_id="1000170" version_string="1.0.1"><![CDATA[Latest activity]]></phrase>
+  <phrase title="lfs_tab.latest_posts" version_id="1020100" version_string="1.0.0"><![CDATA[Latest posts]]></phrase>
+  <phrase title="lfs_tab.most_messages" version_id="1020100" version_string="1.0.0"><![CDATA[Most messages]]></phrase>
+  <phrase title="lfs_tab.most_reactions" version_id="1020100" version_string="1.0.0"><![CDATA[Most reactions]]></phrase>
+  <phrase title="lfs_tab.most_trophies" version_id="1020100" version_string="1.0.0"><![CDATA[Most trophies]]></phrase>
+  <phrase title="lfs_tab.most_viewable" version_id="1000370" version_string="1.0.3"><![CDATA[Most viewed]]></phrase>
+  <phrase title="lfs_tab.my_threads" version_id="1000370" version_string="1.0.3"><![CDATA[My threads]]></phrase>
+  <phrase title="lfs_tab.new_members" version_id="1020100" version_string="1.0.0"><![CDATA[New members]]></phrase>
+  <phrase title="lfs_tab.new_threads" version_id="1020100" version_string="1.0.0"><![CDATA[New threads]]></phrase>
+  <phrase title="lfs_tab_def.ams_article" version_id="1000671" version_string="1.2.1"><![CDATA[Articles]]></phrase>
+  <phrase title="lfs_tab_def.latest_activity" version_id="1000170" version_string="1.0.1"><![CDATA[Latest activity]]></phrase>
+  <phrase title="lfs_tab_def.members" version_id="1020100" version_string="1.0.0"><![CDATA[Members]]></phrase>
+  <phrase title="lfs_tab_def.showcase_item" version_id="1000872" version_string="1.0.8b"><![CDATA[Showcase item]]></phrase>
+  <phrase title="lfs_tab_def.tag" version_id="1000670" version_string="1.2.1"><![CDATA[Tag content]]></phrase>
+  <phrase title="lfs_tab_def.threads" version_id="1020100" version_string="1.0.0"><![CDATA[Threads]]></phrase>
+  <phrase title="lfs_tab_link_explain" version_id="1000770" version_string="1.0.7"><![CDATA[If specified, this link will open when clicked on the tab]]></phrase>
+  <phrase title="lfs_tab_setting" version_id="1020100" version_string="1.0.0"><![CDATA[Tab setting]]></phrase>
+  <phrase title="lfs_tabs" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs]]></phrase>
+  <phrase title="lfs_thank_you_for_purchasing_stick_link" version_id="1000470" version_string="1.0.4"><![CDATA[Thank you for purchasing pinned link.
+
+When the payment has been approved, your link will be pinned in statistics.]]></phrase>
+  <phrase title="lfs_thread_author_is" version_id="1000370" version_string="1.0.3"><![CDATA[Thread author is]]></phrase>
+  <phrase title="lfs_thread_author_is_a_member_of_any_of_these_groups" version_id="1000470" version_string="1.0.4"><![CDATA[Thread author is a member of any of these groups]]></phrase>
+  <phrase title="lfs_thread_author_is_explain" version_id="1000370" version_string="1.0.3"><![CDATA[Enter {visitor} to display visitor's threads]]></phrase>
+  <phrase title="lfs_thread_author_is_not" version_id="1000370" version_string="1.0.3"><![CDATA[Thread author is NOT]]></phrase>
+  <phrase title="lfs_thread_author_is_not_a_member_of_any_of_these_groups" version_id="1000872" version_string="1.0.8b"><![CDATA[Thread author is NOT a member of any of these groups]]></phrase>
+  <phrase title="lfs_thread_author_is_not_explain" version_id="1000370" version_string="1.0.3"><![CDATA[Enter {visitor} to hide visitor's threads]]></phrase>
+  <phrase title="lfs_thread_id_is" version_id="1000370" version_string="1.0.3"><![CDATA[Thread ID is]]></phrase>
+  <phrase title="lfs_thread_id_is_not" version_id="1000370" version_string="1.0.3"><![CDATA[Thread ID is NOT]]></phrase>
+  <phrase title="lfs_thread_is_closed" version_id="1000370" version_string="1.0.3"><![CDATA[Thread is closed]]></phrase>
+  <phrase title="lfs_thread_is_sticky" version_id="1000470" version_string="1.0.4"><![CDATA[Thread is sticky]]></phrase>
+  <phrase title="lfs_thread_preset.hottest_threads" version_id="1000772" version_string="1.0.7b"><![CDATA[Hottest threads]]></phrase>
+  <phrase title="lfs_thread_preset.latest_posts" version_id="1000772" version_string="1.0.7b"><![CDATA[Latest posts]]></phrase>
+  <phrase title="lfs_thread_preset.new_threads" version_id="1000772" version_string="1.0.7b"><![CDATA[New threads]]></phrase>
+  <phrase title="lfs_too_many_links_are_currently_sticked" version_id="1000470" version_string="1.0.4"><![CDATA[Too many links are currently pinned. The nearest place will be freed {date}.]]></phrase>
+  <phrase title="lfs_type" version_id="1000772" version_string="1.0.7b"><![CDATA[Type]]></phrase>
+  <phrase title="lfs_unignore_thread_in_statistics" version_id="1020100" version_string="1.0.0"><![CDATA[Stop ignore thread is statistics]]></phrase>
+  <phrase title="lfs_unstick_thread" version_id="1000470" version_string="1.0.4"><![CDATA[Unpin thread]]></phrase>
+  <phrase title="lfs_update_interval" version_id="1000170" version_string="1.0.1"><![CDATA[Update interval]]></phrase>
+  <phrase title="lfs_user_is_a_member_of_any_of_these_groups" version_id="1000970" version_string="1.0.9"><![CDATA[User is a member of any of these groups]]></phrase>
+  <phrase title="lfs_user_is_not_a_member_of_any_of_these_groups" version_id="1000970" version_string="1.0.9"><![CDATA[User is NOT a member of any of these groups]]></phrase>
+  <phrase title="lfs_user_is_watching_article" version_id="1000671" version_string="1.2.1"><![CDATA[User is watching article]]></phrase>
+  <phrase title="lfs_user_is_watching_sc_item" version_id="1000872" version_string="1.0.8b"><![CDATA[User is watching item]]></phrase>
+  <phrase title="lfs_user_is_watching_thread" version_id="1000671" version_string="1.2.1"><![CDATA[User is watching thread]]></phrase>
+  <phrase title="lfs_x_records" version_id="1020100" version_string="1.0.0"><![CDATA[{x} records]]></phrase>
+  <phrase title="lfs_you_already_ignoring_this_thread" version_id="1020100" version_string="1.0.0"><![CDATA[You already ignoring this thread]]></phrase>
+  <phrase title="lfs_you_cannot_ignore_sticked_threads" version_id="1000470" version_string="1.0.4"><![CDATA[You cannot ignore pinned threads]]></phrase>
+  <phrase title="lfs_you_may_only_ignore_x_threads" version_id="1020100" version_string="1.0.0"><![CDATA[You may only ignore {count} threads]]></phrase>
+  <phrase title="lfs_you_must_agree_to_the_rules_for_the_purchase_of_a_sticked_link" version_id="1000470" version_string="1.0.4"><![CDATA[You must agree to the rules for the purchase of a pinned link]]></phrase>
+  <phrase title="lfs_your_pinned_links_history" version_id="1000473" version_string="1.0.4c"><![CDATA[Your pinned links history]]></phrase>
+  <phrase title="lfs_your_request_to_purchase_a_stick_link_title_has_been_rejected" version_id="1000470" version_string="1.0.4"><![CDATA[Your request to purchase a pin link '{title}' has been rejected.]]></phrase>
+  <phrase title="lfs_your_sticked_threads" version_id="1000470" version_string="1.0.4"><![CDATA[Your pinned threads]]></phrase>
+  <phrase title="mod_log.thread_lfs_stick" version_id="1000470" version_string="1.0.4"><![CDATA[Pined in statistics]]></phrase>
+  <phrase title="mod_log.thread_lfs_unstick" version_id="1000470" version_string="1.0.4"><![CDATA[Unpinned in statistics]]></phrase>
+  <phrase title="nav.lfsIgnoredThreads" version_id="1000970" version_string="1.0.9"><![CDATA[Ignored threads in statistics]]></phrase>
+  <phrase title="option.lfsCurrency" version_id="1020100" version_string="1.0.0"><![CDATA[Currency]]></phrase>
+  <phrase title="option.lfsPaymentProfiles" version_id="1000370" version_string="1.0.3"><![CDATA[Payment profiles]]></phrase>
+  <phrase title="option.lfsPollUnfocused" version_id="1000370" version_string="1.0.3"><![CDATA[Continue to poll when the page is out of focus]]></phrase>
+  <phrase title="option.lfsSendEmailStickedLink" version_id="1000370" version_string="1.0.3"><![CDATA[Send a message to the mail when approving the pinned link]]></phrase>
+  <phrase title="option.lfsStickedLimit" version_id="1000370" version_string="1.0.3"><![CDATA[Pinned limit]]></phrase>
+  <phrase title="option.lfsStickedLinkCost" version_id="1000370" version_string="1.0.3"><![CDATA[Link pin price]]></phrase>
+  <phrase title="option.lfsStickedLinkRules" version_id="1000370" version_string="1.0.3"><![CDATA[Display rules of purchasing pinned link]]></phrase>
+  <phrase title="option.lfsStickedThreadCost" version_id="1000370" version_string="1.0.3"><![CDATA[Thread pin price]]></phrase>
+  <phrase title="option.lfsThreadsLimit" version_id="1020100" version_string="1.0.0"><![CDATA[Thread display limits]]></phrase>
+  <phrase title="option_explain.lfsCurrency" version_id="1020100" version_string="1.0.0"><![CDATA[All statistics services will be paid in this currency.]]></phrase>
+  <phrase title="option_explain.lfsPaymentProfiles" version_id="1000370" version_string="1.0.3"><![CDATA[Payment profiles that will be available for purchasing services in statistics]]></phrase>
+  <phrase title="option_explain.lfsPollUnfocused" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="option_explain.lfsSendEmailStickedLink" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.lfsStickedLimit" version_id="1000370" version_string="1.0.3"><![CDATA[If so many records are pinned, the purchase of new pins will be impossible. Set 0 to disable limit.]]></phrase>
+  <phrase title="option_explain.lfsStickedLinkCost" version_id="1020100" version_string="1.0.0"><![CDATA[Price per day]]></phrase>
+  <phrase title="option_explain.lfsStickedLinkRules" version_id="1020100" version_string="1.0.0"><![CDATA[The text of the rules can be specified in the phrase <b>lfs_sticked_link_rules</b>]]></phrase>
+  <phrase title="option_explain.lfsStickedThreadCost" version_id="1020100" version_string="1.0.0"><![CDATA[Price per day]]></phrase>
+  <phrase title="option_explain.lfsThreadsLimit" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="option_group.liveForumStatistics" version_id="1020100" version_string="1.0.0"><![CDATA[Live forum statistics]]></phrase>
+  <phrase title="option_group_description.liveForumStatistics" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="permission.lfs_approveUnapprove" version_id="1000470" version_string="1.0.4"><![CDATA[Approve / unapprove pinned links]]></phrase>
+  <phrase title="permission.lfs_hide" version_id="1000870" version_string="1.0.8"><![CDATA[Hide widget]]></phrase>
+  <phrase title="permission.lfs_ignoreForums" version_id="1020100" version_string="1.0.0"><![CDATA[Ignore forums in statistics]]></phrase>
+  <phrase title="permission.lfs_ignoreThreads" version_id="1020100" version_string="1.0.0"><![CDATA[Ignore threads in statistics]]></phrase>
+  <phrase title="permission.lfs_purchaseStickedLink" version_id="1000470" version_string="1.0.4"><![CDATA[Purchase pinned link]]></phrase>
+  <phrase title="permission.lfs_purchaseStickedThread" version_id="1000470" version_string="1.0.4"><![CDATA[Purchase pinned thread]]></phrase>
+  <phrase title="permission.lfs_stickUnstickThread" version_id="1000470" version_string="1.0.4"><![CDATA[Pin / unpin thread in statistics]]></phrase>
+  <phrase title="permission.lfs_view" version_id="1020100" version_string="1.0.0"><![CDATA[View statistics]]></phrase>
+  <phrase title="permission_interface.liveForumStatistics" version_id="1020100" version_string="1.0.0"><![CDATA[Live forum statistics]]></phrase>
+  <phrase title="permission_interface.liveForumStatisticsModerator" version_id="1020100" version_string="1.0.0"><![CDATA[Live forum statistics moderator permissions]]></phrase>
+  <phrase title="style_prop.lfsAvatarSizeForTagContent" version_id="1000670" version_string="1.2.1"><![CDATA[Avatar size for tag content]]></phrase>
+  <phrase title="style_prop.lfsCropTooLongTitles" version_id="1000472" version_string="1.0.4b"><![CDATA[Crop too long titles]]></phrase>
+  <phrase title="style_prop.lfsEmptyBlock" version_id="1020100" version_string="1.0.0"><![CDATA[Empty block]]></phrase>
+  <phrase title="style_prop.lfsEnableThreadSecondData" version_id="1000970" version_string="1.0.9"><![CDATA[Enable second data display for thread items]]></phrase>
+  <phrase title="style_prop.lfsHideWidth" version_id="1000370" version_string="1.0.3"><![CDATA[Hide widget if screen size is smaller]]></phrase>
+  <phrase title="style_prop.lfsItem" version_id="1020100" version_string="1.0.0"><![CDATA[Item]]></phrase>
+  <phrase title="style_prop.lfsItemAvatar" version_id="1000473" version_string="1.0.4c"><![CDATA[Item avatar]]></phrase>
+  <phrase title="style_prop.lfsItemDifferent" version_id="1000270" version_string="1.0.2"><![CDATA[Item different]]></phrase>
+  <phrase title="style_prop.lfsItemDifferentAnimationDuration" version_id="1000270" version_string="1.0.2"><![CDATA[Item different animation duration]]></phrase>
+  <phrase title="style_prop.lfsItemFaIcon" version_id="1000370" version_string="1.0.3"><![CDATA[Item FA icon]]></phrase>
+  <phrase title="style_prop.lfsItemHover" version_id="1020100" version_string="1.0.0"><![CDATA[Item hover]]></phrase>
+  <phrase title="style_prop.lfsItemIcon" version_id="1020100" version_string="1.0.0"><![CDATA[Item icon]]></phrase>
+  <phrase title="style_prop.lfsItemIconRightLayout" version_id="1000471" version_string="1.0.4a"><![CDATA[Display item icon on the right]]></phrase>
+  <phrase title="style_prop.lfsItemInfo" version_id="1020100" version_string="1.0.0"><![CDATA[Item info]]></phrase>
+  <phrase title="style_prop.lfsItemLink" version_id="1000370" version_string="1.0.3"><![CDATA[Item link]]></phrase>
+  <phrase title="style_prop.lfsItemLinkHover" version_id="1000370" version_string="1.0.3"><![CDATA[Item link hover]]></phrase>
+  <phrase title="style_prop.lfsItemRightIcon" version_id="1000471" version_string="1.0.4a"><![CDATA[Item right icon]]></phrase>
+  <phrase title="style_prop.lfsItemSection" version_id="1000370" version_string="1.0.3"><![CDATA[Item section]]></phrase>
+  <phrase title="style_prop.lfsItemUnread" version_id="1000770" version_string="1.0.7"><![CDATA[Item unread]]></phrase>
+  <phrase title="style_prop.lfsItemUnreadIcon" version_id="1020100" version_string="1.0.0"><![CDATA[Item unread icon]]></phrase>
+  <phrase title="style_prop.lfsPinnedFaIcon" version_id="1000370" version_string="1.0.3"><![CDATA[Pinned item FA icon]]></phrase>
+  <phrase title="style_prop.lfsReplyCountFaIcon" version_id="1000370" version_string="1.0.3"><![CDATA[Reply count fa icon]]></phrase>
+  <phrase title="style_prop.lfsShowAvatarsInMemberGroup" version_id="1000270" version_string="1.0.2"><![CDATA[Show avatars in member group]]></phrase>
+  <phrase title="style_prop.lfsShowAvatarsInThreadGroup" version_id="1000270" version_string="1.0.2"><![CDATA[Show avatars in thread group]]></phrase>
+  <phrase title="style_prop.lfsShowHideButton" version_id="1000473" version_string="1.0.4c"><![CDATA[Show hide button]]></phrase>
+  <phrase title="style_prop.lfsShowMuteButtonIfSound" version_id="1000473" version_string="1.0.4c"><![CDATA[Display the mute button in statistics, if the widget is set to sound]]></phrase>
+  <phrase title="style_prop.lfsShowReplyCountInThreads" version_id="1000370" version_string="1.0.3"><![CDATA[Show reply count in threads group]]></phrase>
+  <phrase title="style_prop.lfsShowUnreadPostfix" version_id="1000471" version_string="1.0.4a"><![CDATA[Show thread unread postfix]]></phrase>
+  <phrase title="style_prop.lfsTab" version_id="1020100" version_string="1.0.0"><![CDATA[Tab]]></phrase>
+  <phrase title="style_prop.lfsTabGroup" version_id="1020100" version_string="1.0.0"><![CDATA[Tab group]]></phrase>
+  <phrase title="style_prop.lfsTabGroupContent" version_id="1020100" version_string="1.0.0"><![CDATA[Tab group content]]></phrase>
+  <phrase title="style_prop.lfsTabHover" version_id="1020100" version_string="1.0.0"><![CDATA[Tab hover]]></phrase>
+  <phrase title="style_prop.lfsTabLink" version_id="1000770" version_string="1.0.7"><![CDATA[Tab link]]></phrase>
+  <phrase title="style_prop.lfsTabSelected" version_id="1020100" version_string="1.0.0"><![CDATA[Tab selected]]></phrase>
+  <phrase title="style_prop.lfsTabsButton" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs button]]></phrase>
+  <phrase title="style_prop.lfsTabsButtonHover" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs button hover]]></phrase>
+  <phrase title="style_prop.lfsTabsButtons" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs buttons block]]></phrase>
+  <phrase title="style_prop.lfsTabsContainer" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs container]]></phrase>
+  <phrase title="style_prop.lfsTabsHScrollerAction" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs scroller button]]></phrase>
+  <phrase title="style_prop.lfsTabsHScrollerActionHover" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs scroller button hover]]></phrase>
+  <phrase title="style_prop.lfsTabsList" version_id="1020100" version_string="1.0.0"><![CDATA[Tabs list]]></phrase>
+  <phrase title="style_prop.lfsThreadUnreadPostfix" version_id="1000471" version_string="1.0.4a"><![CDATA[Item thread unread postfix]]></phrase>
+  <phrase title="style_prop_desc.lfsAvatarSizeForTagContent" version_id="1000670" version_string="1.2.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsCropTooLongTitles" version_id="1000472" version_string="1.0.4b"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsEmptyBlock" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsEnableThreadSecondData" version_id="1000970" version_string="1.0.9"><![CDATA[Second data is forum and interaction buttons that appear on hover]]></phrase>
+  <phrase title="style_prop_desc.lfsHideWidth" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItem" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemAvatar" version_id="1000473" version_string="1.0.4c"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemDifferent" version_id="1000270" version_string="1.0.2"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemDifferentAnimationDuration" version_id="1000270" version_string="1.0.2"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemFaIcon" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemHover" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemIcon" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemIconRightLayout" version_id="1000471" version_string="1.0.4a"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemInfo" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemLink" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemLinkHover" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemRightIcon" version_id="1000471" version_string="1.0.4a"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemSection" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemUnread" version_id="1000770" version_string="1.0.7"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsItemUnreadIcon" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsPinnedFaIcon" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsReplyCountFaIcon" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsShowAvatarsInMemberGroup" version_id="1000270" version_string="1.0.2"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsShowAvatarsInThreadGroup" version_id="1000270" version_string="1.0.2"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsShowHideButton" version_id="1000473" version_string="1.0.4c"><![CDATA[If enabled, a button will be displayed that will lead to account preferences]]></phrase>
+  <phrase title="style_prop_desc.lfsShowMuteButtonIfSound" version_id="1000473" version_string="1.0.4c"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsShowReplyCountInThreads" version_id="1000370" version_string="1.0.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsShowUnreadPostfix" version_id="1000471" version_string="1.0.4a"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTab" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabGroup" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabGroupContent" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabHover" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabLink" version_id="1000770" version_string="1.0.7"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabSelected" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabsButton" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabsButtonHover" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabsButtons" version_id="1020100" version_string="1.0.0"><![CDATA[Button block to the right of the tabs]]></phrase>
+  <phrase title="style_prop_desc.lfsTabsContainer" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabsHScrollerAction" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabsHScrollerActionHover" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsTabsList" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.lfsThreadUnreadPostfix" version_id="1000471" version_string="1.0.4a"><![CDATA[]]></phrase>
+  <phrase title="style_prop_group.lfsContent" version_id="1020100" version_string="1.0.0"><![CDATA[Live forum statistics content]]></phrase>
+  <phrase title="style_prop_group.lfsTabs" version_id="1020100" version_string="1.0.0"><![CDATA[Live forum statistics tabs]]></phrase>
+  <phrase title="style_prop_group_desc.lfsContent" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_group_desc.lfsTabs" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="widget_def.live_forum_statistics" version_id="1020100" version_string="1.0.0"><![CDATA[Live forum statistics]]></phrase>
+  <phrase title="widget_def_desc.live_forum_statistics" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="widget_pos.lfs_above_body_content" version_id="1020100" version_string="1.0.0"><![CDATA[Forum list: Above body content]]></phrase>
+  <phrase title="widget_pos_desc.lfs_above_body_content" version_id="1020100" version_string="1.0.0"><![CDATA[]]></phrase>
+</phrases>
