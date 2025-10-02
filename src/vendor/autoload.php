@@ -22,4 +22,25 @@ if (PHP_VERSION_ID < 50600) {
 
 require_once __DIR__ . '/composer/autoload_real.php';
 
+// Custom autoloader to handle XF namespace with leading backslash
+spl_autoload_register(function ($class) {
+    // Handle classes with leading backslash (like \XF\App)
+    if (strpos($class, '\\') === 0) {
+        $class = substr($class, 1); // Remove leading backslash
+    }
+    
+    // Handle XF namespace
+    if (strpos($class, 'XF\\') === 0) {
+        $class = substr($class, 3); // Remove XF\ prefix
+        $file = __DIR__ . '/../XF/' . $class . '.php';
+        
+        if (file_exists($file)) {
+            require_once $file;
+            return true;
+        }
+    }
+    
+    return false;
+}, true, true); // Prepend to autoloader stack
+
 return ComposerAutoloaderInitd298625c1d7d68572729c189dccea078::getLoader();
