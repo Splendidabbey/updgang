@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'XF\\' => array($baseDir . '/XF'),
+    'XF\\' => array($baseDir . '/src/XF'),
 );
