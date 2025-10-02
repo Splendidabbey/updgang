@@ -1,0 +1,19 @@
+{
+    "name": "xenforo/forum",
+    "description": "XenForo Forum Software",
+    "type": "project",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "XF\\": "src/XF/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
