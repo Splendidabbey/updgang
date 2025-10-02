@@ -40,4 +40,4 @@ Thumbs.db
 node_modules/
 
 # Composer vendor (exclude to avoid secret scanning issues)
-src/vendor/
+# src/vendor/ - Commented out to include autoloader for deployment
