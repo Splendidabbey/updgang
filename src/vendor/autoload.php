@@ -1,65 +1,29 @@
 <?php
 /**
  * XenForo Autoloader
- * This file provides basic autoloading for XenForo without Composer dependencies
+ * Simple autoloader for XenForo deployment
  */
 
-// Basic autoloader for XenForo classes
-spl_autoload_register(function ($class) {
-    // Convert namespace to file path
-    $class = str_replace('\\', '/', $class);
-    
-    // Remove XF\ prefix and convert to file path
-    if (strpos($class, 'XF/') === 0) {
-        $class = substr($class, 3);
-        $file = __DIR__ . '/../XF/' . $class . '.php';
+// Only register if not already registered
+if (!function_exists('xf_autoloader')) {
+    function xf_autoloader($class) {
+        // Convert namespace to file path
+        $class = str_replace('\\', '/', $class);
         
-        if (file_exists($file)) {
-            require_once $file;
-            return true;
+        // Handle XF namespace
+        if (strpos($class, 'XF/') === 0) {
+            $class = substr($class, 3);
+            $file = __DIR__ . '/../XF/' . $class . '.php';
+            
+            if (file_exists($file)) {
+                require_once $file;
+                return true;
+            }
         }
+        
+        return false;
     }
     
-    return false;
-});
-
-// Load XenForo core files
-$coreFiles = [
-    'XF.php',
-    'XF/App.php',
-    'XF/Container.php',
-    'XF/Entity.php',
-    'XF/Repository.php',
-    'XF/Service.php',
-    'XF/Controller.php',
-    'XF/ControllerPlugin.php',
-    'XF/Response.php',
-    'XF/Request.php',
-    'XF/Session.php',
-    'XF/Db.php',
-    'XF/Db/AbstractAdapter.php',
-    'XF/Db/Mysqli.php',
-    'XF/Db/Mysql.php',
-    'XF/Error.php',
-    'XF/Exception.php',
-    'XF/Language.php',
-    'XF/Template.php',
-    'XF/Templater.php',
-    'XF/Util/Arr.php',
-    'XF/Util/File.php',
-    'XF/Util/Hash.php',
-    'XF/Util/Ip.php',
-    'XF/Util/Json.php',
-    'XF/Util/Php.php',
-    'XF/Util/Random.php',
-    'XF/Util/Time.php',
-    'XF/Util/Url.php',
-    'XF/Util/Xml.php'
-];
-
-foreach ($coreFiles as $file) {
-    $filePath = __DIR__ . '/../' . $file;
-    if (file_exists($filePath)) {
-        require_once $filePath;
-    }
+    // Register the autoloader
+    spl_autoload_register('xf_autoloader');
 }
